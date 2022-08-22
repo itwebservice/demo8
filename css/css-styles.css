@@ -1,0 +1,321 @@
+@import url("https://fonts.googleapis.com/css?family=Poiret+One|Titillium+Web:200,300,400,600,700,900");
+/*
+font-family: 'Poiret One', sans-serif;
+font-family: 'Titillium Web', sans-serif;
+*/
+@font-face {
+  font-family: "itours";
+  src: url("../fonts/itours.eot");
+  src: url("../fonts/itours.eot?#iefix") format("embedded-opentype"), url("../fonts/itours.woff") format("woff"), url("../fonts/itours.ttf") format("truetype"), url("../fonts/itours.svg#itours") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:before {
+  font-family: "itours" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^=itours-]:before,
+[class*=" itours-"]:before {
+  font-family: "itours" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.itours-exclamation:before {
+  content: "a";
+}
+
+.itours-delete:before {
+  content: "b";
+}
+
+.itours-verified:before {
+  content: "c";
+}
+
+/* -------------------------------------
+	Theme default CSS
+------------------------------------- */
+a,
+a:hover {
+  text-decoration: none;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  vertical-align: baseline;
+  color: #646464;
+  margin: 0;
+  padding: 0;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* -------------------------------------
+	Variables Setting
+------------------------------------- */
+/* -------------------------------------
+	Login Page Container
+------------------------------------- */
+.c-loginContainer {
+  background-color: #82B5A5;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.c-loginContainer .login_modal {
+  background-color: #fff;
+  background-image: url(../images/01.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 650px;
+  min-height: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px #737373;
+  background-size: 440px 340px;
+  background-origin: content-box;
+  background-position: -115px;
+}
+
+.c-loginContainer .login_modal .login_form {
+  width: 300px;
+  height: 100%;
+  float: right;
+  position: relative;
+}
+
+.login_heading {
+  color: #000;
+  display: block;
+  font-family: "Poiret One", sans-serif;
+  font-size: 30px;
+  font-weight: lighter;
+  text-align: center;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+
+.login_subheading {
+  color: #82B5A5;
+  display: block;
+  font-size: 12px;
+  font-weight: lighter;
+  text-align: center;
+  line-height: 17px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.formField {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.formField label {
+  color: #333;
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.formField .input-txtbox {
+  border: 0;
+  color: #333;
+  display: block;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 16px;
+  padding: 5px 0;
+  line-height: 20px;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1.4px solid #d6d6d6;
+  height: 26px;
+  outline: none;
+  letter-spacing: 0.5px;
+  transition: all ease 0.3s;
+}
+
+.formField .input-txtbox::placeholder {
+  font-size: 13px;
+  color: #999;
+}
+
+.formField .input-txtbox:not(:empty),
+.formField .input-txtbox:active,
+.formField .input-txtbox:focus {
+  border-bottom-color: #82B5A5;
+  color: #9c9c9c;
+}
+
+.formField.st-error .input-txtbox {
+  border-bottom-color: #e83e8c;
+}
+
+.formField.st-error .error-msg,
+label.error {
+  color: #e83e8c;
+  position: relative;
+  display: block;
+  font-size: 11px;
+  line-height: 14px;
+  margin: 4px 0 0;
+  padding-left: 18px;
+  text-transform: none;
+}
+
+.formField.st-error .error-msg::before,label.error::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '\61';
+  color: #e83e8c;
+  font-family: "itours";
+  font-size: 13px;
+}
+
+.btnContainer {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin: 25px 0;
+}
+
+.btnContainer.type-link {
+  display: block;
+  position: relative;
+  margin: 5px 0;
+  line-height: 16px;
+}
+
+.btn-submit {
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px 25px;
+  background-color: #e2603b;
+  font-size: 13px;
+  text-align: center;
+  line-height: 18px;
+  height: 30px;
+  border: 0;
+  outline: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 30px;
+}
+
+.btn-link {
+  color: #e2603b;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  background-color: transparent;
+  font-size: 12px;
+  line-height: 16px;
+  border: 0;
+  outline: none;
+}
+
+.beforeText {
+  color: #888;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  margin-right: 5px;
+}
+
+/* -------------------------------------
+	Login Page :: Media Queries
+------------------------------------- */
+@media (max-width: 768px) {
+  .c-loginContainer .login_modal {
+    background-image: none;
+    max-width: 500px;
+    margin: 20px;
+    border-radius: 5px;
+  }
+
+  .c-loginContainer .login_modal .login_form {
+    float: none;
+    width: 100%;
+  }
+}
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=css-styles.css.map */

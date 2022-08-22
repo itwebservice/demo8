@@ -1,0 +1,150 @@
+[10-May-2022 12:39:52 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 15:27:04 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 15:27:11 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 16:01:54 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 16:02:07 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 16:02:07 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 16:46:13 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 17:23:01 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 18:36:29 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 19:52:49 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 20:15:39 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[10-May-2022 22:17:33 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[11-May-2022 09:47:54 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[11-May-2022 13:00:08 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[11-May-2022 14:25:55 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[11-May-2022 21:35:24 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[12-May-2022 16:06:07 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[16-May-2022 12:16:07 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[16-May-2022 15:55:40 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[17-May-2022 10:57:21 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[17-May-2022 11:36:56 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[18-May-2022 14:12:23 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[18-May-2022 15:01:11 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[20-May-2022 10:32:22 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
+[24-May-2022 09:18:36 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
+#1 /home/itourscloud/public_html/B2CTheme/view/group_tours/inc/tours_list_load.php(7): mysqlQuery(NULL)
+#2 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105

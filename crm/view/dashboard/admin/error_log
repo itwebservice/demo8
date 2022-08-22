@@ -1,0 +1,35 @@
+[18-Aug-2022 18:19:54 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php:16
+Stack trace:
+#0 /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php(16): mysqli_fetch_assoc(false)
+#1 {main}
+  thrown in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php on line 16
+[20-Aug-2022 11:10:24 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php:16
+Stack trace:
+#0 /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php(16): mysqli_fetch_assoc(false)
+#1 {main}
+  thrown in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php on line 16
+[20-Aug-2022 11:20:02 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php:16
+Stack trace:
+#0 /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php(16): mysqli_fetch_assoc(false)
+#1 {main}
+  thrown in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php on line 16
+[20-Aug-2022 11:41:50 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php:16
+Stack trace:
+#0 /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php(16): mysqli_fetch_assoc(false)
+#1 {main}
+  thrown in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php on line 16
+[20-Aug-2022 11:46:42 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php:16
+Stack trace:
+#0 /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php(16): mysqli_fetch_assoc(false)
+#1 {main}
+  thrown in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php on line 16
+[20-Aug-2022 11:53:12 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php:16
+Stack trace:
+#0 /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php(16): mysqli_fetch_assoc(false)
+#1 {main}
+  thrown in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php on line 16
+[20-Aug-2022 12:12:54 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php:16
+Stack trace:
+#0 /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php(16): mysqli_fetch_assoc(false)
+#1 {main}
+  thrown in /home/itourscloud/public_html/demo8/crm/view/dashboard/admin/monthly_expense_and_revenue.php on line 16

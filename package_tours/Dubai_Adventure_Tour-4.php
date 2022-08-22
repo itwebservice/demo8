@@ -1,0 +1,1 @@
+<?php include "../tour-details.php"; ?>

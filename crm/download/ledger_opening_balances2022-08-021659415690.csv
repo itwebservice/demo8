@@ -1,0 +1,250 @@
+"Ledger Id","Ledger Name","Group Name",Debit,Credit
+1,"Accounting Fees","Legal & professional Fees",0,0
+2,"Advance from customers","Advance from customers",0,0
+3,"Advances to Suppliers","Advances to Suppliers",0,0
+4,"Auditor Fees","Legal & professional Fees",0,0
+5,"Bank ","Bank Balances",0,0
+6,"Bank Charges","Finance Charges",0,0
+7,"Bank Overdraft","Bank Overdraft",0,0
+8,Building,"Tangible Asset",0,0
+9,"Bus Booking Expenses","Bus Booking Expenses",0,0
+10,"Bus Booking Services Sales","Sale of Services",0,0
+11,"Bus Booking Services Sales Return","Sales Return",0,0
+12,"Bus Cancellation Expenses","Purchase Return",0,0
+13,"Capital Advances","Capital Advances",0,0
+14,"Capital Redemption Reserve","Capital Redemption Reserve",0,0
+15,"Capital Reserves","Capital Reserves",0,0
+16,"Car Rental Booking Expenses","Car Rental Booking Expenses",0,0
+17,"Car Rental Cancellation Expenses","Purchase Return",0,0
+18,"Car Rental Services Sales","Sale of Services",0,0
+19,"Car Rental Services Sales Return","Sales Return",0,0
+20,"Cash In Hand","Cash in Hand",0,0
+21,"Output CGST","Statutory Dues",0,0
+22,"Commission from Forex Services","Sale of Services",0,0
+23,"Commission from Insurance Services","Commission from Insurance Services",0,0
+24,"Commission Paid to Agents","Direct Expenses",0,0
+25,"Commission Received","Direct Income",0,0
+26,"Communication Expenses","Communication Expenses",0,0
+27,"Computer Softwares","Intangible Asset",0,0
+28,"Contribution to Provident & Other Funds","Salaries & Wages",0,0
+29,"Cruise Booking Expenses","Cruise Booking Expenses",0,0
+30,"Cruise Cancellation Expenses","Purchase Return",0,0
+31,"Deffered Payment Liabilities","Deffered Payment Liabilities",0,0
+32,"Delivery Charges Paid","Direct Expenses",0,0
+33,"Delivery Charges Received","Direct Income",0,0
+34,"Deposits (Liabilities)","Deposits (Liabilities)",0,0
+35,"Depreciation ","Depreciation ",0,0
+36,"Discount Granted","Direct Expenses",0,0
+37,"Discount Received","Direct Income",0,0
+38,"Dividend received","Dividend received",0,0
+39,"DMC Booking Expenses","DMC Booking Expenses",0,0
+40,"DMC Cancellation","Purchase Return",0,0
+41,Electricity,Electricity,0,0
+42,"ESIC Payable","Statutory Dues",0,0
+43,"Activity Cancellation Expenses","Purchase Return",0,0
+44,"Activity Packages Sales","Sale of Services",0,0
+45,"Activity Packages Sales Return","Sales Return",0,0
+46,"Activity Purchased","Excursion Purchased",0,0
+47,"Fixed Deposits","Bank Balances",0,0
+48,"Flight Booking Expenses","Flight Booking Expenses",0,0
+49,"Flight Cancellation Expenses","Purchase Return",0,0
+50,"Flight Tickets Sales(Domestic)","Sale of Services",0,0
+51,"Flight Tickets Sales Return(Domestic)","Sales Return",0,0
+52,"Foreign Exchange Gain","Foreign Exchange Gain",0,0
+53,"Foreign Exchange Loss","Foreign Exchange Loss",0,0
+54,"Furniture & Fixtures","Tangible Asset",0,0
+55,"Gain/(Loss) on Sale of Investment","Gain/(Loss) on Sale of Investment",0,0
+56,"Gain/(Loss) on Sale or disposal of Fixed Assets","Gain/(Loss) on Sale or disposal of Fixed Assets",0,0
+57,"General Reserve","General Reserve",0,0
+58,Goodwill,"Intangible Asset",0,0
+59,"Group Tours Sales","Sale of Services",0,0
+60,"Group Tours Sales Return","Sales Return",0,0
+61,"GST Payable","Statutory Dues",0,0
+62,"Hotel Booking Expenses","Hotel Booking Expenses",0,0
+63,"Hotel Booking Services Sales","Sale of Services",0,0
+64,"Hotel Booking Services Sales Return","Sales Return",0,0
+65,"Hotel Cancellation Expenses","Purchase Return",0,0
+66,"Housekeeping & Office Maintenance","Housekeeping & Office Maintenance",0,0
+67,"Output IGST","Statutory Dues",0,0
+68,"Income received in advance","Interest received",0,0
+69,"Insurance Premium Paid","Insurance Premium Paid",0,0
+70,"Interest Accrued and due","Interest Accrued but due",0,0
+71,"Interest Accrued but not due","Interest Accrued but not due",0,0
+72,"Interest on Cash Credit Facilities","Finance Charges",0,0
+73,"Interest on delayed payments of statutory liabilities","Finance Charges",0,0
+74,"Interest on Term Loans","Finance Charges",0,0
+75,"Interest received","Interest received",0,0
+76,"Invesment in Debentures & Bonds","Invesment in Debentures & Bonds",0,0
+77,"Invesment in Equity Shares","Invesment in Equity Shares",0,0
+78,"Invesment in Government Securities","Invesment in Government Securities",0,0
+79,"Invesment in Mutual Funds","Invesment in Mutual Funds",0,0
+80,"Invesment in Preference Shares","Invesment in Preference Shares",0,0
+81,Land,"Tangible Asset",0,0
+82,"Legal Fees","Legal & professional Fees",0,0
+83,"Licence Fees Paid","Indirect Expenses_Finance",0,0
+84,Licences,"Intangible Asset",0,0
+85,"Loans & Advances from Related Parties","Loans & Advances from Related Parties",0,0
+86,"Loans & Advances to Related Parties","Loans & Advances to Related Parties",0,0
+87,"Miscelleneous Expenses","Miscelleneous Expenses",0,0
+88,"Office Equipments","Tangible Asset",0,0
+89,"Other Cancellation Charges Paid","Other Cancellation Charges Paid",0,0
+90,"Other Vehicle Rental Expenses","Other Vehicle Rental Expenses",0,0
+91,"Package Tours Sales","Sale of Services",0,0
+92,"Package Tours Sales Return","Sales Return",0,0
+93,"Passport Services Sales","Sale of Services",0,0
+94,"Passport Services Sales Return","Sales Return",0,0
+95,Patent,"Intangible Asset",0,0
+96,"Petrol & Diesel","Petrol & Diesel",0,0
+97,"Petty Cash","Cash in Hand",0,0
+98,"Plant & Equipment","Tangible Asset",0,0
+99,"Postage & Courier Expenses","Indirect Expenses_Other",0,0
+100,"Printing & Stationery Expenses","Printing & Stationery Expenses",0,0
+101,"Provident Fund payable","Statutory Dues",0,0
+102,"Provisions for Gratuity (Long Term)","Provisions for Gratuity (Long Term)",0,0
+103,"Provsion for gratuity (Short Term)","Provsion for gratuity (Short Term)",0,0
+104,"PT payable","Statutory Dues",0,0
+105,"Rates & Taxes","Rates & Taxes",0,0
+106,Rent,Rent,0,0
+107,"Rent Received","Indirect Income",0,0
+108,"Repairs & Maintenance","Repairs & Maintenance",0,0
+109,"Revaluation Reserve","Revaluation Reserve",0,0
+110,"Salaries Paid","Salaries & Wages",0,0
+111,"Salary & Other payables","Salary & Other payables",0,0
+112,"Sale of Scrap","Sale of Scrap",0,0
+113,"Sales Promotion Expenses","Sales Promotion Expenses",0,0
+114,"Securities Premium Reserve","Securities Premium Reserve",0,0
+115,"Security Deposits (Liability)","Security Deposits (Liability)",0,0
+116,"Security Expenses","Security Expenses",0,0
+117,"Service Charges Paid","Direct Expenses",0,0
+118,"Service Charges Received","Service Charges Received",0,0
+119,"Output SGST","Statutory Dues",0,0
+120,"Share Capital","Share Capital",0,0
+121,"Sight Seeing Cancellation Expenses","Purchase Return",0,0
+122,"Sight Seeing Expenses","Sight Seeing Expenses",0,0
+123,"Staff Recruitment Expenses","Staff Recruitment Expenses",0,0
+124,"Staff training Expenses","Staff training Expenses",0,0
+125,"Staff Wefare Expenses","Employee Benefit Expenses",0,0
+126,"TDS Payable","Statutory Dues",0,0
+127,"TDS Receivable","Short Term Loans & Advances",0,0
+128,"Trade Payables","Other Current Liabilities",0,0
+129,"Trade Receivables","Trade Receivables",0,0
+130,TradeMarks,"Intangible Asset",0,0
+131,"Train Ticket Cancellation  Expenses","Purchase Return",0,0
+132,"Train Ticket Expenses","Train Ticket Expenses",0,0
+133,"Train Tickets Sales","Sale of Services",0,0
+134,"Train Tickets Sales Return","Sales Return",0,0
+135,"Travelling Cost","Travelling Cost",0,0
+136,"Unpaid dividends","Unpaid dividends",0,0
+137,"Unsecured Loan","Unsecured Loan",0,0
+138,"Output UTGST","Statutory Dues",0,0
+139,Vehicles,"Tangible Asset",0,0
+140,"Visa Services sales","Sale of Services",0,0
+141,"Visa Services sales Return","Sales Return",0,0
+142,"Insurance Commission","Direct Expenses",0,0
+143,"Expenses For Passport Services ","Direct Expenses",0,0
+144,"Expenses For Visa Services","Direct Expenses",0,0
+145,"Input CGST","Statutory Dues",0,0
+146,"Input SGST","Statutory Dues",0,0
+147,"Input UTGST ","Statutory Dues",0,0
+148,"Input IGST","Statutory Dues",0,0
+149,"Input VAT","Statutory Dues",0,0
+150,"Output VAT","Statutory Dues",0,0
+151,"IGst On Purchase Cancellation A/c","Statutory Dues",0,0
+152,"IGst On Sale Cancellation A/c","Statutory Dues",0,0
+153,"Sgst On Purchase Cancellation A/c","Statutory Dues",0,0
+154,"Sgst On Sale Cancellation A/c","Statutory Dues",0,0
+155,"Cgst On Purchase Cancellation A/c","Statutory Dues",0,0
+156,"Cgst On Sale Cancellation A/c","Statutory Dues",0,0
+157,"Ugst On Purchase Cancellation A/c","Statutory Dues",0,0
+158,"Ugst On Sale Cancellation A/c","Statutory Dues",0,0
+159,"Vat On Sale Cancellation A/c","Statutory Dues",0,0
+160,"Vat On Purchase Cancellation A/c","Statutory Dues",0,0
+161,"Cancellation Charges Received","Indirect Income",0,0
+162,"Visa Cancellation Expenses","Purchase Return",0,0
+163,"Passport Cancellation Expenses","Purchase Return",0,0
+164,"Dmc Cancellation Expenses","Purchase Return",0,0
+165,"Profit and Loss Account ",Capital,0,0
+166,"Sales Incentive Paid","Employee Benefit Expenses",0,0
+167,"Other Purchases","Direct Expenses",0,0
+168,"Other Purchases Cancellation","Purchase Return",0,0
+169,"Miscellaneous Services Sales","Sale of Services",0,0
+170,"Miscellaneous Services Sales Return","Sales Return",0,0
+171,"Expenses For Miscellaneous Services","Direct Expenses",0,0
+172,"Miscellaneous Cancellation Expenses","Purchase Return",0,0
+173,"Profit Of The Year",Equity,0,0
+174,"Flight Tickets Sales(international)","Sale of Services",0,0
+175,"Flight Tickets Sales Return(international)","Sales Return",0,0
+176,"B2B Booking Services sales","Sale of Services",0,0
+177,"B2B Booking sales Return","Sales Return",0,0
+178,"Expenses For B2B Services","Direct Expenses",0,0
+179,"B2B Cancellation Expenses","Purchase Return",0,0
+180,"B2C Booking Services sales","Sale of Services",0,0
+181,"B2C Booking sales Return","Sales Return",0,0
+182,"Expenses For B2C Services","Direct Expenses",0,0
+183,"B2C Cancellation Expenses","Purchase Return",0,0
+184,"Group Service Charge","Service Charges Received",0,0
+185,"Package Service Charge","Service Charges Received",0,0
+186,"Hotel Service Charge","Service Charges Received",0,0
+187,"Flight Service Charge","Service Charges Received",0,0
+188,"Visa Service Charge","Service Charges Received",0,0
+189,"Train Service Charge","Service Charges Received",0,0
+190,"Bus Service Charge","Service Charges Received",0,0
+191,"Car Rental Service Charge","Service Charges Received",0,0
+192,"Activity Service Charge","Service Charges Received",0,0
+193,"Miscellaneous Service Charge","Service Charges Received",0,0
+194,"Passport Service Charge","Service Charges Received",0,0
+195,"Forex Service Charge","Service Charges Received",0,0
+196,"Group Tours Markup","Service Charges Received",0,0
+197,"Package Tours Markup","Service Charges Received",0,0
+198,"Hotel Booking Markup","Service Charges Received",0,0
+199,"Flight Booking Markup","Service Charges Received",0,0
+200,"Visa Booking Markup","Service Charges Received",0,0
+201,"Train Ticket Markup","Service Charges Received",0,0
+202,"Bus Booking Markup","Service Charges Received",0,0
+203,"Car Rental Markup","Service Charges Received",0,0
+204,"Activity Booking Markup","Service Charges Received",0,0
+205,"Miscellaneous Markup","Service Charges Received",0,0
+206,"B2B Booking Markup","Service Charges Received",0,0
+207,"Passport Booking Markup","Service Charges Received",0,0
+208,"Group Tours Cancellation Charge","Service Charges Received",0,0
+209,"Package Tours Cancellation Charge","Service Charges Received",0,0
+210,"Hotel Booking Cancellation Charge","Service Charges Received",0,0
+211,"Flight Booking Cancellation Charge","Service Charges Received",0,0
+212,"Train Ticket Cancellation Charge","Service Charges Received",0,0
+213,"Visa Cancellation Charge","Service Charges Received",0,0
+214,"Bus Booking Cancellation Charge","Service Charges Received",0,0
+215,"Car Rental Cancellation Charge","Service Charges Received",0,0
+216,"Activity Cancellation Charge","Service Charges Received",0,0
+217,"Miscellaneous Cancellation Charge","Service Charges Received",0,0
+218,"Passport Booking Cancellation Charge","Service Charges Received",0,0
+219,"B2B Booking Cancellation Charge","Service Charges Received",0,0
+220,"Agent Deposit Incentive Account","Direct Expenses",0,0
+221,"Airline Commision","Service Charges Received",0,0
+222,"Hotel Commision","Service Charges Received",0,0
+223,"BSP Code","Trade Payable",0,0
+224,"Credit Card Charges","Finance Charges",0,0
+225,"Demand Draft Charges","Finance Charges",0,0
+226,"Discount on Hotel Invoices","Direct Expenses",0,0
+227,"Discount on Flight Invoices","Direct Expenses",0,0
+228,"TDS Payble on Salary","Statutory Dues",0,0
+229,"Write Off Account","Direct Expenses",0,0
+230,"Round Off Account","Direct Expenses",0,0
+231,"Credit Card Financial Charges","Finance Charges",0,0
+232,"Output TCS","Statutory Dues",0,0
+233,"37_Sonam Package Customer ","Trade Receivables",0,0
+234,"Advances from PARI COMP A/c","Advance from customers",0,0
+235,38_Surabh_Dangi,"Trade Receivables",0,0
+236,38_Surabh_Dangi,"Trade Receivables",0,0
+237,39_Rupali_Bhore,"Trade Receivables",0,0
+238,2_MTDC,"Trade Payable",0,0
+239,"Advances from Tours and Travels A/c","Advance from customers",0,0
+240,Infosys,"Trade Receivables",0,0
+241,ITOURS,"Trade Receivables",0,0
+242,"IWS Flight","Trade Receivables",0,0
+243,"1_sdfs'dfs df","Trade Payable",0,0
+244,"43_Sonam Tours2 Visa","Trade Receivables",0,0
+245,"44_Sushir Visa customer ","Trade Receivables",0,0
+246,"45_Chaityana ","Trade Receivables",0,0
+247,"Canara Bank(pashan)","Bank Balances",0,0
+248,"46_Sonam Hotel Booking ","Trade Receivables",0,0
+249,sdfghvc,"Trade Receivables",0,0

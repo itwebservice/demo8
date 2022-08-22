@@ -1,0 +1,2 @@
+No of seats,Valid From Date,Valid To Date,From Location(Cityid),To Location(Cityid),Departure Datetime,Arrival Datetime,Select ferry type,Adult Cost,Child Cost,Infant Cost,Markup In,Markup Amount
+100,01-01-2022,31-12-2022,1,40,01-01-2022 00:00,31-12-2022 00:00,Economy Class,3000,1000,700,Flat,10000

@@ -1,0 +1,3 @@
+City ID,Pick-up Location,From Date,To Date,No Of Bikes,Costing Type,Total Cost,Deposit,Markup In,Markup Amount
+1,ABC Location,01-01-2020,01-12-2020,10,Daily,4000,0,Percentage,10
+15,PQR ,01-01-2020,01-12-2020,15,Daily,3500,2000,Flat,1200

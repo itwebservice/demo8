@@ -1,0 +1,8 @@
+[09-Aug-2022 10:44:35 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo/config.php on line 9
+[09-Aug-2022 10:44:35 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo/config.php on line 10
+[11-Aug-2022 04:18:49 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo/config.php on line 9
+[11-Aug-2022 04:18:49 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo/config.php on line 10
+[11-Aug-2022 04:19:35 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo/config.php on line 9
+[11-Aug-2022 04:19:35 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo/config.php on line 10
+[18-Aug-2022 14:16:26 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo/config.php on line 9
+[18-Aug-2022 14:16:26 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo/config.php on line 10

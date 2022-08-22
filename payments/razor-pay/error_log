@@ -1,0 +1,10 @@
+[10-May-2022 00:58:31 Asia/Kolkata] PHP Fatal error:  Uncaught Razorpay\Api\Errors\BadRequestError: The amount must be atleast INR 1.00 in /home/itourscloud/public_html/B2CTheme/payments/razor-pay/razorpay-php/src/Request.php:139
+Stack trace:
+#0 /home/itourscloud/public_html/B2CTheme/payments/razor-pay/razorpay-php/src/Request.php(109): Razorpay\Api\Request->processError(Array, 400, Object(Requests_Response))
+#1 /home/itourscloud/public_html/B2CTheme/payments/razor-pay/razorpay-php/src/Request.php(58): Razorpay\Api\Request->checkErrors(Object(Requests_Response))
+#2 /home/itourscloud/public_html/B2CTheme/payments/razor-pay/razorpay-php/src/Entity.php(86): Razorpay\Api\Request->request('POST', 'https://api.raz...', Array)
+#3 /home/itourscloud/public_html/B2CTheme/payments/razor-pay/razorpay-php/src/Entity.php(15): Razorpay\Api\Entity->request('POST', 'orders/', Array)
+#4 /home/itourscloud/public_html/B2CTheme/payments/razor-pay/razorpay-php/src/Order.php(12): Razorpay\Api\Entity->create(Array)
+#5 /home/itourscloud/public_html/B2CTheme/payments/razor-pay/index.php(23): Razorpay\Api\Order->create(Array)
+#6 {main}
+  thrown in /home/itourscloud/public_html/B2CTheme/payments/razor-pay/razorpay-php/src/Request.php on line 139

@@ -1,0 +1,52 @@
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <div class="rcorners01"></div>
+    <div id="back-to-top">
+        <div class="openChat">
+            <form class="whatsapp-form" max-width: 100%;
+                padding: 1px; 
+                background-color: white;
+                box-shadow: 1px 2px 3px 1px #b6ffe1;>
+                <div style="width:300px; height:100px; background-color:#26c281; box-shadow: 1px 2px 3px 1px #dcdcdc; text-align:center; text-align: center;padding-top: 20px; font-weight:600; color:#fff; text-shadow: 1px 1px 1px #b5b5b5;">Need Help? Chat with us<br/><span style="font-weight:100;">Chat with us on WhatsApp</span></div>
+                <a href="https://web.whatsapp.com/send?phone=+91 9096685012&text=Hi,%20I%20would%20like%20to%20take%20a%20glance%20at%20iTours%20-%20Tour%20Operator%20Software%20features.%20Please%20do%20get%20in%20touch%20with%20me.%20Thanks!" target="_blank">
+                    <div style="padding: 20px 20px; padding: 5% 30%; margin-left: 20px;">
+                        <img src="https://itwebservices.co/b2c/images/itours-1.png" style="border: 2px solid #26C281; border-radius: 50%; display: block;width: 60px; height: 60px; margin-left: 20px; margin-bottom: 6px;" /> <span> Sales Executive</span>  <br><span style="width: 100%;font-size: 10px; vertical-align: middle; color: #fff; background: #26C281; border-radius: 5px; text-align: center; display: inline-block; padding: 1px 5px;">I\'m Online</span>
+                    </div>
+                </a>
+                <a href="https://web.whatsapp.com/send?phone=+91 7507263748&text=Hi,%20I%20would%20like%20to%20take%20a%20glance%20at%20iTours%20-%20Tour%20Operator%20Software%20features.%20Please%20do%20get%20in%20touch%20with%20me.%20Thanks!" target="_blank">
+                    <div style="padding: 20px 20px; padding: 5% 30%; margin-left: 20px;">
+                        <img src="https://itwebservices.co/b2c/images/itours-2.png" style="border: 2px solid #26C281; border-radius: 50%; display: block;width: 60px; height: 60px; margin-left: 20px; margin-bottom: 6px;" /> <span> Sales Executive</span>  <br><span style="width: 100%;font-size: 10px; vertical-align: middle; color: #fff; background: #26C281; border-radius: 5px; text-align: center; display: inline-block; padding: 1px 5px;">I\'m Online</span>
+                    </div>
+                </a>
+            </form>
+            <!--<form>
+                <h1>Chat</h1>
+                <label for="msg"><b>Message</b></label>
+                <textarea placeholder="Type message.." name="msg" required></textarea>
+                <button type="submit" class="btn">Send</button>
+                <button type="button" class="btn close" onclick="closeForm()">
+                Close
+                </button>
+            </form>-->
+        </div>
+        <script>
+           function openForm() {
+               if (document.querySelector(".openChat").style.display=="none"){
+                    document.querySelector(".openChat").style.display = "block";
+               }
+               else if (document.querySelector(".openChat").style.display==""){
+                    document.querySelector(".openChat").style.display = "block";
+               }
+               else{
+                    document.querySelector(".openChat").style.display = "none";
+               }
+           }
+           function closeForm() {
+              document.querySelector(".openChat").style.display = "none";
+           }
+           
+        </script>
+        <!--<a class="top" href="https://web.whatsapp.com/send?phone=+918806183455&text=I\'m%20interested%20in%20your%20services" target="_blank">  Click to WhatsApp Chat</a>-->
+        <a class="top whatsIcon" href="#" onclick="openForm(); return false;"><span class="iconify" data-icon="logos-whatsapp" data-inline="false"></span></a>
+    </div>
+    
+    <a class="boxed" href="#" onclick="openForm(); return false;">Hi! How can we help you?</a>
