@@ -260,7 +260,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Best</span>
                 <h1>Popoular Packages</h1>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <p>Get the Premium International Destinations, Personalized Tailor Made Tours with us and explore yourself.</p>
 
             </div>
             <div class="package-card">
@@ -443,7 +443,7 @@ $date1 = str_replace('-', '/', $date);
     <section class="tour-location">
         <div class="container">
             <div class="best-title text-center">
-                <span class="heading-style">Best Top</span>
+                <span class="heading-style">Top</span>
                 <h1>Rated Locations</h1>
                 <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
                 <?php
@@ -489,8 +489,8 @@ $date1 = str_replace('-', '/', $date);
         <div class="container">
             <div class="c-destination-content">
                 <div class="best-title text-center">
-                    <span class="heading-style">Famous</span>
-                    <h1>Tour Places</h1>
+                    <span class="heading-style">We're</span>
+                    <h1>Partners of</h1>
                     <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
                 </div>
                 <div class="c-destination-slide-list">
@@ -717,10 +717,8 @@ $date1 = str_replace('-', '/', $date);
     <section class="great-section">
         <div class="container">
             <div class="great-content text-center">
-                <h2 class="great-title">Great Adventure Tour in Austerlia</h2>
-                <p class="great-discription">We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the <br class="d-none d-lg-block"> moment Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur
-                    vehicula
-                </p>
+                <h2 class="great-title">Get best tour rexperience with us!</h2>
+                <p class="great-discription">Find Best deals for Tour Packages, Hotels, Holidays, Bus Reservations for<br class="d-none d-lg-block"> India & International travel, B2b Travel Services.</p>
                 <a href="#" class="btn great-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-play"></i></a>
             </div>
         </div>
@@ -1056,9 +1054,9 @@ $date1 = str_replace('-', '/', $date);
     <section class="redturnt-slider">
         <div class="container">
             <div class="best-title text-center">
-                <span class="heading-style">Near By</span>
-                <h1>Restaurents and Hotels </h1>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <span class="heading-style">Most Recommended</span>
+                <h1>Popular Hotels </h1>
+                <p>Explore world wide popular hotels across the world.</p>
                 <?php //var_dump($Apihotel[0]); 
                 ?>
             </div>
@@ -1147,8 +1145,8 @@ $date1 = str_replace('-', '/', $date);
     <section class="-most-holiday-slider">
         <div class="container">
             <div class="best-title text-center">
-                <span class="heading-style">Top Most</span>
-                <h1>Best Holiday Trips </h1>
+                <span class="heading-style">Best rated</span>
+                <h1>Popular activities </h1>
                 <p>Most beautiful Places in the world</p>
             </div>
             <div class=" transpot-vehical holiday-slider">
@@ -2362,7 +2360,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Our</span>
                 <h1>Customer Says </h1>
-                <p>It is a long established fact that a reader will be distracted by the readable.</p>
+                <p>We're professionally managed travel service providing company. Committed to total customer satisfaction & enhancing value of money.</p>
             </div>
             <div class="it-testimonail-v2-slider">
                 <?php foreach($Apitestimonial as $testimonial){ ?>
@@ -2408,8 +2406,8 @@ $date1 = str_replace('-', '/', $date);
                 <h2 class="t-bird-style">Where Would Like to Go</h2>
                 <h2 class="t-bird-title">Travel Like A free Bird & Enjoy your life</h2>
                 <div class="input-group t-bird-input">
-                    <input type="text" class="form-control" placeholder="Search Your Destination Trip" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <a href="" class="input-group-text btn t-bird-btn" id="basic-addon2">Search Place</a>
+                    <input type="text" class="form-control" placeholder="      " aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <a href="" class="input-group-text btn t-bird-btn" id="basic-addon2">Signup</a>
                 </div>
             </div>
         </div>
@@ -2421,9 +2419,9 @@ $date1 = str_replace('-', '/', $date);
         <div class="container">
             <div class="feature-content">
                 <div class="feature-title-content text-center">
-                    <h2 class="feature-subtitle">Our Tour</h2>
-                    <h2 class="feature-title">Feature</h2>
-                    <p class="feature-discription mb-0">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
+                    <h2 class="feature-subtitle">Why</h2>
+                    <h2 class="feature-title">Choose us</h2>
+                    <p class="feature-discription mb-0">View our most valuable USP's which keep us always motivated.</p>
                 </div>
                 <div class="row">
                     <div class="col col-12 col-md-12 col-lg-4 col-xl-4">
@@ -2433,8 +2431,8 @@ $date1 = str_replace('-', '/', $date);
                             </div>
                             <div class="feature-points">
                                 <h4 class="feature-points-title">Best Quality Services</h4>
-                                <small class="feature-points-discription">At vero eos et accusamus et iusto
-                                    odio dignissimos ducimus qui blanditiis praesentium</small>
+                                <small class="feature-points-discription">With our highly trained operations team, 
+                                    we keep a look out for even the most minute of issues.</small>
                             </div>
                         </div>
                     </div>
@@ -2444,9 +2442,9 @@ $date1 = str_replace('-', '/', $date);
                                 <i class="fa-solid fa-shield"></i>
                             </div>
                             <div class="feature-points">
-                                <h4 class="feature-points-title">Travellers Security</h4>
-                                <small class="feature-points-discription">At vero eos et accusamus et iusto
-                                    odio dignissimos ducimus qui blanditiis praesentium</small>
+                                <h4 class="feature-points-title">Easy Tour Booking</h4>
+                                <small class="feature-points-discription">We believe in providing hassle free and convenient
+                                     tour booking options to our guests.</small>
                             </div>
                         </div>
                     </div>
@@ -2456,9 +2454,9 @@ $date1 = str_replace('-', '/', $date);
                                 <i class="fa-solid fa-headphones"></i>
                             </div>
                             <div class="feature-points">
-                                <h4 class="feature-points-title">24/7 Support</h4>
-                                <small class="feature-points-discription">At vero eos et accusamus et iusto
-                                    odio dignissimos ducimus qui blanditiis praesentium</small>
+                                <h4 class="feature-points-title">Quick Assistance for Guests</h4>
+                                <small class="feature-points-discription">With our highly trained operations team, 
+                                    we keep a look out for even the most minute of issues.</small>
                             </div>
                         </div>
                     </div>
@@ -2473,7 +2471,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">New</span>
                 <h1>Gallery </h1>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <p>View our recent client experiences of various destinations through images.</p>
             </div>
             <div class="row">
 
@@ -2503,17 +2501,17 @@ $date1 = str_replace('-', '/', $date);
     <section class="app">
         <div class="container">
             <div class="best-title text-center">
-                <span class="heading-style">Download</span>
-                <h1>Mobile App</h1>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <span class="heading-style">Quick</span>
+                <h1>Contact</h1>
+                <p>We're always curious to provide a promt services to you. Let's connect!</p>
             </div>
             <div class="btn-list">
-                <a href="#" class="btn apple-btn">
-                    <i class="fab fa-apple"></i> App Store</a>
+              <!--  <a href="#" class="btn apple-btn">
+                    <i class="fab fa-apple"></i> App Store</a> -->
                 <a href="#" class="btn google-btn">
-                    <i class="fa-solid fa-robot"></i>Google Play</a>
-                <a href="#" class="btn window-btn">
-                    <i class="fa-brands fa-windows"></i>Windows</a>
+                    <i class="fa-solid fa-phone"></i>Arrange Call back</a>
+              <!--  <a href="#" class="btn window-btn">
+                    <i class="fa-brands fa-windows"></i>Windows</a> -->
             </div>
         </div>
     </section>
