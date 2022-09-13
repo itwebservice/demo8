@@ -7,7 +7,7 @@ $dest_id = $_POST['dest_id'];
 <table class="table table-hover" id="tbl_list_iti" style="margin: 20px 0 !important;">
 	<thead>
 		<tr class="table-heading-row">
-			<th>dest_Id</th>
+			<th>Destination_Id</th>
 			<th>destination</th>
 			<th>Actions</th>
 		</tr>

@@ -131,7 +131,7 @@ function get_expense_paid_particular($invoice_id, $expense_type_id, $date, $amou
 
 
   if($payment_mode != ''){
-    $particular = "Paid "." through ".$payment_mode.' on Dt. '.$date;
+    $particular = "Paid "." through ".$payment_mode.' on Dt. '.$date.' for '.$expense_type;
   }
   else{
     $particular = "Paid ".' on Dt. '.$date;
@@ -181,10 +181,13 @@ function get_salary_paid_particular($login_id, $month, $year, $date){
 
 function get_advance_particular($customer_id,$payment_mode,$date,$bank_id,$cheque_no1)
 {
-
   $date = get_date_user($date);
   $sq_customer_info = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id='$customer_id'"));
-  $customer_name = $sq_customer_info['company_name'];
+	if($sq_customer_info['type'] == 'Corporate'||$sq_customer_info['type']=='B2B'){
+		$customer_name = $sq_customer_info['company_name'];
+	}else{
+		$customer_name = $sq_customer_info['first_name'].' '.$sq_customer_info['last_name'];
+	}
 
   if($payment_mode == 'Cash'||$payment_mode=='Credit Card'){
     $cheque_no = ''; 

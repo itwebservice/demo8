@@ -220,7 +220,7 @@ public function quotation_mail($sq_request, $quotation_for, $to, $vendor_name, $
 				<tr><td style="text-align:left;border: 1px solid #888888; width:50%">Destination Name</td>   <td style="text-align:left;border: 1px solid #888888;">'.$t_place.'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Travel From Date</td>   <td style="text-align:left;border: 1px solid #888888;">'.$t_from .'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Travel To Date</td>   <td style="text-align:left;border: 1px solid #888888;">'.$t_to.'</td></tr>
-				<tr><td style="text-align:left;border: 1px solid #888888;">Airport Pickup?</td>   <td style="text-align:left;border: 1px solid #888888;">'.$sq_request1['airport_pickup'].'</td></tr>
+				<tr><td style="text-align:left;border: 1px solid #888888;">Airport Pickup</td>   <td style="text-align:left;border: 1px solid #888888;">'.$sq_request1['airport_pickup'].'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Cab Type</td>   <td style="text-align:left;border: 1px solid #888888;">'.$sq_request1['cab_type'].'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Transfer Type</td>   <td style="text-align:left;border: 1px solid #888888;">'.$sq_request1['transfer_type'].'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Enquiry Specification</td>   <td style="text-align:left;border: 1px solid #888888;">'.$sq_request1['enquiry_specification'].'</td></tr>

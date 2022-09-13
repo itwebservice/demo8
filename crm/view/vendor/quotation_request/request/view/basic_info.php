@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="profile_box main_block">
-        	 	<h3 class="editor_title">Quotation Details</h3>
+				<h3 class="editor_title">Quotation Details</h3>
     			<div class="panel panel-default panel-body app_panel_style">
     				<div class="row mg_bt_10">
 						<div class="col-md-6">
@@ -69,6 +69,6 @@
 							<?php } ?>
 					</div>
     			</div>
-		   </div>
+			</div>
 	</div>
 </div>

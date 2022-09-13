@@ -41,23 +41,23 @@
         <div class="col-md-3 col-sm-6 mg_bt_10">
           <input type="text" id="followup_date" name="followup_date" placeholder="Next Followup Date" title="Next Followup Date" value="<?= date('d-m-Y H:i')?>" style="min-width:136px;" class="form-control">
         </div>
-	</div>
-	   <div class="row mg_bt_10">
-		 <div class="col-md-12">
-			<textarea id="followup_reply" name="followup_reply" onchange="validate_spaces(this.id);" placeholder="*Followup Description" class="form-control"></textarea>
-		 </div>		
-	   </div>
-	<div class="row text-center mg_bt_20">
+    </div>
+      <div class="row mg_bt_10">
+      <div class="col-md-12">
+        <textarea id="followup_reply" name="followup_reply" onchange="validate_spaces(this.id);" placeholder="*Followup Description" class="form-control"></textarea>
+      </div>		
+      </div>
+    <div class="row text-center mg_bt_20">
 		<div class="col-md-12">
 			<button class="btn btn-sm btn-success" id="btn_followup_reply"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save</button>
 		</div>
 	</div>
-	 </div>
+	</div>
     </div>
   </div>
 </div>
-    </form>
- 
+</form>
+
 <script>
 	$('#followup_date').datetimepicker({ format:'d-m-Y H:i' });
 	$(function(){
@@ -80,7 +80,8 @@
       if(followup_status=='Converted'){
         if(cust_state=='' || cust_state==undefined){
           error_msg_alert("Please select states");
-                return false;
+          $('#btn_followup_reply').button('reset');
+          return false;
         }
       }
       var base_url = $('#base_url').val();

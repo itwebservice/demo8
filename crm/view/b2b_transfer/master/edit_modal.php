@@ -32,15 +32,11 @@ $vehicle_data = json_decode($sq_location['vehicle_data']);
           </div>
           <div class="row mg_tp_10">
             <div class="col-sm-4">
-              <div class="div-upload" role="button" title="Upload Vehicle Image" data-toggle="tooltip">
-                <div id="image_upload_btn1" class="upload-button1"><span>Vehicle Image</span></div>
-                <span id="photo_status" ></span>
-                <ul id="files" ></ul>
-                <input type="hidden" id="image_upload_url1" name="image_upload_url1" value="<?= $sq_location['image_url'] ?>" required>
-              </div>
-            </div>
-            <div class="col-sm-8">
-              <div style="color: red;">Note : Upload Image size below 100KB, resolution : 900X450.</div>
+              <select name="active_flag" id="active_flag" title="Status">
+                <option value="<?= $sq_location['status'] ?>"><?= $sq_location['status'] ?></option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
             </div>
           </div>
           <div class="row mg_tp_20">
@@ -50,12 +46,27 @@ $vehicle_data = json_decode($sq_location['vehicle_data']);
             </div>
           </div>
           <div class="row mg_tp_20">
+            <?php
+            if($sq_location['image_url'] != ''){
+            $newUrl = preg_replace('/(\/+)/','/',$sq_location['image_url']); 
+            $download_url = BASE_URL.str_replace('../', '', $newUrl);
+              ?>
+              <div class="col-md-3">
+                  <div class="gallary-single-image mg_bt_20" style="height:100px;max-height: 100px;overflow:hidden;">
+                      <img src="<?php echo $download_url; ?>" id="<?php echo $row_image['id']; ?>" width="100%" height="100%">
+                  </div>
+              </div>
+            <?php } ?>
             <div class="col-sm-4">
-              <select name="active_flag" id="active_flag" title="Status">
-                <option value="<?= $sq_location['status'] ?>"><?= $sq_location['status'] ?></option>
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
+              <div class="div-upload" role="button" title="Upload Vehicle Image" data-toggle="tooltip">
+                <div id="image_upload_btn1" class="upload-button1"><span>Vehicle Image</span></div>
+                <span id="photo_status" ></span>
+                <ul id="files" ></ul>
+                <input type="hidden" id="image_upload_url1" name="image_upload_url1" value="<?= $sq_location['image_url'] ?>" required>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div style="color: red;">Note : Upload Image size below 100KB, resolution : 900X450.</div>
             </div>
           </div>
           <div class="row text-center mg_tp_30">
@@ -77,8 +88,10 @@ $vehicle_data = json_decode($sq_location['vehicle_data']);
   upload_vehicle_image1();
   function upload_vehicle_image1(){
 
+    var image_url = $('#image_upload_url1').val();
+    var upload_txt = (image_url != '') ? 'Uploaded' : 'Vehicle Image';
       var btnUpload=$('#image_upload_btn1');
-      $(btnUpload).find('span').text('Vehicle Image');
+      $(btnUpload).find('span').text(upload_txt);
       new AjaxUpload(btnUpload, {
 
         action: 'master/upload_image.php',

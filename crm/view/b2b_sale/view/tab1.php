@@ -185,7 +185,7 @@
 						<h5 class="serviceTitle"><u><?= $activity_list_arr[$i]->service->service_arr[0]->act_name ?></u></h5>
 						<div class="row">
 							<div class='col-md-6'>Check-Date :  <strong><?= date('m-d-Y', strtotime($activity_list_arr[$i]->service->service_arr[0]->checkDate)); ?></strong></div>
-							<div class='col-md-6'>Total Guest : <strong><?= $activity_list_arr[$i]->service->service_arr[0]->total_pax ?></strong></div>
+							<div class='col-md-6'>Total Guest(s) : <strong><?= $activity_list_arr[$i]->service->service_arr[0]->total_pax ?></strong></div>
 						</div>
 						<div class="row">
 							<div class='col-md-6'>Reporting Time :  <strong><?= ($activity_list_arr[$i]->service->service_arr[0]->rep_time != '') ? $activity_list_arr[$i]->service->service_arr[0]->rep_time : 'NA' ?></strong></div>

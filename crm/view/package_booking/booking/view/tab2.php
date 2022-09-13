@@ -155,7 +155,6 @@
 	                       		$count = 0;
 
 	                       		$sq_entry = mysqlQuery("select * from package_plane_master where booking_id='$booking_id'");
-
 	                       		while($row_entry = mysqli_fetch_assoc($sq_entry)){
 
 	                       			$count++;

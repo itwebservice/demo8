@@ -4,7 +4,7 @@ class b2b_customer{
 
         $register_id = $_POST['register_id'];
         $payment_date = $_POST['payment_date'];
-        $description = $_POST['description'];
+        $description = addslashes($_POST['description']);
         $credit_limit = $_POST['credit_limit'];
         $approve_status= $_POST['approve_status'];
         $payment_days = $_POST['payment_days'];
@@ -42,7 +42,7 @@ class b2b_customer{
         $register_id = $_POST['register_id'];
         $payment_date = $_POST['payment_date'];
         $entry_id = $_POST['entry_id'];
-        $description = $_POST['description'];
+        $description = addslashes($_POST['description']);
         $credit_limit = $_POST['credit_limit'];
         $approve_status= $_POST['approve_status'];
         $payment_days = $_POST['payment_days'];

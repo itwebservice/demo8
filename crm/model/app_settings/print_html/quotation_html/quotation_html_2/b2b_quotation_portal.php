@@ -100,7 +100,7 @@ $sq_customer = mysqli_fetch_assoc(mysqlQuery("select * from customer_master wher
         <div class="row">
             <div class="col-md-4">
                 <div class="landigPageCustomer mg_tp_20">
-                <h3 class="customerFrom">Prepared for</h3>
+                <h3 class="customerFrom">PREPARED FOR</h3>
                 <span class="customerName mg_tp_10"><i class="fa fa-user"></i> : <?= $pdf_data_array[0]->cust_name ?></span><br>
                 <span class="customerMail mg_tp_10"><i class="fa fa-envelope"></i> : <?= $pdf_data_array[0]->email_id ?></span><br>
                 <span class="customerMobile mg_tp_10"><i class="fa fa-phone"></i> : <?= $pdf_data_array[0]->contact_no ?></span><br>
@@ -641,7 +641,7 @@ $sq_customer = mysqli_fetch_assoc(mysqlQuery("select * from customer_master wher
     <section class="incluExcluTerms main_block mg_tp_20">
       
       <!-- Costing & Bank Detail -->
-      <div class="costBankSec main_block mg_tp_20">
+      <div class="costBankSec main_block mg_tp_20 costing_bank_details_bk">
         <div class="costBankInner main_block side_pad mg_tp_20 mg_bt_20">
           <div class="row">
             <!-- Costing -->
@@ -682,7 +682,7 @@ $sq_customer = mysqli_fetch_assoc(mysqlQuery("select * from customer_master wher
                 <div class="col-md-4 text-center">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
                   <h4 class="no-marg"><?= $sq_reg['b_acc_name'] ?></h4>
-                  <p>A/C NAME</p>
+                  <p>A/C TYPE</p>
                 </div>
               </div>
               <div class="row">
@@ -762,7 +762,7 @@ $sq_customer = mysqli_fetch_assoc(mysqlQuery("select * from customer_master wher
         <div class="col-md-7">
         </div>
         <div class="col-md-5">
-            <span class="generatorName mg_tp_10">Prepared By <?= $prepare_by?></span><br>
+            <span class="generatorName mg_tp_10">PREPARED BY <?= $prepare_by?></span><br>
         </div>
       </div>
 

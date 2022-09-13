@@ -22,7 +22,11 @@ else{
 	$_SESSION['email'] = $sq_login['email'];
 	$_SESSION['vendor_login'] = true;
 
-	header('location:view/index.php');
+	if($sq_login['vendor_type'] == 'Hotel Vendor'||$sq_login['vendor_type'] == 'DMC Vendor'||$sq_login['vendor_type'] == 'Transport Vendor'){
+		header('location:view/index.php');
+	}else{
+		header('location:view/bookings/index.php');
+	}
 	exit;
 }
 

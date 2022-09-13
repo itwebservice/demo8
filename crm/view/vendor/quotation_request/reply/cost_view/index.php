@@ -15,7 +15,7 @@ $vendor_type_val = get_vendor_name($sq_req['quotation_for'], $sq_req['supplier_i
       	<div>
 			  <!-- Nav tabs -->
 			  <ul class="nav nav-tabs" role="tablist">
-			    <li role="presentation" class="active"><a href="#basic_information" aria-controls="home" role="tab" data-toggle="tab" class="tab_name">Supplier Quotation </a></li>
+			    <li role="presentation" class="active"><a href="#basic_information" aria-controls="home" role="tab" data-toggle="tab" class="tab_name">Quotation Amount</a></li>
 			    <li class="pull-right"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></li>
 			  </ul>
 
@@ -37,7 +37,7 @@ $vendor_type_val = get_vendor_name($sq_req['quotation_for'], $sq_req['supplier_i
 						    	        <br>
 										<div class="row mg_bt_20">
 											<div class="col-md-6 mg_bt_10">
-												<i class="fa fa-angle-double-right"></i>&nbsp;&nbsp;<label>Currency <em>:</em></label> <?= $sq_currency1['currency_code'] ?>
+												<i class="fa fa-angle-double-right"></i>&nbsp;&nbsp;<label>CURRENCY <em>:</em></label> <?= $sq_currency1['currency_code'] ?>
 											</div>
 											<?php if($sq_req['quotation_for']!="Transport Vendor"){ ?>
 											<div class="col-md-6 mg_bt_10">
@@ -63,10 +63,10 @@ $vendor_type_val = get_vendor_name($sq_req['quotation_for'], $sq_req['supplier_i
 										</div>
 										<div class="row mg_bt_10">
 											<div class="col-md-12">
-												<i class="fa fa-angle-double-right"></i>&nbsp;&nbsp;<label>Created by <em>:</em></label> <?= $sq_req['created_by'] ?>
+												<i class="fa fa-angle-double-right"></i>&nbsp;&nbsp;<label>CREATED BY <em>:</em></label> <?= $sq_req['created_by'] ?>
 											</div>
 										</div>
-								   </div>
+									</div>
 							</div>
 						</div>
 						
@@ -84,9 +84,9 @@ $vendor_type_val = get_vendor_name($sq_req['quotation_for'], $sq_req['supplier_i
 
 			</div>
 
-      </div>      
-    </div>
-  </div>
+		</div>
+	</div>
+</div>
 </div>
 <script>
 $('#quotation_request_view').modal('show');

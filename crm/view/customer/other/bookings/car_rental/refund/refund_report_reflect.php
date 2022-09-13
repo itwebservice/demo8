@@ -35,7 +35,7 @@ $total_refund1 = $bal_amount - $sq_refund_info['sum'];
 			<th>Bank_Name</th>
 			<th>Mode</th>
 			<th>Cheque_No/ID</th>
-			<th class="text-right success">Amount</th>
+			<th class="success">Amount</th>
 		</tr>
 	</thead>
 	<tbody>

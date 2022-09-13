@@ -119,11 +119,11 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
     <div class="row">
       <div class="col-md-4">
         <div class="landigPageCustomer mg_tp_20">
-          <h3 class="customerFrom">Prepared for</h3>
+          <h3 class="customerFrom">PREPARED FOR</h3>
           <?php if($sq_quotation['customer_name'] != ''){?><span class="customerName mg_tp_10"><i class="fa fa-user"></i> : <?= $sq_quotation['customer_name'] ?></span><br><?php } ?>
           <?php if($sq_quotation['email_id'] != ''){?><span class="customerMail mg_tp_10"><i class="fa fa-envelope"></i> : <?= $sq_quotation['email_id'] ?></span><br><?php } ?>
           <?php if($sq_quotation['mobile_no'] != ''){?><span class="customerMobile mg_tp_10"><i class="fa fa-phone"></i> : <?= $sq_quotation['mobile_no']?></span><br><?php } ?>
-          <span class="generatorName mg_tp_10">Prepared By <?= $emp_name?></span><br>
+          <span class="generatorName mg_tp_10">PREPARED BY <?= $emp_name?></span><br>
         </div>
       </div>
       <div class="col-md-8">

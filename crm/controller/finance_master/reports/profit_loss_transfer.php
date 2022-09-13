@@ -2,7 +2,7 @@
 include_once('../../../model/model.php');
 include_once('../../../model/finance_master/reports/profit_loss_transfer.php');
 
-$total_purchase1 = $_POST['total_purchase1'];
+$total_purchase1 = $_POST['profit_amount'];
 $profit_loss = $_POST['profit_loss'];
 $today_date = $_POST['today_date'];
 $branch_admin_id = $_POST['branch_admin_id'];

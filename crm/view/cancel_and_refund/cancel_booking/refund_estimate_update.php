@@ -27,7 +27,7 @@ while($row_package_payment = mysqli_fetch_assoc($sq_package_payment)){
 
 	if($row_package_payment['clearance_status']=="Pending" || $row_package_payment['clearance_status']=="Cancelled"){ 
 		$pending_cancel = $pending_cancel +$row_package_payment['amount'];
-	 }
+	}
 	$sq_paid_amount = $sq_paid_amount + $row_package_payment['amount'];
 }
 
@@ -45,8 +45,8 @@ $paid_amount = ($sq_paid_amount - $pending_cancel ) + ($sq_tour_paid_amount - $t
 			<div class="widget_parent">
 				<div class="stat_content main_block">
 					<span class="main_block content_span">
-					 	<span class=" stat_content-tilte pull-left">Total Paid</span>
-					 	<span class="stat_content-amount pull-right"><?php echo number_format(($sq_tour_paid_amount - $tour_pending_cancel ) ,2);?></span>
+						<span class=" stat_content-tilte pull-left">Total Paid</span>
+						<span class="stat_content-amount pull-right"><?php echo number_format(($sq_tour_paid_amount - $tour_pending_cancel ) ,2);?></span>
 					</span>
 				</div>
 			</div>
@@ -73,18 +73,16 @@ $cancle_count= mysqli_num_rows(mysqlQuery("select * from package_travelers_detai
 	</div>
 	<?php if($pass_count!=$cancle_count || $sq_c_info =='0'){ ?>
 	<div class="row mg_tp_20">
-	  <div class="col-md-12 text-center">
-	      <button id="btn_refund_save" class="btn btn-sm btn-success"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save Refund</button>
-	  </div>
+		<div class="col-md-12 text-center">
+			<button id="btn_refund_save" class="btn btn-sm btn-success"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save Refund</button>
+		</div>
 	</div>
 	<?php } ?>
 
 </form>
 
 <script src="<?php echo BASE_URL ?>js/app/field_validation.js"></script>                    
-
 <script>
-
 function calculate_total_refund()
 {
 	var total_refund_amount = 0;
@@ -107,31 +105,31 @@ function calculate_total_refund()
 
 $('#frm_refund').validate({
 	rules:{		
-              refund_amount : { required : true, number : true },
-              total_refund_amount : { required : true, number : true },
+		refund_amount : { required : true, number : true },
+		total_refund_amount : { required : true, number : true },
 	},
 	submitHandler:function(form){
 
-			var booking_id = $('#booking_id').val();
-              var cancel_amount = $('#cancel_amount').val();
-              var total_refund_amount = $('#total_refund_amount').val();
-			  var total_sale = $('#total_sale').val();
-			  var total_paid = $('#total_paid').val();
+		$('#btn_refund_save').prop('disabled',true);
+		var booking_id = $('#booking_id').val();
+		var cancel_amount = $('#cancel_amount').val();
+		var total_refund_amount = $('#total_refund_amount').val();
+		var total_sale = $('#total_sale').val();
+		var total_paid = $('#total_paid').val();
 
-			  if(parseFloat(cancel_amount) > parseFloat(total_sale)) { error_msg_alert("Cancel amount can not be greater than Sale amount"); return false; }
+		if(parseFloat(cancel_amount) > parseFloat(total_sale)) { error_msg_alert("Cancel amount can not be greater than Sale amount");
+		$('#btn_refund_save').prop('disabled',false); return false; }
 
-			$.ajax({
-				type:'post',
-				url: base_url()+'controller/package_tour/cancel_and_refund/booking_refund_estimate.php',
-				data: { booking_id : booking_id, cancel_amount : cancel_amount, total_refund_amount : total_refund_amount },
-				success:function(result){
-					msg_alert(result);			
-					cancel_booking_reflect();
-				}
-				
-			});
-
+		$.ajax({
+			type:'post',
+			url: base_url()+'controller/package_tour/cancel_and_refund/booking_refund_estimate.php',
+			data: { booking_id : booking_id, cancel_amount : cancel_amount, total_refund_amount : total_refund_amount },
+			success:function(result){
+				msg_alert(result);		
+				$('#btn_refund_save').prop('disabled',false);
+				cancel_booking_reflect();
+			}
+		});
 	}
-
 });
 </script>

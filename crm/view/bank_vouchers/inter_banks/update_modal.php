@@ -15,7 +15,7 @@ $sq_bank_info = mysqli_fetch_assoc(mysqlQuery("select * from inter_bank_transfer
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Bank Transfer</h4>
+        <h4 class="modal-title" id="myModalLabel">Update Bank Transfer</h4>
       </div>
       <div class="modal-body">            
             <div class="row">
@@ -53,7 +53,7 @@ $sq_bank_info = mysqli_fetch_assoc(mysqlQuery("select * from inter_bank_transfer
                 <input type="text" id="ins_date1" name="ins_date1"  placeholder="*Instrument Date" onchange="get_lapse_date('trans_type1',this.id,'1')" value="<?= get_date_user($sq_bank_info['instrument_date']) ?>" title="Instrument Date" class="form-control" >
                </div>
                <div class="col-md-4 col-sm-6 col-xs-12 mg_bt_10">
-                <select id="trans_type1" name="trans_type1" style="width:100%" title="Transaction Type" class="form-control" onchange="get_lapse_date(this.id,'ins_date1','1')" required>
+                <select id="trans_type1" name="trans_type1" style="width:100%" title="Transaction Type" class="form-control" onchange="get_lapse_date(this.id,'ins_date1','1')" disabled required>
                     <option value="<?= $sq_bank_info['transaction_type'] ?>"><?= $sq_bank_info['transaction_type'] ?></option>
                     <option value="">*Transaction Type</option>
                     <option value="Cheque">Cheque</option>

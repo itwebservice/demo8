@@ -22,7 +22,7 @@ if($from_date!='' && $to_date!=''){
 		<tr class="table-heading-row">
 			<th>S_No.</th>
 			<th>Booking_ID</th>
-			<th>Passenger_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			<th>Refund_To</th>
 			<th>Refund_ID</th>
 			<th>Refund_Date</th>
 			<th>Mode</th>
@@ -37,6 +37,12 @@ if($from_date!='' && $to_date!=''){
 		$sq_refund = mysqlQuery($query);
 		while($row_refund = mysqli_fetch_assoc($sq_refund)){
 
+			$sq_cust = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id=(select customer_id from ticket_master where ticket_id='$row_refund[ticket_id]')"));
+			if($sq_cust['type']=='Corporate'||$sq_cust['type'] == 'B2B'){
+				$cust_name = $sq_cust['company_name'];
+			}else{
+				$cust_name = $sq_cust['first_name'].' '.$sq_cust['last_name'];
+			}
 			$traveler_name = "";
 			$sq_refund_entries = mysqlQuery("select * from ticket_refund_entries where refund_id='$row_refund[refund_id]'");
 			while($row_refund_entry = mysqli_fetch_assoc($sq_refund_entries)){
@@ -70,7 +76,7 @@ if($from_date!='' && $to_date!=''){
 			<tr class="<?= $bg?>">
 				<td><?= ++$count ?></td>
 				<td><?= get_ticket_booking_id($row_refund['ticket_id'],$year); ?></td>
-				<td><?= $traveler_name ?></td>
+				<td><?= $traveler_name.' ('.$cust_name.')' ?></td>
 				<td><?= get_ticket_booking_refund_id($row_refund['refund_id'],$year1); ?></td>
 				<td><?= date('d-m-Y', strtotime($row_refund['refund_date'])) ?></td>
 				<td><?= $row_refund['refund_mode'] ?></td>

@@ -30,6 +30,7 @@ if($financial_year_id!=""){
 }
 
 include "../../../model/app_settings/branchwise_filteration.php";
+$query .=" order by entry_id desc";
 ?>
 <div class="row mg_tp_20"> <div class="col-md-12 no-pad"> <div class="table-responsive">
 	

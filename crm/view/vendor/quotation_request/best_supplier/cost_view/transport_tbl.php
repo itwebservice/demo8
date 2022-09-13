@@ -9,7 +9,7 @@
 							<th>S_No.</th>
 							<th>transport_cost</th>
 							<th>total_cost</th>
-							<th>currency_code</th>
+							<th>currency</th>
 						</tr>
 					</thead>
 					<tbody>

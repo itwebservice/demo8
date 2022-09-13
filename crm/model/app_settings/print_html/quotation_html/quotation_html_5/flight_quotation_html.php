@@ -3,7 +3,7 @@
 include "../../../../model.php"; 
 include "printFunction.php";
 
-global $app_quot_img,$currency;
+global $app_quot_img,$currency,$quot_note;
 $quotation_id = $_GET['quotation_id'];
 
 $sq_terms_cond = mysqli_fetch_assoc(mysqlQuery("select * from terms_and_conditions where type='Flight Quotation' and active_flag ='Active'"));
@@ -110,7 +110,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
           </div>
         </div>
         <div class="landigPageCustomer">
-          <h3 class="customerFrom">Prepared for</h3>
+          <h3 class="customerFrom">PREPARED FOR</h3>
           <span class="customerName"><em><i class="fa fa-user"></i></em> : <?= $sq_quotation['customer_name'] ?></span><br>
           <span class="customerMail"><em><i class="fa fa-envelope"></i></em> : <?= $sq_quotation['email_id'] ?></span><br>
           <span class="customerMobile"><em><i class="fa fa-phone"></i></em> : <?= $sq_quotation['mobile_no'] ?></span>
@@ -197,19 +197,28 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
 
         <section class="incluExcluTerms main_block mg_tp_30 pageSectionInner">
 
+        <?php if($sq_terms_cond['terms_and_conditions'] != ''){?>
           <!-- Terms and Conditions -->
           <div class="row">
             
             <div class="col-md-12">
               <div class="termsPanel">
-                  <h3 class="incexTitleTwo">Terms & Conditions</h3>
+                  <h3 class="incexTitle">TERMS AND CONDITIONS</h3>
                   <div class="tncContent">
                       <pre class="real_text"><?= $sq_terms_cond['terms_and_conditions'] ?></pre>      
                   </div>
               </div>
             </div>
           </div>
-                      
+          <?php
+        }
+          if($quot_note!=''){?>
+            <div class="row mg_tp_10">
+              <div class="col-md-12">
+                <?php echo $quot_note; ?>
+              </div>
+            </div>
+          <?php } ?>
         </section>
 
     </section>
@@ -218,7 +227,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
 
 
   <!-- Costing & Banking Page -->
-  <section class="endPageSection main_block mg_tp_30">
+  <section class="endPageSection main_block mg_tp_30" style="margin-top:30%;">
 
     <div class="row">
       
@@ -227,28 +236,26 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
     <div class="row constingBankingPanelRow">
       <!-- Costing -->
       <div class="col-md-12 constingBankingPanel constingPanel mg_bt_30">
-            <h3 class="costBankTitle text-center">Costing Details</h3>
-            <div class="col-md-4 text-center no-pad constingBankingwhite">
-              <?php
-              $fare_cost = currency_conversion($currency,$currency,(floatval($newBasic) + $sq_quotation['roundoff']));
-              ?>
-              <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p5/subtotal.png" class="img-responsive"></div>
-              <h4 class="no-marg"><?= $fare_cost ?></h4>
-              <p>TOTAL FARE</p>
-            </div>
-            <div class="col-md-4 text-center no-pad">
-              <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p4/tax.png" class="img-responsive"></div>
-              <h4 class="no-marg"><?= $tax_show ?></h4>
-              <p>TAX</p>
-            </div>
-            <div class="col-md-4 text-center no-pad constingBankingwhite">
-              <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p5/quotationCost.png" class="img-responsive"></div>
-              <h4 class="no-marg"><?= $quotation_cost ?></h4>
-              <p>QUOTATION COST</p>
-            </div>
+        <h3 class="costBankTitle text-center">COSTING DETAILS</h3>
+        <div class="col-md-4 text-center no-pad constingBankingwhite">
+          <?php
+          $fare_cost = currency_conversion($currency,$currency,(floatval($newBasic) + $sq_quotation['roundoff']));
+          ?>
+          <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p5/subtotal.png" class="img-responsive"></div>
+          <h4 class="no-marg"><?= $fare_cost ?></h4>
+          <p>TOTAL FARE</p>
+        </div>
+        <div class="col-md-4 text-center no-pad">
+          <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p4/tax.png" class="img-responsive"></div>
+          <h4 class="no-marg"><?= $tax_show ?></h4>
+          <p>TAX</p>
+        </div>
+        <div class="col-md-4 text-center no-pad constingBankingwhite">
+          <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p5/quotationCost.png" class="img-responsive"></div>
+          <h4 class="no-marg"><?= $quotation_cost ?></h4>
+          <p>QUOTATION COST</p>
+        </div>
       </div>
-      
-    
 
       <!-- Bank Detail -->
       <div class="col-md-12 constingBankingPanel BankingPanel">
@@ -266,7 +273,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
             <div class="col-md-4 text-center no-pad constingBankingwhite">
               <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p5/accName.png" class="img-responsive"></div>
               <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-              <p>A/C NAME</p>
+              <p>A/C TYPE</p>
             </div>
             <div class="col-md-4 text-center no-pad">
               <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>
@@ -284,8 +291,6 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
               <p>SWIFT CODE</p>
             </div>
       </div>
-      
-    
     </div>
 
   </section>
@@ -327,7 +332,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
               <?php }?>
               <div class="contactBlock">
                 <i class="fa fa-pencil-square-o"></i>
-                <p>Prepared By : <?= $emp_name?></p>
+                <p>PREPARED BY : <?= $emp_name?></p>
               </div>
           </div>
       </section>

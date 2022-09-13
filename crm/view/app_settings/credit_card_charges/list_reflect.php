@@ -33,7 +33,7 @@ $active_flag = $_POST['active_flag'];
 				<td><?= $row_credit['credit_card_charges'].$temp_str ?></td>
 				<td><?= $row_credit['tax_on_credit_card_charges'].$temp_str1 ?></td>
 				<td>
-					<button class="btn btn-info btn-sm" onclick="update_modal(<?= $row_credit['entry_id'] ?>)" title="Edit Detail"><i class="fa fa-pencil-square-o"></i></button>
+					<button class="btn btn-info btn-sm" onclick="update_modal(<?= $row_credit['entry_id'] ?>)" title="Update Details"><i class="fa fa-pencil-square-o"></i></button>
 				</td>
 			</tr>
 			<?php } ?>

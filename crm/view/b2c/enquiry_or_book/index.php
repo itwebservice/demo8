@@ -39,9 +39,11 @@ $p_gateway = $book_enquiry_button[0]->p_gateway;
     </div>
     <div class="row mg_tp_20">
         <div class="col-xs-12">
-            <h5>Please make the registration in Tidio website and add the API key :</h5>
+            <h5>Payment gateway website reference :</h5>
             <ul>
-                <a href="https://www.tidio.com/"> Tidio </a>
+                <li><a target="_blank" href="https://razorpay.com/"> Razor Pay </a></li>
+                <li><a target="_blank" href="https://www.ccavenue.com/"> CCAvenue </a></li>
+                <li><a target="_blank" href="https://www.payu.in/"> PayU Money </a></li>
             </ul>
         </div>
     </div>

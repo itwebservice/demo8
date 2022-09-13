@@ -140,11 +140,11 @@ $row_count = 6;
 
 $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$row_count, "Sr. No")
-        ->setCellValue('C'.$row_count, "Date")
+        ->setCellValue('C'.$row_count, "Tr_Date")
         ->setCellValue('D'.$row_count, "Creditor_Bank")
         ->setCellValue('E'.$row_count, "Amount")
-        ->setCellValue('F'.$row_count, "Created by");
-         
+        ->setCellValue('F'.$row_count, "Created By");
+
 $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':F'.$row_count)->applyFromArray($header_style_Array);
 $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':F'.$row_count)->applyFromArray($borderArray); 
 

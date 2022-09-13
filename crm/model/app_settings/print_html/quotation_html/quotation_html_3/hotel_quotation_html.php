@@ -125,11 +125,11 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
         <div class="row">
           <div class="col-md-4">
             <div class="landigPageCustomer mg_tp_10">
-              <h3 class="customerFrom">Prepared for</h3>
+              <h3 class="customerFrom">PREPARED FOR</h3>
               <span class="customerName mg_tp_10"><i class="fa fa-user"></i> : <?= $enquiryDetails['customer_name'] ?></span><br>
               <span class="customerMail mg_tp_10"><i class="fa fa-envelope"></i> : <?= $enquiryDetails['email_id'] ?></span><br>
               <span class="customerMobile mg_tp_10"><i class="fa fa-phone"></i> : <?= $enquiryDetails['country_code'].$enquiryDetails['whatsapp_no'] ?></span><br>
-              <span class="generatorName mg_tp_10">Prepared By <?= $emp_name?></span><br>
+              <span class="generatorName mg_tp_10">PREPARED BY <?= $emp_name?></span><br>
             </div>
           </div>
           <div class="col-md-2">
@@ -294,7 +294,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
               <div class="col-md-12 text-left mg_bt_20">
                 <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
                 <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-                <p>A/C NAME</p>
+                <p>A/C TYPE</p>
               </div>
               <div class="col-md-12 text-left mg_bt_20">
                 <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>

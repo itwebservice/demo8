@@ -25,7 +25,7 @@ include "../../../model/model.php";
 				<td><?= get_date_user($row_financial_year['from_date']) ?></td>
 				<td><?= get_date_user($row_financial_year['to_date']) ?></td>
 				<td>
-					<button class="btn btn-info btn-sm" onclick="update_modal(<?= $row_financial_year['financial_year_id'] ?>)" title="Edit Detail"><i class="fa fa-pencil-square-o"></i></button>
+					<button class="btn btn-info btn-sm" onclick="update_modal(<?= $row_financial_year['financial_year_id'] ?>)" title="Update Details"><i class="fa fa-pencil-square-o"></i></button>
 				</td>
 			</tr>
 			<?php } ?>

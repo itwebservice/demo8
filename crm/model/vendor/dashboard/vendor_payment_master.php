@@ -70,7 +70,7 @@ public function vendor_payment_save()
 
 	if(!$sq_payment){
 		rollback_t();
-		echo "error--Sorry, Payment not saved!";
+		echo "error--Sorry,Supplier Payment not saved!";
 		exit;
 	}
 	else{
@@ -82,7 +82,7 @@ public function vendor_payment_save()
 
 		if($GLOBALS['flag']){
 			commit_t();
-	    	echo "Payment has been successfully saved.";
+	    	echo "Supplier Payment has been successfully saved.";
 			exit;	
 		}
 		
@@ -336,7 +336,7 @@ public function vendor_payment_update()
 	$sq_payment = mysqlQuery("update vendor_payment_master set financial_year_id='$financial_year_id', vendor_type='$vendor_type', vendor_type_id='$vendor_type_id', estimate_type='$estimate_type', estimate_type_id='$estimate_type_id', payment_date='$payment_date', payment_amount='$payment_amount', payment_mode='$payment_mode', bank_name='$bank_name', transaction_id='$transaction_id', bank_id='$bank_id', payment_evidence_url='$payment_evidence_url', clearance_status='$clearance_status' where payment_id='$payment_id' ");
 	if(!$sq_payment){
 		rollback_t();
-		echo "error--Sorry, Payment not updated!";
+		echo "error--Sorry, Supplier Payment not updated!";
 		exit;
 	}
 	else{
@@ -350,7 +350,7 @@ public function vendor_payment_update()
 		}
 		if($GLOBALS['flag']){
 			commit_t();
-	    	echo "Payment has been successfully updated.";
+	    	echo "Supplier Payment has been successfully updated.";
 			exit;	
 		}
 		

@@ -13,11 +13,11 @@ public function ticket_upload_save()
 
 	$sq_ticket = mysqlQuery("insert into ticket_master_upload_entries (entry_id, ticket_id, ticket_url, created_at) values ('$entry_id', '$ticket_id', '$ticket_url', '$created_at')");
 	if($sq_ticket){
-		echo "Ticket Uploaded successfully!";
+		echo "Flight Ticket Uploaded successfully!";
 		exit;
 	}
 	else{
-		echo "error--Ticket not uploaded!";
+		echo "error--Flight Ticket not uploaded!";
 		exit;
 	}
 }

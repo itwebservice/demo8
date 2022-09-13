@@ -190,7 +190,7 @@ $(function(){
           }
           
           if(status !== "Inactive" && membership_no !== undefined){
-            for(var i=1; i<=identifier_count;i++){
+            for(var i=1; i<=parseInt(identifier_count);i++){
               let id_no = $('#identifier'+d+i).val();
               if(id_no === ''){ error_msg_alert('Enter identifier no'+i+' of ME No'+(d+1)); return false;}
               identifier_no_arr1.push(parseInt(id_no));
@@ -204,7 +204,7 @@ $(function(){
           }
         }
         if(membership_details_arr.length === 0){
-          error_msg_alert("Enter atleast one Membership Establishment No!");
+          error_msg_alert("Atleast one Membership Establishment No is required!");
           return false;
         }
         $('#btn_update').button('loading');

@@ -19,6 +19,14 @@ $cruise_expense = $_GET['cruise_expense'];
 $visa_amount = $_GET['visa_amount'];
 $insuarance_amount = $_GET['insuarance_amount'];
 $tour_subtotal = $_GET['tour_subtotal'];
+$tour_date = $_GET['tour_date'];
+$tour_to_date = $_GET['tour_to_date'];
+$adults = $_GET['adults'];
+$child = $_GET['child'];
+$infants = $_GET['infants'];
+$flights = $_GET['flights'];
+$trains = $_GET['trains'];
+$cruises = $_GET['cruises'];
 
 $train_service_charge = $_GET['train_service_charge'];
 $plane_service_charge = $_GET['plane_service_charge'];
@@ -106,6 +114,14 @@ $total_balance = $net_total - $total_paid;
 $total_paid += $charge;
 $net_total1 = currency_conversion($currency,$sq_booking['currency_code'],$net_total);
 $amount_in_word = $amount_to_word->convert_number_to_words($net_total1,$sq_booking['currency_code']);
+// Passengers string
+$passengers = 'Guest(s) : ';
+$passengers .= 
+(intval($adults)!=0) ? $adults.' Adult(s), ':'';
+$passengers .= 
+(intval($child)!=0)?$child.' Child(ren),':'';
+$passengers .= 
+(intval($infants)!=0)?$infants.' Infant(s)' : '';
 
 //Header
 if($app_invoice_format == "Standard"){include "../headers/standard_header_html.php"; }
@@ -113,7 +129,6 @@ if($app_invoice_format == "Regular"){include "../headers/regular_header_html.php
 if($app_invoice_format == "Advance"){include "../headers/advance_header_html.php"; }
 ?>
 <section class="no-pad main_block">
-<div class="col-md-12 mg_tp_10"><p class="border_lt"><span class="font_5">Tour Name : <?= $tour_name?> </span></p></div>
   <!-- invoice_receipt_body_table-->
   <div class="main_block inv_rece_table">
     <div class="row">
@@ -122,43 +137,46 @@ if($app_invoice_format == "Advance"){include "../headers/advance_header_html.php
         <table class="table table-bordered no-marg" id="tbl_emp_list" style="padding: 0 !important;">
           <thead>
             <tr class="table-heading-row">
-              <th>Services</th>
+              <th>Description</th>
               <th class="text-right">Basic_Amount</th>
             </tr>
           </thead>
-          <tbody> 
-          <?php 
-          if($train_expense != '0'){ 
-            $train_expense1 = currency_conversion($currency,$sq_booking['currency_code'],$train_expense);
-            ?>  
-            <tr>
-              <td><strong class="font_5">Train</strong></td>
-              <td class="text-right"><?php echo $train_expense1; ?></td>
-            </tr>
-            <?php } 
+          <tbody>
+          <?php
+          if($tour_subtotal != '0'){
+            $tour_subtotal1 = currency_conversion($currency,$sq_booking['currency_code'],$tour_subtotal);
+            ?>
+          <tr>
+            <td><strong class="font_5"><?php echo 'Tour Name: '.$tour_name.'<br/>'.'
+                From '.$tour_date.' To '.$tour_to_date.','. '<br/>'.$passengers; ?></strong></td>
+            <td class="text-right"><?php echo $tour_subtotal1; ?></td>
+          </tr>
+          <?php }
             if($plane_expense != '0'){
               $plane_expense1 = currency_conversion($currency,$sq_booking['currency_code'],$plane_expense);
               ?>
             <tr>
-              <td><strong class="font_5">Flight</strong></td>
+              <td><strong class="font_5"><?= 'Flight: '.$flights .'<br/>'.$passengers ?></strong></td>
               <td class="text-right"><?php echo $plane_expense1; ?></td>
             </tr>
             <?php }
+          if($train_expense != '0'){ 
+            $train_expense1 = currency_conversion($currency,$sq_booking['currency_code'],$train_expense);
+            ?>  
+            <tr>
+              <td><strong class="font_5"><?= 'Train: '.$trains .'<br/>'.$passengers ?></strong></td>
+              <td class="text-right"><?php echo $train_expense1; ?></td>
+            </tr>
+            <?php } 
             if($cruise_expense != '0'){
               $cruise_expense1 = currency_conversion($currency,$sq_booking['currency_code'],$cruise_expense);
             ?>
             <tr>
-              <td><strong class="font_5">Cruise</strong></td>
+              <td><strong class="font_5"><?= 'Cruise: '.$cruises .'<br/>'.$passengers ?></strong></td>
               <td class="text-right"><?php echo $cruise_expense1; ?></td>
             </tr>
-            <?php } 
-            if($tour_subtotal != '0'){
-              $tour_subtotal1 = currency_conversion($currency,$sq_booking['currency_code'],$tour_subtotal); ?>
-            <tr>
-              <td><strong class="font_5">Tour</strong></td>
-              <td class="text-right"><?php echo $tour_subtotal1; ?></td>
-            </tr>
-            <?php } ?>
+            <?php }
+            ?>
           </tbody>
         </table>
         </div>

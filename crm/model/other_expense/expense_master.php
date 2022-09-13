@@ -314,13 +314,6 @@ public function finance_update($expense_id, $row_spec)
     $sq_cust = mysqli_fetch_assoc(mysqlQuery("select * from ledger_master where customer_id='$supplier_type' and user_type='Other Vendor'"));
     $cust_gl = $sq_cust['ledger_id'];
 
-    //Getting cash/Bank Ledger
-    if($payment_mode == 'Cash') {  $pay_gl = 20; }
-    else{ 
-        $sq_bank = mysqli_fetch_assoc(mysqlQuery("select * from ledger_master where customer_id='$bank_id' and user_type='bank'"));
-        $pay_gl = $sq_bank['ledger_id'];
-    }
-
     global $transaction_master;
     $sq_exp = mysqli_fetch_assoc(mysqlQuery("select sum(payment_amount) as payment_amount from other_expense_payment_master where supplier_id='$supplier_type' and expense_type_id='$expense_type' and clearance_status!='Cancelled'"));
 	$balance_amount = $net_total - $sq_exp['payment_amount'];
@@ -331,7 +324,7 @@ public function finance_update($expense_id, $row_spec)
     $transaction_id = "";
     $payment_amount = $sub_total;
     $payment_date = $booking_date;
-    $payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $sub_total, $payment_mode);    
+    $payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $sub_total, '');    
     $ledger_particular = get_ledger_particular('By','Cash/Bank');
     $old_gl_id = $gl_id = $expense_type;
     $payment_side = "Debit";
@@ -348,7 +341,7 @@ public function finance_update($expense_id, $row_spec)
 		$transaction_id = "";
 		$payment_amount = $service_tax_subtotal;
 		$payment_date = $booking_date;
-		$payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $service_tax_subtotal, $payment_mode);
+		$payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $service_tax_subtotal,  '');
 		$ledger_particular = get_ledger_particular('To','Expense');
 		$old_gl_id = $gl_id = $ledger_ids_arr[0];
 		$payment_side = "Debit";
@@ -365,7 +358,7 @@ public function finance_update($expense_id, $row_spec)
 			$transaction_id = "";
 			$payment_amount = $service_tax_subtotal;
 			$payment_date = $booking_date;
-			$payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $service_tax_subtotal, $payment_mode);
+			$payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $service_tax_subtotal, '');
 			$ledger_particular = get_ledger_particular('To','Expense');
 			$old_gl_id = $gl_id = $ledger_ids_arr[$i];
 			$payment_side = "Debit";
@@ -380,7 +373,7 @@ public function finance_update($expense_id, $row_spec)
     $transaction_id = "";
     $payment_amount = $tds;
     $payment_date = $booking_date;
-    $payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $tds, $payment_mode);
+    $payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $tds,  '');
     $ledger_particular = get_ledger_particular('To','Expense');
     $old_gl_id = $gl_id = 126;
     $payment_side = "Credit";
@@ -393,7 +386,7 @@ public function finance_update($expense_id, $row_spec)
 	$transaction_id = "";
 	$payment_amount = $net_total;
 	$payment_date = $booking_date;
-	$payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $net_total, $payment_mode);
+	$payment_particular = get_expense_paid_particular(get_other_expense_booking_id($expense_id,$year), $expense_type, $booking_date, $net_total,  '');
 	$ledger_particular = get_ledger_particular('To','Expense');
 	$old_gl_id = $gl_id = $cust_gl;
 	$payment_side = "Credit";

@@ -1128,7 +1128,7 @@ function booking_successfull_sms_send($m_mobile_no,$customer_id,$tour_id){
 		$contact = $sq_emp_info['mobile_no'];
 	}
 	
-	$whatsapp_msg = rawurlencode('Hello Dear '.$sq_customer['first_name'].',
+	$whatsapp_msg = rawurlencode('Dear '.$sq_customer['first_name'].',
 Hope you are doing great. This is to inform you that your booking is confirmed with us. We look forward to provide you a great experience.
 *Tour Name* : '.$tour_name.'
 *Travel Date* : '.get_date_user($tour_group1['from_date']).'

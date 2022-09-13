@@ -240,12 +240,12 @@ $(function(){
               return false; 
           }
           if(parseFloat(advance_amount) < parseFloat(payment_amount)){
-
             $('#payment_save').prop('disabled',false);error_msg_alert("Payment amount to be nullify should not be more than Advance"); return false; }
+          if(parseFloat(advance_amount) < parseFloat(advance_nullify)){ error_msg_alert("Amount to be nullify should not be more than Advance amount"); return false; }
         }
         console.log(debit_note_amount);
         if (payment_mode == "Debit Note" && debit_note_amount == '0') {
-          error_msg_alert("You don't have Debit Note Amount");
+          error_msg_alert("Debit Note Balance is not available");
           $('#payment_save').prop('disabled', false);
           return false;
         }

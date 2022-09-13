@@ -216,7 +216,7 @@ public function status_update($type){
 			$date_field = 'payment_date';
 		}
 
-		if($module_name=="Corporate Advance Payment"){ 
+		if($module_name=="Customer Advance"){ 
 			$table_name = 'corporate_advance_master';
 			$id_name = 'advance_id';
 			$date_field = 'payment_date';
@@ -501,10 +501,11 @@ public function status_update($type){
 		if($GLOBALS['flag']){
 
 			if($type === 'card' && $status == 'Cleared'){
-				$this->finance_Save($module_name,$module_entry_id,$payment_amount,$payment_date,$table_name,$id_name,$particular);
+				if($module_name != "Customer Advance"){
+					$this->finance_Save($module_name,$module_entry_id,$payment_amount,$payment_date,$table_name,$id_name,$particular);
+				}
 			}
 			echo "Status has been successfully saved.";
-
 			commit_t();
 			exit;
 		}

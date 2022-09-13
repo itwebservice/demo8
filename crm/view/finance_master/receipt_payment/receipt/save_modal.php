@@ -69,16 +69,19 @@ $branch_status = $_POST['branch_status'];
 							</div>
 						</div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <textarea id="narration" name="narration" class="form-control" placeholder="*Narration" title="Narration" rows="1" required></textarea>
 						    </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                   <div class="div-upload pull-left" id="div_upload_button">
                       <div id="payment_evidence_upload" class="upload-button1"><span>Payment Evidence</span></div>
                       <span id="payment_evidence_status" ></span>
                       <ul id="files" ></ul>
                       <input type="hidden" id="payment_evidence_url" name="payment_evidence_url">
                   </div>
+                </div>
+                <div class="col-xs-4"> 
+                  <div style="color: red;">Note : Upload : JPG, JPEG, PNG or PDF.</div>
                 </div>
             </div>
             <div class="row">
@@ -115,9 +118,9 @@ function payment_evidence_upload(offset='')
       onSubmit: function(file, ext){
 
         var id_proof_url = $("#payment_evidence_url"+offset).val();
-        if (!(ext && /^(jpg|png|jpeg)$/.test(ext))){ 
+        if (!(ext && /^(jpg|png|jpeg|pdf)$/.test(ext))){ 
           // extension is not allowed 
-          error_msg_alert('Only JPG, JPEG, PNG files are allowed');
+          error_msg_alert('Only JPG, JPEG, PNG or PDF files are allowed');
           return false;
         }
         status.text('Uploading...');
@@ -144,24 +147,33 @@ $('#frm_save').validate({
         payment_mode: {
           required: true
         },
-        transaction_id: {
-          required: function() {
-            if ($('#payment_mode').val() != "Cash") {
-              return true;
-            } else {
-              return false;
-            }
-          }
-        },
-        bank_id: {
-          required: function() {
-            if ($('#payment_mode').val() != "Cash") {
-              return true;
-            } else {
-              return false;
-            }
-          }
-        },
+        bank_name: {
+					required: function() {
+						if ($('#payment_mode').val() != "Cash" && $('#payment_amount').val() != '0') {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				},
+				transaction_id: {
+					required: function() {
+						if ($('#payment_mode').val() != "Cash") {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				},
+				bank_id: {
+					required: function() {
+						if ($('#payment_mode').val() != "Cash") {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				},
   },
   submitHandler:function(form){
 

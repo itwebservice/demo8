@@ -30,7 +30,7 @@ $year = $yr[0];
                        	<th>Adol</th>
                        	<th>Passport_Id</th>
                        	<th>Issue_Date</th>
-                       	<th>Expire_Date</th>
+                       	<th>Expiry_Date</th>
                        </tr>
                        </thead>
                        <tbody>

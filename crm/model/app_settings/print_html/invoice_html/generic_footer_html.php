@@ -38,7 +38,7 @@
 	<!-- <div class="border_block inv_rece_back_detail">
 		<div class="row">
 			<div class="col-md-12"><p class="border_lt"><span class="font_5">BANK NAME : </span>  ($branch_status=='yes' && $role!='Admin') ? $branch_details['bank_name'] : $bank_name_setting ?></p></div>
-			<div class="col-md-6"><p class="border_lt"><span class="font_5">A/C NAME : </span> ($branch_status=='yes' && $role!='Admin') ? $branch_details['acc_name'] : $acc_name ?></p></div>
+			<div class="col-md-6"><p class="border_lt"><span class="font_5">A/C TYPE : </span> ($branch_status=='yes' && $role!='Admin') ? $branch_details['acc_name'] : $acc_name ?></p></div>
 			<div class="col-md-6"><p class="border_lt"><span class="font_5">BRANCH : </span>($branch_status=='yes' && $role!='Admin') ? $branch_details['bank_branch_name'] : $bank_branch_name ?></p></div>
 			<div class="col-md-6"><p class="border_lt no-marg"><span class="font_5">A/C NO : </span> ($branch_status=='yes' && $role!='Admin') ? $branch_details['bank_acc_no'] : $bank_acc_no ?></p></div>
 			<div class="col-md-6"><p class="border_lt no-marg"><span class="font_5">IFSC : </span> ($branch_status=='yes' && $role!='Admin') ? $branch_details['ifsc_code'] : $bank_ifsc_code ?></p></div>

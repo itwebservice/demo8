@@ -129,7 +129,7 @@ public function bank_cash_book_save($payment_id,$branch_admin_id)
 	$payment_date = $payment_date;
 	$payment_amount = $payment_amount1;
 	$payment_mode = '';
-	$bank_name = $bank_name;
+	$bank_name = '';
 	$transaction_id = '';
 	$bank_id = $from_bank_id;
 	$particular = get_bank_transfer_particular($from_bank_id,$to_bank_id,$payment_date,$trans_type);
@@ -216,10 +216,6 @@ public function finance_update($entry_id)
 
     $payment_date1 = date('Y-m-d', strtotime($payment_date1));
 
-    //BANK Ledger
-    $sq_bank = mysqli_fetch_assoc(mysqlQuery("select * from ledger_master where customer_id='$bank_id' and user_type='bank'"));
-    $pay_gl = $sq_bank['ledger_id'];
-
     global $transaction_master;
     //from BANK Ledger
     $sq_bank = mysqli_fetch_assoc(mysqlQuery("select * from ledger_master where customer_id='$from_bank_id' and user_type='bank'"));
@@ -273,6 +269,7 @@ public function bank_cash_book_update($payment_id)
 	$lapse_date = $_POST['lapse_date'];
 	$payment_amount1 = $_POST['payment_amount'];
 	$payment_date = $_POST['payment_date'];
+	$payment_old_amount = $_POST['payment_old_amount'];
 	$branch_admin_id = $_SESSION['branch_admin_id'];
 
 	$payment_date = date("Y-m-d", strtotime($payment_date));
@@ -286,7 +283,7 @@ public function bank_cash_book_update($payment_id)
 		$payment_date = $payment_date;
 		$payment_amount = $payment_amount1;
 		$payment_mode = '';
-		$bank_name = $bank_name;
+		$bank_name = '';
 		$transaction_id = '';
 		$bank_id1 = $from_bank_id;
 		$particular = get_bank_transfer_particular($from_bank_id,$to_bank_id,$payment_date,$trans_type);

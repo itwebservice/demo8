@@ -5,7 +5,7 @@ $branch_status = $_POST['branch_status'];
 <div class="row text-right mg_bt_20">
 	<div class="col-md-12">
 		<button class="btn btn-excel btn-sm" onclick="excel_report()" data-toggle="tooltip" title="Generate Excel"><i class="fa fa-file-excel-o"></i></button>&nbsp;&nbsp;
-		<button class="btn btn-info btn-sm ico_left" onclick="save_modal()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Advance</button>
+		<button class="btn btn-info btn-sm ico_left" onclick="save_modal()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Supplier Advance</button>
 	</div>
 </div>
 
@@ -27,7 +27,7 @@ $branch_status = $_POST['branch_status'];
 		<div id="div_vendor_type_content2"></div>
 		<div class="row">
 			<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
-				<select name="financial_year_id_filter" id="financial_year_id_filter" title="Financial Year">
+				<select name="financial_year_id_filter" id="financial_year_id_filter" title="Select Financial Year">
 					<?php get_financial_year_dropdown(); ?>
 				</select>
 			</div>

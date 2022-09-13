@@ -8,26 +8,11 @@ include "array_column.php";
 
 // LIVE Cache file reading
 
-$cached_array = getDataCache('https://' . $_SERVER['SERVER_NAME'] . '/crm/view/b2c_cache.php');
+$cached_array = json_decode(file_get_contents('https://' . $_SERVER['SERVER_NAME'] . '/crm/view/b2c_cache.php'));
 
-function getDataCache($url)
-{
-  $ch = curl_init();
-// Disable SSL verification
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// Will return the response, if false it print the response
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// Set the url
-curl_setopt($ch, CURLOPT_URL,$url);
-// Execute
-$result=curl_exec($ch);
-// Will dump a beauty json <3
-$fr=json_decode($result);
-  return $fr;
-}
 // LOCAL Cache file readingc
 
-// $cached_array = json_decode(file_get_contents('http://'.$_SERVER['SERVER_NAME'] . '/b2c-theme-1/crm/view/b2c_cache.php'));
+// $cached_array = json_decode(file_get_contents('http://localhost/itours_git/demo8/crm/view/b2c_cache.php'));
 
 
 

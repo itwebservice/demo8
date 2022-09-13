@@ -48,7 +48,7 @@ $enable = ($sq_rp['payment_mode']=="Cash" || $sq_rp['payment_mode']=="Credit Not
 								<input type="text" id="payment_date" name="payment_date" placeholder="*Date" title="Date" value="<?= get_date_user($sq_rp['payment_date']) ?>" onchange="check_valid_date(this.id)" readonly>
 							</div>
 							<div class="col-md-4 col-sm-6 col-xs-12">
-								<select name="payment_mode" id="payment_mode" title="Mode" onchange="payment_master_toggles(this.id, 'bank_name', 'transaction_id', 'bank_id');" disabled>
+								<select name="payment_mode" id="payment_mode" title="Mode" onchange="payment_master_toggles(this.id, 'bank_name1', 'transaction_id1', 'bank_id1');" disabled>
                   <option value="<?=$sq_rp['payment_mode']?>"><?= $sq_rp['payment_mode'] ?></option> 
                   <option value="">*Mode</option>
                   <option value="Cash"> Cash </option>
@@ -67,10 +67,10 @@ $enable = ($sq_rp['payment_mode']=="Cash" || $sq_rp['payment_mode']=="Credit Not
 						</div>
 						<div class="row mg_bt_10">
 							<div class="col-md-4 col-sm-6 col-xs-12">
-								<input type="text" id="bank_name" name="bank_name" placeholder="Bank Name" class="bank_suggest" title="Bank Name" value="<?= $sq_rp['bank_name'] ?>" <?=$enable?>>
+								<input type="text" id="bank_name1" name="bank_name" placeholder="Bank Name" class="bank_suggest" title="Bank Name" value="<?= $sq_rp['bank_name'] ?>" <?=$enable?>>
 							</div>
 							<div class="col-md-4 col-sm-6 col-xs-12">
-								<input type="text" id="transaction_id" name="transaction_id" onchange="validate_specialChar(this.id)" placeholder="Cheque No/ID" title="Cheque No/ID" value="<?= $sq_rp['transaction_id'] ?>" <?=$enable?>>
+								<input type="text" id="transaction_id1" name="transaction_id" onchange="validate_specialChar(this.id)" placeholder="Cheque No/ID" title="Cheque No/ID" value="<?= $sq_rp['transaction_id'] ?>" <?=$enable?>>
 							</div>
 							<div class="col-md-4 col-sm-6 col-xs-12">
 								<select name="bank_id" id="bank_id1" title="Select Bank" class='form-control' style="width:100%" <?=$enable?> disabled>
@@ -89,16 +89,19 @@ $enable = ($sq_rp['payment_mode']=="Cash" || $sq_rp['payment_mode']=="Credit Not
 							</div>
 						</div>
             <div class="row">
-                <div class="col-md-8">
-                    <textarea id="narration" name="narration" class="form-control" placeholder="*Narration" title="Narration" rows="1" required><?= $sq_rp['narration'] ?></textarea>
+                <div class="col-md-6">
+                    <textarea id="narration1" name="narration" class="form-control" placeholder="*Narration" title="Narration" rows="1" required><?= $sq_rp['narration'] ?></textarea>
 						    </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                   <div class="div-upload pull-left" id="div_upload_button">
                       <div id="payment_evidence_upload1" class="upload-button1"><span>Payment Evidence</span></div>
                       <span id="payment_evidence_status" ></span>
                       <ul id="files" ></ul>
                       <input type="hidden" value="<?=$sq_rp['url']?>" id="payment_evidence_url1" name="payment_evidence_url">
                   </div>
+                </div>
+                <div class="col-xs-4"> 
+                  <div style="color: red;">Note : Upload : JPG, JPEG, PNG or PDF.</div>
                 </div>
             </div>
 
@@ -130,9 +133,9 @@ function payment_evidence_upload1(offset='')
       onSubmit: function(file, ext){
 
         var id_proof_url = $("#payment_evidence_url"+offset).val();
-        if (!(ext && /^(jpg|png|jpeg)$/.test(ext))){ 
+        if (!(ext && /^(jpg|png|jpeg|pdf)$/.test(ext))){ 
           // extension is not allowed 
-          error_msg_alert('Only JPG, JPEG, PNG files are allowed');
+          error_msg_alert('Only JPG, JPEG, PNG or PDF files are allowed');
           return false;
         }
         status.text('Uploading...');
@@ -159,24 +162,33 @@ $('#rpfrm_update').validate({
         payment_mode: {
           required: true
         },
-        transaction_id: {
-          required: function() {
-            if ($('#payment_mode').val() != "Cash") {
-              return true;
-            } else {
-              return false;
-            }
-          }
-        },
-        bank_id: {
-          required: function() {
-            if ($('#payment_mode').val() != "Cash") {
-              return true;
-            } else {
-              return false;
-            }
-          }
-        },
+        bank_name: {
+					required: function() {
+						if ($('#payment_mode').val() != "Cash" && $('#payment_amount').val() != '0') {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				},
+				transaction_id: {
+					required: function() {
+						if ($('#payment_mode').val() != "Cash") {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				},
+				bank_id: {
+					required: function() {
+						if ($('#payment_mode').val() != "Cash") {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				},
   },
   submitHandler:function(form){
 
@@ -189,9 +201,9 @@ $('#rpfrm_update').validate({
     var payment_mode = $('#payment_mode').val();
     var payment_amount = $('#payment_amount1').val();
     var bank_id = $('#bank_id1').val();
-    var bank_name = $('#bank_name').val();
-    var transaction_id = $('#transaction_id').val();
-    var narration = $('#narration').val();
+    var bank_name = $('#bank_name1').val();
+    var transaction_id = $('#transaction_id1').val();
+    var narration = $('#narration1').val();
     var payment_evidence_url = $('#payment_evidence_url1').val();
     var entry_id = $('#entry_id').val();
     var old_amount = $('#old_amount').val();

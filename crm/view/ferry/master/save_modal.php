@@ -88,6 +88,7 @@ upload_ferry_image();
 function upload_ferry_image(){
     
     var img_array = [];
+    $("#ferry_image_urls").val('');
     var btnUpload=$('#image_upload_btn');
     $(btnUpload).find('span').text('Ferry/Cruise Image');
     new AjaxUpload(btnUpload, {

@@ -1139,7 +1139,7 @@ public function whatsapp_send(){
 	else{
 		$contact = $sq_emp_info['mobile_no'];
 	}
-	$whatsapp_msg = rawurlencode('Hello Dear '.$name['first_name'].',
+	$whatsapp_msg = rawurlencode('Dear '.$name['first_name'].',
 Hope you are doing great. This is to inform you that your booking is confirmed with us. We look forward to provide you a great experience.
 *Tour Name* : '.$tour_name.'
 *Travel Date* : '.$tour_date.'

@@ -419,12 +419,13 @@ table th, .modal table.dataTable th{
     display : inline-block;
 }
 .transportDetails_costing table tr th {
-    color: #ffffff !important;
-    background-color: #51514f !important;
+    color: #000000 !important;
+    background-color: #d2d2d2 !important;
     text-align:left !important;
 }
 .transportDetails_costing table tr td {
-    color: #ffffff !important;
+    color: #000000 !important;
+    text-align:left !important;
 }
 .vitinerary_div h6{
     color: black !important;

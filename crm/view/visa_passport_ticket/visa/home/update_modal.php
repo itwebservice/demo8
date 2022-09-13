@@ -9,23 +9,23 @@ $sq_visa_info = mysqli_fetch_assoc(mysqlQuery("select * from visa_master where v
 $reflections = json_decode($sq_visa_info['reflections']);
 ?>
 <div class="modal fade" id="visa_update_modal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document" style="min-width: 90%;">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Update Visa</h4>
-      </div>
-      <div class="modal-body">
-	  <input type="hidden" id="booking_id" name="booking_id" value="<?= $visa_id ?>">
+	<div class="modal-dialog" role="document" style="min-width: 90%;">
+		<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Update Visa Booking</h4>
+		</div>
+		<div class="modal-body">
+		<input type="hidden" id="booking_id" name="booking_id" value="<?= $visa_id ?>">
         <input type="hidden" id="hotel_sc" name="hotel_sc" value="<?php echo $reflections[0]->hotel_sc ?>">
         <input type="hidden" id="hotel_markup" name="hotel_markup" value="<?php echo $reflections[0]->hotel_markup ?>">
         <input type="hidden" id="hotel_taxes" name="hotel_taxes" value="<?php echo $reflections[0]->hotel_taxes ?>">
         <input type="hidden" id="hotel_markup_taxes" name="hotel_markup_taxes" value="<?php echo $reflections[0]->hotel_markup_taxes ?>">
         <input type="hidden" id="hotel_tds" name="hotel_tds" value="<?php echo $reflections[0]->hotel_tds ?>">
 
-      	<form id="frm_visa_update" name="frm_visa_save">
+			<form id="frm_visa_update" name="frm_visa_save">
 
-      		<input type="hidden" id="visa_id_hidden" name="visa_id_hidden" value="<?= $visa_id ?>">
+			<input type="hidden" id="visa_id_hidden" name="visa_id_hidden" value="<?= $visa_id ?>">
         
 	        <div class="panel panel-default panel-body fieldset">
 	        	<legend>Customer Details</legend>
@@ -64,7 +64,7 @@ $reflections = json_decode($sq_visa_info['reflections']);
 	        <div class="panel panel-default panel-body fieldset mg_tp_30">
 	        	<legend>Passenger Details</legend>
 				
-				 <div class="row mg_bt_10">
+				<div class="row mg_bt_10">
 	                <div class="col-xs-12 text-right text_center_xs">
 	                    <button type="button" class="btn btn-info btn-sm ico_left" onClick="addRow('tbl_dynamic_visa_update')"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add</button>
 	                </div>
@@ -75,26 +75,26 @@ $reflections = json_decode($sq_visa_info['reflections']);
 	                    <div class="table-responsive">
 	                    <?php $offset = ""; ?>
 	                    <table id="tbl_dynamic_visa_update" name="tbl_dynamic_visa_update" class="table table-bordered no-marg" style="min-width:1500px">
-	                       <?php 
-	                       $offset = "_u";
-	                       $sq_entry_count = mysqli_num_rows(mysqlQuery("select * from visa_master_entries where visa_id='$visa_id'"));
-	                       if($sq_entry_count==0){
-	                       		include_once('visa_member_tbl.php');	
-	                       }
-	                       else{
-	                       		$count = 0;
-	                       		$bg="";
-	                       		$sq_entry = mysqlQuery("select * from visa_master_entries where visa_id='$visa_id'");
-	                       		while($row_entry = mysqli_fetch_assoc($sq_entry)){
-	                       			 if($row_entry['status']=='Cancel'){
-						            	$bg="danger";
-						            }else
-						            {
-						            	$bg="FFF";
-						            }
-	                       			$count++;
-	                       			?>
-									 <tr class="<?= $bg ?>">
+						<?php 
+						$offset = "_u";
+						$sq_entry_count = mysqli_num_rows(mysqlQuery("select * from visa_master_entries where visa_id='$visa_id'"));
+						if($sq_entry_count==0){
+							include_once('visa_member_tbl.php');	
+						}
+						else{
+							$count = 0;
+							$bg="";
+							$sq_entry = mysqlQuery("select * from visa_master_entries where visa_id='$visa_id'");
+							while($row_entry = mysqli_fetch_assoc($sq_entry)){
+									if($row_entry['status']=='Cancel'){
+									$bg="danger";
+								}else
+								{
+									$bg="FFF";
+								}
+								$count++;
+								?>
+									<tr class="<?= $bg ?>">
 									    <td><input class="css-checkbox" id="chk_visa<?= $offset.$count ?>_d" type="checkbox" checked disabled><label class="css-label" for="chk_visa<?= $offset ?>"> <label></td>
 									    <td><input maxlength="15" value="<?= $count ?>" type="text" name="username" placeholder="Sr. No." class="form-control" disabled /></td>
 									    <td><input type="text" id="first_name<?= $offset.$count ?>_d" onchange="fname_validate(this.id)" name="first_name<?= $offset.$count ?>_d" placeholder="First Name" title="First Name" value="<?= $row_entry['first_name'] ?>" /></td>
@@ -464,7 +464,7 @@ $('#frm_visa_update').validate({
 
 					if(first_name==""){ msg +="First name is required in row:"+(i+1)+"<br>"; }
 					if(visa_country_name==""){ msg +="Visa Country name is required in row:"+(i+1)+"<br>"; }
-					if(passport_id==""){ msg +="Visa Country name is required in row:"+(i+1)+"<br>"; }
+					if(passport_id==""){ msg +="Passport no is required in row:"+(i+1)+"<br>"; }
 					if(visa_type==""){ msg +="Visa Type is required in row:"+(i+1)+"<br>"; }
 					if(nationality==""){ msg +="Nationality is required in row:"+(i+1)+"<br>"; }
 					if(!isInArray(passport_id, passport_id_arr)){ msg +="Passport no duplicated in row:"+(i+1)+"<br>"; }

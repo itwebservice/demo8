@@ -314,6 +314,7 @@ public function payment_update()
 public function finance_update($sq_payment_info, $clearance_status1)
 {
 	$row_spec = 'sales';
+	$branch_admin_id = $_SESSION['branch_admin_id'];
 	$payment_id = $_POST['payment_id'];
 	$booking_id = $_POST['booking_id'];
 	$payment_date = $_POST['payment_date'];
@@ -358,7 +359,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 			$transaction_id = $transaction_id1;
 			$payment_amount = $credit_charges_old;
 			$payment_date = $payment_date;
-			$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $credit_charges_old, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id1,$transaction_id1);
+			$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $credit_charges_old, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id,$transaction_id1);
 			$ledger_particular = get_ledger_particular('By','Cash/Bank');
 			$gl_id = $cust_gl;
 			$payment_side = "Credit";
@@ -371,7 +372,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 			$transaction_id = $transaction_id1;
 			$payment_amount = $credit_charges_old;
 			$payment_date = $payment_date;
-			$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $credit_charges_old, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id1,$transaction_id1);
+			$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $credit_charges_old, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id,$transaction_id1);
 			$ledger_particular = get_ledger_particular('By','Cash/Bank');
 			$gl_id = 224;
 			$payment_side = "Debit";
@@ -399,7 +400,7 @@ $finance_charges = number_format($finance_charges,2);
 			$transaction_id = $transaction_id1;
 			$payment_amount = $finance_charges;
 			$payment_date = $payment_date;
-			$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $finance_charges, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id1,$transaction_id1);
+			$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $finance_charges, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id,$transaction_id1);
 			$ledger_particular = get_ledger_particular('By','Cash/Bank');
 			$gl_id = 231;
 			$payment_side = "Credit";
@@ -425,7 +426,7 @@ $finance_charges = number_format($finance_charges,2);
 			$transaction_id = $transaction_id1;
 			$payment_amount = $payment_old_value;
 			$payment_date = $payment_date;
-			$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $payment_amount1, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id1,$transaction_id1);
+			$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $payment_amount1, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id,$transaction_id1);
 			$ledger_particular = get_ledger_particular('By','Cash/Bank');
 			$gl_id = $pay_gl;
 			$payment_side = "Credit";
@@ -439,7 +440,7 @@ $finance_charges = number_format($finance_charges,2);
 		$transaction_id = $transaction_id1;
 		$payment_amount = $payment_old_value;
 		$payment_date = $payment_date;
-		$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $payment_amount1, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id1,$transaction_id1);
+		$payment_particular = get_sales_paid_particular(get_forex_booking_id($booking_id,$yr1), $payment_date, $payment_amount1, $customer_id, $payment_mode, get_forex_booking_id($booking_id,$yr1),$bank_id,$transaction_id1);
 		$ledger_particular = get_ledger_particular('By','Cash/Bank');
 		$gl_id = $cust_gl;
 		$payment_side = "Debit";
@@ -587,7 +588,7 @@ else{
 
 $sq_customer = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id=".$sq_forex_info['customer_id']));
 $contact_no = $encrypt_decrypt->fnDecrypt($sq_customer['contact_no'], $secret_key);
-$whatsapp_msg = rawurlencode('Hello Dear '.$sq_customer['first_name'].',
+$whatsapp_msg = rawurlencode('Dear '.$sq_customer['first_name'].',
 Hope you are doing great. This is to inform you that we have received your payment. We look forward to provide you a great experience.
 *Total Amount* : '.$currency_logo.' '.number_format($total_amount,2).'
 *Paid Amount* : '.$currency_logo.' '.number_format($total_pay_amt,2).'

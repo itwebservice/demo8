@@ -68,7 +68,7 @@ public function quotation_email()
 		}
 
 		$quotation_cost = currency_conversion($currency,$sq_quotation['currency_code'],$sq_quotation['quotation_cost']);
-		$whatsapp_msg = rawurlencode('Hello Dear '.$sq_quotation['customer_name'].',
+		$whatsapp_msg = rawurlencode('Dear '.$sq_quotation['customer_name'].',
 Hope you are doing great. This is group tour quotation details as per your request. We look forward to having you onboard with us.
 *Destination Name* : '.$sq_quotation['tour_name'].'
 *Duration* : '.($sq_quotation['total_days']-1).'N/'.$sq_quotation['total_days'].'D'.'

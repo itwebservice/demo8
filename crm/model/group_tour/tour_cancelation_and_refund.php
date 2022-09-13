@@ -21,7 +21,7 @@ public function cancel_tour_group($tour_id, $tour_group_id)
 
   if($GLOBALS['flag']){
     commit_t();
-    echo "Tour has been successfully Cancelled.";
+    echo "Group Tour has been successfully Cancelled.";
     exit;  
   }
   else{

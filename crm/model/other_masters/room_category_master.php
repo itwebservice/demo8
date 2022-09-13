@@ -1,4 +1,4 @@
-<?php 
+<?php
 class room_category_master{
 
 public function category_save()
@@ -6,7 +6,7 @@ public function category_save()
 	$room_category = $_POST['room_category'];
 	$status = $_POST['status'];
 
-	$room_category1 = addslashes($room_category);
+	$room_category1 = trim(addslashes($room_category));
 	$sq_count = mysqli_num_rows(mysqlQuery("select entry_id from room_category_master where room_category='$room_category1'"));
 	if($sq_count>0){
 		echo "error--".$room_category1." already exists!";
@@ -32,9 +32,8 @@ public function category_update()
 	$room_category = $_POST['room_category'];
 	$active_flag = $_POST['status'];
 
-	$room_category1 = addslashes($room_category);
-	$q = "select * from room_category_master where room_category='$room_category1' and entry_id!='$entry_id'";
-	$sq_count = mysqli_num_rows(mysqlQuery($q));
+	$room_category1 = trim(addslashes($room_category));
+	$sq_count = mysqli_num_rows(mysqlQuery("select * from room_category_master where room_category='$room_category1' and entry_id!='$entry_id'"));
 
 	if($sq_count>0){
 		echo "error--".$room_category1." already exists!";

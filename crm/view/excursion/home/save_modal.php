@@ -1,4 +1,5 @@
 <?php
+include "../../../model/model.php";
 $role = $_SESSION['role'];
 $branch_admin_id = $_SESSION['branch_admin_id'];
 $sq = mysqli_fetch_assoc(mysqlQuery("select * from branch_assign where link='excursion/index.php'"));
@@ -27,23 +28,23 @@ $branch_status = $sq['branch_status'];
 
 	        	<div class="row">
 	        		<div class="col-md-3 col-sm-4 col-xs-12 mg_bt_10_sm_xs">
-	        			<select name="customer_id" id="customer_id" class="customer_dropdown" title="Customer Name" style="width:100%" onchange="customer_info_load();get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge');">
+	        			<select name="customer_id" id="customer_id" class="form-control customer_dropdown" title="Customer Name" style="width:100%" onchange="customer_info_load();get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge');">
 	        				<?php get_new_customer_dropdown($role,$branch_admin_id,$branch_status); ?>
 	        			</select>
 	        		</div>
 	        		<div id="new_cust_div"></div>
 	        		<div id="cust_details">	        
 	        		<div class="col-md-3 col-sm-4 col-xs-12 mg_bt_10_sm_xs">
-	                	<input type="text" id="email_id" name="email_id" title="Email Id" placeholder="Email ID" title="Email ID" readonly>
+	                	<input class="form-control" type="text" id="email_id" name="email_id" title="Email Id" placeholder="Email ID" title="Email ID" readonly>
 	                </div>		
 	        		<div class="col-md-3 col-sm-4 col-xs-12 mg_bt_10_sm_xs">
-	                	<input type="text" id="mobile_no" name="mobile_no" title="Mobile Number" placeholder="Mobile No" title="Mobile No" readonly>
+	                	<input class="form-control" type="text" id="mobile_no" name="mobile_no" title="Mobile Number" placeholder="Mobile No" title="Mobile No" readonly>
 	                </div>  
 	                <div class="col-md-3 col-sm-4 col-xs-12">
-	                	<input type="text" id="company_name" class="hidden" name="company_name" title="Company Name" placeholder="Company Name" title="Company Name" readonly>
+	                	<input class="form-control hidden" type="text" id="company_name" name="company_name" title="Company Name" placeholder="Company Name" title="Company Name" readonly>
 	                </div> 
 	                <div class="col-md-3 col-sm-4 col-xs-12">
-	                	<input type="text" id="credit_amount" class="hidden" name="credit_amount" placeholder="Credit Note Balance" title="Credit Note Balance" readonly>
+	                	<input class="form-control hidden" type="text" id="credit_amount" name="credit_amount" placeholder="Credit Note Balance" title="Credit Note Balance" readonly>
 	                </div> 
 	                </div>
 	        	</div>
@@ -78,37 +79,37 @@ $branch_status = $sq['branch_status'];
 	        	<div class="row mg_bt_10">
 	        		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
 					<small id="basic_show" style="color:red">&nbsp;</small>
-		        		<input type="text" id="exc_issue_amount" name="exc_issue_amount" placeholder="*Amount" title="Amount" onchange="validate_balance(this.id);get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','basic','basic');">
+		        		<input class="form-control" type="text" id="exc_issue_amount" name="exc_issue_amount" placeholder="*Amount" title="Amount" onchange="validate_balance(this.id);get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','basic','basic');">
 		        	</div>
 		        	<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
 					<small id="service_show" style="color:red">&nbsp;</small>
-		        		<input type="text" name="service_charge" id="service_charge" placeholder="Service Charge" title="Service Charge" onchange="validate_balance(this.id);get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge',true);">
+		        		<input class="form-control" type="text" name="service_charge" id="service_charge" placeholder="Service Charge" title="Service Charge" onchange="validate_balance(this.id);get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge',true);">
 		        	</div>	
 	        		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
 					<small>&nbsp;</small>
-				        <input type="text" id="service_tax_subtotal" name="service_tax_subtotal" placeholder="Tax Amount" title="Tax Amount" readonly>
+				        <input class="form-control" type="text" id="service_tax_subtotal" name="service_tax_subtotal" placeholder="Tax Amount" title="Tax Amount" readonly>
 	        		</div>
 					<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
 						<small id="markup_show" style="color:red">&nbsp;</small>
-        				<input type="text" id="markup" name="markup" placeholder="Markup Cost" title="Markup Cost" onchange="get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','false','markup', true);validate_balance(this.id)">
+        				<input class="form-control" type="text" id="markup" name="markup" placeholder="Markup Cost" title="Markup Cost" onchange="get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','false','markup', true);validate_balance(this.id)">
             		</div>
 					<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10_xs">
-                		<input type="text" id="service_tax_markup" name="service_tax_markup" placeholder="Tax on Markup" title="Tax on Markup" readonly>
+                		<input class="form-control" type="text" id="service_tax_markup" name="service_tax_markup" placeholder="Tax on Markup" title="Tax on Markup" readonly>
             		</div>
 					<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
-						<input type="text" name="roundoff" id="roundoff" class="text-right" placeholder="Round Off" title="RoundOff" readonly>
+						<input class="form-control" type="text" name="roundoff" id="roundoff" class="text-right" placeholder="Round Off" title="RoundOff" readonly>
 					</div> 
 	        		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10_xs">
-	        			<input type="text" name="exc_total_cost" id="exc_total_cost" class="amount_feild_highlight text-right" placeholder="Net Total" title="Net Total" readonly>
+	        			<input class="form-control" type="text" name="exc_total_cost" id="exc_total_cost" class="amount_feild_highlight text-right" placeholder="Net Total" title="Net Total" readonly>
 	        		</div>
 	        		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
-	        			<input type="text" name="due_date" id="due_date" placeholder="Due Date" title="Due Date" value="<?= date('d-m-Y') ?>">
+	        			<input class="form-control" type="text" name="due_date" id="due_date" placeholder="Due Date" title="Due Date" value="<?= date('d-m-Y') ?>">
 	        		</div>
 	        		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10_xs">
-	        			<input type="text" name="balance_date" id="balance_date" value="<?= date('d-m-Y') ?>" placeholder="Booking Date" title="Booking Date" onchange="check_valid_date(this.id);get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge',true);">
+	        			<input class="form-control" type="text" name="balance_date" id="balance_date" value="<?= date('d-m-Y') ?>" placeholder="Booking Date" title="Booking Date" onchange="check_valid_date(this.id);get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge',true);">
 	        		</div>
 					<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10_xs">
-						<select name="currency_code" id="acurrency_code" title="Currency" style="width:100%" data-toggle="tooltip" required>
+						<select class="form-control" name="currency_code" id="acurrency_code" title="Currency" style="width:100%" data-toggle="tooltip" required>
 							<?php
 							$sq_app_setting = mysqli_fetch_assoc(mysqlQuery("select currency from app_settings"));
 							if($sq_app_setting['currency']!='0'){
@@ -133,38 +134,38 @@ $branch_status = $sq['branch_status'];
 				
 				<div class="row">
 					<div class="col-md-4 col-sm-6 col-xs-12 mg_bt_10">
-						<input type="text" id="payment_date" name="payment_date" placeholder="Date" title="Date" value="<?= date('d-m-Y')?>" onchange="check_valid_date(this.id)">
+						<input class="form-control" type="text" id="payment_date" name="payment_date" placeholder="Date" title="Date" value="<?= date('d-m-Y')?>" onchange="check_valid_date(this.id)">
 					</div>
 					<div class="col-md-4 col-sm-6 col-xs-12 mg_bt_10">
-						<select name="payment_mode" id="payment_mode" title="Mode" onchange="get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge',true);payment_master_toggles(this.id, 'bank_name', 'transaction_id', 'bank_id');get_identifier_block('identifier','payment_mode','credit_card_details','credit_charges');get_credit_card_charges('identifier','payment_mode','payment_amount','credit_card_details','credit_charges');">
+						<select class="form-control" name="payment_mode" id="payment_mode" title="Mode" onchange="get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge',true);payment_master_toggles(this.id, 'bank_name', 'transaction_id', 'bank_id');get_identifier_block('identifier','payment_mode','credit_card_details','credit_charges');get_credit_card_charges('identifier','payment_mode','payment_amount','credit_card_details','credit_charges');">
 							<?php get_payment_mode_dropdown(); ?>
 						</select>
 					</div>
 					<div class="col-md-4 col-sm-6 col-xs-12 mg_bt_10">
-						<input type="text" id="payment_amount" name="payment_amount" placeholder="*Amount" title="Amount" onchange="payment_amount_validate(this.id,'payment_mode','transaction_id','bank_name','bank_id');validate_balance(this.id);get_credit_card_charges('identifier','payment_mode','payment_amount','credit_card_details','credit_charges');">
+						<input class="form-control" type="text" id="payment_amount" name="payment_amount" placeholder="*Amount" title="Amount" onchange="payment_amount_validate(this.id,'payment_mode','transaction_id','bank_name','bank_id');validate_balance(this.id);get_credit_card_charges('identifier','payment_mode','payment_amount','credit_card_details','credit_charges');">
 					</div>
 					</div>
 					<div class="row mg_bt_10">
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<input class="hidden" type="text" id="credit_charges" name="credit_charges" title="Credit card charges" disabled>
+							<input class="hidden form-control" type="text" id="credit_charges" name="credit_charges" title="Credit card charges" disabled>
 						</div>
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<select class="hidden" id="identifier" onchange="get_credit_card_data('identifier','payment_mode','credit_card_details')" title="Identifier(4 digit)" required
+							<select class="hidden form-control" id="identifier" onchange="get_credit_card_data('identifier','payment_mode','credit_card_details')" title="Identifier(4 digit)" required
 							><option value=''>Select Identifier</option></select>
 						</div>
 						<div class="col-md-4 col-sm-6 col-xs-12">
-							<input class="hidden" type="text" id="credit_card_details" name="credit_card_details" title="Credit card details" disabled>
+							<input class="form-control hidden" type="text" id="credit_card_details" name="credit_card_details" title="Credit card details" disabled>
 						</div>
 					</div>
 					<div class="row mg_bt_10">
 					<div class="col-md-4 col-sm-6 col-xs-12 mg_bt_10">
-						<input type="text" id="bank_name" name="bank_name" onchange="fname_validate(this.id)" placeholder="Bank Name" class="bank_suggest" title="Bank Name" readonly>
+						<input class="form-control" type="text" id="bank_name" name="bank_name" onchange="fname_validate(this.id)" placeholder="Bank Name" class="bank_suggest" title="Bank Name" readonly>
 					</div>
 					<div class="col-md-4 col-sm-6 col-xs-12 mg_bt_10">
-						<input type="text" id="transaction_id" name="transaction_id" onchange="validate_specialChar(this.id)" placeholder="Cheque No/ID" title="Cheque No/ID" readonly>
+						<input class="form-control" type="text" id="transaction_id" name="transaction_id" onchange="validate_specialChar(this.id)" placeholder="Cheque No/ID" title="Cheque No/ID" readonly>
 					</div>
 					<div class="col-md-4 col-sm-6 col-xs-12">
-			            <select name="bank_id" id="bank_id" title="Select Bank" disabled>
+			            <select class="form-control" name="bank_id" id="bank_id" title="Select Bank" disabled>
 			            	<?php get_bank_dropdown(); ?>
 			            </select>
 			        </div>
@@ -190,6 +191,7 @@ $branch_status = $sq['branch_status'];
 
 <script src="js/calculation.js"></script>
 <script>
+$('#exc_save_modal').modal('show');
 $('#payment_date, #due_date,#balance_date').datetimepicker({ timepicker:false, format:'d-m-Y' });
 $('#acurrency_code').select2();
 
@@ -285,7 +287,7 @@ $('#frm_exc_save').validate({
 			if(payment_mode=="Credit Note" && credit_amount != ''){ 
 	        	if(parseFloat(payment_amount) > parseFloat(credit_amount)) { error_msg_alert('Low Credit note balance'); $('#btn_exc_master_save').prop('disabled',false); return false; }
 	        }else if(payment_mode=="Credit Note" && credit_amount == ''){
-				error_msg_alert("You don't have Credit Note Amount"); $('#btn_exc_master_save').prop('disabled',false); return false;
+				error_msg_alert("Credit Note Balance is not available"); $('#btn_exc_master_save').prop('disabled',false); return false;
 			}
 	        if(parseFloat(payment_amount)>parseFloat(exc_total_cost)){
 			error_msg_alert("Payment amount cannot be greater than selling amount.");
@@ -334,8 +336,8 @@ $('#frm_exc_save').validate({
 				  if(city_id==""){ msg +="City name is required in row:"+(i+1)+"<br>"; }
 				  if(exc_name==""){ msg +="Activity Name is required in row:"+(i+1)+"<br>"; }
 				  if(transfer_option==""){ msg +="Transfer option is required in row:"+(i+1)+"<br>"; }
-				  if(total_adult==""){ msg +="Total Adult is required in row:"+(i+1)+"<br>"; }
-				  if(total_child==""){ msg +="Total Children is required in row:"+(i+1)+"<br>"; }
+				  if(total_adult==""){ msg +="Total Adult(s) is required in row:"+(i+1)+"<br>"; }
+				  if(total_child==""){ msg +="Total Child(ren) is required in row:"+(i+1)+"<br>"; }
 
 	              if(msg!=""){
 	                error_msg_alert(msg);

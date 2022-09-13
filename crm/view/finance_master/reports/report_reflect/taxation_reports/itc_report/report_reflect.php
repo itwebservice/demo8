@@ -46,7 +46,7 @@ while($row_query = mysqli_fetch_assoc($sq_query))
 		}
 	}
 	//Taxable amount
-	$taxable_amount = ($service_tax_amount / $tax_per) * 100;
+	$taxable_amount = ($tax_per!=0) ? ($service_tax_amount / $tax_per) * 100 : 0;
 	$tax_total += $service_tax_amount;
 	$temp_arr = array( "data" => array(
 		(int)($count++),

@@ -80,9 +80,12 @@ $sq_inc = mysqli_fetch_assoc(mysqlQuery("select * from inclusions_exclusions_mas
             <div class="col-sm-6 mg_bt_10">
 
               <select name="tour_type" id="tour_type" title="Tour Type">
-
-                <option value="<?=$sq_inc['tour_type'] ?>"><?=$sq_inc['tour_type'] ?></option>
-
+                <?php
+                if($sq_inc['tour_type']!=''){
+                ?>
+                  <option value="<?=$sq_inc['tour_type'] ?>"><?=$sq_inc['tour_type'] ?></option>
+                <?php } ?>
+                <option value="">Tour Type</option>
                 <option value="Domestic">Domestic</option>
 
                 <option value="International">International</option>
@@ -143,7 +146,7 @@ $('#frm_update').validate({
 
             inclusion : { required : true },
 
-            tour_type : { required : true },
+            // tour_type : { required : true },
 
             active_flag : { required : true },
 
@@ -171,6 +174,13 @@ $('#frm_update').validate({
 
         var for_value = $('#for_value1').val();
 
+        if(for_value == 'Group' || for_value == 'Package' || for_value == 'Both'){
+          if(tour_type==''){
+            error_msg_alert('Select tour type!');
+            $('#btn_update').button('reset');
+            return false;
+          }
+        }
         $('#btn_update').button('loading');
 
 

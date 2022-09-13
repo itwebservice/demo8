@@ -103,7 +103,7 @@ else{
 // Add some data
 $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('B2', 'Report Name')
-            ->setCellValue('C2', 'Supplier Advance')
+            ->setCellValue('C2', 'PrePurchase Advances')
             ->setCellValue('B3', 'Supplier Type')
             ->setCellValue('C3', $vendor_str)
             ->setCellValue('B4', 'Supplier Name')

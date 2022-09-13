@@ -43,7 +43,7 @@ table.table{
 
 @media print {
     .panel-footer, .panel-heading, table tr.table-heading-row th, table tfoot tr td, table.gst_invoice tr.hightlited_row td{
-    	    background-color: #ebebeb !important;
+    	    background-color: #d2d2d2 !important;
         -webkit-print-color-adjust: exact; 
     }
     table.gst_invoice{

@@ -145,7 +145,7 @@ $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('D'.$row_count, "Date")
         ->setCellValue('E'.$row_count, "Amount")
         ->setCellValue('F'.$row_count, "Payment Mode")
-        ->setCellValue('G'.$row_count, "Created by");
+        ->setCellValue('G'.$row_count, "Created By");
 $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':G'.$row_count)->applyFromArray($header_style_Array);
 $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':G'.$row_count)->applyFromArray($borderArray);    
 

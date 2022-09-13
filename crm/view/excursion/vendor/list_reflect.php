@@ -43,10 +43,10 @@ if($city_id!=""){
 				<td><?= $row_vendor['contact_person_name']?></td>
 				<!-- <td style="width:200px"><?= $row_vendor['address'] ?></td> -->
 				<td>
-					<button class="btn btn-info btn-sm" onclick="view_modal(<?= $row_vendor['vendor_id'] ?>)" title="View Supplier"><i class="fa fa-eye"></i></button>
+					<button class="btn btn-info btn-sm" onclick="view_modal(<?= $row_vendor['vendor_id'] ?>)" title="View Details"><i class="fa fa-eye"></i></button>
 				</td>
 				<td>
-					<button class="btn btn-info btn-sm" onclick="update_modal(<?= $row_vendor['vendor_id'] ?>)" title="Edit Detail"><i class="fa fa-pencil-square-o"></i></button>
+					<button class="btn btn-info btn-sm" onclick="update_modal(<?= $row_vendor['vendor_id'] ?>)" title="Update Details"><i class="fa fa-pencil-square-o"></i></button>
 				</td>
 			</tr>
 			<?php

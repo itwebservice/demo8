@@ -19,7 +19,7 @@ $financial_year_id = $_SESSION['financial_year_id'];
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">New Ticket</h4>
+        <h4 class="modal-title" id="myModalLabel">New Flight Ticket Booking</h4>
       </div>
       <div class="modal-body">
 

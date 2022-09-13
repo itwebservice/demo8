@@ -37,7 +37,7 @@ include "../../../../model/app_settings/branchwise_filteration.php";
 			<th>Date</th>
 			<th class="text-right">Amount</th>
 			<th>Payment_mode</th>
-			<th>Evidence</th>
+			<th>Payment Evidence</th>
 			<th>Created_by</th>
 			<th class="text-center">Edit</th>
 		</tr>	

@@ -5,12 +5,17 @@ public function sac_master_save()
 {
 	$service_name = $_POST['service_name'];
 	$hsn_sac_code = $_POST['hsn_sac_code'];
-	 
+
 	$created_at = date('Y-m-d H:i');
 
 	$sq_count = mysqli_num_rows(mysqlQuery("select service_name from sac_master where service_name='$service_name'"));
 	if($sq_count>0){
 		echo "error--".$service_name." already exists!";
+		exit;
+	} 
+	$sq_count = mysqli_num_rows(mysqlQuery("select service_name from sac_master where hsn_sac_code='$hsn_sac_code'"));
+	if($sq_count>0){
+		echo "error--".$hsn_sac_code." code already exists!";
 		exit;
 	} 
 
@@ -41,6 +46,11 @@ public function sac_master_update()
 	$sq_count = mysqli_num_rows(mysqlQuery("select * from sac_master where service_name='$service_name' and sac_id!='$sac_id'"));
 	if($sq_count>0){
 		echo "error--".$service_name." already exists!";
+		exit;
+	}
+	$sq_count = mysqli_num_rows(mysqlQuery("select service_name from sac_master where hsn_sac_code='$hsn_sac_code' and sac_id!='$sac_id'"));
+	if($sq_count>0){
+		echo "error--".$hsn_sac_code." code already exists!";
 		exit;
 	}
 

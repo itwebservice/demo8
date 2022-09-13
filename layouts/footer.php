@@ -2,7 +2,7 @@
 
   <footer class="it-footer">
    
-    <div class="it-footer-top">
+    <div class="it-footer-top" style="display: none;">
         <div class="container">
             <div class="it-footer-top-content">
                 <ul class="it-payment-list">
@@ -83,7 +83,7 @@
                     <ul class="it-footer-menu-list">
                     <?php foreach($Apifooter as $footer){  ?>   
                     <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
+                            <a href="#" onclick="get_tours_data('<?= $footer->destination->dest_id ?>','1')"  class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
                                 <?= $footer->package_name  ?></a>
                         </li>
                         <?php } ?>
@@ -183,7 +183,7 @@
     <div class="it-footer-bottom">
         <div class="container">
             <div class="it-footer-bottom-content">
-                <p class="it-site-copyright"> Copyright © 2022 <a href="#">Gowell</a>. Designed by <a href="#">Spruko</a> All rights reserved. </p>
+                <p class="it-site-copyright"> Copyright © 2022 <?= $app_name ?> All rights reserved. </p>
             </div>
         </div>
     </div>

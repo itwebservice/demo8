@@ -19,7 +19,7 @@ public function ticket_cancel_save()
 	//Cancelation notification sms send
 	$this->cancelation_message_send($entry_id_arr);
 
-	echo "Train ticket has been successfully cancelled.";
+	echo "Train ticket booking has been successfully cancelled.";
 }
 
 

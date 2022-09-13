@@ -398,7 +398,8 @@ nav {
 
 .booking-banner::before {
     content: "";
-    background: rgba(113, 103, 255, 0.92) !important;
+    /* background: rgba(113, 103, 255, 0.92) !important; */
+    background: rgba(129, 126, 182, 0.671) !important;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1223,7 +1224,7 @@ nav {
     left: 0;
     z-index: 1;
     border-radius: 8px;
-    background-color: rgba(49, 45, 101, 0.6);
+    background-color: rgb(100 97 140 / 60%);
     width: 100%;
     height: 100%;
 }
@@ -2504,7 +2505,7 @@ small.blog-date i {
 
 .blog-news::before {
     content: "";
-    background: rgba(49, 45, 101, 0.6);
+    /* background: rgba(189, 189, 192, 0.6); */
     position: absolute;
     width: 100%;
     height: 100%;

@@ -49,7 +49,7 @@ h1.landingpageTitle:before {
 .landigPageCustomer {
     background-color: #51514f !important;
     -webkit-print-color-adjust: exact;
-    width: 90%;
+    width: 100%;
     margin: 0 auto -20px;
     z-index: 1;
     position: relative;

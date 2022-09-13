@@ -240,6 +240,12 @@ h5.specialAttraction {
     font-weight: 500;
     color: #f00 !important;
     -webkit-print-color-adjust: exact;
+    background-color: #ccc  !important;
+    padding: 5px 10px  !important;
+    border-radius: 5px  !important;
+    color: green  !important;
+    margin-top: 5px !important;
+    display: inline-block !important;
 }
 .itneraryText p {
     max-height: 700px;
@@ -440,6 +446,9 @@ h5.cTitle{
 }
 .vitinerary_div a{
     text-decoration:underline !important;
+}
+.costing_bank_details_bk{
+    background-color: #b6d8fe !important;
 }
 @media print {
     table tr.table-heading-row th, table tfoot tr td{

@@ -73,7 +73,7 @@ else { $emp_name = $sq_emp['first_name'].' ' .$sq_emp['last_name']; }
     <section class="print_sec main_block">
       <div class="row">
         <div class="col-md-12">
-         <div class="table-responsive">
+          <div class="table-responsive">
           <table class="table table-bordered no-marg" id="tbl_emp_list">
             <thead>
               <tr class="table-heading-row">
@@ -81,6 +81,8 @@ else { $emp_name = $sq_emp['first_name'].' ' .$sq_emp['last_name']; }
                 <th>CITY NAME</th>
                 <th>Activity NAME</th>
                 <th>TRANSFER OPTION</th>
+                <th>Total Adult(s)</th>
+                <th>Total Child(ren)</th>
               </tr>
             </thead>
             <tbody>
@@ -95,12 +97,14 @@ else { $emp_name = $sq_emp['first_name'].' ' .$sq_emp['last_name']; }
                   <td><?= $sq_city_name['city_name'] ?></td>
                   <td><?= $sq_exc_name['excursion_name'] ?></td>
                   <td><?= $row_exc_acc['transfer_option'] ?></td>
+                  <td><?= $row_exc_acc['total_adult'] ?></td>
+                  <td><?= $row_exc_acc['total_child'] ?></td>
                 </tr>
             <?php } ?>
             </tbody>
           </table>
-         </div>
-       </div>
+        </div>
+      </div>
       </div>
     </section>
     <section class="print_sec main_block">

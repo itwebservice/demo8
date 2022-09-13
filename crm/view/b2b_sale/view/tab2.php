@@ -83,7 +83,7 @@ if($query['sp_request']!=''){ ?>
                     <!-- Roomwise Traveller -->
                     <?php for($j=0;$j<sizeof($hotel_traveller_arr[$i]->service->room_arr);$j++){ ?>
                         <div class='col-md-6'>
-                            <div class='col-md-12'><u><?= 'Room '.($j+1) ?></u></div>
+                            <div class='col-md-12'><u><?= 'Room '.($j+1).' Category' ?></u></div>
                             <div class='col-md-12'>
                                 <ul>
                                 <!-- Adults -->

@@ -27,7 +27,7 @@ public function cancel_traveler_booking($tourwise_id, $traveler_id_arr, $first_n
     //Cancelation sms send
     $this->traveler_cancelation_sms_send($tourwise_id);
 
-    echo "Group Booking Cancellation is successfully done.";
+    echo "Group booking has been successfully cancelled.";
     exit;
   }
   else{

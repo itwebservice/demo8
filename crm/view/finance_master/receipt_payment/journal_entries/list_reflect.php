@@ -12,12 +12,13 @@ if($from_date != '' && $to_date != ''){
 	$to_date = get_date_db($to_date);
 	$query .= " and entry_date between '$from_date' and '$to_date' ";
 }
-	$count = 0;
-	$total_dr = 0; $total_cr = 0;
-	$date = $sq_entry['entry_date'];
-	$yr = explode("-", $date);
-	$year = $yr[0];
-	$sq_journal = mysqlQuery($query);
+$query .= " order by entry_id desc";
+$count = 0;
+$total_dr = 0; $total_cr = 0;
+$date = $sq_entry['entry_date'];
+$yr = explode("-", $date);
+$year = $yr[0];
+$sq_journal = mysqlQuery($query);
 	while($row_journal = mysqli_fetch_assoc($sq_journal)){
 		$date = $row_journal['entry_date'];
 		$yr = explode("-", $date);

@@ -21,8 +21,8 @@
 			        	foreach($services_arr as $service){
 			        		$count++;
 			        		$service_id = $service['value'];
-									$sq_service = mysqli_fetch_assoc(mysqlQuery("select * from excursion_master_tariff where entry_id='$service_id'"));
-									$sq_city = mysqli_fetch_assoc(mysqlQuery("select * from city_master where city_id='$sq_service[city_id]'"));
+							$sq_service = mysqli_fetch_assoc(mysqlQuery("select * from excursion_master_tariff where entry_id='$service_id'"));
+							$sq_city = mysqli_fetch_assoc(mysqlQuery("select * from city_master where city_id='$sq_service[city_id]'"));
 			        		?>
 							<tr>
 								<td><?= $count ?></td>

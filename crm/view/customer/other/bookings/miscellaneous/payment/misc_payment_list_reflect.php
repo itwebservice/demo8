@@ -6,16 +6,16 @@ $customer_id = $_SESSION['customer_id'];
 <div class="row mg_tp_20"> <div class="col-md-12"> <div class="table-responsive">
 <table class="table table-bordered bg_white cust_table" id="miscellaneous_payment_list" style="margin:20px 0 !important">
 	<thead>
-	 <tr class="table-heading-row">
-		<th>S_No.</th>
-		<th>Booking_ID</th>
-		<th>Payment_Date</th>
-		<th>Mode</th>
-		<th>Bank_Name</th>
-		<th>Cheque_No/ID</th>
-		<th class="success text-right">Amount</th>
-		<th>Receipt </th>
-	 </tr>
+		<tr class="table-heading-row">
+			<th>S_No.</th>
+			<th>Booking_ID</th>
+			<th>Payment_Date</th>
+			<th>Mode</th>
+			<th>Bank_Name</th>
+			<th>Cheque_No/ID</th>
+			<th class="success">Amount</th>
+			<th>Receipt </th>
+		</tr>
 	</thead>
 	<tbody>
 		<?php 

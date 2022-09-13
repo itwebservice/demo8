@@ -131,10 +131,9 @@ function list_reflect()
     $.post('hotel/list_reflect.php', {active_flag : active_flag, city_id : city_id}, function(data){
     setTimeout(() => {
         pagination_load(data,columns, true, false, 20, 'hotel_master_tab');
-       
     }, 1000);
     $('.loader').remove();
-  });
+    });
 }
 list_reflect();
 function save_modal()

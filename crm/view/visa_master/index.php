@@ -8,7 +8,7 @@ require_once('../layouts/admin_header.php');
   <div class="header_bottom mg_bt_10">
     <div class="row">
         <div class="col-md-12 text-right">
-            <button class="btn btn-info btn-sm ico_left" id="btn_typesave_modal" onclick="visa_type_save()" title="Add Visa Information"><i class="fa fa-plus"></i>&nbsp;&nbsp;Visa Type</button>
+            <button class="btn btn-info btn-sm ico_left" id="btn_typesave_modal" onclick="visa_type_save()" title="Add Visa type"><i class="fa fa-plus"></i>&nbsp;&nbsp;Visa Type</button>
             <button class="btn btn-info btn-sm ico_left" id="btn_save_modal" onclick="save_modal()" title="Add Visa Information"><i class="fa fa-plus"></i>&nbsp;&nbsp;Visa</button>
         </div>
     </div>

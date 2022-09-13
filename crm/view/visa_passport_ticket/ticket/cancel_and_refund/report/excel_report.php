@@ -124,8 +124,8 @@ $row_count = 6;
 $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$row_count, "Sr. No")
         ->setCellValue('C'.$row_count, "Booking ID")
-        ->setCellValue('D'.$row_count, "Passenger_name")
-        ->setCellValue('E'.$row_count, "Refund_ID")
+        ->setCellValue('D'.$row_count, "Refund To")
+        ->setCellValue('E'.$row_count, "Refund ID")
         ->setCellValue('F'.$row_count, "Refund Date")
         ->setCellValue('G'.$row_count, "Mode")
         ->setCellValue('H'.$row_count, "Bank Name")
@@ -138,38 +138,44 @@ $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':J'.$row_count)->applyF
 $row_count++;
 while($row_refund = mysqli_fetch_assoc($sq_refund)){
 
-        $traveler_name = "";
-        $sq_refund_entries = mysqlQuery("select * from ticket_refund_entries where refund_id='$row_refund[refund_id]'");
-        while($row_refund_entry = mysqli_fetch_assoc($sq_refund_entries)){
-            $sq_entry_info = mysqli_fetch_assoc(mysqlQuery("select * from ticket_master_entries where entry_id='$row_refund_entry[entry_id]'"));
-            $traveler_name .= $sq_entry_info['first_name'].' '.$sq_entry_info['last_name'].', ';
-            $sq_entry_date = mysqli_fetch_assoc(mysqlQuery("select * from ticket_master where ticket_id='$sq_entry_info[ticket_id]'"));
-            $date = $sq_entry_date['created_at'];
-            $yr = explode("-", $date);
-            $year =$yr[0];
-        }
-        $date = $row_refund['refund_date'];
-        $yr1 = explode("-", $date);
-        $year1 = $yr1[0];
-        $traveler_name = trim($traveler_name, ", ");
+    $sq_cust = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id=(select customer_id from ticket_master where ticket_id='$row_refund[ticket_id]')"));
+    if($sq_cust['type']=='Corporate'||$sq_cust['type'] == 'B2B'){
+        $cust_name = $sq_cust['company_name'];
+    }else{
+        $cust_name = $sq_cust['first_name'].' '.$sq_cust['last_name'];
+    }
+    $traveler_name = "";
+    $sq_refund_entries = mysqlQuery("select * from ticket_refund_entries where refund_id='$row_refund[refund_id]'");
+    while($row_refund_entry = mysqli_fetch_assoc($sq_refund_entries)){
+        $sq_entry_info = mysqli_fetch_assoc(mysqlQuery("select * from ticket_master_entries where entry_id='$row_refund_entry[entry_id]'"));
+        $traveler_name .= $sq_entry_info['first_name'].' '.$sq_entry_info['last_name'].', ';
+        $sq_entry_date = mysqli_fetch_assoc(mysqlQuery("select * from ticket_master where ticket_id='$sq_entry_info[ticket_id]'"));
+        $date = $sq_entry_date['created_at'];
+        $yr = explode("-", $date);
+        $year =$yr[0];
+    }
+    $date = $row_refund['refund_date'];
+    $yr1 = explode("-", $date);
+    $year1 = $yr1[0];
+    $traveler_name = trim($traveler_name, ", ");
 
-        $total_refund = $total_refund+$row_refund['refund_amount'];
-        if($row_refund['clearance_status']=="Pending"){ 
-            $bg='warning';
-            $sq_pending_amount = $sq_pending_amount + $row_refund['refund_amount'];
-        }
-        else if($row_refund['clearance_status']=="Cancelled"){ 
-            $bg='danger';
-            $sq_cancel_amount = $sq_cancel_amount + $row_refund['refund_amount'];
-        }
-        else{
-            $bg='';
-        }
+    $total_refund = $total_refund+$row_refund['refund_amount'];
+    if($row_refund['clearance_status']=="Pending"){ 
+        $bg='warning';
+        $sq_pending_amount = $sq_pending_amount + $row_refund['refund_amount'];
+    }
+    else if($row_refund['clearance_status']=="Cancelled"){ 
+        $bg='danger';
+        $sq_cancel_amount = $sq_cancel_amount + $row_refund['refund_amount'];
+    }
+    else{
+        $bg='';
+    }
 
 	$objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$row_count, ++$count)
         ->setCellValue('C'.$row_count, get_ticket_booking_id($row_refund['ticket_id'],$year))
-        ->setCellValue('D'.$row_count, $traveler_name)
+        ->setCellValue('D'.$row_count, $traveler_name.' ('.$cust_name.')')
         ->setCellValue('E'.$row_count, get_ticket_booking_refund_id($row_refund['refund_id'],$year1))
         ->setCellValue('F'.$row_count, date('d-m-Y', strtotime($row_refund['refund_date'])))
         ->setCellValue('G'.$row_count, $row_refund['refund_mode'])

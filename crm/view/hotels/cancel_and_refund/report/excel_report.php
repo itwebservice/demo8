@@ -122,7 +122,7 @@ $row_count = 6;
 $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$row_count, "Sr. No")
         ->setCellValue('C'.$row_count, "Booking ID")
-        ->setCellValue('D'.$row_count, "Passenger_name")
+        ->setCellValue('D'.$row_count, "Refund To")
         ->setCellValue('E'.$row_count, "Refund ID")
         ->setCellValue('F'.$row_count, "Refund Date")
         ->setCellValue('G'.$row_count, "Mode")
@@ -143,7 +143,11 @@ $row_count++;
         while($row_refund_entry = mysqli_fetch_assoc($sq_refund_entries)){
             $sq_entry_info = mysqli_fetch_assoc(mysqlQuery("select * from hotel_booking_entries where entry_id='$row_refund_entry[entry_id]'"));
             $sq_hotel_info = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id='$row_refund_entry[entry_id]'"));
-            $hotel_name .=  $sq_hotel_info['first_name'].' '.$sq_hotel_info['last_name'];
+            if($sq_hotel_info['type']=='Corporate'||$sq_hotel_info['type'] == 'B2B'){
+                $hotel_name .= $sq_hotel_info['company_name'];
+            }else{
+                $hotel_name .= $sq_hotel_info['first_name'].' '.$sq_hotel_info['last_name'];
+            }
         }
         $sq_entry_date = mysqli_fetch_assoc(mysqlQuery("select * from hotel_booking_master where booking_id='$row_refund[booking_id]'"));
         $date = $sq_entry_date['created_at'];

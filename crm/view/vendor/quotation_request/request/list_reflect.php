@@ -42,7 +42,7 @@ while($row_req = mysqli_fetch_assoc($sq_req)){
 		$sq_enq['name'],
 		$enquiry_content_arr1[0]['value'],
 		($sq_emp['first_name']=="") ? 'Admin' : $sq_emp['first_name'].' '.$sq_emp['last_name']  ,
-		'<button class="btn btn-info btn-sm" onclick="vendor_request_view_modal('.$row_req['request_id'].')" data-toggle="tooltip" title="View"><i class="fa fa-eye"></i></button>'
+		'<button class="btn btn-info btn-sm" onclick="vendor_request_view_modal('.$row_req['request_id'].')" data-toggle="tooltip" title="View Details"><i class="fa fa-eye"></i></button>'
 	), "bg" =>$bg);
 	array_push($array_s,$temp_arr); 
 }

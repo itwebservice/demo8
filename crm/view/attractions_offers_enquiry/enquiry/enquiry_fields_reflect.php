@@ -331,7 +331,7 @@ if($enquiry_type=="Flight Ticket"){
 				<tr>
 					<td><input id="check-btn-enq-<?= $count ?>" type="checkbox" checked ></td>
 					<td><input maxlength="15" type="text" name="username"  value="<?= $count+1 ?>" placeholder="Sr. No." disabled/></td>
-					<td><input type="text" id="travel_datetime-<?= $count ?>" style="width:125px" name="travel_datetime" placeholder="*Travel Date/Time" title="Travel Date/Time" value="<?= get_datetime_user($values['travel_datetime']) ?>" class="form-control"></td>
+					<td><input type="text" id="travel_datetime-<?= $count ?>" style="width:150px" name="travel_datetime" placeholder="*Travel Date/Time" title="Travel Date/Time" value="<?= get_datetime_user($values['travel_datetime']) ?>" class="form-control"></td>
 					<td><input type="text" style="width:365px" id="from_sector-<?= $count ?>" name="from_sector" placeholder="*Sector From" title="Sector From" value="<?= $values['sector_from'] ?>" class="form-control"></td>
 					<td><input type="text" style="width:365px" id="to_sector-<?= $count ?>" name="to_sector" placeholder="*Sector To" title="Sector To" value="<?= $values['sector_to'] ?>" class="form-control"></td>
 					<td><select id="preffered_airline-<?= $count ?>" name="preffered_airline" class="app_select2" style="width:100%" name="" title="Preferred Airline" class="form-control">
@@ -363,11 +363,11 @@ if($enquiry_type=="Flight Ticket"){
 							<option value="Other">Other</option>
 						</select>
 					</td>
-					<td><input type="text" id="total_adults_flight-<?= $count ?>" name="total_adults_flight" title="Total Adult(s)" class="form-control" value="<?= $values['total_adults_flight'] ?>" placeholder="Total Adult(s)">
+					<td><input type="text" id="total_adults_flight-<?= $count ?>" name="total_adults_flight" title="Total Adult(s)" class="form-control" style="width:110px" value="<?= $values['total_adults_flight'] ?>" placeholder="Total Adult(s)">
 					</td>
-					<td><input type="text" id="total_child_flight-<?= $count ?>" name="total_child_flight" title="Total Child(ren)" class="form-control" value="<?= $values['total_child_flight'] ?>" placeholder="Total Child(ren)">
+					<td><input type="text" id="total_child_flight-<?= $count ?>" name="total_child_flight" title="Total Child(ren)" class="form-control" style="width:110px" value="<?= $values['total_child_flight'] ?>" placeholder="Total Child(ren)">
 					</td>
-					<td><input type="text" id="total_infant_flight-<?= $count ?>" name="total_infant_flight" title="Total Infant(s)" class="form-control" value="<?= $values['total_infant_flight'] ?>" placeholder="Total Infant(s)">
+					<td><input type="text" id="total_infant_flight-<?= $count ?>" name="total_infant_flight" title="Total Infant(s)" class="form-control" style="width:110px" value="<?= $values['total_infant_flight'] ?>" placeholder="Total Infant(s)">
 					</td>
 					<td><input type="hidden" id="from_city-<?= $count ?>" value="<?= $values['from_city_id_flight'] ?>">
 					</td>

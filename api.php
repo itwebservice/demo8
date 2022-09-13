@@ -1,35 +1,18 @@
-  <?php
-include('config.php');
+<?php
+define('BASE_URL_API', 'https://demo8.itourscloud.com/frontendAPI/public/api');
 $base_url = BASE_URL_API;
-
-$Apipackage = getData($base_url.'/package/popular');
-$Apiactivity = getData($base_url.'/activity/popular');
-$Apigeneral = getData($base_url.'/general');
-$Apisocial = getData($base_url.'/social')[0];
-$Apidestination = getData($base_url.'/destination');
-$Apibanner = getData($base_url.'/banner');
-$Apigallery = getData($base_url.'/gallery');
-$Apifooter = getData($base_url.'/footer');
-$Apitestimonial = getData($base_url.'/testimonial');
-$Apihotel = getData($base_url.'/hotel/popular');
-$Apiassoc = getData($base_url.'/association');
-
-
+$Apipackage = json_decode(file_get_contents($base_url.'/package/popular'));
+$Apiactivity = json_decode(file_get_contents($base_url.'/activity/popular'));
+$Apigeneral = json_decode(file_get_contents($base_url.'/general'));
+$Apisocial = json_decode(file_get_contents($base_url.'/social'))[0];
+$Apidestination = json_decode(file_get_contents($base_url.'/destination'));
+$Apibanner = json_decode(file_get_contents($base_url.'/banner'));
+$Apigallery = json_decode(file_get_contents($base_url.'/gallery'));
+$Apifooter = json_decode(file_get_contents($base_url.'/footer'));
+$Apitestimonial = json_decode(file_get_contents($base_url.'/testimonial'));
+$Apihotel = json_decode(file_get_contents($base_url.'/hotel/popular'));
+$Apiassoc = json_decode(file_get_contents($base_url.'/association'));
+$Apitransport = json_decode(file_get_contents($base_url.'/transport'));
 
 
-function getData($url)
-{
-  $ch = curl_init();
-// Disable SSL verification
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// Will return the response, if false it print the response
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// Set the url
-curl_setopt($ch, CURLOPT_URL,$url);
-// Execute
-$result=curl_exec($ch);
-// Will dump a beauty json <3
-$fr=json_decode($result);
-  return $fr;
-}
 ?>

@@ -38,7 +38,7 @@ if ($table_name != "payment_master" && $table_name != "package_payment_master") 
   $amount_key = "amount";
   $credit_charges = "credit_charges";
 }
-$values_query .= " and $amount_key !='0'";
+$values_query .= " and $amount_key !='0' order by $date_key desc";
 
 //***END****/
 if($receipt_type == 'Hotel Receipt' || $receipt_type == 'Tour Receipt' || $receipt_type == 'Activity Receipt' || $receipt_type == 'Visa Receipt'){

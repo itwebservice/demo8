@@ -308,7 +308,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                             <td><?php echo $customer_name; ?></td>
                                             <td><?php echo $row_query['mobile_no']; ?></td>
                                             <td><?= ($row_query['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                            <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['booking_id'] ?>,'Package Booking',<?= $row_query['emp_id']?>,<?= $row_query['mobile_no']?>, '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                            <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['booking_id'] ?>,'Package Booking',<?= $row_query['emp_id']?>,<?= $row_query['mobile_no']?>, '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                           </tr>
                                     <?php } } ?>
                                     <?php
@@ -338,7 +338,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                             <td><?php echo $customer_name; ?></td>
                                             <td><?= $contact_no; ?></td>
                                             <td><?= ($sq_hotel['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                            <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['booking_id'] ?>,'Hotel Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>	
+                                            <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['booking_id'] ?>,'Hotel Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>	
                                             </tr>
                                           <?php } } ?>
                                           <!-- flight Booking -->
@@ -367,7 +367,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                               <td><?php echo $customer_name; ?></td>
                                               <td><?= $contact_no; ?></td>
                                               <td><?= ($sq_hotel['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['ticket_id'] ?>,'Flight Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['ticket_id'] ?>,'Flight Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                               </tr>
                                             <?php } } ?>
                                           <!-- Train Booking -->
@@ -395,7 +395,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                               <td><?php echo $customer_name; ?></td>
                                               <td><?= $contact_no; ?></td>
                                               <td><?= ($sq_train['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_train['train_ticket_id'] ?>,'Train Booking',<?= $sq_train['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_train['train_ticket_id'] ?>,'Train Booking',<?= $sq_train['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                               </tr>
                                             <?php } } ?>
                                           
@@ -425,7 +425,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                               <td><?php echo $customer_name; ?></td>
                                               <td><?= $contact_no; ?></td>
                                               <td><?= ($sq_hotel['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['booking_id'] ?>,'Bus Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['booking_id'] ?>,'Bus Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                               </tr>
                                             <?php } }?>
                                           <!-- Excursion Booking -->
@@ -457,7 +457,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                               <td><?php echo $customer_name; ?></td>
                                               <td><?php echo $contact_no; ?></td>
                                               <td><?= ($sq_hotel['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['exc_id'] ?>,'Excursion Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['exc_id'] ?>,'Excursion Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                               </tr>
                                             <?php } }?>
                                             <?php
@@ -483,7 +483,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                               <td><?php echo $customer_name; ?></td>
                                               <td><?php echo $contact_no; ?></td>
                                               <td><?= ($row_query1['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query1['booking_id'] ?>,'Car Rental Booking',<?= $row_query1['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query1['booking_id'] ?>,'Car Rental Booking',<?= $row_query1['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                               </tr>
                                           <?php } ?>
                                           <!-- Car Rental Booking -->
@@ -510,7 +510,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                               <td><?php echo $customer_name; ?></td>
                                               <td><?php echo $contact_no; ?></td>
                                               <td><?= ($row_query1['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query1['booking_id'] ?>,'Car Rental Booking',<?= $row_query1['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                              <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query1['booking_id'] ?>,'Car Rental Booking',<?= $row_query1['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                               </tr>
                                           <?php } ?>
                                           <!-- Group Booking -->
@@ -546,7 +546,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                                 <td><?php echo $customer_name; ?></td>
                                                 <td><?php echo $contact_no; ?></td>
                                                 <td><?= ($row_query['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                                <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['id'] ?>,'Group Booking',<?= $row_query['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                                <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['id'] ?>,'Group Booking',<?= $row_query['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                                 </tr>
                                                 <?php
                                               } } } ?>
@@ -578,7 +578,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                                 <td><?php echo $customer_name; ?></td>
                                                 <td><?= $contact_no; ?></td>
                                                 <td><?= ($sq_visa['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-                                                <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_visa['visa_id'] ?>,'Visa Booking',<?= $sq_visa['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+                                                <td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_visa['visa_id'] ?>,'Visa Booking',<?= $sq_visa['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
                                                 </tr>
                                               <?php }
                                             }?>
@@ -1346,8 +1346,8 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
                                           $sq_booking = mysqli_fetch_assoc(mysqlQuery("select form_date,id from tourwise_traveler_details where id='$row_task[task_type_field_id]'"));
                                           $date = $sq_booking['form_date'];
                                           $yr = explode("-", $date);
-                                          $year =$yr[0];
-                                          $booking_id = get_group_booking_id($sq_booking['id'],$year);
+                                          $year = $yr[0];
+                                          $booking_id = 'NA';
                                         }
                                         else if($row_task['task_type'] == 'Enquiry'){
 
@@ -1453,7 +1453,7 @@ $sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' 
 function send_sms(id,tour_type,emp_id,contact_no, name){
 	
 	var base_url = $('#base_url').val();
-	var draft = "Hello Dear "+name+",We hope that you are enjoying your trip. It will be a great source of input from you, if you can share your tour feedback with us, so that we can serve you even better.Thank you."
+	var draft = "Dear "+name+",We hope that you are enjoying your trip. It will be a great source of input from you, if you can share your tour feedback with us, so that we can serve you even better.Thank you."
 	$('#send_btn').button('loading');
     $.ajax({
 		type:'post',
@@ -1467,7 +1467,7 @@ function send_sms(id,tour_type,emp_id,contact_no, name){
     web_whatsapp_open(contact_no,name);
 }
 function web_whatsapp_open(mobile_no,name){
-  var link = 'https://web.whatsapp.com/send?phone='+mobile_no+'&text=Hello%20Dear%20'+encodeURI(name)+',%0aWe%20hope%20that%20you%20are%20enjoying%20your%20trip.%20It%20will%20be%20a%20great%20source%20of%20input%20from%20you,%20if%20you%20can%20share%20your%20tour%20feedback%20with%20us,%20so%20that%20we%20can%20serve%20you%20even%20better.%0aThank%20you.';
+  var link = 'https://web.whatsapp.com/send?phone='+mobile_no+'&text=Dear%20'+encodeURI(name)+',%0aWe%20hope%20that%20you%20are%20enjoying%20your%20trip.%20It%20will%20be%20a%20great%20source%20of%20input%20from%20you,%20if%20you%20can%20share%20your%20tour%20feedback%20with%20us,%20so%20that%20we%20can%20serve%20you%20even%20better.%0aThank%20you.';
   window.open(link);
 }
 function checklist_update(booking_id,tour_type){
@@ -1478,7 +1478,7 @@ function checklist_update(booking_id,tour_type){
 	});
 }
 function whatsapp_wishes(number,name){
-	var msg = encodeURI("Hello Dear "+ name +",\nMay this trip turns out to be a wonderful treat for you and may you create beautiful memories throughout this trip to cherish forever. Wish you a very happy and safe journey!!\nThank you.");
+	var msg = encodeURI("Dear "+ name +",\nMay this trip turns out to be a wonderful treat for you and may you create beautiful memories throughout this trip to cherish forever. Wish you a very happy and safe journey!!\nThank you.");
 	window.open('https://web.whatsapp.com/send?phone='+number+'&text='+msg);
 }
 	function followup_reflect(){

@@ -137,12 +137,12 @@ $row_count = 6;
 
 $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$row_count, "Sr. No")
-        ->setCellValue('C'.$row_count, "Customer")
-        ->setCellValue('D'.$row_count, "Date")
+        ->setCellValue('C'.$row_count, "Customer Name")
+        ->setCellValue('D'.$row_count, "Payment Date")
         ->setCellValue('E'.$row_count, "Mode")
         ->setCellValue('F'.$row_count, "Particular")
         ->setCellValue('G'.$row_count, "Amount");
-         
+
 $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':G'.$row_count)->applyFromArray($header_style_Array);
 $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':G'.$row_count)->applyFromArray($borderArray);    
 

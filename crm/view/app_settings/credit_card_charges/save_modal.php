@@ -126,25 +126,26 @@ $(function(){
         var bank_id = $('#bank_id').val();
         var dynamic_div_count = $('#dynamic_div_count').val();
         var membership_no = $('#membership_no').val();
-        var identifier_count = $('#identifier_count').val();
+        var identifier_count = parseInt($('#identifier_count').val());
         
-        if(identifier_count=='' || parseInt(identifier_count) > 9 || parseInt(identifier_count) === 0){
+        if(identifier_count=='' || identifier_count > 9 || identifier_count === 0){
               error_msg_alert('Enter valid identifier count(should not be 0 or greater than 9)'); return false;
         }
         var identifier_no_arr = []; 
         for(var i=1; i<=identifier_count;i++){
-          var ident = $('#identifier'+i).val();
+          var ident = parseInt($('#identifier'+i).val());
           if(ident!=''){
-            identifier_no_arr.push(parseInt(ident));
+            identifier_no_arr.push(ident);
           }else{
-            error_msg_alert('Enter Identifier no'+i); return false;
+            error_msg_alert('Enter Identifier no'+i);
+            return false;
           }
         }
 
         var membership_details_arr = [];
         membership_details_arr.push({
           'membership_no' : membership_no,
-          'identifier_count' : parseInt(identifier_count),
+          'identifier_count' : identifier_count,
           'status' : 'Active',
           'nos':identifier_no_arr
         });

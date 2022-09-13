@@ -1,12 +1,11 @@
-<?php  if($sq_req['quotation_for']=="DMC"): ?>
+<?php
+if($sq_req['quotation_for']=="DMC") : ?>
 <br>
 <div class="row">
 	<div class="col-md-12">
 		<div class="profile_box main_block">
         <h3 class="editor_title">Hotel Details</h3>
-
         	<div class="row"> <div class="col-md-12"> <div class="table-responsive">
-			
 				<table class="table table-bordered no-marg">
 					<thead>
 						<tr class="table-heading-row">
@@ -49,9 +48,7 @@
 			        	?>
 	        		</tbody>
 	        	</table>
-
         	</div> </div> </div>
-
         </div>
     </div>
 </div>

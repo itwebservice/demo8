@@ -18,7 +18,7 @@ $branch_status = $sq['branch_status'];
 	<div class="row">
 		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
 			<select id="bank_id_filter" name="bank_id_filter" style="width:100%" title="Bank" class="form-control">
-				<?php get_bank_dropdown('Bank'); ?>
+				<?php get_bank_dropdown('Select Bank'); ?>
 			</select>
 		</div>
 		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">

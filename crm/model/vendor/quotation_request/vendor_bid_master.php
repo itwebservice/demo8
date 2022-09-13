@@ -70,7 +70,7 @@ function vendor_acknowlage($entry_id,$amount,$note,$vendor_name,$email)
 	</style>
 		<p>Dear '.$app_name.'</p>
 	    <p>Thank you for contacting us.</p>
-	    <p>This is Acknowlegment that we recived Quotation.</p>
+	    <p>This is Acknowlegement that we recived Quotation.</p>
 	    <p><strong>Booking Quotation</strong></p>
 	    <p>Vendor Name:'.$vendor_name.'</p>
 	    <p>Quotation Id : '.ge_vendor_request_id($sq_request_id['request_id']).'</p>	      

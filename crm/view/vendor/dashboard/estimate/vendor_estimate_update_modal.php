@@ -170,22 +170,23 @@ function upload_hotel_pic_attch()
 		onSubmit: function(file, ext)
 		{  
 		if (! (ext && /^(jpg|png|jpeg|pdf)$/.test(ext))){ 
-			error_msg_alert('Only JPG, PNG, pdf files are allowed');
+			error_msg_alert('Only JPG, PNG and PDF files are allowed');
 			return false;
         }
         $(btnUpload).find('span').text('Uploading...');
-      },
-      onComplete: function(file, response){
-        if(response==="error"){          
-          error_msg_alert("File is not uploaded.");           
-          $(btnUpload).find('span').text('Upload');
-        }else
-        { 
-          $(btnUpload).find('span').text('Uploaded');
-          $("#id_upload_url2").val(response);
-        //  upload_pic();
-        }
-      }
+		},
+		onComplete: function(file, response){
+			if(response==="error"){          
+			error_msg_alert("File is not uploaded.");           
+			$(btnUpload).find('span').text('Upload');
+			}else
+			{ 
+			$(btnUpload).find('span').text('Uploaded');
+			$("#id_upload_url2").val(response);
+			msg_alert('File uploaded!');
+			//  upload_pic();
+			}
+		}
     });
 }
 upload_hotel_pic_attch();
@@ -197,78 +198,76 @@ $(function(){
 				basic_cost: { required : true, number : true },
 				taxation_type : { required : true },
 				net_total: { required : true, number : true },
-				 
 		},
 		submitHandler:function(form){
 			
-				var base_url = $('#base_url').val();
-				var status = validate_estimate_vendor('estimate_type1', 'vendor_type1', '1');
- 				if(!status){ return false; }
+			var base_url = $('#base_url').val();
+			var status = validate_estimate_vendor('estimate_type1', 'vendor_type1', '1');
+			if(!status){ return false; }
 
-				var estimate_id = $('#estimate_id_update').val();
-				var estimate_type = $('#estimate_type1').val();
- 				var vendor_type = $('#vendor_type1').val(); 	 				
- 				var estimate_type_id = get_estimate_type_id('estimate_type1', '1');
- 				var vendor_type_id = get_vendor_type_id('vendor_type1', '1');
+			var estimate_id = $('#estimate_id_update').val();
+			var estimate_type = $('#estimate_type1').val();
+			var vendor_type = $('#vendor_type1').val(); 	 				
+			var estimate_type_id = get_estimate_type_id('estimate_type1', '1');
+			var vendor_type_id = get_vendor_type_id('vendor_type1', '1');
 
- 				if(vendor_type=="Other Vendor"){
- 					//estimate_type = "";
- 					//estimate_type_id = "";
- 				}
+			if(vendor_type=="Other Vendor"){
+				//estimate_type = "";
+				//estimate_type_id = "";
+			}
 
-				var basic_cost = $('#basic_cost').val();
-				var non_recoverable_taxes = $('#non_recoverable_taxes').val();
-				var service_charge = $('#service_charge').val();
-				var other_charges = $('#other_charges').val();
-				var taxation_id = $('#taxation_id').val();
-				var taxation_type = $('#taxation_type').val();
-				var service_tax = $('#service_tax').val();
-				var service_tax_subtotal = $('#service_tax_subtotal').val();
-				var discount = $('#discount').val();
-				var our_commission = $('#our_commission').val();
-				var tds = $('#tds').val();
-				var net_total = $('#net_total').val();
-				var roundoff = $('#roundoff').val();
-				var remark = $('#remark').val();
-				var invoice_url = $('#id_upload_url2').val();
-				var invoice_id = $('#invoice_id1').val();
-				var payment_due_date = $('#payment_due_date').val();
-				var purchase_date = $('#purchase_date1').val();
-				var purchase_sc = $('#purchase_sc1').val();
-				var purchase_commission = $('#purchase_commission1').val();
-				var purchase_taxes = $('#purchase_taxes1').val();
-				var purchase_tds = $('#purchase_tds1').val();
-				var reflections = [];
-				reflections.push({
-				'purchase_sc':purchase_sc,
-				'purchase_commission':purchase_commission,
-				'purchase_taxes':purchase_taxes,
-				'purchase_tds':purchase_tds
-				});
-				
-				$.post(base_url+'view/load_data/finance_date_validation.php', { check_date: purchase_date }, function(data){
-					if(data !== 'valid'){
-						error_msg_alert("The Purchase Date does not match between selected Financial year.");
-						return false;
-					}
-					else{
-						$('#btn_update_estimate').button('loading');
-						$.ajax({
-							type:'post',
-							url: base_url+'controller/vendor/dashboard/estimate/vendor_estimate_update.php',
-							data:{ estimate_id : estimate_id, estimate_type : estimate_type, vendor_type : vendor_type, estimate_type_id : estimate_type_id, vendor_type_id : vendor_type_id, basic_cost : basic_cost, non_recoverable_taxes : non_recoverable_taxes, service_charge : service_charge, other_charges : other_charges,service_tax_subtotal : service_tax_subtotal, discount : discount, our_commission : our_commission, tds : tds, net_total : net_total, roundoff : roundoff,remark : remark, invoice_id : invoice_id, payment_due_date : payment_due_date,invoice_url : invoice_url,purchase_date : purchase_date,reflections:reflections },
-							success:function(result){
-								$('#btn_update_estimate').button('reset');
-								msg_alert(result);
-								$('#estimate_update_modal').modal('hide');
-								$('#estimate_update_modal').on('hidden.bs.modal', function(){
-									vendor_estimate_list_reflect();
-								});
-							}
-						});
-					}
-				});
- 
+			var basic_cost = $('#basic_cost').val();
+			var non_recoverable_taxes = $('#non_recoverable_taxes').val();
+			var service_charge = $('#service_charge').val();
+			var other_charges = $('#other_charges').val();
+			var taxation_id = $('#taxation_id').val();
+			var taxation_type = $('#taxation_type').val();
+			var service_tax = $('#service_tax').val();
+			var service_tax_subtotal = $('#service_tax_subtotal').val();
+			var discount = $('#discount').val();
+			var our_commission = $('#our_commission').val();
+			var tds = $('#tds').val();
+			var net_total = $('#net_total').val();
+			var roundoff = $('#roundoff').val();
+			var remark = $('#remark').val();
+			var invoice_url = $('#id_upload_url2').val();
+			var invoice_id = $('#invoice_id1').val();
+			var payment_due_date = $('#payment_due_date').val();
+			var purchase_date = $('#purchase_date1').val();
+			var purchase_sc = $('#purchase_sc1').val();
+			var purchase_commission = $('#purchase_commission1').val();
+			var purchase_taxes = $('#purchase_taxes1').val();
+			var purchase_tds = $('#purchase_tds1').val();
+			var reflections = [];
+			reflections.push({
+			'purchase_sc':purchase_sc,
+			'purchase_commission':purchase_commission,
+			'purchase_taxes':purchase_taxes,
+			'purchase_tds':purchase_tds
+			});
+			
+			$.post(base_url+'view/load_data/finance_date_validation.php', { check_date: purchase_date }, function(data){
+				if(data !== 'valid'){
+					error_msg_alert("The Purchase Date does not match between selected Financial year.");
+					return false;
+				}
+				else{
+					$('#btn_update_estimate').button('loading');
+					$.ajax({
+						type:'post',
+						url: base_url+'controller/vendor/dashboard/estimate/vendor_estimate_update.php',
+						data:{ estimate_id : estimate_id, estimate_type : estimate_type, vendor_type : vendor_type, estimate_type_id : estimate_type_id, vendor_type_id : vendor_type_id, basic_cost : basic_cost, non_recoverable_taxes : non_recoverable_taxes, service_charge : service_charge, other_charges : other_charges,service_tax_subtotal : service_tax_subtotal, discount : discount, our_commission : our_commission, tds : tds, net_total : net_total, roundoff : roundoff,remark : remark, invoice_id : invoice_id, payment_due_date : payment_due_date,invoice_url : invoice_url,purchase_date : purchase_date,reflections:reflections },
+						success:function(result){
+							$('#btn_update_estimate').button('reset');
+							msg_alert(result);
+							$('#estimate_update_modal').modal('hide');
+							$('#estimate_update_modal').on('hidden.bs.modal', function(){
+								vendor_estimate_list_reflect();
+							});
+						}
+					});
+				}
+			});
 		}
 	});
 });

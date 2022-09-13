@@ -118,7 +118,7 @@
                         </select>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
-                        <input class="pck-tour-tab-txt" type="text" id="txt_package_from_date"  name="txt_package_from_date" placeholder="From Date" title="From Date" onchange="due_date_reflect();get_to_date(this.id,'txt_package_to_date');validate_issueDate('txt_package_from_date','txt_package_to_date');total_days_reflect();">
+                        <input class="pck-tour-tab-txt" type="text" id="txt_package_from_date"  name="txt_package_from_date" placeholder="From Date" title="From Date" onchange="due_date_reflect();get_to_date(this.id,'txt_package_to_date');total_days_reflect();">
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
                         <input class="pck-tour-tab-txt" type="text" id="txt_package_to_date" name="txt_package_to_date" placeholder="To Date" title="To Date"  onchange="validate_validDate('txt_package_from_date','txt_package_to_date');total_days_reflect();">

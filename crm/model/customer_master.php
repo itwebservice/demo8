@@ -73,7 +73,7 @@ public function customer_master_save()
 		exit;
 	}
 	else{
-		$this->employee_sign_up_mail($first_name, $last_name, $username, $password, $email_id);
+		$this->employee_sign_up_mail($first_name, $last_name, $username, $password, $email_id,$company_name,$cust_type);
 		echo "Customer has been successfully saved.==".$customer_id;
 		exit;
 	}
@@ -238,7 +238,7 @@ public function customer_master_csv_save()
                         exit;
                       }
                       else{
-                        $this->employee_sign_up_mail($first_name, $last_name, $username, $password, $email_id);
+                        $this->employee_sign_up_mail($first_name, $last_name, $username, $password, $email_id,$company_name,$cust_type);
                       }
                   }
                 }
@@ -291,17 +291,17 @@ public function customer_master_csv_save()
 
 }
 
-public function employee_sign_up_mail($first_name, $last_name, $username, $password, $email_id)
+public function employee_sign_up_mail($first_name, $last_name, $username, $password, $email_id,$company_name,$cust_type)
 {
-  global $secret_key,$encrypt_decrypt;
+  global $secret_key,$encrypt_decrypt,$model;
   $link = BASE_URL.'view/customer';
   $email_id = $encrypt_decrypt->fnDecrypt($email_id, $secret_key);
   
   $content = mail_login_box($username, $password, $link);
   $subject = 'Welcome aboard!';
-  global $model;
-  
-  $model->app_email_send('2',$first_name,$email_id, $content,$subject,'1');
+
+  $cust_name = ($cust_type == 'Corporate' || $cust_type == 'B2B') ? $company_name : $first_name;
+  $model->app_email_send('2',$cust_name,$email_id, $content,$subject,'1');
 }
 
 public function whatsapp_send(){

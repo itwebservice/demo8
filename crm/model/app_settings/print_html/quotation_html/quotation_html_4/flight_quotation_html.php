@@ -2,7 +2,7 @@
 //Generic Files
 include "../../../../model.php"; 
 include "printFunction.php";
-global $app_quot_img,$currency;
+global $app_quot_img,$currency,$quot_note;
 
 $quotation_id = $_GET['quotation_id'];
 
@@ -78,7 +78,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
     <div class="ladingPageBottom main_block side_pad">
       <div class="row">
         <div class="col-md-12 mg_tp_30">
-            <h3 class="customerFrom">Prepared for</h3>
+            <h3 class="customerFrom">PREPARED FOR</h3>
         </div>
         <div class="col-md-4">
           <div class="landigPageCustomer">
@@ -148,8 +148,8 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
                 <table class="table tableTrnasp no-marg" id="tbl_emp_list">
                 <thead>
                     <tr class="table-heading-row">
-                      <th>SECTOR FROM</th>
-                      <th>SECTOR TO</th>
+                      <th>From_sector</th>
+                      <th>To_sector</th>
                       <th>Airline</th>
                     </tr>
                   </thead>
@@ -168,8 +168,8 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
                 <thead>
                     <tr class="table-heading-row">
                       <th>Class</th>
-                      <th>Departure</th>
-                      <th>Arrival</th>
+                      <th>Departure_D/T</th>
+                      <th>Arrival_D/T</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -198,11 +198,12 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
 
         <!-- Terms and Conditions -->
       <section class="incluExcluTerms main_block side_pad mg_tp_30 pageSectionInner">
+      <?php if($sq_terms_cond['terms_and_conditions'] != ''){?>
         <div class="row">
       
           <div class="col-md-12 mg_tp_30">
             <div class="incluExcluTermsTabPanel main_block">
-                <h3 class="incexTitle">Terms & Conditions</h3>
+                <h3 class="incexTitle">TERMS AND CONDITIONS</h3>
                 <div class="tncContent">
                     <pre class="real_text"><?= $sq_terms_cond['terms_and_conditions'] ?></pre>      
                 </div>
@@ -210,6 +211,15 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
           </div>
 
         </div>   
+        <?php
+      }
+        if($quot_note!=''){?>
+          <div class="row mg_tp_10">
+            <div class="col-md-12">
+              <?php echo $quot_note; ?>
+            </div>
+          </div>
+        <?php } ?>
       </section>
   </section>
     <?php } ?>
@@ -224,7 +234,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
             <div class="row constingBankingPanelRow">
               <!-- Costing -->
               <div class="col-md-12 constingBankingPanel constingPanel">
-                    <h3 class="costBankTitle text-center">Costing Details</h3>
+                    <h3 class="costBankTitle text-center">COSTING DETAILS</h3>
                     <?php
                     $fare_cost = currency_conversion($currency,$currency,(floatval($newBasic) + $sq_quotation['roundoff']));
                     ?>
@@ -263,7 +273,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
                     <div class="col-md-4 text-center mg_bt_30">
                       <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
                       <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-                      <p>A/C NAME</p>
+                      <p>A/C TYPE</p>
                     </div>
                     <div class="col-md-4 text-center mg_bt_30">
                       <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>
@@ -324,7 +334,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
             <?php } ?>
             <div class="contactBlock">
               <i class="fa fa-pencil-square-o"></i>
-              <p>Prepared By : <?= $emp_name?></p>
+              <p>PREPARED BY : <?= $emp_name?></p>
             </div>
         </div>
         </section>

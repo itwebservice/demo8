@@ -15,7 +15,7 @@ $booking_id = $_POST['booking_id'];
 			<th>Mode</th>
 			<th>Bank_Name</th>
 			<th>Tansaction_ID</th>
-			<th class="text-right success">Amount</th>
+			<th class="success">Amount</th>
 			<th>Receipt</th>
 		</tr>
 	</thead>

@@ -84,7 +84,6 @@ $disabled = ($sq_income_info['payment_mode']=="Cash" ||$sq_income_info['payment_
 <script>
 $('#update_modal').modal('show');
 $('#payment_date').datetimepicker({ timepicker:false, format:'d-m-Y' });
-
 $('#frm_update').validate({
   rules:{
           income_type_id : { required: true },

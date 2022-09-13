@@ -41,9 +41,7 @@ include "../../../model/model.php";
               <select name="for_value" id="for_value" title="For">
 
                 <option value="">For</option>
-
                 <option value="Group">Group Tour</option>
-
                 <option value="Package">Package Tour</option>
                 <option value="Both">Both</option>
                 <option value="B2B Quotation">B2B Quotation</option>
@@ -52,7 +50,7 @@ include "../../../model/model.php";
 
             </div>  
 
-             <div class="col-sm-4 mg_bt_10">
+            <div class="col-sm-4 mg_bt_10">
 
               <select name="type" id="type" title="Type">
 
@@ -134,7 +132,7 @@ $('#frm_save').validate({
 
             inclusion : { required : true },
 
-            tour_type : { required : true },
+            // tour_type : { required : true },
 
             active_flag : { required : true },
 
@@ -158,7 +156,13 @@ $('#frm_save').validate({
 
         var for_value = $('#for_value').val();
 
-
+        if(for_value == 'Group' || for_value == 'Package' || for_value == 'Both'){
+          if(tour_type==''){
+            error_msg_alert('Select tour type!');
+            $('#btn_save').button('reset');
+            return false;
+          }
+        }
 
         $('#btn_save').button('loading');
 

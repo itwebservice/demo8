@@ -58,7 +58,7 @@ public function refund_save()
 
 			commit_t();
 
-			echo "Refund saved!";
+			echo "Supplier Refund saved!";
 
 			exit;	
 
@@ -80,7 +80,7 @@ public function refund_save()
 
 		rollback_t();
 
-		echo "Refund not saved!";
+		echo "Supplier Refund not saved!";
 
 		exit;
 
@@ -256,7 +256,7 @@ public function refund_update()
 
 			commit_t();
 
-			echo "Refund updated!";
+			echo "Supplier Refund updated!";
 
 			exit;	
 
@@ -270,7 +270,7 @@ public function refund_update()
 
 		rollback_t();
 
-		echo "Refund not updated!";
+		echo "Supplier Refund not updated!";
 
 		exit;
 

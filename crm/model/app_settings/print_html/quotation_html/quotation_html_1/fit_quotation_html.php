@@ -121,13 +121,6 @@ if($bsmValues[0]->basic != ''){ //inclusive markup
                       <?= $sq_quotation['total_passangers'] ?><br>
                     </div>
                   </li>
-                  <!-- <li class="col-md-3 mg_tp_10 mg_bt_10">
-                    <div class="print_quo_detail_block">
-                      <i class="fa fa-tags" aria-hidden="true"></i><br>
-                      <span>PRICE</span><br>
-                      <?= $currency_amount1 ?><br>
-                    </div>
-                  </li> -->
                 </ul>
               </div>
             </div>
@@ -181,7 +174,7 @@ if($bsmValues[0]->basic != ''){ //inclusive markup
           <div class="print_info_block">
             <ul class="main_block">
               <li class="col-md-12 mg_tp_10 mg_bt_10"><span>BANK NAME : </span><?= ($bank_name_setting != '') ? $bank_name_setting : 'NA' ?></li>
-              <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C NAME : </span><?= ($acc_name != '') ? $acc_name : 'NA' ?></li>
+              <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C TYPE : </span><?= ($acc_name != '') ? $acc_name : 'NA' ?></li>
               <li class="col-md-12 mg_tp_10 mg_bt_10"><span>BRANCH : </span><?= ($bank_branch_name!= '') ? $bank_branch_name : 'NA' ?></li>
               <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C NO : </span><?= ($bank_acc_no != '') ? $bank_acc_no : 'NA' ?></li>
               <li class="col-md-12 mg_tp_10 mg_bt_10"><span>IFSC : </span><?= ($bank_ifsc_code != '') ? $bank_ifsc_code : 'NA' ?></li>
@@ -274,7 +267,7 @@ if($bsmValues[0]->basic != ''){ //inclusive markup
             <?php }
             else{ ?>
               <thead>
-                <tr>
+                <tr class="table-heading-row">
                   <th>P_Type</th>
                   <th>ADULT(PP)</th>
                   <th>CWB(PP)</th>
@@ -369,56 +362,9 @@ if($bsmValues[0]->basic != ''){ //inclusive markup
   $sq_cruise_count = mysqli_num_rows(mysqlQuery("select * from package_tour_quotation_cruise_entries where quotation_id='$quotation_id'"));
   ?>
   <!-- print-detail -->    
-    <!-- Tour Itinenary -->
-    <?php if($sq_package_count != 0){ ?>
-    <section class="print_sec main_block side_pad mg_tp_30">
-      <div class="vitinerary_div">
-        <h6>Destination Guide Video</h6>
-        <img src="<?php echo BASE_URL.'images/quotation/youtube-icon.png'; ?>" class="itinerary-img img-responsive"><br/>
-        <a href="<?=$sq_dest['link']?>" class="no-marg" target="_blank"></a>
-      </div>
-
-      <div class="section_heding mg_tp_20">
-        <h2>TOUR ITINERARY</h2>
-        <div class="section_heding_img">
-          <img src="<?php echo BASE_URL.'images/heading_border.png'; ?>" class="img-responsive">
-        </div>
-      </div>
-      <div class="">
-        <div class="col-md-12">
-          <div class="print_itinenary main_block no-pad no-marg">
-          <?php 
-            $count = 1;
-            while($row_itinarary = mysqli_fetch_assoc($sq_package_program)){
-              $last_child = ($sq_package_count == $count) ? 'last-child' : '';
-            ?>
-            <section class="print_single_itinenary main_block <?= $last_child ?>">
-              <div class="print_itinenary_count print_info_block">DAY - <?= $count ?></div>
-              <div class="print_itinenary_desciption print_info_block">
-              	<div class="print_itinenary_attraction">
-              		<span class="print_itinenary_attraction_icon"><i class="fa fa-map-marker"></i></span>
-              		<samp class="print_itinenary_attraction_location"><?= $row_itinarary['attraction'] ?></samp>
-              	</div>
-                <p><?= $row_itinarary['day_wise_program'] ?></p>
-              </div>
-              <div class="print_itinenary_details">
-                <div class="print_info_block">
-                  <ul class="main_block no-pad">
-                    <li class="col-md-12 mg_tp_10 mg_bt_10"><span><i class="fa fa-bed"></i> : </span><?=  $row_itinarary['stay'] ?></li>
-                    <li class="col-md-12 mg_tp_10 mg_bt_10"><span><i class="fa fa-cutlery"></i> : </span><?= $row_itinarary['meal_plan'] ?></li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-            <?php $count++; } ?>
-            </div>
-        </div>
-      </div>
-    </section>
-    <?php } ?>
 
     <!-- Traveling Sections -->
-    <sectio class="print_sec main_block">
+    <section class="print_sec main_block">
         
           <!-- Accomodations -->
           <?php if($sq_hotel_count != 0){?>
@@ -631,8 +577,8 @@ if($bsmValues[0]->basic != ''){ //inclusive markup
                         <th>VEHICLE</th>
                         <th>T_START_DATE</th>
                         <th>T_END_DATE</th>
-                        <th>PICKUP</th>
-                        <th>DROP</th>
+                        <th>PICKUP_location</th>
+                        <th>DROP_location</th>
                         <th>TOTAL_VEHICLES</th>
                       </tr>
                     </thead>
@@ -742,6 +688,53 @@ if($bsmValues[0]->basic != ''){ //inclusive markup
         <?php } ?>    
     </section>    
 
+    <!-- Tour Itinenary -->
+    <?php if($sq_package_count != 0){ ?>
+    <section class="print_sec main_block side_pad mg_tp_30">
+      <div class="vitinerary_div">
+        <h6>Destination Guide Video</h6>
+        <img src="<?php echo BASE_URL.'images/quotation/youtube-icon.png'; ?>" class="itinerary-img img-responsive"><br/>
+        <a href="<?=$sq_dest['link']?>" class="no-marg" target="_blank"></a>
+      </div>
+
+      <div class="section_heding mg_tp_20">
+        <h2>TOUR ITINERARY</h2>
+        <div class="section_heding_img">
+          <img src="<?php echo BASE_URL.'images/heading_border.png'; ?>" class="img-responsive">
+        </div>
+      </div>
+      <div class="">
+        <div class="col-md-12">
+          <div class="print_itinenary main_block no-pad no-marg">
+          <?php 
+            $count = 1;
+            while($row_itinarary = mysqli_fetch_assoc($sq_package_program)){
+              $last_child = ($sq_package_count == $count) ? 'last-child' : '';
+            ?>
+            <section class="print_single_itinenary main_block <?= $last_child ?>">
+              <div class="print_itinenary_count print_info_block">DAY - <?= $count ?></div>
+              <div class="print_itinenary_desciption print_info_block">
+              	<div class="print_itinenary_attraction">
+              		<span class="print_itinenary_attraction_icon"><i class="fa fa-map-marker"></i></span>
+              		<samp class="print_itinenary_attraction_location"><?= $row_itinarary['attraction'] ?></samp>
+              	</div>
+                <p><?= $row_itinarary['day_wise_program'] ?></p>
+              </div>
+              <div class="print_itinenary_details">
+                <div class="print_info_block">
+                  <ul class="main_block no-pad">
+                    <li class="col-md-12 mg_tp_10 mg_bt_10"><span><i class="fa fa-bed"></i> : </span><?=  $row_itinarary['stay'] ?></li>
+                    <li class="col-md-12 mg_tp_10 mg_bt_10"><span><i class="fa fa-cutlery"></i> : </span><?= $row_itinarary['meal_plan'] ?></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <?php $count++; } ?>
+            </div>
+        </div>
+      </div>
+    </section>
+    <?php } ?>
     <!-- Inclusion -->
     <section class="print_sec main_block side_pad mg_tp_30">
       <div class="row">

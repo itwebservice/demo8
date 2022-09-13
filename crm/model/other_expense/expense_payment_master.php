@@ -104,7 +104,7 @@ public function finance_save($payment_id,$row_spec)
     $transaction_id = $transaction_id1;
     $payment_amount = $payment_amount1;
     $payment_date = $payment_date;
-    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $payment_amount1, $payment_mode);
+    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $payment_amount1, $payment_mode);
     $ledger_particular = get_ledger_particular('To','Expense');
     $gl_id = $pay_gl;
     $payment_side = "Credit";
@@ -117,7 +117,7 @@ public function finance_save($payment_id,$row_spec)
     $transaction_id = "";
     $payment_amount = $payment_amount1;
     $payment_date = $payment_date;
-    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $payment_amount1, $payment_mode);
+    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $payment_amount1, $payment_mode);
     $ledger_particular = get_ledger_particular('By','Expense');
     $gl_id = $supplier_gl;
     $payment_side = "Debit";
@@ -142,6 +142,10 @@ public function bank_cash_book_save($payment_id, $branch_admin_id)
 	$yr = explode("-", $payment_date);
 	$year = $yr[0];
 
+    //Getting supplier Ledger
+	$sq_cust = mysqli_fetch_assoc(mysqlQuery("select * from ledger_master where customer_id='$supplier_type' and user_type='Other Vendor' and group_sub_id='105'"));
+	$supplier_gl = $sq_cust['ledger_id'];
+	
 	$module_name = "Other Expense Booking";
 	$module_entry_id = $payment_id;
 	$payment_date = $payment_date;
@@ -150,7 +154,7 @@ public function bank_cash_book_save($payment_id, $branch_admin_id)
 	$bank_name = $bank_name;
 	$transaction_id = $transaction_id;
 	$bank_id = $bank_id; 
-	$particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $payment_amount1, $payment_mode);
+	$particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $payment_amount1, $payment_mode);
 	$clearance_status = ($payment_mode=="Cheque") ? "Pending" : "";
 	$payment_side = "Credit";
 	$payment_type = ($payment_mode=="Cash") ? "Cash" : "Bank";
@@ -254,7 +258,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $supp_amount;
 	    $payment_date = $payment_date;
-	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $supp_amount, $payment_mode);
+	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $supp_amount, $payment_mode);
 			$ledger_particular = get_ledger_particular('To','Expense');
 	    $gl_id = $supplier_gl;
 	    $payment_side = "Credit";
@@ -267,7 +271,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $payment_old_value;
 	    $payment_date = $payment_date;
-	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $payment_old_value, $payment_mode);
+	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $payment_old_value, $payment_mode);
 			$ledger_particular = get_ledger_particular('To','Expense');
 	    $gl_id = $pay_gl;
 	    $payment_side = "Debit";
@@ -280,7 +284,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $payment_amount1;
 	    $payment_date = $payment_date;
-	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $payment_amount1, $payment_mode);
+	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $payment_amount1, $payment_mode);
 			$ledger_particular = get_ledger_particular('To','Expense');
 	    $gl_id = $pay_gl;
 	    $payment_side = "Credit";
@@ -296,7 +300,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $supp_amount;
 	    $payment_date = $payment_date;
-	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $supp_amount, $payment_mode);
+	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $supp_amount, $payment_mode);
 			$ledger_particular = get_ledger_particular('To','Expense');
 	    $gl_id = $supplier_gl;
 	    $payment_side = "Debit";
@@ -309,7 +313,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $payment_old_value;
 	    $payment_date = $payment_date;
-	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $payment_old_value, $payment_mode);
+	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $payment_old_value, $payment_mode);
 			$ledger_particular = get_ledger_particular('To','Expense');
 	    $gl_id = $pay_gl;
 	    $payment_side = "Debit";
@@ -322,7 +326,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $payment_amount1;
 	    $payment_date = $payment_date;
-	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $payment_amount1, $payment_mode);
+	    $payment_particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $payment_amount1, $payment_mode);
 		$ledger_particular = get_ledger_particular('To','Expense');
 	    $gl_id = $pay_gl;
 	    $payment_side = "Credit";
@@ -338,6 +342,7 @@ public function finance_update($sq_payment_info, $clearance_status1)
 public function bank_cash_book_update($clearance_status)
 {
 	$payment_id = $_POST['payment_id'];
+	$supplier_id = $_POST['supplier_id'];
 	$vendor_type = $_POST['vendor_type'];
 	$vendor_type_id = $_POST['vendor_type_id'];
 	$payment_date = $_POST['payment_date'];
@@ -353,6 +358,9 @@ public function bank_cash_book_update($clearance_status)
 	$yr = explode("-", $payment_date);
 	$year = $yr[0];
 
+    //Getting supplier Ledger
+	$sq_cust = mysqli_fetch_assoc(mysqlQuery("select * from ledger_master where customer_id='$supplier_id' and user_type='Other Vendor' and group_sub_id='105'"));
+	$supplier_gl = $sq_cust['ledger_id'];
 	global $bank_cash_book_master;
 	
 	$module_name = "Other Expense Booking";
@@ -363,7 +371,7 @@ public function bank_cash_book_update($clearance_status)
 	$bank_name = $bank_name;
 	$transaction_id = $transaction_id;
 	$bank_id = $bank_id;
-	$particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),'', $payment_date, $payment_amount, $payment_mode);
+	$particular = get_expense_paid_particular(get_other_expense_payment_id($payment_id,$year),$supplier_gl, $payment_date, $payment_amount, $payment_mode);
 	$clearance_status = $clearance_status;
 	$payment_side = "Credit";
 	$payment_type = ($payment_mode=="Cash") ? "Cash" : "Bank";

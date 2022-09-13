@@ -60,11 +60,10 @@ while($row_exc = mysqli_fetch_assoc($sq_exc)){
 		$update_btn = '<button data-toggle="tooltip" class="btn btn-info btn-sm" onclick="exc_update_modal('. $row_exc['exc_id'] .')" title="Update Details" id="update_btn-'. $row_exc['exc_id'] .'"><i class="fa fa-pencil-square-o"></i></button>';
 	}
 	$date = $row_exc['created_at'];
-		$yr = explode("-", $date);
-		$year =$yr[0];
-		$customer_info_name1 = "select * from customer_master where customer_id = '$row_exc[customer_id]'";
-		
-	$customer_info_name = mysqli_fetch_assoc(mysqlQuery($customer_info_name1));
+	$yr = explode("-", $date);
+	$year =$yr[0];
+
+	$customer_info_name = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id = '$row_exc[customer_id]'"));
 	$contact_no = $encrypt_decrypt->fnDecrypt($customer_info_name['contact_no'], $secret_key);
 	$email_id = $encrypt_decrypt->fnDecrypt($customer_info_name['email_id'], $secret_key); 
 	if($customer_info_name['type']=='Corporate'||$customer_info_name['type'] == 'B2B'){

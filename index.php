@@ -1,6 +1,6 @@
 <?php
 
-include 'api.php';
+include 'config.php';
 
 
 $service = $_GET['service'];
@@ -253,6 +253,9 @@ $date1 = str_replace('-', '/', $date);
 
         </div>
     </section>
+
+
+
     <!-- //  -- booking section end  --  // -->
     <!-- //  ---- tour package start  ----  // -->
     <section class="tour-pack">
@@ -285,8 +288,8 @@ $date1 = str_replace('-', '/', $date);
                                     <i class="fa-solid fa-bolt-lightning"></i>
                                 </span>
                             </div>
-                            <div class="widget-card-price">
-                                <h4>$<?= $package->adult_cost ?></h4>
+                            <div class="widget-card-price" style="top: 100px;">
+                                <h4>$<?= !empty($package->tariff) ? $package->tariff->cadult : 0.00  ?></h4>
                             </div>
                             <div class="ribbon">
                                 <span class="bg-primary">Collaction</span>
@@ -309,16 +312,16 @@ $date1 = str_replace('-', '/', $date);
                                     </h5>
                                 </a>
                                 <span class="widget-card-trip-day">
-                                    <strong><?= $package->total_days ?> Days, <?= $package->total_nights ?> Nights</strong>
+                                    <strong><?= $package->total_nights ?> Nights,<?= $package->total_days ?> Days </strong>
                                     <?= $package->tour_type ?>
                                 </span>
-                                <p class="card-text widget-card-text">Lorem ipsum dolor sit amet, quis int nostrum exercitationem
+                                <p class="card-text widget-card-text"><?= $package->note ?>
                                 </p>
 
                             </div>
                         </div>
                         <div class="card-footer widget-card-footer bg-white australia-card-footer">
-                            <a href="#" class="text-decoration-none">
+                            <a href="#" class="text-decoration-none" onclick="get_tours_data('<?= $package->destination->dest_id ?>','1')">
                                 <span class="widget-card-footer-text"><i class="bi bi-geo-alt fa-solid fa-location-dot"></i> <?= $package->destination->dest_name ?>
                                 </span>
                             </a>
@@ -456,8 +459,8 @@ $date1 = str_replace('-', '/', $date);
                 //var_dump($Apidestination[0]);
                 foreach ($Apidestination as $destination) {  ?>
                     <div class="style-nine-card-item">
-                        <div class="style-nine-img">
-                            <img src="  <?= $destination->gallery_images[rand(0, count($destination->gallery_images))]->image_url; ?>" alt="" class="img-fluid">
+                       <a onclick="get_tours_data('<?= $destination->dest_id ?>','1')"> <div class="style-nine-img">
+                            <img src="  <?= $destination->gallery_images[5]->image_url; ?>" alt="" class="img-fluid">
 
                             <div class="style-nine-card-details">
                                 <div class="rating-star">
@@ -476,7 +479,7 @@ $date1 = str_replace('-', '/', $date);
                                     <small><i class="bi bi-eye fa-solid fa-eye"></i> + Tour Places</small>
                                 </p> -->
                             </div>
-                        </div>
+                        </div> </a> 
                     </div>
                 <?php } ?>
 
@@ -733,318 +736,62 @@ $date1 = str_replace('-', '/', $date);
                 <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
             </div>
             <div class="widget-card border-0 transpot-vehical">
-                <div class="transpotation-cards">
-                    <div class="widget-card-img">
-                        <img src="images/mini cruse.jpg" class="card-img-top img-fluid" alt="...">
-                        <div class="widget-hotel-card-item">
-                            <a href="#" class="hotel-card-item">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="transpotation-text">
-                        <h6 class="mini">Mini Cruise</h6>
-                        <p class="mini-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>GPS Tracking
+                <?php foreach ($Apitransport as $transport) {
+                    if (!empty($transport->tariff)) {
+                        foreach($transport->tariff as $tariff) {
+                ?>
+                        <div class="transpotation-cards">
+                            <div class="widget-card-img">
+                                <img src="crm/<?= substr($transport->image_url,9) ?>" class="card-img-top img-fluid" alt="...">
+                                <div class="widget-hotel-card-item">
+                                    <a href="#" class="hotel-card-item">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Food Facillites
+                            <div class="transpotation-text">
+                                <h6 class="mini"> <?= $transport->vehicle_name ?> </h6>
+                                <p class="mini-text"><?= $transport->vehicle_type ?> </p>
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="facilities-text">
+                                            <i class="fas fa-check"></i>Pickup Location: <?= $tariff->tariff_entry->city_from->city_name ?> 
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="facilities-text">
+                                            <i class="fas fa-check"></i>Drop Location: <?= $tariff->tariff_entry->city_to->city_name ?> 
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="facilities-text">
+                                            <i class="fas fa-check"></i>From Date: <?= $tariff->tariff_entry->from_date ?> 
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="facilities-text">
+                                            <i class="fas fa-check"></i>To Date: <?= $tariff->tariff_entry->to_date ?> 
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="card-footer widget-card-footer restaurant-footer">
+                                    <div class="widget-star-rating widget-hotel-star">
+                                        <small><?= json_decode($tariff->tariff_entry->tariff_data)[0]->total_cost  ?></small>
+                                    
+                                    </div>
+
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Air Conditioner
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>TV and Audios
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Free Wifi
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Push back Seats
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>High Rated Driver
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Extra Facilites
-                                </div>
-                            </div>
+
 
                         </div>
-                        <div class="card-footer widget-card-footer restaurant-footer">
-                            <div class="widget-star-rating widget-hotel-star">
-                                <small>27 Reviews</small>
-                                <input type="checkbox" id="1-restaurant" name="restaurant" value="1">
-                                <label for="5-restaurant" class="widget-card-star">★</label>
-                                <input type="checkbox" id="2-restaurant" name="restaurant" value="2" checked>
-                                <label for="4-restaurant" class="widget-card-star">★</label>
-                                <input type="checkbox" id="3-restaurant" name="restaurant" value="3">
-                                <label for="3-restaurant" class="widget-card-star">★</label>
-                                <input type="checkbox" id="4-restaurant" name="restaurant" value="4">
-                                <label for="2-restaurant" class="widget-card-star">★</label>
-                                <input type="checkbox" id="5-restaurant" name="restaurant" value="5">
-                                <label for="1-restaurant" class="widget-card-star">★</label>
 
-                            </div>
-                            <div class="restaurant-comment tour-card-discription">
-                                <i class="fa-regular fa-comment"></i> 63
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="transpotation-cards">
-                    <div class="widget-card-img">
-                        <img src="images/car.jpg" class="card-img-top img-fluid" alt="...">
-                        <div class="widget-hotel-card-item">
-                            <a href="#" class="hotel-card-item">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="transpotation-text">
-                        <h6 class="mini">Car</h6>
-                        <p class="mini-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>GPS Tracking
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Food Facillites
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Air Conditioner
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>TV and Audios
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Free Wifi
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Push back Seats
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>High Rated Driver
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Extra Facilites
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="card-footer widget-card-footer restaurant-footer">
-                            <div class="widget-star-rating widget-hotel-star">
-                                <small>25 Reviews</small>
-                                <input type="checkbox" id="1-restaurant1" name="restaurant1" value="1">
-                                <label for="5-restaurant1" class="widget-card-star">★</label>
-                                <input type="checkbox" id="2-restaurant1" name="restaurant1" value="2" checked>
-                                <label for="4-restaurant1" class="widget-card-star">★</label>
-                                <input type="checkbox" id="3-restaurant1" name="restaurant1" value="3">
-                                <label for="3-restaurant1" class="widget-card-star">★</label>
-                                <input type="checkbox" id="4-restaurant1" name="restaurant1" value="4">
-                                <label for="2-restaurant1" class="widget-card-star">★</label>
-                                <input type="checkbox" id="5-restaurant1" name="restaurant1" value="5">
-                                <label for="1-restaurant1" class="widget-card-star">★</label>
-
-                            </div>
-                            <div class="restaurant-comment tour-card-discription">
-                                <i class="fa-regular fa-comment"></i> 63
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="transpotation-cards">
-                    <div class="widget-card-img">
-                        <img src="images/flight.jpg" class="card-img-top img-fluid" alt="...">
-                        <div class="widget-hotel-card-item">
-                            <a href="#" class="hotel-card-item">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="transpotation-text">
-                        <h6 class="mini">Flight</h6>
-                        <p class="mini-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>GPS Tracking
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Food Facillites
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Air Conditioner
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>TV and Audios
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Free Wifi
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Push back Seats
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>High Rated Driver
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Extra Facilites
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="card-footer widget-card-footer restaurant-footer">
-                            <div class="widget-star-rating widget-hotel-star">
-                                <small>25 Reviews</small>
-                                <input type="checkbox" id="1-restaurant2" name="restaurant2" value="1" checked>
-                                <label for="5-restaurant2" class="widget-card-star">★</label>
-                                <input type="checkbox" id="2-restaurant2" name="restaurant2" value="2">
-                                <label for="4-restaurant2" class="widget-card-star">★</label>
-                                <input type="checkbox" id="3-restaurant2" name="restaurant2" value="3">
-                                <label for="3-restaurant2" class="widget-card-star">★</label>
-                                <input type="checkbox" id="4-restaurant2" name="restaurant2" value="4">
-                                <label for="2-restaurant2" class="widget-card-star">★</label>
-                                <input type="checkbox" id="5-restaurant2" name="restaurant2" value="5">
-                                <label for="1-restaurant2" class="widget-card-star">★</label>
-
-                            </div>
-                            <div class="restaurant-comment tour-card-discription">
-                                <i class="fa-regular fa-comment"></i> 63
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="transpotation-cards">
-                    <div class="widget-card-img">
-                        <img src="images/mini nus.jpg" class="card-img-top img-fluid" alt="...">
-                        <div class="widget-hotel-card-item">
-                            <a href="#" class="hotel-card-item">
-                                <i class="fa-regular fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="transpotation-text">
-                        <h6 class="mini">Mini Bus</h6>
-                        <p class="mini-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>GPS Tracking
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Food Facillites
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Air Conditioner
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>TV and Audios
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Free Wifi
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Push back Seats
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>High Rated Driver
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                <div class="facilities-text">
-                                    <i class="fas fa-check"></i>Extra Facilites
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="card-footer widget-card-footer restaurant-footer">
-                            <div class="widget-star-rating widget-hotel-star">
-                                <small>25 Reviews</small>
-                                <input type="checkbox" id="1-restaurant3" name="restaurant3" value="1">
-                                <label for="5-restaurant3" class="widget-card-star">★</label>
-                                <input type="checkbox" id="2-restaurant3" name="restaurant3" value="2" checked="">
-                                <label for="4-restaurant3" class="widget-card-star">★</label>
-                                <input type="checkbox" id="3-restaurant3" name="restaurant3" value="3">
-                                <label for="3-restaurant3" class="widget-card-star">★</label>
-                                <input type="checkbox" id="4-restaurant3" name="restaurant3" value="4">
-                                <label for="2-restaurant3" class="widget-card-star">★</label>
-                                <input type="checkbox" id="5-restaurant3" name="restaurant3" value="5">
-                                <label for="1-restaurant3" class="widget-card-star">★</label>
-
-                            </div>
-                            <div class="restaurant-comment tour-card-discription">
-                                <i class="fa-regular fa-comment"></i> 63
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
+                <?php }}
+                } ?>
+              
             </div>
         </div>
     </section>
@@ -1061,10 +808,16 @@ $date1 = str_replace('-', '/', $date);
                 ?>
             </div>
             <div class="package-card">
-                <?php foreach ($Apihotel as $hotel) { ?>
+                <?php 
+                                                            
+                
+                foreach ($Apihotel as $hotel) { ?>
+                                 
+
                     <div class=" widget-card ">
+                    <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')">  
                         <div class="widget-card-img">
-                            <img src="crm/<?= substr($hotel->hotel->hotel_image->hotel_pic_url, 11) ?>" class="card-img-top" alt="...">
+                            <img src="crm/<?= substr($hotel->hotel_image->hotel_pic_url, 11) ?>" class="card-img-top" alt="...">
                             <!-- <div class="widget-card-price">
                                     <h4>$40 <del>$50</del></h4>
                                 </div> -->
@@ -1085,26 +838,31 @@ $date1 = str_replace('-', '/', $date);
                                 <span class="tour-card-discription">Hotel</span>
                             </div>
                         </div>
-                        <div class="card-body widget-card-body">
+                    </a>
+                          
+                    <div class="card-body widget-card-body">
                             <div class="widget-card-reviw widget-card-hotel-title mb-0">
-                                <a href="#" class="text-decoration-none">
+                                <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none">
                                     <h5 class="card-title widget-card-title hotel-card-title">
-                                        <?= $hotel->hotel->hotel_name ?>
+                                        <?= $hotel->hotel_name ?>
                                     </h5>
                                     <p class="mini-text">
 
-                                        <?= $hotel->hotel->amenities ?>
+                                        <?= $hotel->amenities ?>
                                     </p>
                                 </a>
                                 <div class="widget-card-ruting widget-card-ruting-restaurant pb-0 mb-0">
                                     <a href="#" class="text-decoration-none mb-2">
                                         <span class="widget-card-ruting-location card-ruting-hotel border-0">
-                                            <i class="fa-solid fa-location-dot"></i> <?= $hotel->city->city_name ?>,<?= $hotel->hotel->country ?>
+                                            <i class="fa-solid fa-location-dot"></i> <?= $hotel->city->city_name ?>,<?= $hotel->country ?>
                                         </span>
                                     </a>
                                     <a href="#" class="text-decoration-none mb-2 mt-2">
                                         <span class="widget-card-ruting-calendar card-ruting-hotel border-end-0 pe-0 me-0">
-                                            <i class="fas fa-phone"></i><?= $hotel->hotel->mobile_no ?>
+                                            <i class="fas fa-phone"></i><?php
+                                            $mobile_no = $encrypt_decrypt->fnDecrypt($hotel->mobile_no, $secret_key);
+                                                echo $mobile_no;
+                                            ?>
                                         </span>
                                     </a>
                                     <!-- <span class="widget-card-ruting-time border-0 mt-2">
@@ -1116,7 +874,7 @@ $date1 = str_replace('-', '/', $date);
                         </div>
                         <div class="card-footer widget-card-footer restaurant-footer">
                             <div class="widget-star-rating widget-hotel-star">
-                                <small><?= $hotel->hotel->rating_star ?></small>
+                                <small><?= $hotel->rating_star ?></small>
                                 <!-- <input type="checkbox" id="5-restaurant4" name="restaurant4" value="5">
                                 <label for="5-restaurant4" class="widget-card-star">&#9733;</label>
                                 <input type="checkbox" id="4-restaurant4" name="restaurant4" value="4" checked>
@@ -1132,6 +890,7 @@ $date1 = str_replace('-', '/', $date);
                                 <i class="fa-regular fa-comment"></i> 45
                             </div> -->
                         </div>
+                    
                     </div>
                 <?php } ?>
 
@@ -1152,14 +911,13 @@ $date1 = str_replace('-', '/', $date);
             <div class=" transpot-vehical holiday-slider">
                 <?php foreach ($Apiactivity as $activity) { ?>
                     <div class=" widget-card border-0 ">
+                        <a  onclick="get_tours_data('<?= $activity->city_id ?>','4','<?= $activity->entry_id ?>')">
                         <div class="widget-card-img">
                             <img src="crm/<?= substr($activity->images[0]->image_url, 6) ?>" class="card-img-top" alt="...">
-                            <div class="widget-china-tour">
-                                <span>India</span>
-                            </div>
+
                             <div class="widget-china-location">
                                 <span>
-                                    <i class="bi bi-geo-alt"></i> <?= $activity->duration ?>
+                                    <i class="bi bi-geo-alt"></i> <?= $activity->departure_point ?>
                                 </span>
                                 <!-- <span>
                                 <i class="bi bi-eye"></i> 40+ Tour Places
@@ -1169,24 +927,14 @@ $date1 = str_replace('-', '/', $date);
                                 <h4>$40 <del>$50</del></h4>
                             </div> -->
                         </div>
+                        </a>
                         <div class="card-body widget-card-body">
                             <div class="widget-card-reviw widget-card-china">
-                                <a href="#" class="text-decoration-none china-wall">
+                                <a href="#" class="text-decoration-none china-wall" onclick="get_tours_data('<?= $activity->city_id ?>','4','<?= $activity->entry_id ?>')">
                                     <h5 class="card-title widget-card-title mb-0"><?= $activity->excursion_name ?></h5>
-                                    <small class="text-muted"><?= $activity->departure_point ?></small>
+                                    <small class="text-muted">Duration: <?= $activity->duration ?></small>
                                 </a>
-                                <div class="widget-star-rating">
-                                    <input type="checkbox" id="5-china" name="china" value="5">
-                                    <label for="5-china" class="widget-card-star">&#9733;</label>
-                                    <input type="checkbox" id="4-china" name="china" value="4" checked>
-                                    <label for="4-china" class="widget-card-star">&#9733;</label>
-                                    <input type="checkbox" id="3-china" name="china" value="3">
-                                    <label for="3-china" class="widget-card-star">&#9733;</label>
-                                    <input type="checkbox" id="2-china" name="china" value="2">
-                                    <label for="2-china" class="widget-card-star">&#9733;</label>
-                                    <input type="checkbox" id="1-star" name="china" value="1">
-                                    <label for="1-star" class="widget-card-star">&#9733;</label>
-                                </div>
+                                
                             </div>
                             <div class="widget-china-day">
                                 <span class="tour-card-discription">
@@ -1195,6 +943,7 @@ $date1 = str_replace('-', '/', $date);
                             </div>
                         </div>
                         <div class="card-footer widget-card-footer">
+                            <small><?= $activity->basics->adult_cost ?></small>
                             <!-- <div class="china-profile">
                                 <h5 class="widget-china-profile tour-card-discription mb-0">
                                     <img src="images/wendy (1).jpg" alt="" class="img-fluid">Wendy Peake
@@ -2363,38 +2112,38 @@ $date1 = str_replace('-', '/', $date);
                 <p>We're professionally managed travel service providing company. Committed to total customer satisfaction & enhancing value of money.</p>
             </div>
             <div class="it-testimonail-v2-slider">
-                <?php foreach($Apitestimonial as $testimonial){ ?>
-                <div class="it-testimonail-v2-slide">
-                    <div class="it-testimonail-v2-card">
-                        <div class="it-testimonail-v2-img">
-                            <img src="crm/<?= substr($testimonial->image,9) ?>" class="img-fluid" alt="images">
-                        </div>
-                        <div class="it-testimonail-v2-card-body">
-                            <h4 class="it-testimonail-v2-title"><?= $testimonial->name  ?> (<?= $testimonial->designation  ?>)</h4>
-                            <ul class="it-testimonail-v2-review-list">
-                                <li class="it-testimonail-v2-review-item it-review-selected">
-                                    <i class="fa fa-star"> </i>
-                                </li>
-                                <li class="it-testimonail-v2-review-item it-review-selected">
-                                    <i class="fa fa-star"> </i>
-                                </li>
-                                <li class="it-testimonail-v2-review-item it-review-selected">
-                                    <i class="fa fa-star"> </i>
-                                </li>
-                                <li class="it-testimonail-v2-review-item it-review-selected">
-                                    <i class="fa fa-star"> </i>
-                                </li>
-                                <li class="it-testimonail-v2-review-item">
-                                    <i class="fa fa-star"> </i>
-                                </li>
-                            </ul>
-                            <p class="it-testimonail-v2-description"> <?= substr($testimonial->testm,0,150)  ?> </p>
+                <?php foreach ($Apitestimonial as $testimonial) { ?>
+                    <div class="it-testimonail-v2-slide">
+                        <div class="it-testimonail-v2-card">
+                            <div class="it-testimonail-v2-img">
+                                <img src="crm/<?= substr($testimonial->image, 9) ?>" class="img-fluid" alt="images">
+                            </div>
+                            <div class="it-testimonail-v2-card-body">
+                                <h4 class="it-testimonail-v2-title"><?= $testimonial->name  ?> (<?= $testimonial->designation  ?>)</h4>
+                                <ul class="it-testimonail-v2-review-list">
+                                    <li class="it-testimonail-v2-review-item it-review-selected">
+                                        <i class="fa fa-star"> </i>
+                                    </li>
+                                    <li class="it-testimonail-v2-review-item it-review-selected">
+                                        <i class="fa fa-star"> </i>
+                                    </li>
+                                    <li class="it-testimonail-v2-review-item it-review-selected">
+                                        <i class="fa fa-star"> </i>
+                                    </li>
+                                    <li class="it-testimonail-v2-review-item it-review-selected">
+                                        <i class="fa fa-star"> </i>
+                                    </li>
+                                    <li class="it-testimonail-v2-review-item">
+                                        <i class="fa fa-star"> </i>
+                                    </li>
+                                </ul>
+                                <p class="it-testimonail-v2-description"> <?= substr($testimonial->testm, 0, 150)  ?> </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 <?php } ?>
-               
+
             </div>
         </div>
     </section>
@@ -2431,7 +2180,7 @@ $date1 = str_replace('-', '/', $date);
                             </div>
                             <div class="feature-points">
                                 <h4 class="feature-points-title">Best Quality Services</h4>
-                                <small class="feature-points-discription">With our highly trained operations team, 
+                                <small class="feature-points-discription">With our highly trained operations team,
                                     we keep a look out for even the most minute of issues.</small>
                             </div>
                         </div>
@@ -2444,7 +2193,7 @@ $date1 = str_replace('-', '/', $date);
                             <div class="feature-points">
                                 <h4 class="feature-points-title">Easy Tour Booking</h4>
                                 <small class="feature-points-discription">We believe in providing hassle free and convenient
-                                     tour booking options to our guests.</small>
+                                    tour booking options to our guests.</small>
                             </div>
                         </div>
                     </div>
@@ -2455,7 +2204,7 @@ $date1 = str_replace('-', '/', $date);
                             </div>
                             <div class="feature-points">
                                 <h4 class="feature-points-title">Quick Assistance for Guests</h4>
-                                <small class="feature-points-discription">With our highly trained operations team, 
+                                <small class="feature-points-discription">With our highly trained operations team,
                                     we keep a look out for even the most minute of issues.</small>
                             </div>
                         </div>
@@ -2490,7 +2239,7 @@ $date1 = str_replace('-', '/', $date);
                             </div> -->
                         </div>
                     </div>
-                <? } ?>
+                <?php } ?>
 
 
             </div>
@@ -2506,11 +2255,11 @@ $date1 = str_replace('-', '/', $date);
                 <p>We're always curious to provide a promt services to you. Let's connect!</p>
             </div>
             <div class="btn-list">
-              <!--  <a href="#" class="btn apple-btn">
+                <!--  <a href="#" class="btn apple-btn">
                     <i class="fab fa-apple"></i> App Store</a> -->
                 <a href="#" class="btn google-btn">
                     <i class="fa-solid fa-phone"></i>Arrange Call back</a>
-              <!--  <a href="#" class="btn window-btn">
+                <!--  <a href="#" class="btn window-btn">
                     <i class="fa-brands fa-windows"></i>Windows</a> -->
             </div>
         </div>
@@ -2666,5 +2415,27 @@ include 'layouts/footer.php';
 
         }
 
+    });
+</script>
+<script type="text/javascript">
+    $(function() {
+        //prepare Your data array with img urls
+        var dataArray = [
+            <?php
+            foreach ($Apibanner as $banner) {
+                echo '"crm/' . substr($banner->image_url, 9) . '",';
+            }
+            ?>
+        ];
+
+
+        //start with id=0 after 5 seconds
+        var thisId = 0;
+
+        window.setInterval(function() {
+            $('.booking-banner').attr('style', "background-image:url('" + dataArray[thisId] + "');");
+            thisId++; //increment data array id
+            if (thisId == dataArray.length) thisId = 0; //repeat from start
+        }, 5000);
     });
 </script>

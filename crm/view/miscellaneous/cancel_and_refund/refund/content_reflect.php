@@ -65,7 +65,7 @@ $remaining_show = ($remaining < 0) ? 0 : $remaining;
 		<form id="frm_refund_save">
 
         <h3 class="editor_title">Refund Details</h3>
-    	<div class="panel panel-default panel-body no-pad"> 
+    	<div class="panel panel-default panel-body"> 
 			<div class="row  text-center mg_tp_10">    
 			    <div class="col-sm-6 col-xs-12 mg_bt_10">
 			    	<input type="hidden" name="remaining_val" id="remaining_val" value="<?php echo $remaining;?>">

@@ -188,7 +188,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
           
           <div class="col-md-12 mg_tp_30">
             <div class="termsConditions main_block">
-                <h3 class="termsConditionsTitle">Terms & Conditions</h3>
+                <h3 class="endingPageTitle">TERMS AND CONDITIONS</h3>
                 <div class="tncContent">
                     <pre class="real_text"><?php echo $sq_terms_cond['terms_and_conditions']; ?></pre>    
                     <pre class="real_text"><?php echo $quot_note; ?></pre>  
@@ -213,7 +213,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
           
           <!-- Guest Detail -->
           <div class="col-md-4 passengerPanel endPagecenter mg_bt_30">
-            <h3 class="endingPageTitle text-center">Total Guest</h3>
+            <h3 class="endingPageTitle text-center">TOTAL GUEST</h3>
             <div class="icon">
               <img src="<?= BASE_URL ?>images/quotation/p4/adult.png" class="img-responsive">
               <h4 class="no-marg">Adult : <?= $enquiryDetails['total_adult'] ?></h4>
@@ -232,7 +232,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
         <div class="col-md-8">
           <!-- Costing -->
           <div class="col-md-12 constingBankingPanel constingPanel">
-                <h3 class="costBankTitle text-center">Costing Details</h3>
+                <h3 class="costBankTitle text-center">COSTING DETAILS</h3>
                 <!-- Group costing -->
                 <?php
                 $total_fare = currency_conversion($currency,$sq_quotation['currency_code'],$newBasic + $costDetails['roundoff']);
@@ -260,7 +260,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
 
           <!-- Bank Detail -->
           <div class="col-md-12 constingBankingPanel BankingPanel">
-                <h3 class="costBankTitle text-center">Bank Details</h3>
+                <h3 class="costBankTitle text-center">BANK DETAILS</h3>
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/bankName.png" class="img-responsive"></div>
                   <h4 class="no-marg"><?= ($bank_name_setting != '') ? $bank_name_setting : 'NA' ?></h4>
@@ -274,7 +274,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
                   <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-                  <p>A/C NAME</p>
+                  <p>A/C TYPE</p>
                 </div>
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>
@@ -336,7 +336,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
             <?php } ?>
             <div class="contactBlock">
               <i class="fa fa-pencil-square-o"></i>
-              <p>Prepared By : <?= $emp_name?></p>
+              <p>PREPARED BY : <?= $emp_name?></p>
             </div>
         </div>
         </div>

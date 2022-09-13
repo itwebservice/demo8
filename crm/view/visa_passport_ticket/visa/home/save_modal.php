@@ -22,7 +22,7 @@ $branch_status = $sq['branch_status'];
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">New Visa</h4>
+				<h4 class="modal-title" id="myModalLabel">New Visa Booking</h4>
 			</div>
 			<div class="modal-body">
 
@@ -403,7 +403,7 @@ $branch_status = $sq['branch_status'];
 						return false;
 					}
 				} else if (payment_mode == "Credit Note" && credit_amount == '') {
-					error_msg_alert("You don't have Credit Note Amount");
+					error_msg_alert("Credit Note Balance is not available");
 					$('#btn_visa_master_save').prop('disabled', false);
 					return false;
 				}

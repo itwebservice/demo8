@@ -7,7 +7,7 @@ include "../../model/model.php";
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Activity</h4>
+        <h4 class="modal-title" id="myModalLabel">New Activity Details And Tariff</h4>
       </div>
       <div class="modal-body">	
 		<div class="row">
@@ -163,7 +163,7 @@ include "../../model/model.php";
 													<option value=''>Amount In</option>
 													<option value='Flat'>Flat</option>
 													<option value='Percentage'>Percentage</option></select></td>
-												<td><input type='number' id="amount" name="amount" placeholder="*Markup Amount" class="form-control" title="Markup Amount" style="width: 147px;"/></td>
+												<td><input type='number' id="amount" name="amount" placeholder="*Markup Amount" class="form-control" title="Markup Amount" style="width: 147px;" onchange="validate_balance(this.id);"/></td>
 												<td><input type="hidden" id="entry_id" name="entry_id" /></td>
 											</tr>
 											</table>
