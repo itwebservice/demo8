@@ -122,18 +122,18 @@
                 <div class="col col-12 col-md-12 col-lg-6 col-xl-4">
                     <h6 class="it-footer-title">Get In Touch</h6>
                     <ul class="it-footer-menu-list">
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-home"></i> 
+                        <li class="it-footer-menu-item" style="color: rgba(255, 255, 255, 0.6);">
+                            <a class="it-footer-menu-link"><i class="fa fa-home"></i> 
                             <?= $Apigeneral->app_address ?>
                         </a>
                         </li>
                         <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-envelope"></i>
+                            <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->app_email_id ?>" class="it-footer-menu-link"><i class="fa fa-envelope"></i>
                             <?= $Apigeneral->app_email_id ?>
                         </a>
                         </li>
                         <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-phone"></i>
+                            <a class="it-footer-menu-link" style="color: rgba(255, 255, 255, 0.6);"><i class="fa fa-phone"></i>
                             <?= $Apigeneral->app_contact_no ?></a>
                         </li>
                         <li class="it-footer-menu-item">
