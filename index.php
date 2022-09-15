@@ -279,7 +279,7 @@ $date1 = str_replace('-', '/', $date);
                 ?>
                     <div class="card widget-card border-0">
                         <div class="widget-card-img">
-                            <img src="<?= $package->images[0]->image_url ?>" class="card-img-top" alt="...">
+                            <img src="<?= $package->main_img_url ?>" class="card-img-top" alt="...">
                             <!-- <div class="widget-card-price">
                                 <h4>$40 <del>$50</del></h4>
                             </div> -->
@@ -817,7 +817,7 @@ $date1 = str_replace('-', '/', $date);
                     <div class=" widget-card ">
                     <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')">  
                         <div class="widget-card-img">
-                            <img src="crm/<?= substr($hotel->hotel_image->hotel_pic_url, 11) ?>" class="card-img-top" alt="...">
+                            <img src="<?= file_exists('crm/'. substr($hotel->hotel_image->hotel_pic_url, 11)) ? 'crm/'. substr($hotel->hotel_image->hotel_pic_url, 11) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
                             <!-- <div class="widget-card-price">
                                     <h4>$40 <del>$50</del></h4>
                                 </div> -->
@@ -913,7 +913,7 @@ $date1 = str_replace('-', '/', $date);
                     <div class=" widget-card border-0 ">
                         <a  onclick="get_tours_data('<?= $activity->city_id ?>','4','<?= $activity->entry_id ?>')">
                         <div class="widget-card-img">
-                            <img src="crm/<?= substr($activity->images[0]->image_url, 6) ?>" class="card-img-top" alt="...">
+                            <img src="<?= file_exists('crm/'.substr($activity->images[0]->image_url, 6)) ? 'crm/'.substr($activity->images[0]->image_url, 6) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
 
                             <div class="widget-china-location">
                                 <span>
