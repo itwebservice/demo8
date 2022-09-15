@@ -26,8 +26,8 @@ $date1 = str_replace('-', '/', $date);
             <div class="banner-text">
                 <div class="container">
                     <div class="banner-title">
-                        <h1>Where Do you Want to go? </h1>
-                        <p>Find the world's largest collection of tours & travel Packages.</p>
+                        <h1>Where Do You Want To Go? </h1>
+                        <p>Find The World's Largest Collection Of Tours & Travel Packages.</p>
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-lg-12 col-xl-12">
@@ -204,44 +204,49 @@ $date1 = str_replace('-', '/', $date);
                             <div class="row mt-4">
                                 <div class="col">
                                     <div class="tour-service">
+                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/tours/tours-listing.php" style="text-decoration: none;">
                                         <img src="images/hotel.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Hotels</h6>
+                                        <h6>Hotels</h6></a>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <!-- <div class="col">
                                     <div class="tour-service">
                                         <img src="images/restaurant.png" class="img-fluid hotel-book" alt="">
                                         <h6>Restaurant</h6>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col">
                                     <div class="tour-service">
+                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/visa/visa-listing.php" style="text-decoration: none;">
                                         <img src="images/plane.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Flights</h6>
+                                        <h6>Visa</h6></a>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="tour-service">
+                                        <a target="_blank" href="<?=BASE_URL_B2C?>/view/transfer/transfer-listing.php" style="text-decoration: none;">
                                         <img src="images/vehicle.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Car booking</h6>
+                                        <h6>Car</h6></a>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <!-- <div class="col">
                                     <div class="tour-service">
                                         <img src="images/train.png" class="img-fluid hotel-book" alt="">
                                         <h6>Trains</h6>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col">
                                     <div class="tour-service">
+                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/ferry/ferry-listing.php" style="text-decoration: none;">
                                         <img src="images/boat.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Ships</h6>
+                                        <h6>Ships</h6></a>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="tour-service">
+                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/activities/activities-listing.php" style="text-decoration: none;">
                                         <img src="images/wine.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Night Life</h6>
+                                        <h6>Activities</h6></a>
                                     </div>
                                 </div>
 
@@ -263,7 +268,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Best</span>
                 <h1>Popoular Packages</h1>
-                <p>Get the Premium International Destinations, Personalized Tailor Made Tours with us and explore yourself.</p>
+                <p>Get The Premium International Destinations, Personalized Tailor Made Tours With Us And Explore Yourself.</p>
 
             </div>
             <div class="package-card">
@@ -448,7 +453,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Top</span>
                 <h1>Rated Locations</h1>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <p>Explore popular Domestic & International Destinations</p>
                 <?php
                 //var_dump($Apidestination[0]);
                 ?>
@@ -493,8 +498,8 @@ $date1 = str_replace('-', '/', $date);
             <div class="c-destination-content">
                 <div class="best-title text-center">
                     <span class="heading-style">We're</span>
-                    <h1>Partners of</h1>
-                    <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                    <h1>Partners Of</h1>
+                    <p>Forming Partnerships And Growing Our Tour Business</p>
                 </div>
                 <div class="c-destination-slide-list">
                     <?php foreach ($Apiassoc as $logo) { ?>
@@ -523,7 +528,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Top</span>
                 <h1>Tour Packages</h1>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <p>Explore & Check Out Our Best Deals On Tour Packages</p>
             </div>
             <div class="row">
                 <div class="col col-md-12 col-lg-4 col-xl-4">
@@ -720,9 +725,9 @@ $date1 = str_replace('-', '/', $date);
     <section class="great-section">
         <div class="container">
             <div class="great-content text-center">
-                <h2 class="great-title">Get best tour rexperience with us!</h2>
-                <p class="great-discription">Find Best deals for Tour Packages, Hotels, Holidays, Bus Reservations for<br class="d-none d-lg-block"> India & International travel, B2b Travel Services.</p>
-                <a href="#" class="btn great-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-play"></i></a>
+                <h2 class="great-title">Get Best Tour Experience With Us!</h2>
+                <p class="great-discription">Find Best Deals For Tour Packages, Hotels, Holidays, Bus Reservations For<br class="d-none d-lg-block"> India & International Travel, B2B Travel Services.</p>
+                <a href="<?=BASE_URL_B2C?>/view/tours/tours-listing.php" class="btn great-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-play"></i></a>
             </div>
         </div>
     </section>
@@ -733,7 +738,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Our</span>
                 <h1>Tranportation Facilities</h1>
-                <p>Mauris ut cursus nunc. Morbi eleifend, ligula at consectetur vehicula</p>
+                <p>Private & Public Transportation Available For Smoother Your Ride</p>
             </div>
             <div class="widget-card border-0 transpot-vehical">
                 <?php foreach ($Apitransport as $transport) {
@@ -803,7 +808,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Most Recommended</span>
                 <h1>Popular Hotels </h1>
-                <p>Explore world wide popular hotels across the world.</p>
+                <p>Explore World Wide Popular Hotels Across The World.</p>
                 <?php //var_dump($Apihotel[0]); 
                 ?>
             </div>
@@ -904,9 +909,9 @@ $date1 = str_replace('-', '/', $date);
     <section class="-most-holiday-slider">
         <div class="container">
             <div class="best-title text-center">
-                <span class="heading-style">Best rated</span>
-                <h1>Popular activities </h1>
-                <p>Most beautiful Places in the world</p>
+                <span class="heading-style">Best Rated</span>
+                <h1>Popular Activities </h1>
+                <p>Most Beautiful Places In The World</p>
             </div>
             <div class=" transpot-vehical holiday-slider">
                 <?php foreach ($Apiactivity as $activity) { ?>
@@ -2109,7 +2114,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Our</span>
                 <h1>Customer Says </h1>
-                <p>We're professionally managed travel service providing company. Committed to total customer satisfaction & enhancing value of money.</p>
+                <p>We're Professionally Managed Travel Service Providing Company. Committed To Total Customer Satisfaction & Enhancing Value Of Money.</p>
             </div>
             <div class="it-testimonail-v2-slider">
                 <?php foreach ($Apitestimonial as $testimonial) { ?>
@@ -2152,8 +2157,8 @@ $date1 = str_replace('-', '/', $date);
     <section class="t-bird-section">
         <div class="container">
             <div class="t-bird-content text-center">
-                <h2 class="t-bird-style">Where Would Like to Go</h2>
-                <h2 class="t-bird-title">Travel Like A free Bird & Enjoy your life</h2>
+                <h2 class="t-bird-style">Where Would Like To Go</h2>
+                <h2 class="t-bird-title">Travel Like A Free Bird & Enjoy Your Life</h2>
                 <div class="input-group t-bird-input">
                     <input type="text" class="form-control" placeholder="      " aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <a href="" class="input-group-text btn t-bird-btn" id="basic-addon2">Signup</a>
@@ -2169,8 +2174,8 @@ $date1 = str_replace('-', '/', $date);
             <div class="feature-content">
                 <div class="feature-title-content text-center">
                     <h2 class="feature-subtitle">Why</h2>
-                    <h2 class="feature-title">Choose us</h2>
-                    <p class="feature-discription mb-0">View our most valuable USP's which keep us always motivated.</p>
+                    <h2 class="feature-title">Choose Us</h2>
+                    <p class="feature-discription mb-0">View Our Most Valuable USP's Which Keep Us Always Motivated.</p>
                 </div>
                 <div class="row">
                     <div class="col col-12 col-md-12 col-lg-4 col-xl-4">
@@ -2203,7 +2208,7 @@ $date1 = str_replace('-', '/', $date);
                                 <i class="fa-solid fa-headphones"></i>
                             </div>
                             <div class="feature-points">
-                                <h4 class="feature-points-title">Quick Assistance for Guests</h4>
+                                <h4 class="feature-points-title">Quick Assistance For Guests</h4>
                                 <small class="feature-points-discription">With our highly trained operations team,
                                     we keep a look out for even the most minute of issues.</small>
                             </div>
@@ -2220,7 +2225,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">New</span>
                 <h1>Gallery </h1>
-                <p>View our recent client experiences of various destinations through images.</p>
+                <p>View Our Recent Client Experiences Of Various Destinations Through Images.</p>
             </div>
             <div class="row">
 
@@ -2252,12 +2257,12 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Quick</span>
                 <h1>Contact</h1>
-                <p>We're always curious to provide a promt services to you. Let's connect!</p>
+                <p>We're Always Curious To Provide a Promt Services To You. Let's Connect!</p>
             </div>
             <div class="btn-list">
                 <!--  <a href="#" class="btn apple-btn">
                     <i class="fab fa-apple"></i> App Store</a> -->
-                <a href="#" class="btn google-btn">
+                <a href="" class="btn google-btn">
                     <i class="fa-solid fa-phone"></i>Arrange Call back</a>
                 <!--  <a href="#" class="btn window-btn">
                     <i class="fa-brands fa-windows"></i>Windows</a> -->

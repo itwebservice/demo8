@@ -629,7 +629,7 @@ nav {
     color: #f96768;
     font-size: 32px;
     font-weight: 700;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .card {
@@ -2327,7 +2327,7 @@ nav {
 
 .t-bird-style {
     font-size: 32px;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.8);
 }
@@ -2382,7 +2382,7 @@ nav {
 
 .feature-subtitle {
     font-size: 32px;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700;
     color: #f96768;
 }

@@ -144,7 +144,7 @@ global $app_contact_no;
 
                         </span>
 
-                        <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->email_id ?>" class="ts-contact-info-link"><?= $cached_array[0]->company_profile_data[0]->email_id ?></a>
+                        <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->email_id ?>" class="ts-contact-info-link" style="text-decoration: none;"><?= $cached_array[0]->company_profile_data[0]->email_id ?></a>
 
                     </li>
 
