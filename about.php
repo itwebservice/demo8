@@ -247,7 +247,7 @@ include 'layouts/header.php';
                     <p class="ts-section-description">Our distinctive team meets the needs of luxury traveler and creates the opportunity to REDISCOVER EXPERIENCES. The USP of our company is our belief in building and maintaining long term relation with our clients. This stems from our core company values which places family culture at the top.</p>
 
                     <div class="abt-btn">
-                    <a href="#" class="btn btn-primary">Read More</a>
+                    <a href="contact.php" class="btn btn-primary">Contact Us</a>
                     </div>
 
                 </div>
