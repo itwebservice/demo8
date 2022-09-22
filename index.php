@@ -259,9 +259,45 @@ $date1 = str_replace('-', '/', $date);
         </div>
     </section>
 
-
-
     <!-- //  -- booking section end  --  // -->
+            <!--Social Media icon sticky-->
+        <div class="s-icons">
+            <ul>
+                <?php
+
+                    if ($social_media[0]->fb != '') { ?>
+                <a target="_blank" href="<?= $social_media[0]->fb ?>"><li class="fb">
+                    <i class="fa-brands fa-facebook"></i>
+                </li></a>
+                <?php }
+                if ($social_media[0]->tw != '') { ?>
+                    <a target="_blank" href="<?= $social_media[0]->tw ?>"><li class="twit">
+                        <i class="fa-brands fa-twitter"></i>
+                    </li></a>
+                    <?php }
+                if ($social_media[0]->wa != '') { ?>
+                <a target="_blank" href="<?= $social_media[0]->wa ?>"><li class="wapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </li></a>
+                <?php }
+                if ($social_media[0]->inst != '') { ?>
+                    <a target="_blank" href="<?= $social_media[0]->inst ?>"><li class="insta">
+                        <i class="fa-brands fa-instagram"></i>
+                    </li></a>
+                    <?php }
+                if ($social_media[0]->li != '') { ?>
+                    <a target="_blank" href="<?= $social_media[0]->li ?>"><li class="link">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </li></a>
+                    <?php }
+                if ($social_media[0]->yu != '') { ?>
+                    <a target="_blank" href="<?= $social_media[0]->yu ?>"><li class="yt">
+                        <i class="fa-brands fa-youtube"></i>
+                    </li></a>
+                    <?php } ?>
+            </ul>
+        </div>
+<!--End social Media icon sticky-->    
     <!-- //  ---- tour package start  ----  // -->
     <section class="tour-pack">
         <div class="container">
