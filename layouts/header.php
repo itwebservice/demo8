@@ -12,7 +12,7 @@ $cached_array = json_decode(file_get_contents('https://' . $_SERVER['SERVER_NAME
 
 // LOCAL Cache file readingc
 
-// $cached_array = json_decode(file_get_contents('http://localhost/itours_git/demo8/crm/view/b2c_cache.php'));
+//$cached_array = json_decode(file_get_contents('http://localhost/demo8/crm/view/b2c_cache.php'));
 
 
 
@@ -168,163 +168,170 @@ foreach ($int_dest_id_arr as $int_id) {
 
 <head>
 
-  <!-- Page Title -->
+    <!-- Page Title -->
 
-  <title><?= $app_name ?></title>
-
-
-
-  <!-- Meta Tags -->
-
-  <meta charset="utf-8" />
-
-  <meta name="keywords" content="HTML5 Template" />
-
-  <meta name="description" content="iTours - Travel, Tour Booking HTML5 Template" />
-
-  <meta name="author" content="SoapTheme" />
+    <title><?= $app_name ?></title>
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Meta Tags -->
 
-  <link rel="shortcut icon" href="<?php echo BASE_URL_B2C; ?>images/favicon.png" type="image/x-icon" />
+    <meta charset="utf-8" />
 
+    <meta name="keywords" content="HTML5 Template" />
 
+    <meta name="description" content="iTours - Travel, Tour Booking HTML5 Template" />
 
-  <!-- Theme Styles -->
-
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/font-awesome-4.7.0/css/font-awesome.min.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/bootstrap-4.min.css" />
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/owl.carousel.min.css" />
-
-  <link id="main-style" rel="stylesheet" href="<?php echo BASE_URL; ?>css/vi.alert.css" />
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/pagination.css" />
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/jquery-confirm.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/jquery.datetimepicker.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/lightgallery.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/lightgallery-bundle.min.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/all.min.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/aos.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/select2.min.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/slick.css">
-
-  <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/custom-style.css">
+    <meta name="author" content="SoapTheme" />
 
 
 
-  <!-- COMMON CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link id="main-style" rel="stylesheet/less" type="text/css" href="<?php echo BASE_URL_B2C; ?>css/LESS/itours-styles.less" />
-
-  <script src="<?php echo BASE_URL_B2C; ?>js/less.js"></script>
+    <link rel="shortcut icon" href="<?php echo BASE_URL_B2C; ?>images/favicon.png" type="image/x-icon" />
 
 
 
+    <!-- Theme Styles -->
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/bootstrap-4.min.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/owl.carousel.min.css" />
+
+    <link id="main-style" rel="stylesheet" href="<?php echo BASE_URL; ?>css/vi.alert.css" />
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/pagination.css" />
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/jquery-confirm.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/jquery.datetimepicker.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/lightgallery.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/lightgallery-bundle.min.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/all.min.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/aos.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/select2.min.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/slick.css">
+
+    <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/custom-style.css">
 
 
-  <script>
+
+    <!-- COMMON CSS -->
+
+    <link id="main-style" rel="stylesheet/less" type="text/css"
+        href="<?php echo BASE_URL_B2C; ?>css/LESS/itours-styles.less" />
+
+    <script src="<?php echo BASE_URL_B2C; ?>js/less.js"></script>
+
+
+
+
+
+    <script>
     <?= $google_analytics ?>
-  </script>
+    </script>
 
-  <script src="<?= $tidio_chat ?>" async></script>
+    <script src="<?= $tidio_chat ?>" async></script>
 
-  <!-- Javascript Page Loader -->
+    <!-- Javascript Page Loader -->
 
 </head>
 
-<body>
-<div class="site-content">
+<body onload="myLoader()">
+    <div id="loading"></div>
+    <div class="site-content">
         <div class="site-content__inner">
 
-  <input type="hidden" id="base_url" name="base_url" value="<?= BASE_URL_B2C ?>">
+            <input type="hidden" id="base_url" name="base_url" value="<?= BASE_URL_B2C ?>">
 
-  <input type="hidden" id="crm_base_url" name="crm_base_url" value="<?= BASE_URL ?>">
+            <input type="hidden" id="crm_base_url" name="crm_base_url" value="<?= BASE_URL ?>">
 
-  <input type="hidden" id="global_currency" value="<?= $currency ?>" />
+            <input type="hidden" id="global_currency" value="<?= $currency ?>" />
 
-  <div class="c-pageWrapper">
+            <div class="c-pageWrapper">
 
-    <!-- ********** Component :: Header ********** -->
+                <!-- ********** Component :: Header ********** -->
 
-    <div class="clearfix">
+                <div class="clearfix">
 
-      <!-- **** Top Header ***** -->
+                    <!-- **** Top Header ***** -->
 
-      <div class="c-pageHeaderTop">
+                    <div class="c-pageHeaderTop">
 
-        <div class="pageHeader_top mobileSidebar">
-
-
-
-          <!-- Menubar close btn for Mobile -->
-
-          <button class="closeSidebar forMobile"></button>
-
-          <!-- Menubar close btn for Mobile End -->
+                        <div class="pageHeader_top mobileSidebar">
 
 
 
-          <div class="container">
-            <div class="row">
+                            <!-- Menubar close btn for Mobile -->
+
+                            <button class="closeSidebar forMobile"></button>
+
+                            <!-- Menubar close btn for Mobile End -->
 
 
 
-              <div class="col-md-6 col-12 section-1">
-
-                <span class="staticText d-inline"><span style="text-transform: lowercase;"> Helpline :</span> <?= $cached_array[0]->company_profile_data[0]->contact_no ?></span>
-
-                <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->email_id ?>" class="header-mail-link d-inline ml-2"><?= $cached_array[0]->company_profile_data[0]->email_id ?></a>
-              </div>
-
-              
-
-              <div class="col-md-1 col-12 section-2 text-center">
-                
-                <!-- <a href="mailto:gauri@goldfinchholidays.com" class="header-mail-link"><?//= $cached_array[0]->company_profile_data[0]->email_id ?></a> -->
-
-              </div>
+                            <div class="container">
+                                <div class="row">
 
 
 
-              <div class="col-md-5 col-12 section-3">
+                                    <div class="col-md-6 col-12 section-1">
 
-                <div class="topListing">
+                                        <span class="staticText d-inline"><span style="text-transform: lowercase;">
+                                                Helpline :</span>
+                                            <?= $cached_array[0]->company_profile_data[0]->contact_no ?></span>
 
-                  <ul>
+                                        <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->email_id ?>"
+                                            class="header-mail-link d-inline ml-2"><?= $cached_array[0]->company_profile_data[0]->email_id ?></a>
+                                    </div>
 
-                    <li> 
 
-                      <a class="login_button" target="_blank" href="<?= BASE_URL . 'view/customer/index.php' ?>">Login</a>
 
-                    </li>
+                                    <div class="col-md-1 col-12 section-2 text-center">
 
-                     <li>
+                                        <!-- <a href="mailto:gauri@goldfinchholidays.com" class="header-mail-link"><?//= $cached_array[0]->company_profile_data[0]->email_id ?></a> -->
 
-                      <div class="c-select2DD st-clear">
+                                    </div>
 
-                        <div id='currency_dropdown'></div>
 
-                      </div>
 
-                    </li>
+                                    <div class="col-md-5 col-12 section-3">
 
-                    <!--<li>
+                                        <div class="topListing">
+
+                                            <ul>
+
+                                                <li>
+
+                                                    <a class="login_button" target="_blank"
+                                                        href="<?= BASE_URL . 'view/customer/index.php' ?>">Login</a>
+
+                                                </li>
+
+                                                <li>
+
+                                                    <div class="c-select2DD st-clear">
+
+                                                        <div id='currency_dropdown'></div>
+
+                                                    </div>
+
+                                                </li>
+
+                                                <!--<li>
 
                       <div class="c-select2DD st-clear">
 
@@ -338,22 +345,22 @@ foreach ($int_dest_id_arr as $int_id) {
 
                     </li> -->
 
-                  </ul>
+                                            </ul>
 
-                </div>
+                                        </div>
 
-              </div>
-
-
-
-            </div>
-          </div>
+                                    </div>
 
 
 
-          <!-- Menubar for Mobile -->
+                                </div>
+                            </div>
 
-          <!-- <div class="menuBar forMobile">
+
+
+                            <!-- Menubar for Mobile -->
+
+                            <!-- <div class="menuBar forMobile">
 
                 <ul>
 
@@ -381,226 +388,248 @@ foreach ($int_dest_id_arr as $int_id) {
 
               </div> -->
 
-          <!-- Menubar for Mobile End -->
+                            <!-- Menubar for Mobile End -->
 
 
 
-        </div>
+                        </div>
 
-      </div>
+                    </div>
 
-      <!-- **** Top Header End ***** -->
+                    <!-- **** Top Header End ***** -->
 
-      <!-- New Header -->
+                    <!-- New Header -->
 
-      <div class="container">
-        <div class="top-header">
-          <div class="row">
+                    <div class="container">
+                        <div class="top-header">
+                            <div class="row">
 
-            <div class="col-sm-3 col-7">
+                                <div class="col-sm-3 col-7">
 
-              <div id="logo_home" class="header-logo">
+                                    <div id="logo_home" class="header-logo">
 
-                <a href="<?= BASE_URL_B2C ?>" title="B2C Home Page">
+                                        <a href="<?= BASE_URL_B2C ?>" title="B2C Home Page">
 
-                  <img src="<?php echo $admin_logo_url; ?>" alt="<?php echo $app_name; ?>" />
+                                            <img src="<?php echo $admin_logo_url; ?>" alt="<?php echo $app_name; ?>" />
 
-                </a>
+                                        </a>
 
-              </div>
+                                    </div>
 
-            </div>
+                                </div>
 
-            <nav class="col-sm-9 col-5 text-right pad-top">
+                                <nav class="col-sm-9 col-5 text-right pad-top">
 
-              <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+                                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close"
+                                        href="javascript:void(0);"><span>Menu mobile</span></a>
 
-              <div class="main-menu">
+                                    <div class="main-menu">
 
-                <div id="header_menu">
+                                        <div id="header_menu">
 
-                  <img src="<?php echo $admin_logo_url; ?>" width="160" height="34" alt="<?php echo $app_name; ?>" />
+                                            <img src="<?php echo $admin_logo_url; ?>" width="160" height="34"
+                                                alt="<?php echo $app_name; ?>" />
 
-                </div>
+                                        </div>
 
-                <a href="#" class="open_close close_in" id="close_in">
-                <i class="fa fa-times" aria-hidden="true"></i>
-                </a>
+                                        <a href="#" class="open_close close_in" id="close_in">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </a>
 
-                <ul>
+                                        <ul>
 
-                  <li>
+                                            <li>
 
-                    <a href="<?= BASE_URL_B2C ?>">Home</a>
+                                                <a href="<?= BASE_URL_B2C ?>">Home</a>
 
-                  </li>
+                                            </li>
 
-                  <li class="submenu">
+                                            <li class="submenu">
 
-                    <a class="show-submenu">Group Tour<i class="icon itours-b2b-angle-down"></i></a>
+                                                <a class="show-submenu">Group Tour<i
+                                                        class="icon itours-b2b-angle-down"></i></a>
 
-                    <ul>
+                                                <ul>
 
-                      <li class="third-level">
+                                                    <li class="third-level">
 
-                        <a>Domestic</a>
+                                                        <a>Domestic</a>
 
-                        <ul>
+                                                        <ul>
 
-                          <?php
+                                                            <?php
 
                           for ($i = 0; $i < sizeof($group_dom_array); $i++) { ?>
 
-                            <li><a onclick="get_tours_data('<?= $group_dom_array[$i]->dest_id ?>','2')"><?= $group_dom_array[$i]->dest_name ?></a></li>
+                                                            <li><a
+                                                                    onclick="get_tours_data('<?= $group_dom_array[$i]->dest_id ?>','2')"><?= $group_dom_array[$i]->dest_name ?></a>
+                                                            </li>
 
-                          <?php } ?>
+                                                            <?php } ?>
 
-                        </ul>
+                                                        </ul>
 
-                      <li class="third-level">
+                                                    <li class="third-level">
 
-                        <a>International</a>
+                                                        <a>International</a>
 
-                        <ul>
+                                                        <ul>
 
-                          <?php
+                                                            <?php
 
                           for ($i = 0; $i < sizeof($group_intn_array); $i++) { ?>
 
-                            <li><a onclick="get_tours_data('<?= $group_intn_array[$i]->dest_id ?>','2')"><?= $group_intn_array[$i]->dest_name ?></a></li>
+                                                            <li><a
+                                                                    onclick="get_tours_data('<?= $group_intn_array[$i]->dest_id ?>','2')"><?= $group_intn_array[$i]->dest_name ?></a>
+                                                            </li>
 
-                          <?php } ?>
+                                                            <?php } ?>
 
-                        </ul>
+                                                        </ul>
 
-                      </li>
+                                                    </li>
 
-                    </ul>
+                                                </ul>
 
-                  </li>
+                                            </li>
 
-                  <li class="submenu">
+                                            <li class="submenu">
 
-                    <a class="show-submenu">Holiday <i class="icon itours-b2b-angle-down"></i></a>
+                                                <a class="show-submenu">Holiday <i
+                                                        class="icon itours-b2b-angle-down"></i></a>
 
-                    <ul>
+                                                <ul>
 
-                      <li class="third-level">
+                                                    <li class="third-level">
 
-                        <a>Domestic</a>
+                                                        <a>Domestic</a>
 
-                        <ul>
+                                                        <ul>
 
-                          <?php
+                                                            <?php
 
                           for ($i = 0; $i < sizeof($dom_array); $i++) { ?>
 
-                            <li><a onclick="get_tours_data('<?= $dom_array[$i]->dest_id ?>','1')"><?= $dom_array[$i]->dest_name ?></a></li>
+                                                            <li><a
+                                                                    onclick="get_tours_data('<?= $dom_array[$i]->dest_id ?>','1')"><?= $dom_array[$i]->dest_name ?></a>
+                                                            </li>
 
-                          <?php } ?>
+                                                            <?php } ?>
 
-                        </ul>
+                                                        </ul>
 
-                      <li class="third-level">
+                                                    <li class="third-level">
 
-                        <a>International</a>
+                                                        <a>International</a>
 
-                        <ul>
+                                                        <ul>
 
-                          <?php
+                                                            <?php
 
                           for ($i = 0; $i < sizeof($intn_array); $i++) { ?>
 
-                            <li><a onclick="get_tours_data('<?= $intn_array[$i]->dest_id ?>','1')"><?= $intn_array[$i]->dest_name ?></a></li>
+                                                            <li><a
+                                                                    onclick="get_tours_data('<?= $intn_array[$i]->dest_id ?>','1')"><?= $intn_array[$i]->dest_name ?></a>
+                                                            </li>
 
-                          <?php } ?>
+                                                            <?php } ?>
+
+                                                        </ul>
+
+                                                    </li>
+
+                                                </ul>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a onclick="get_tours_data('','3')">Hotels</a>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a onclick="get_tours_data('','4')">Activities</a>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a onclick="get_tours_data('','6')">Visa</a>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a onclick="get_tours_data('','5')">Transfer</a>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a onclick="get_tours_data('','7')">Cruise</a>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a href="<?= BASE_URL_B2C . 'services.php' ?>">Services</a>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a href="<?= BASE_URL_B2C . 'contact.php' ?>">Contact Us</a>
+
+                                            </li>
+                                            <li class="header-btn">
+                                                <a class="btn header-offer-btn"
+                                                    href="<?= BASE_URL_B2C . 'offers.php' ?>">Offers</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                    <!-- End main-menu -->
+
+
+
+                            </div>
+                        </div>
+                        <!-- End dropdown-cart-->
+
+                        </li>
 
                         </ul>
 
-                      </li>
+                        </nav>
 
-                    </ul>
+                    </div>
 
-                  </li>
+                </div>
 
-                  <li>
+                <!-- container -->
 
-                    <a onclick="get_tours_data('','3')">Hotels</a>
+                <!-- New Header End -->
 
-                  </li>
+            </div>
 
-                  <li>
+            <!-- ********** Component :: Header End ********** -->
 
-                    <a onclick="get_tours_data('','4')">Activities</a>
+            <!--preloader script-->
+            <script>
+            var preloader = document.getElementById('loading');
 
-                  </li>
+            function myLoader() {
+                preloader.style.display = 'none';
+            }
+            </script>
 
-                  <li>
-
-                    <a onclick="get_tours_data('','6')">Visa</a>
-
-                  </li>
-
-                  <li>
-
-                    <a onclick="get_tours_data('','5')">Transfer</a>
-
-                  </li>
-
-                  <li>
-
-                    <a onclick="get_tours_data('','7')">Cruise</a>
-
-                  </li>
-
-                  <li>
-
-                    <a href="<?= BASE_URL_B2C . 'services.php' ?>">Services</a>
-
-                  </li>
-
-                  <li>
-
-                    <a href="<?= BASE_URL_B2C . 'contact.php' ?>">Contact Us</a>
-
-                  </li>
-                  <li class="header-btn">
-                    <a class="btn header-offer-btn" href="<?= BASE_URL_B2C . 'offers.php' ?>">Offers</a>
-                  </li>
-                </ul>
-
-              </div>
-
-              <!-- End main-menu -->
-
-
-
-          </div>
-        </div>
-        <!-- End dropdown-cart-->
-
-        </li>
-
-        </ul>
-
-        </nav>
-
-      </div>
-
-    </div>
-
-    <!-- container -->
-
-    <!-- New Header End -->
-
-  </div>
-
-  <!-- ********** Component :: Header End ********** -->
-
-  <?php
+            <?php
 
   // include "get_cache_tax_rules.php";
 
   ?>
 
-  <input type="hidden" id='cache_currencies' value='<?= $data ?>' />
+            <input type="hidden" id='cache_currencies' value='<?= $data ?>' />
