@@ -29,11 +29,12 @@ $ticket_id = $_POST['ticket_id'];
                       $sq_query = mysqlQuery("SELECT * FROM ticket_payment_master WHERE ticket_id = '$ticket_id' and payment_amount!='0'");
                       while($row_entry = mysqli_fetch_assoc($sq_query))
                       {
+                          $bg='';
                           if($row_entry['clearance_status']=="Pending")
                             $bg='warning';
                           else if($row_entry['clearance_status']=="Cancelled")
                             $bg='danger';		
-                          else
+                          else if($row_entry['clearance_status']=="Cleared")
                             $bg='success';
                           $count++;
                             ?>

@@ -404,6 +404,7 @@ $('#frm_package_master_save').validate({
           var dest_id = $("#dest_name_s").val();
 
           var currency_id = $('#currency_code').val();
+          
           var dest_image = $('#dest_image').val();
           var taxation_type = $('#taxation_type').val();
           var taxation_id = $('#taxation_id').val();
@@ -580,7 +581,7 @@ $('#frm_package_master_save').validate({
 
                 $.post(base_url+"controller/custom_packages/package_master_save.php",
 
-                  { tour_type:tour_type,dest_id : dest_id,currency_id:currency_id, taxation_type :      
+                  { tour_type:tour_type,dest_id : dest_id,currency_id:currency_id,taxation_type :      
                     taxation_type, taxation_id:taxation_id,service_tax : service_tax, package_code : package_code, package_name : package_name, total_days : total_days1, total_nights : total_nights, status : status, city_name_arr : city_name_arr, hotel_name_arr : hotel_name_arr, hotel_type_arr : hotel_type_arr, total_days_arr : total_days_arr,vehicle_name_arr:vehicle_name_arr,drop_arr:drop_arr,drop_type_arr:drop_type_arr,pickup_arr:pickup_arr,pickup_type_arr:pickup_type_arr,child_cost : child_cost,adult_cost : adult_cost,infant_cost: infant_cost,child_with : child_with,child_without: child_without,extra_bed:extra_bed,inclusions : inclusions, exclusions : exclusions, day_program_arr : day_program_arr, special_attaraction_arr : special_attaraction_arr,overnight_stay_arr : overnight_stay_arr,meal_plan_arr : meal_plan_arr,note:note,dest_image:dest_image},
 
                   function(data) {

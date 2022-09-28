@@ -232,7 +232,7 @@ $(function(){
             return false;
           }
           if(ferry_type==''){
-            error_msg_alert('Select ferry class in Row-'+(i+1));
+            error_msg_alert('Select ferry/cruise class in Row-'+(i+1));
             $('#tariff_save').prop('disabled',false);
             return false;
           }

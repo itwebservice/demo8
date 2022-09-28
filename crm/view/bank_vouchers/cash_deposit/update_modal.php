@@ -13,7 +13,7 @@ $sq_bank_info = mysqli_fetch_assoc(mysqlQuery("select * from cash_deposit_master
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Update Deposit</h4>
+        <h4 class="modal-title" id="myModalLabel">Update Cash Deposit</h4>
       </div>
       <div class="modal-body">            
             <div class="row">

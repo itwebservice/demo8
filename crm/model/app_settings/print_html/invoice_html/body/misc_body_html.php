@@ -95,7 +95,7 @@ if($app_invoice_format == "Advance"){include "../headers/advance_header_html.php
 <div class="col-md-12 mg_tp_20"><p class="border_lt"><span class="font_5">SERVICES : </span>
 <?php echo $row_misc['service'];?></p></div>
 <div class="col-md-12 mg_tp_10"><p class="border_lt"><span class="font_5">NARRATION : </span><?= $row_misc['narration']?></p></div>
-<div class="col-md-12 mg_tp_10"><p class="border_lt"><span class="font_5">PASSENGER :  </span><span><?= $sq_hotel['p_name'] ?></span></p></div>
+<div class="col-md-12 mg_tp_10"><p class="border_lt"><span class="font_5">PASSENGER(S) :  </span><span><?= $sq_hotel['p_name'] ?></span></p></div>
 <div class="main_block inv_rece_table main_block">
     <div class="row">
       <div class="col-md-12">

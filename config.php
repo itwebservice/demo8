@@ -1,4 +1,5 @@
 <?php
+
 /*$seperator = strstr(strtoupper(substr(PHP_OS, 0, 3)), "WIN") ? "\\" : "/";
 session_save_path('..'.$seperator.'xml'.$seperator.'session_dir');
 ini_set('session.gc_maxlifetime', 6); // 3 hours
@@ -10,6 +11,7 @@ ini_set("session.gc_maxlifetime", 3*60*60);
 ini_set('session.gc_maxlifetime', 3*60*60);
 session_start();
 
+require_once 'api.php';
 date_default_timezone_set('Asia/Kolkata');
 
 set_error_handler("myErrorHandler");
@@ -20,15 +22,15 @@ $localIP = getHostByName(getHostName());
 
 // Create connection
 $servername = "localhost";
-$username = "itourscloud_demo8_u";
-$password = "B$%^X;[i?!M";
-$db_name = "itourscloud_demo8";
+$username = "root";
+$password = "";
+$db_name = "itours_demo_8";
 global $connection;
 $connection = new mysqli($servername, $username, $password, $db_name);
 
-define('BASE_URL', 'https://demo8.itourscloud.com/crm/');
-define('BASE_URL_API', 'https://demo8api.itourscloud.com/frontendAPI/public/api');
-define('BASE_URL_B2C', 'https://demo8.itourscloud.com/');
+define('BASE_URL', 'http://localhost/itours_git/demo8/crm/');
+
+define('BASE_URL_B2C', 'http://localhost/itours_git/demo8/');
 mysqli_query($connection,"SET SESSION sql_mode = ''");
 // mysqli_set_charset($connection,'utf8');
 //**********Global Variables start**************//

@@ -198,6 +198,7 @@ $(function(){
 
         if(parseFloat(total_purchase) < parseFloat(payment_amount)){
           error_msg_alert("Payment Amount should be less or equal to the Total Purchase");
+          $('#payment_save').prop('disabled',false);
           return false; }
 			  
 			  var payment_amount_arr = new Array();

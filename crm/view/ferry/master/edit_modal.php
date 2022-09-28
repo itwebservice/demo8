@@ -187,7 +187,7 @@ function upload_ferry_image1(){
               }
             }
             var total = parseInt(img_count) + parseInt(upload_count);
-            if(total > 4){
+            if(total > 3){
               error_msg_alert("Sorry, you can upload up to 3 images"); return false;
             }else{
               $("#img_array1").val(img_array);

@@ -75,7 +75,7 @@ var column = [
 	{ title : "Purchase_ID"},
 	{ title:"Supplier_Type"},
 	{ title : "Supplier_Name"},
-	{ title : "Date"},
+	{ title : "Payment_Date"},
 	{ title : "Amount"},
 	{ title : "Mode"},
 	{ title : "Bank_Name"},

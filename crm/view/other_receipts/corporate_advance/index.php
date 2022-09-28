@@ -49,8 +49,8 @@ $('#cust_id_filter').select2();
 $('#from_date_filter, #to_date_filter').datetimepicker({ timepicker:false, format:'d-m-Y' });
 var columns = [
 	{ title : "S_No"},
-    { title : "Customer"},
-	{ title : "Date"},
+    { title : "Customer_name"},
+	{ title : "Payment_Date"},
 	{ title : "Mode"},
 	{ title : "particular"},
 	{ title : "Amount", className : "success"},

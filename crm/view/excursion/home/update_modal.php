@@ -13,7 +13,7 @@ $reflections = json_decode($sq_exc_info['reflections']);
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Update Activity</h4>
+        <h4 class="modal-title" id="myModalLabel">Update Activity Booking</h4>
       </div>
       <div class="modal-body">
       	<form id="frm_exc_update" name="frm_exc_save">
@@ -93,7 +93,7 @@ $reflections = json_decode($sq_exc_info['reflections']);
 								$count++;
 								?>
 							  <tr class="<?= $bg ?>">
-								 <td><input class="css-checkbox" id="chk_exc<?= $offset.$count?>" onchange="excursion_amount_calculate('exc_date-<?= $offset.$count ?>','1');calculate_exc_expense('tbl_dynamic_exc_booking_update','1');" type="checkbox" checked><label class="css-label" for="chk_exc<?=  $count ?>"><label></td>
+								 <td><input class="css-checkbox" id="chk_exc<?= $offset.$count?>" onchange="excursion_amount_calculate('exc_date-<?= $offset.$count ?>','1');calculate_exc_expense('tbl_dynamic_exc_booking_update','1');get_auto_values('balance_date1','exc_issue_amount1','payment_mode','service_charge1','markup1','update','true','service_charge');" type="checkbox" checked><label class="css-label" for="chk_exc<?=  $count ?>"><label></td>
 								 <td><input maxlength="15" value="<?=  $count ?>" type="text" name="username" placeholder="Sr. No." class="form-control" disabled /></td>
 								 <td><input type="text" id="exc_date-<?= $offset.$count ?>" name="exc_date-<?= $offset.$count ?>" placeholder="Activity Date & Time" title="Activity Date & Time" class="app_datetimepicker form-control" value="<?php echo get_datetime_user($row_entry['exc_date']); ?>" onchange="get_excursion_update_amount(this.id)"></td>
 								 <td><select id="city_name-<?= $offset.$count ?>" class="app_select2 form-control" name="city_name-<?= $offset.$count ?>" title="City Name" onchange="get_excursion_list(this.id);">
@@ -234,6 +234,7 @@ foreach($bsmValues[0] as $key => $value){
 </div>
 </div>
 
+<script src="js/calculation.js"></script>
 <script src="<?php echo BASE_URL ?>js/app/footer_scripts.js"></script>
 <script>
 $('#customer_id1,#acurrency_code1').select2();
@@ -326,8 +327,8 @@ $('#frm_exc_update').validate({
 				if(city_id==""){ msg +="City name is required in row:"+(i+1)+"<br>"; }
 				if(exc_name==""){ msg +="Activity Name is required in row:"+(i+1)+"<br>"; }
 				if(transfer_option==""){ msg +="Transfer option is required in row:"+(i+1)+"<br>"; }
-				if(total_adult==""){ msg +="Total Adult is required in row:"+(i+1)+"<br>"; }
-				if(total_child==""){ msg +="Total Children is required in row:"+(i+1)+"<br>"; }
+				if(total_adult==""){ msg +="Total Adult(s) is required in row:"+(i+1)+"<br>"; }
+				if(total_child==""){ msg +="Total Child(ren) is required in row:"+(i+1)+"<br>"; }
 				}
 				if(msg!=""){
 					error_msg_alert(msg);

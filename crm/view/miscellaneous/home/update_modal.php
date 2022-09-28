@@ -12,7 +12,7 @@ $sq_visa_info = mysqli_fetch_assoc(mysqlQuery("select * from miscellaneous_maste
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Update Miscellaneous</h4>
+				<h4 class="modal-title" id="myModalLabel">Update Miscellaneous Booking</h4>
 			</div>
 			<div class="modal-body">
 
@@ -102,7 +102,7 @@ $sq_visa_info = mysqli_fetch_assoc(mysqlQuery("select * from miscellaneous_maste
 													<td style="width:80px"><input type="text" id="adolescence<?= $offset . $count ?>_d" name="adolescence<?= $offset . $count ?>_d" placeholder="Adolescence" title="Adolescence" readonly value="<?= $row_entry['adolescence'] ?>" /></td>
 													<td><input type="text" id="passport_id<?= $offset . $count ?>_d" name="passport_id<?= $offset . $count ?>_d" placeholder="Passport ID" title="Passport ID" value="<?= $row_entry['passport_id'] ?>" style="text-transform: uppercase;" /></td>
 													<td><input type="text" id="issue_date<?= $offset. $count ?>1" name="issue_date<?= $offset. $count ?>1" class="app_datepicker" placeholder="Issue Date" title="Issue Date" value="<?= get_date_user($row_entry['issue_date']) ?>" onchange="checkPassportDate(this.id);" /></td>
-													<td><input type="text" id="expiry_date<?= $offset. $count ?>1" name="expiry_date<?= $offset. $count ?>1" class="app_datepicker" placeholder="Expire Date" title="Expire Date" value="<?= get_date_user($row_entry['expiry_date']) ?>" onchange="validate_issueDate('issue_date<?= $offset.$count ?>1',this.id)"></td>
+													<td><input type="text" id="expiry_date<?= $offset. $count ?>1" name="expiry_date<?= $offset. $count ?>1" class="app_datepicker" placeholder="Expiry Date" title="Expiry Date" value="<?= get_date_user($row_entry['expiry_date']) ?>" onchange="validate_issueDate('issue_date<?= $offset.$count ?>1',this.id)"></td>
 													<td class="hidden"><input type="text" value="<?= $row_entry['entry_id'] ?>"></td>
 												</tr>
 												<script>

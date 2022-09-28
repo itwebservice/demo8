@@ -109,16 +109,17 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
               <ul class="print_info_list">
                 <li class="col-md-6 mg_tp_10 mg_bt_10"><span>QUOTATION ID :</span> <?= get_quotation_id($quotation_id,$year) ?></li>
                 <li class="col-md-6 mg_tp_10 mg_bt_10"><span>E-MAIL ID :</span> <?= $sq_quotation['email_id'] ?></li>
+                <li class="col-md-6 mg_tp_10 mg_bt_10"><span>MOBILE NO :</span> <?= $sq_quotation['mobile_number'] ?></li>
               </ul>
               <hr class="main_block">
               <ul class="main_block">
                 <li class="col-md-4 mg_tp_10 mg_bt_10"><span>ADULT : </span><?= $sq_quotation['total_adult'] ?></li>
-                <li class="col-md-4 mg_tp_10 mg_bt_10"><span>INFANT : </span><?= $sq_quotation['total_infant'] ?></li>
                 <li class="col-md-4 mg_tp_10 mg_bt_10"><span>CWB : </span><?= $sq_quotation['children_with_bed'] ?></li>
+                <li class="col-md-4 mg_tp_10 mg_bt_10"><span>CWOB : </span><?= $sq_quotation['children_without_bed'] ?></li>
               </ul>
               <ul class="main_block">
                 
-                <li class="col-md-4 mg_tp_10 mg_bt_10"><span>CWOB : </span><?= $sq_quotation['children_without_bed'] ?></li>
+                <li class="col-md-4 mg_tp_10 mg_bt_10"><span>INFANT : </span><?= $sq_quotation['total_infant'] ?></li>
                 <li class="col-md-4 mg_tp_10 mg_bt_10"><span>TOTAL : </span><?= $sq_quotation['total_passangers'] ?></li>
               </ul>
             </div>
@@ -190,7 +191,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
         <div class="print_info_block">
           <ul class="main_block">
             <li class="col-md-12 mg_tp_10 mg_bt_10"><span>BANK NAME : </span><?= $bank_name_setting ?></li>
-            <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C NAME : </span><?= $acc_name ?></li>
+            <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C TYPE : </span><?= $acc_name ?></li>
             <li class="col-md-12 mg_tp_10 mg_bt_10"><span>BRANCH : </span><?= $bank_branch_name ?></li>
             <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C NO : </span><?= $bank_acc_no ?></li>
             <li class="col-md-12 mg_tp_10 mg_bt_10"><span>IFSC : </span><?= $bank_ifsc_code ?></li>
@@ -270,11 +271,11 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
               <table class="table table-bordered no-marg" id="tbl_emp_list">
                 <thead>
                   <tr class="table-heading-row">
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From_location</th>
+                    <th>To_location</th>
                     <th>Class</th>
-                    <th>Departure</th>
-                    <th>Arrival</th>
+                    <th>Departure_D/T</th>
+                    <th>Arrival_D/T</th>
                   </tr>
                 </thead>
                 <tbody>  
@@ -311,12 +312,12 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
               <table class="table table-bordered no-marg" id="tbl_emp_list">
                 <thead>
                   <tr class="table-heading-row">
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From_Sector</th>
+                    <th>To_Sector</th>
                     <th>Airline</th>
                     <th>Class</th>
-                    <th>Departure</th>
-                    <th>Arrival</th>
+                    <th>Departure_D/T</th>
+                    <th>Arrival_D/T</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -354,8 +355,8 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
             <table class="table table-bordered no-marg" id="tbl_emp_list">
               <thead>
                 <tr class="table-heading-row">
-                  <th>Departure</th>
-                  <th>Arrival</th>
+                  <th>Departure_D/T</th>
+                  <th>Arrival_D/T</th>
                   <th>Route</th>
                   <th>Cabin</th>
                   <th>Sharing</th>

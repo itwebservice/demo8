@@ -7,15 +7,13 @@ $role_id = $_SESSION['role_id'];
 $sq = mysqli_fetch_assoc(mysqlQuery("select * from branch_assign where link='package_booking/service_voucher/hotel_voucher/index.php'"));
 $branch_status = $sq['branch_status'];
 ?>
- <input type="hidden" id="whatsapp_switch"  value="<?= $whatsapp_switch ?>" >
+<input type="hidden" id="whatsapp_switch"  value="<?= $whatsapp_switch ?>" >
 <div class="row text-right mg_bt_20">
 	<div class="col-xs-12">
 	    <button class="btn btn-excel btn-sm mg_bt_10_sm_xs" onclick="excel_report()" data-toggle="tooltip" title="Generate Excel"><i class="fa fa-file-excel-o"></i></button>
-		<button class="btn btn-info btn-sm ico_left mg_bt_10_sm_xs" data-toggle="modal" data-target="#exc_save_modal"><i class="fa fa-plus"></i>&nbsp;&nbsp;Activity</button>
+		<button id="save_btn" class="btn btn-info btn-sm ico_left mg_bt_10_sm_xs" onclick="save_modal()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Activity</button>
 	</div>
 </div>
-<?php
-include_once('save_modal.php'); ?>
 <div class="app_panel_content Filter-panel">
 	<div class="row">
 			<input type="hidden" id="emp_id" name="emp_id" class="form-control">
@@ -53,6 +51,7 @@ include_once('save_modal.php'); ?>
     </div>
 </div>
 <div id="div_exc_update_content"></div>
+<div id="div_exc_save_content"></div>
 <div id="div_exc_content_display"></div>
 <div id="div_show_msg"></div>
 <script src="<?php echo BASE_URL ?>js/app/footer_scripts.js"></script>
@@ -88,6 +87,14 @@ include_once('save_modal.php'); ?>
 		});
 	}
 	exc_customer_list_reflect();
+	function save_modal(){
+
+		$('#save_btn').button('loading');
+		$.post('home/save_modal.php', { }, function(data){
+			$('#save_btn').button('reset');
+			$('#div_exc_save_content').html(data);
+		});
+	}
 	function business_rule_load(){
 		get_auto_values('balance_date','exc_issue_amount','payment_mode','service_charge','markup','save','true','service_charge');
 	}

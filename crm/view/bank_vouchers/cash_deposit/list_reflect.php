@@ -25,6 +25,7 @@ if($financial_year_id!=""){
 	$query .=" and financial_year_id='$financial_year_id'";
 }
 include "../../../model/app_settings/branchwise_filteration.php";
+$query .=" order by entry_id desc";
 ?>
 <div class="row mg_tp_20"> <div class="col-md-12 no-pad"> <div class="table-responsive">
 	
@@ -34,8 +35,8 @@ include "../../../model/app_settings/branchwise_filteration.php";
 			<th>S_No.</th>
 			<th>Tr_Date</th>
 			<th>Debitor_Bank</th>
-			<th>Evidence</th>
-			<th class="text-right">Amount</th>
+			<th>PAYMENT EVIDENCE</th>
+			<th class="text-right">DEBITED Amount</th>
 			<th>Created_by</th>
 			<th class="text-center">Edit</th>
 		</tr>	

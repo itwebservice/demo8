@@ -156,7 +156,7 @@ $getClient =  mysqli_fetch_array(mysqlQuery("select client_id from app_settings"
             <div class="get_tickets_report" id="get_tickets_report">
 
                 <?php
-                $dataAll = file_get_contents('https://itourscloud.com/nikhil-support/model/get-ticket-api.php?cid=' . $getClient);
+                $dataAll = file_get_contents('https://support.itourscloud.com/model/get-ticket-api.php?cid=' . $getClient);
                 echo $dataAll;
                 ?>
             </div>
@@ -205,7 +205,7 @@ require_once('../layouts/admin_footer.php');
             }).get();
             $.ajax({
                 type: 'POST',
-                url: 'https://itourscloud.com/nikhil-support/model/add-ticket-api.php',
+                url: 'https://support.itourscloud.com/model/add-ticket-api.php',
                 data: {
                     'module[]': module,
                     'submodule[]': submodule,

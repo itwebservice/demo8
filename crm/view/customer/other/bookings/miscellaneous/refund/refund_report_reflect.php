@@ -54,6 +54,7 @@ $query .=" and misc_id in ( select misc_id from miscellaneous_master where custo
 			$total_refund = $total_refund+$row_refund['refund_amount'];
 
 			($row_refund['clearance_status']=='Pending')?$bg='warning':$bg='';
+			($row_refund['clearance_status']=='Cancelled')?$bg='danger':$bg='';
 
 			if($row_refund['clearance_status']=="Pending"){$pen_amt=$pen_amt+$row_refund['refund_amount'];}
 			if($row_refund['clearance_status']=="Cancelled"){$can_amt=$can_amt+$row_refund['refund_amount'];}

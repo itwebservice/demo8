@@ -13,7 +13,7 @@
 							<th>visa_cost</th>
 							<th>hotel_cost</th>
 							<th>total_cost</th>
-							<th>currency_code</th>
+							<th>currency</th>
 						</tr>
 					</thead>
 					<tbody>

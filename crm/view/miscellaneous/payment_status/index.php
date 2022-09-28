@@ -93,7 +93,7 @@ var column = [
 	{ title : "Customer_Name"},
 	{ title : "Contact"},
 	{ title : "EMAIL_ID"},
-	{ title : "Total_guest"},
+	{ title : "Total_Pax"},
 	{ title : "booking_date"},
 	{ title : "View"},
 	{ title : "Basic_amount&nbsp;&nbsp;&nbsp;", className : "info"},

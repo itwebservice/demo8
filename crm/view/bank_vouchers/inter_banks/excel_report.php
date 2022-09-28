@@ -164,7 +164,7 @@ $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('H'.$row_count, "Instrument Date")
         ->setCellValue('I'.$row_count, "Lapse Date")
         ->setCellValue('J'.$row_count, "Amount")
-        ->setCellValue('K'.$row_count, "Created by");
+        ->setCellValue('K'.$row_count, "Created By");
          
 $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':K'.$row_count)->applyFromArray($header_style_Array);
 $objPHPExcel->getActiveSheet()->getStyle('B'.$row_count.':K'.$row_count)->applyFromArray($borderArray); 

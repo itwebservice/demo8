@@ -661,7 +661,7 @@
 	</menu_desc>
 
 	<menu_desc>
-		<name> Cancel / Refund </name>
+		<name> Purchase Refund </name>
 		<link>vendor/refund/index.php</link>
 		<rank>8</rank>
 		<priority>2</priority>

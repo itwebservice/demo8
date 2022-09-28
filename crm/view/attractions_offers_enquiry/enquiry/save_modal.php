@@ -102,8 +102,8 @@ $branch_status = $_POST['branch_status'];
                             <?php
                             if($role=='Admin' || ($branch_status!='yes' && $role=='Branch Admin')){
                               $query = "select * from emp_master where active_flag='Active' order by first_name desc";
-                            $sq_emp = mysqlQuery($query);
-                            while($row_emp = mysqli_fetch_assoc($sq_emp)){
+                              $sq_emp = mysqlQuery($query);
+                              while($row_emp = mysqli_fetch_assoc($sq_emp)){
                                 ?>
                                 <option value="<?= $row_emp['emp_id'] ?>"><?= $row_emp['first_name'].' '.$row_emp['last_name'] ?></option>
                                 <?php
@@ -119,8 +119,7 @@ $branch_status = $_POST['branch_status'];
                               }
                             }
                             else{ 
-                            $query1 = mysqli_fetch_assoc(mysqlQuery("select * from emp_master where emp_id='$emp_id' and active_flag='Active'")); ?>
-
+                              $query1 = mysqli_fetch_assoc(mysqlQuery("select * from emp_master where emp_id='$emp_id' and active_flag='Active'")); ?>
                               <option value="<?= $query1['emp_id'] ?>"><?= $query1['first_name'].' '.$query1['last_name'] ?></option>
 
                             <?php
@@ -218,6 +217,11 @@ $(function(){
       var financial_year_id = $('#financial_year_id').val();
       var customer_name = $('#customer_dropdown').val();
       
+      if(reference_id == 3){
+        if(customer_name==''){
+          error_msg_alert('Select Customer!'); return false;
+        }
+      }
       var enquiry_content = Array();
       if(enquiry_type == 'Flight Ticket'){
         var table = document.getElementById("tbl_enquiry_flight");
@@ -307,6 +311,11 @@ $(function(){
                 if (placeholder == "route"){
                   placeholder = "Route";
                 }
+                if (placeholder == "bus_name_and_type"){
+                  placeholder = "Bus name and type";
+                }
+                placeholder = placeholder.replace('_', ' ');
+                placeholder = placeholder.charAt(0).toUpperCase()+ placeholder.slice(1);
                 err_msg += placeholder+" is required!<br>"; 
               }
           }

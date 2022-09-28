@@ -90,16 +90,16 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
       <div class="ladingPageBottom main_block side_pad">
         <div class="row">
           <div class="col-md-12 mg_tp_30">
-              <h3 class="customerFrom">Prepared for</h3>
+              <h3 class="customerFrom">PREPARED FOR</h3>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-6">
             <div class="landigPageCustomer">
               <span class="customerName mg_tp_10"><i class="fa fa-user"></i> : <?= $enquiryDetails['customer_name'] ?></span><br>
               <span class="customerMail mg_tp_10"><i class="fa fa-envelope"></i> : <?= $enquiryDetails['email_id'] ?></span><br>
               <span class="customerMobile mg_tp_10"><i class="fa fa-phone"></i> : <?= $enquiryDetails['country_code'].$enquiryDetails['whatsapp_no'] ?></span><br>
             </div>
           </div>
-          <div class="col-md-7 text-right">
+          <div class="col-md-6 text-right">
           
             <div class="detailBlock text-center">
               <div class="detailBlockIcon detailBlockBlue">
@@ -134,70 +134,78 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
         </div>
       </div>
     </section>
-  
 
-  <!-- Hotel -->
-  <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
-          <div class="travsportInfoBlock">
-            <div class="transportIcon">
-              <img src="<?= BASE_URL ?>images/quotation/p4/TI_hotel.png" class="img-responsive">
-            </div>
-            <div class="transportDetails">
-            <div class="col-md-12 no-pad">
-                <div class="table-responsive" style="margin-top:1px;margin-right: 1px;">
-                  <table class="table tableTrnasp no-marg" id="tbl_emp_list">
-                    <thead>
-                      <tr class="table-heading-row">
-                        <th>City</th>
-                        <th>Hotel</th>
-                        <th>R_Category</th>
-                        <th>Meal_Plan</th>
-                        <th>H_Category</th>
-                        <th>Check_IN</th>
-                        <th>Check_OUT</th>
-                      </tr>
-                    </thead>
-                    <tbody> 
-                  <?php
-                  foreach($hotelDetails as $values){
-                      $cityName = mysqli_fetch_assoc(mysqlQuery("SELECT `city_name` FROM `city_master` WHERE `city_id`=".$values['city_id']));
-                      $hotelName = mysqli_fetch_assoc(mysqlQuery("SELECT `hotel_name` FROM `hotel_master` WHERE `hotel_id`=".$values['hotel_id']));
-                  ?>
-                  <tr>
-                      <td><?php echo $cityName['city_name']; ?></td>
-                      <td><?php echo $hotelName['hotel_name']; ?></td>
-                      <td><?= $values['hotel_cat'] ?></td>
-                      <td><?= $values['meal_plan'] ?></td>
-                      <td><?= $values['hotel_type'] ?></td>
-                      <td><?= get_date_user($values['checkin']) ?></td>
-                      <td><?= get_date_user($values['checkout']) ?></td>
-                  </tr>
-                    <?php } ?>
-                    </tbody>
-                  </table>
-                </div>
-            </div>
-            </div>
-          </div>
+    <section class="pageSection main_block">
+      <!-- background Image -->
+      <img src="<?= BASE_URL ?>images/quotation/p4/pageBGF.jpg" class="img-responsive pageBGImg">
+      <section class="endPageSection main_block mg_tp_30 pageSectionInner">
+
           <div class="row">
-          
-          <div class="col-md-12 mg_tp_30">
-            <div class="incluExcluTermsTabPanel main_block">
-                <h3 class="incexTitle">Terms & Conditions</h3>
-                <div class="tncContent">
-                    <pre class="real_text"><?php echo $sq_terms_cond['terms_and_conditions']; ?></pre>      
+            
+          <!-- Hotel -->
+          <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
+            <div class="travsportInfoBlock">
+              <div class="transportIcon">
+                <img src="<?= BASE_URL ?>images/quotation/p4/TI_hotel.png" class="img-responsive">
+              </div>
+              <div class="transportDetails">
+                <div class="col-md-12 no-pad">
+                    <div class="table-responsive" style="margin-top:1px;margin-right: 1px;">
+                      <table class="table tableTrnasp no-marg" id="tbl_emp_list">
+                        <thead>
+                          <tr class="table-heading-row">
+                            <th>City</th>
+                            <th>Hotel</th>
+                            <th>R_Category</th>
+                            <th>Meal_Plan</th>
+                            <th>H_Category</th>
+                            <th>Check_IN</th>
+                            <th>Check_OUT</th>
+                          </tr>
+                        </thead>
+                        <tbody> 
+                      <?php
+                      foreach($hotelDetails as $values){
+                          $cityName = mysqli_fetch_assoc(mysqlQuery("SELECT `city_name` FROM `city_master` WHERE `city_id`=".$values['city_id']));
+                          $hotelName = mysqli_fetch_assoc(mysqlQuery("SELECT `hotel_name` FROM `hotel_master` WHERE `hotel_id`=".$values['hotel_id']));
+                      ?>
+                      <tr>
+                          <td><?php echo $cityName['city_name']; ?></td>
+                          <td><?php echo $hotelName['hotel_name']; ?></td>
+                          <td><?= $values['hotel_cat'] ?></td>
+                          <td><?= $values['meal_plan'] ?></td>
+                          <td><?= $values['hotel_type'] ?></td>
+                          <td><?= get_date_user($values['checkin']) ?></td>
+                          <td><?= get_date_user($values['checkout']) ?></td>
+                      </tr>
+                        <?php } ?>
+                        </tbody>
+                      </table>
+                    </div>
                 </div>
+              </div>
             </div>
-          </div>
-          <div class="row mg_tp_10">
-            <div class="col-md-12">
-              <div class="tncContent">
-                  <pre class="real_text"><?php echo $quot_note; ?></pre>      
-              </div>              
+            <div class="row">
+              <div class="col-md-12 mg_tp_30">
+                <div class="incluExcluTermsTabPanel main_block">
+                    <h3 class="incexTitle">TERMS AND CONDITIONS</h3>
+                    <div class="tncContent">
+                        <pre class="real_text"><?php echo $sq_terms_cond['terms_and_conditions']; ?></pre>      
+                    </div>
+                </div>
+              </div>
             </div>
-          </div>
+            <div class="row mg_tp_10">
+              <div class="col-md-12">
+                <div class="tncContent">
+                    <pre class="real_text"><?php echo $quot_note; ?></pre>      
+                </div>              
+              </div>
+            </div>
+          </section>
         </div>
-        </section>
+      </section>
+    </section>
 
   <!-- Costing & Banking Page -->
   <section class="pageSection main_block">
@@ -240,7 +248,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
         <div class="row constingBankingPanelRow">
           <!-- Costing -->
           <div class="col-md-12 constingBankingPanel constingPanel">
-                <h3 class="costBankTitle text-center">Costing Details</h3>
+                <h3 class="costBankTitle text-center">COSTING DETAILS</h3>
                 <!-- gROUP cOSTING -->
               <?php
               $total_fare = currency_conversion($currency,$sq_quotation['currency_code'],$newBasic + $costDetails['roundoff']);
@@ -284,7 +292,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
                   <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-                  <p>A/C NAME</p>
+                  <p>A/C TYPE</p>
                 </div>
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>
@@ -345,7 +353,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
             <?php } ?>
             <div class="contactBlock">
               <i class="fa fa-pencil-square-o"></i>
-              <p>Prepared By : <?= $emp_name?></p>
+              <p>PREPARED BY : <?= $emp_name?></p>
             </div>
         </div>
     </section>

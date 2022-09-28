@@ -92,7 +92,7 @@ $enquiry_id = base64_decode($enquiry_id1);
 		</div>
 	</div>
 	<div class="main_block mg_tp_20">
-		<div class="col-md-4 text-right"><label for="app_website">Created by</label></div>
+		<div class="col-md-4 text-right"><label for="app_website">Created By</label></div>
 		<div class="col-md-4 no-pad">
 			<input type="text" class="form-control" id="txt_creat" name="txt_creat" placeholder="*Created By" title="Created By"> 
 		</div>

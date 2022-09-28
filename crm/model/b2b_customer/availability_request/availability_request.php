@@ -253,7 +253,7 @@ class b2b_request{
                         }
                         $content .= '
                             <tr><td style="text-align:left;border: 1px solid #888888;"> Total Guest</td>   <td style="text-align:left;border: 1px solid #888888;" >'.'Adult: '.$adults_count.'    Children: '.$child_count.'</td></tr>';
-
+                            
                         if($item->status=='Not Available' && sizeof($item->options)!=0){
     
                             $content .= '<tr><td colspan="2" style="text-align:left;border: 1px solid #888888;"> Similar Hotel Options Available...</td></tr>';

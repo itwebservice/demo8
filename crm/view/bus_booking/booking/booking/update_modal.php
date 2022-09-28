@@ -30,7 +30,7 @@ $reflections = json_decode($sq_booking['reflections']);
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-        <h4 class="modal-title" id="myModalLabel">Update Booking</h4>
+        <h4 class="modal-title" id="myModalLabel">Update Bus Booking</h4>
 
       </div>
 

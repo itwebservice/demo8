@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('../../../model/model.php');
 $enquiry_id = $_POST['enquiry_id'];
 ?>
@@ -8,7 +8,7 @@ $enquiry_id = $_POST['enquiry_id'];
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Followup Update</h4>
+        <h4 class="modal-title" id="myModalLabel" style="text-align:left!important;">Followup Update</h4>
       </div>
       <div class="modal-body">
       <input type="hidden" id="enquiry_id" name="enquiry_id" value="<?= $enquiry_id ?>" />

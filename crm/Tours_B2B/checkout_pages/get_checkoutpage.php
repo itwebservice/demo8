@@ -532,7 +532,8 @@ $(document).ready(function() {
 });
 
 $('#credit_button').click(function(e) {
-
+    
+    $('#credit_button').prop('disabled',true);
     $("#frm_traveller_details").valid();
     var base_url = $('#base_url').val();
     var register_id = $('#register_id').val();
@@ -552,8 +553,6 @@ $('#credit_button').click(function(e) {
     var to_currency_rate =  currency_rates[0];
     var from_currency_rate = currency_rates[1];
     var payment_amount = $('#payment_amount').val();
-
-   // var payment_amount =  parseFloat(to_currency_rate / from_currency_rate * cart_total_list[0].amount).toFixed(2);
 
     //Credit Limit Balance validations
     $.post(base_url + 'controller/b2b_customer/sale/credit_validation.php', { register_id:register_id,customer_id:customer_id,booking_amount:payment_amount }, function (data) {
@@ -577,12 +576,14 @@ $('#credit_button').click(function(e) {
             if($('#email_id-error').length){
                 if(email_id_error != ''){
                     error_msg_alert('Enter valid email-id');
+                    $('#credit_button').prop('disabled',false);
                     return false;
                 }
             }
             if($('#contact_no-error').length){
                 if(contact_no_error != ''){
                     error_msg_alert('Enter valid contact no');
+                    $('#credit_button').prop('disabled',false);
                     return false;
                 }
             }
@@ -752,9 +753,12 @@ $('#credit_button').click(function(e) {
                         var birthdate = $("#"+'f'+cart_checkout_data[i]['service']['id']+i_room+'adult'+'bdate').val();
                         var meal = $("#"+'f'+cart_checkout_data[i]['service']['id']+i_room+'adult'+'meal').val();
 
-                        if(fname == ''){ return false; }
-                        if(lname == ''){ return false; }
-                        if(birthdate == ''){ return false; }
+                        if(fname == ''){ 
+                            $('#credit_button').prop('disabled',false);return false; }
+                        if(lname == ''){ 
+                            $('#credit_button').prop('disabled',false);return false; }
+                        if(birthdate == ''){ 
+                            $('#credit_button').prop('disabled',false);return false; }
                         
                         var adult_arr1 = {
                             count:i_room,
@@ -775,9 +779,12 @@ $('#credit_button').click(function(e) {
                         var birthdate = $("#"+'f'+cart_checkout_data[i]['service']['id']+i_room+'childwo'+'bdate').val();
                         var meal = $("#"+'f'+cart_checkout_data[i]['service']['id']+i_room+'childwo'+'meal').val();
 
-                        if(fname == ''){ return false; }
-                        if(lname == ''){ return false; }
-                        if(birthdate == ''){ return false; }
+                        if(fname == ''){ 
+                            $('#credit_button').prop('disabled',false);return false; }
+                        if(lname == ''){ 
+                            $('#credit_button').prop('disabled',false);return false; }
+                        if(birthdate == ''){ 
+                            $('#credit_button').prop('disabled',false);return false; }
                         
                         var cwb_arr1 = {
                             count:i_room,
@@ -799,7 +806,6 @@ $('#credit_button').click(function(e) {
                     });
                 }
             }
-
             //If coupon apllied
             if (typeof Storage !== 'undefined'){
                 if (localStorage) {
@@ -856,6 +862,7 @@ $('#credit_button').click(function(e) {
                 content: 'Booking saved successfully.Thank you so much!',
             });
             setTimeout(() => {
+                $('#credit_button').prop('disabled',false);
                 window.location.href= '../view/index.php';
             }, 2000);
         }

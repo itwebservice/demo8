@@ -178,7 +178,7 @@ $pdf->MultiCell(119, 7, "BANK NAME : ".$bank_name_setting, 1);
 
 $pdf->SetXY(129, 41);
 
-$pdf->MultiCell(70, 7, "A/C NAME : ".$acc_name, 1);
+$pdf->MultiCell(70, 7, "A/C TYPE : ".$acc_name, 1);
 
 $pdf->SetXY(10, 48);
 

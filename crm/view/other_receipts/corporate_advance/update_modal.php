@@ -97,7 +97,6 @@ $disabled = ($sq_income_info['payment_mode']=="Cash"||$sq_income_info['payment_m
 
 <script>
 $('#update_modal').modal('show');
-$('#payment_date').datetimepicker({ timepicker:false, format:'d-m-Y' });
 $('#cust_id').select2();
 $('#frm_update').validate({
   rules:{

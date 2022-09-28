@@ -89,6 +89,7 @@ $(function(){
         $('#btn_visa_send').button('reset'); 
         return false;
       }
+      var msg = '';
       if(mail == true){
 
         $('#btn_visa_send').button('loading');

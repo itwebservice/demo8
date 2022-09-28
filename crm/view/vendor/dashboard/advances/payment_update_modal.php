@@ -121,8 +121,8 @@ function payment_evidence_upload(offset='')
 	onSubmit: function(file, ext){
 
 		var id_proof_url = $("#payment_evidence_url"+offset).val();
-		if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
-			error_msg_alert('Only JPG, PNG files are allowed');
+		if (! (ext && /^(jpg|png|jpeg|gif|pdf)$/.test(ext))){ 
+			error_msg_alert('Only JPG, PNG, PDF files are allowed');
 			return false;
 		}
 		status.text('Uploading...');

@@ -88,7 +88,7 @@
         	 	<h3>Service Details</h3>
         	<span class="main_block">
               <i class="fa fa-angle-double-right cost_arrow" aria-hidden="true"></i>
-              <label> Service <em>:</em></label>
+              <label> Services <em>:</em></label>
 				<?php 
 				echo $sq_visa_info['service'];
                 ?>

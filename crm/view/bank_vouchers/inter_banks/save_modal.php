@@ -12,7 +12,9 @@ $branch_status = $_POST['branch_status'];
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Transfer</h4>
+
+        <h4 class="modal-title" id="myModalLabel">Save Bank Transfer</h4>
+
       </div>
       <div class="modal-body">            
             <div class="row">
@@ -21,7 +23,7 @@ $branch_status = $_POST['branch_status'];
                     <?php get_bank_dropdown(); ?>
                 </select>
               </div>
-               <div class="col-md-4 col-sm-6 col-xs-12 mg_bt_10">
+              <div class="col-md-4 col-sm-6 col-xs-12 mg_bt_10">
                 <select id="to_bank_id" name="to_bank_id" style="width:100%" title="Debitor Bank" class="form-control">
                     <?php get_bank_dropdown('Debitor Bank'); ?>
                 </select>

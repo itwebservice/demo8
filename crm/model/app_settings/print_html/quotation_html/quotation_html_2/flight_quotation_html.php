@@ -2,7 +2,7 @@
 //Generic Files
 include "../../../../model.php"; 
 include "printFunction.php";
-global $app_quot_img,$currency;
+global $app_quot_img,$currency,$quot_note;
 $quotation_id = $_GET['quotation_id'];
 
 $sq_terms_cond = mysqli_fetch_assoc(mysqlQuery("select * from terms_and_conditions where type='Flight Quotation' and active_flag ='Active'"));
@@ -77,11 +77,11 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
     <div class="row">
       <div class="col-md-4">
         <div class="landigPageCustomer mg_tp_20">
-          <h3 class="customerFrom">Prepared for</h3>
+          <h3 class="customerFrom">PREPARED FOR</h3>
           <span class="customerName mg_tp_10"><i class="fa fa-user"></i> : <?= $sq_quotation['customer_name'] ?></span><br>
           <span class="customerMail mg_tp_10"><i class="fa fa-envelope"></i> : <?= $sq_quotation['email_id'] ?></span><br>
           <span class="customerMobile mg_tp_10"><i class="fa fa-phone"></i> : <?= $sq_quotation['mobile_no'] ?></span><br>
-          <span class="generatorName mg_tp_10">Prepared By <?= $emp_name?></span><br>
+          <span class="generatorName mg_tp_10">PREPARED BY <?= $emp_name?></span><br>
         </div>
       </div>
       <div class="col-md-8 text-right">
@@ -111,7 +111,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
           <i class="fa fa-tag"></i>
         </div>
         <div class="detailBlockContent">
-          <h3 class="contentValue"><?= number_format($sq_quotation['quotation_cost'],2) ?></h3>
+          <h3 class="contentValue"><?= $quotation_cost ?></h3>
           <span class="contentLabel">PRICE</span>
         </div>
       </div>
@@ -132,12 +132,12 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
               <table class="table table-bordered no-marg" id="tbl_emp_list">
                 <thead>
                   <tr class="table-heading-row">
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From_Sector</th>
+                    <th>To_Sector</th>
                     <th>Airline</th>
                     <th>Class</th>
-                    <th>Departure</th>
-                    <th>Arrival</th>
+                    <th>Departure_D/T</th>
+                    <th>Arrival_D/T</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -171,6 +171,9 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
       <h3 class="nrmTitle">Terms and Conditions</h3>
       <pre class="real_text"><?= $sq_terms_cond['terms_and_conditions'] ?></pre>
   </div>
+  <div class="termsCondition main_block side_pad mg_tp_30">
+      <pre class="real_text"><?= $quot_note ?></pre>
+  </div>
 </section>
 <?php } ?>
 
@@ -178,7 +181,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
 <section class="incluExcluTerms main_block mg_tp_20">
   
   <!-- Costing & Bank Detail -->
-  <div class="costBankSec main_block mg_tp_20">
+  <div class="costBankSec main_block mg_tp_20 costing_bank_details_bk">
     <div class="costBankInner main_block side_pad mg_tp_20 mg_bt_20">
       <div class="row">
         <!-- Costing -->
@@ -222,7 +225,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
             <div class="col-md-4 text-center">
               <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
               <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-              <p>A/C NAME</p>
+              <p>A/C TYPE</p>
             </div>
           </div>
           <div class="row">

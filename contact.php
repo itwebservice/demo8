@@ -120,7 +120,7 @@ global $app_contact_no;
 
                         </span>
 
-                        <a href="#" class="ts-contact-info-link"><?= $cached_array[0]->company_profile_data[0]->address ?></a>
+                        <a class="ts-contact-info-link"><?= $cached_array[0]->company_profile_data[0]->address ?></a>
 
                     </li>
 
@@ -132,7 +132,7 @@ global $app_contact_no;
 
                         </span>
 
-                        <a href="tel: <?= $cached_array[0]->company_profile_data[0]->contact_no ?>" class="ts-contact-info-link"><?= $cached_array[0]->company_profile_data[0]->contact_no ?></a>
+                        <a <?= $cached_array[0]->company_profile_data[0]->contact_no ?>" class="ts-contact-info-link"><?= $cached_array[0]->company_profile_data[0]->contact_no ?></a>
 
                     </li>
 
@@ -144,7 +144,7 @@ global $app_contact_no;
 
                         </span>
 
-                        <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->email_id ?>" class="ts-contact-info-link"><?= $cached_array[0]->company_profile_data[0]->email_id ?></a>
+                        <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->email_id ?>" class="ts-contact-info-link" style="text-decoration: none;"><?= $cached_array[0]->company_profile_data[0]->email_id ?></a>
 
                     </li>
 
@@ -156,7 +156,7 @@ global $app_contact_no;
 
                         </span>
 
-                        <a href="#" class="ts-contact-info-link"><?= $cached_array[0]->cms_data[0]->header_strip_note ?></a>
+                        <a class="ts-contact-info-link"><?= $cached_array[0]->cms_data[0]->header_strip_note ?></a>
 
                     </li>
 

@@ -39,7 +39,6 @@ $(function () {
 		rules         : {},
 		submitHandler : function (form) {
 			
-		$('#save').prop('disabled', true);
 		$('#csave_bike_type').prop('disabled', true);
 		var base_url = $('#base_url').val();
 		var bike_type = $('#cbike_type').val();

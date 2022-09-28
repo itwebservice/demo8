@@ -1,4 +1,4 @@
-<?php 
+<?php
 $flag = true;
 class ticket_refund{
 
@@ -111,8 +111,8 @@ public function finance_save($refund_id,$cid)
 
 	$sq_exc_info = mysqli_fetch_assoc(mysqlQuery("select * from ticket_master where ticket_id='$ticket_id'"));
   	$customer_id = $sq_exc_info['customer_id'];
-	$refund_date = date('Y-m-d', strtotime($sq_exc_info['created_at']));
-	$year = explode("-", $refund_date);
+	$refund_dates = date('Y-m-d', strtotime($sq_exc_info['created_at']));
+	$year = explode("-", $refund_dates);
 	$yr =$year[0];
 
   	//Getting cash/Bank Ledger

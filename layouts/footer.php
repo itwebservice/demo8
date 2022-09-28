@@ -2,7 +2,7 @@
 
   <footer class="it-footer">
    
-    <div class="it-footer-top">
+    <div class="it-footer-top" style="display: none;">
         <div class="container">
             <div class="it-footer-top-content">
                 <ul class="it-payment-list">
@@ -70,13 +70,79 @@
     <div class="it-footer-main">
         <div class="container">
             <div class="row">
-                <div class="col col-12 col-md-12 col-lg-6 col-xl-3">
+               <!-- <div class="col col-12 col-md-12 col-lg-6 col-xl-3">
                     <div class="it-footer-logo">
                         <img src="images/logo.png" alt="logo" class="imng-fluid">
                     </div>
                     <p class="it-footer-description">At vero eos et accusamus et iusto odio dignissimos ducimus voluptatum
                     </p>
-                    <h6 class="it-footer-title">Social Icons</h6>
+                    <h6 class="it-footer-title">Social Icons</h6> 
+                </div> -->
+                <div class="col col-12 col-md-12 col-lg-6 col-xl-3">
+                    <h6 class="it-footer-title">Popular Tour Places</h6>
+                    <ul class="it-footer-menu-list">
+                    <?php foreach($Apifooter as $footer){  ?>   
+                    <li class="it-footer-menu-item">
+                            <a href="#" onclick="get_tours_data('<?= $footer->destination->dest_id ?>','1')"  class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
+                                <?= $footer->package_name  ?></a>
+                        </li>
+                        <?php } ?>
+                        
+                    </ul>
+                </div>
+                <div class="col col-12 col-md-12 col-lg-6 col-xl-2">
+                    <h6 class="it-footer-title">Important Links</h6>
+                    <ul class="it-footer-menu-list">
+                        <li class="it-footer-menu-item">
+                            <a target="_blank" href="<?=BASE_URL_B2C?>about.php" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
+                                About
+                                Us</a>
+                        </li>
+                        <li class="it-footer-menu-item">
+                            <a target="_blank" href="<?=BASE_URL_B2C?>award.php" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
+                                Awards</a>
+                        </li>
+                        <li class="it-footer-menu-item">
+                            <a target="_blank" href="<?=BASE_URL_B2C?>blog.php" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
+                                Travel
+                                Blog</a>
+                        </li>
+                        <li class="it-footer-menu-item">
+                            <a target="_blank" href="<?=BASE_URL_B2C?>refund-policy.php" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
+                                Refund
+                                Policy</a>
+                        </li>
+                        <li class="it-footer-menu-item">
+                            <a target="_blank" href="<?=BASE_URL_B2C?>terms-conditions.php" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
+                                Terms
+                                of Use</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col col-12 col-md-12 col-lg-6 col-xl-4">
+                    <h6 class="it-footer-title">Get In Touch</h6>
+                    <ul class="it-footer-menu-list">
+                        <li class="it-footer-menu-item" style="color: rgba(255, 255, 255, 0.6);">
+                            <a class="it-footer-menu-link"><i class="fa fa-home"></i> 
+                            <?= $Apigeneral->app_address ?>
+                        </a>
+                        </li>
+                        <li class="it-footer-menu-item">
+                            <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->app_email_id ?>" class="it-footer-menu-link"><i class="fa fa-envelope"></i>
+                            <?= $Apigeneral->app_email_id ?>
+                        </a>
+                        </li>
+                        <li class="it-footer-menu-item">
+                            <a class="it-footer-menu-link" style="color: rgba(255, 255, 255, 0.6);"><i class="fa fa-phone"></i>
+                            <?= $Apigeneral->app_contact_no ?></a>
+                        </li>
+                        <li class="it-footer-menu-item">
+                            <a href="#" class="it-footer-menu-link"><i class="fa fa-print"></i> 
+                            <?= $Apigeneral->app_website ?>
+                        </a>
+                        </li>
+                    </ul>
+                    <!--social media plaform-->
                     <ul class="it-social-list">
                         <li class="it-social-item">
                             <a class="it-social-link" href="<?= $Apisocial->fb ?>">
@@ -110,72 +176,6 @@
                         </li> 
                     </ul>
                 </div>
-                <div class="col col-12 col-md-12 col-lg-6 col-xl-3">
-                    <h6 class="it-footer-title">Popular Tour Places</h6>
-                    <ul class="it-footer-menu-list">
-                    <?php foreach($Apifooter as $footer){  ?>   
-                    <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
-                                <?= $footer->package_name  ?></a>
-                        </li>
-                        <?php } ?>
-                        
-                    </ul>
-                </div>
-                <div class="col col-12 col-md-12 col-lg-6 col-xl-2">
-                    <h6 class="it-footer-title">Useful Links</h6>
-                    <ul class="it-footer-menu-list">
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
-                                Our
-                                Team</a>
-                        </li>
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
-                                Contact
-                                US</a>
-                        </li>
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
-                                About
-                                Us</a>
-                        </li>
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
-                                Recent
-                                News</a>
-                        </li>
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
-                                Terms
-                                and Services</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col col-12 col-md-12 col-lg-6 col-xl-4">
-                    <h6 class="it-footer-title">Get In Touch</h6>
-                    <ul class="it-footer-menu-list">
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-home"></i> 
-                            <?= $Apigeneral->app_address ?>
-                        </a>
-                        </li>
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-envelope"></i>
-                            <?= $Apigeneral->app_email_id ?>
-                        </a>
-                        </li>
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-phone"></i>
-                            <?= $Apigeneral->app_contact_no ?></a>
-                        </li>
-                        <li class="it-footer-menu-item">
-                            <a href="#" class="it-footer-menu-link"><i class="fa fa-print"></i> 
-                            <?= $Apigeneral->app_website ?>
-                        </a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
@@ -183,7 +183,7 @@
     <div class="it-footer-bottom">
         <div class="container">
             <div class="it-footer-bottom-content">
-                <p class="it-site-copyright"> Copyright © 2020 <a href="#">Gowell</a>. Designed by <a href="#">Spruko</a> All rights reserved. </p>
+                <p class="it-site-copyright"> Copyright © 2022 <?= $app_name ?> All rights reserved. </p>
             </div>
         </div>
     </div>

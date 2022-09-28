@@ -22,7 +22,7 @@ if($tourwise_traveler_id!=""){
         <th>Bank_Name</th>
         <th>Refund_Mode</th>
         <th>Cheque_No/ID</th>
-        <th class="text-right success">Amount</th>
+        <th class="success">Amount</th>
     </tr>
     </thead>
     <tbody>

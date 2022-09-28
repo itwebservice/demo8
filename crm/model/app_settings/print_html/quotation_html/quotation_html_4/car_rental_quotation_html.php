@@ -76,7 +76,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
       <div class="ladingPageBottom main_block side_pad">
         <div class="row">
           <div class="col-md-12 mg_tp_30">
-              <h3 class="customerFrom">Prepared for</h3>
+              <h3 class="customerFrom">PREPARED FOR</h3>
           </div>
           <div class="col-md-4">
             <div class="landigPageCustomer">
@@ -217,7 +217,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
             
             <div class="col-md-12 mg_tp_30">
               <div class="incluExcluTermsTabPanel main_block">
-                  <h3 class="incexTitle">Terms & Conditions</h3>
+                  <h3 class="incexTitle">TERMS AND CONDITIONS</h3>
                   <div class="tncContent">
                       <pre class="real_text"><?php echo $sq_terms_cond['terms_and_conditions']; ?></pre>      
                   </div>
@@ -242,7 +242,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
             <div class="row constingBankingPanelRow">
               <!-- Costing -->
               <div class="col-md-12 constingBankingPanel constingPanel">
-                    <h3 class="costBankTitle text-center">Costing Details</h3>
+                    <h3 class="costBankTitle text-center">COSTING DETAILS</h3>
                     <div class="col-md-4 text-center mg_bt_30">
                       <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p4/subtotal.png" class="img-responsive"></div>
                       <h4 class="no-marg"><?= number_format($newBasic,2) ?></h4>
@@ -356,7 +356,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
                 <?php }?>
                 <div class="contactBlock">
                   <i class="fa fa-pencil-square-o"></i>
-                  <p>Prepared By : <?= $emp_name?></p>
+                  <p>PREPARED BY : <?= $emp_name?></p>
                 </div>
             </div>
         </section>

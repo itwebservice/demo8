@@ -1,6 +1,6 @@
 <?php 
 class attraction_images
-{
+{ 
 
 	public function update()
 	{

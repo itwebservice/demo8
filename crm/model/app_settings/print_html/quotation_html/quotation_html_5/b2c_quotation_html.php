@@ -99,7 +99,7 @@ if($type == '1'){
           </div>
 
           <div class="landigPageCustomer">
-            <h3 class="customerFrom">Prepared for</h3>
+            <h3 class="customerFrom">PREPARED FOR</h3>
             <span class="customerName"><em><i class="fa fa-user"></i></em> : <?= $sq_quotation['name'] ?></span><br>
             <span class="customerMail"><em><i class="fa fa-envelope"></i></em> : <?= $sq_quotation['email'] ?></span><br>
             <span class="customerMobile"><em><i class="fa fa-phone"></i></em> : <?= $sq_quotation['phone'] ?></span>
@@ -397,7 +397,7 @@ if($type == '1'){
               <div class="row">
                 <div class="col-md-12 mg_tp_30 mg_bt_30">
                   <div class="incluExcluTermsTabPanel exclusions main_block">
-                      <h3 class="incexTitle">Terms & Conditions</h3>
+                      <h3 class="incexTitle">TERMS AND CONDITIONS</h3>
                       <div class="tabContent">
                           <pre class="real_text"><?= $sq_terms_cond['terms_and_conditions'] ?></pre>      
                       </div>
@@ -499,7 +499,7 @@ else if($type == '2'){
           </div>
 
           <div class="landigPageCustomer">
-            <h3 class="customerFrom">Prepared for</h3>
+            <h3 class="customerFrom">PREPARED FOR</h3>
             <span class="customerName"><em><i class="fa fa-user"></i></em> : <?= $sq_quotation['name'] ?></span><br>
             <span class="customerMail"><em><i class="fa fa-envelope"></i></em> : <?= $sq_quotation['email'] ?></span><br>
             <span class="customerMobile"><em><i class="fa fa-phone"></i></em> : <?= $sq_quotation['phone'] ?></span>
@@ -826,7 +826,7 @@ else if($type == '2'){
               <div class="row">
                 <div class="col-md-12 mg_tp_30 mg_bt_30">
                   <div class="incluExcluTermsTabPanel exclusions main_block">
-                      <h3 class="incexTitle">Terms & Conditions</h3>
+                      <h3 class="incexTitle">TERMS AND CONDITIONS</h3>
                       <div class="tabContent">
                           <pre class="real_text"><?= $sq_terms_cond['terms_and_conditions'] ?></pre>      
                       </div>
@@ -924,7 +924,7 @@ else if($type == '2'){
               <tr>
                 <th>BANK NAME</th>
                 <th>BRANCH NAME</th>
-                <th>A/C NAME</th>
+                <th>A/C TYPE</th>
                 <th>A/C NO</th>
                 <th>IFSC</th>
                 <th>SWIFT CODE</th>
@@ -985,7 +985,7 @@ else if($type == '2'){
               <?php } ?>
               <div class="contactBlock">
                 <i class="fa fa-pencil-square-o"></i>
-                <p>Prepared By : <?= $emp_name?></p>
+                <p>PREPARED BY : <?= $emp_name?></p>
               </div>
           </div>
       </section>

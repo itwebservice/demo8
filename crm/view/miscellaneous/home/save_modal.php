@@ -199,6 +199,7 @@ $branch_status = $sq['branch_status'];
 </div>
 
 
+<script src="<?php echo BASE_URL ?>js/app/footer_scripts.js"></script>
 
 <script>
 $('#visa_save_modal').modal('show');
@@ -376,7 +377,7 @@ function business_rule_load() {
 						return false;
 					}
 				} else if (payment_mode == "Credit Note" && credit_amount == '') {
-					error_msg_alert("You don't have Credit Note Amount");
+					error_msg_alert("Credit Note Balance is not available");
 					$('#btn_visa_master_save').prop('disabled', false);
 					return false;
 				}

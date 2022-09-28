@@ -46,6 +46,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
             <h3 class="customerFrom">PREPARED FOR :</h3>
             <span class="customerName"><em><i class="fa fa-user"></i></em> : <?= $sq_quotation['customer_name'] ?></span><br>
             <span class="customerMail"><em><i class="fa fa-envelope"></i></em> : <?= $sq_quotation['email_id'] ?></span><br>
+            <span class="customerMail"><em><i class="fa fa-phone"></i></em> : <?= $sq_quotation['mobile_number'] ?></span><br>
           </div>
 
           <div class="landingPageBlocks">
@@ -171,7 +172,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
     <!-- traveling Information -->
     <section class="pageSection main_block">
       <!-- background Image -->
-      <img src="<?= BASE_URL ?>images/quotation/p6/pageBG.jpg" class="img-responsive pageBGImg">
+      <img src="<?= BASE_URL ?>images/quotation/p6/pageBGF.jpg" class="img-responsive pageBGImg">
       <section class="travelingDetails main_block mg_tp_30 pageSectionInner">
 
       <!-- Flight -->
@@ -185,10 +186,10 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
               <table class="table tableTrnasp no-marg" id="tbl_emp_list">
                 <thead>
                   <tr class="table-heading-row">
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Airline</th>
-                    <th>Departure</th>
+                    <th>From_LOCATION</th>
+                    <th>To_LOCATION</th>
+                    <th>Airline_d/T</th>
+                    <th>Departure_D/T</th>
                     <th>Arrival</th>
                   </tr>
                 </thead>
@@ -223,11 +224,11 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
               <table class="table tableTrnasp no-marg" id="tbl_emp_list">
                 <thead>
                   <tr class="table-heading-row">
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From_SECTOR</th>
+                    <th>To_SECTOR</th>
                     <th>Class</th>
-                    <th>Departure</th>
-                    <th>Arrival</th>
+                    <th>Departure_D/t</th>
+                    <th>Arrival_D/T</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -262,8 +263,8 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
               <table class="table tableTrnasp no-marg" id="tbl_emp_list">
                 <thead>
                   <tr class="table-heading-row">
-                    <th>Departure</th>
-                    <th>Arrival</th>
+                    <th>Departure_D/t</th>
+                    <th>Arrival_D/T</th>
                     <th>Route</th>
                     <th>Cabin</th>
                     <th>Sharing</th>
@@ -302,7 +303,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
         <div class="row side_pad">
           <div class="col-md-10 mg_tp_30">
             <div class="incluExcluTermsTabPanel inclusions main_block">
-                <h3 class="incexTitle">Inclusions</h3>
+                <h3 class="incexTitle">INCLUSIONS</h3>
                 <div class="tabContent">
                     <pre class="real_text"><?= $sq_quotation['incl'] ?></pre>      
                 </div>
@@ -325,7 +326,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
       <div class="row side_pad">
         <div class="col-md-10 mg_tp_30">
           <div class="incluExcluTermsTabPanel exclusions main_block">
-              <h3 class="incexTitle">Exclusions</h3>
+              <h3 class="incexTitle">EXCLUSIONS</h3>
               <div class="tabContent">
                   <pre class="real_text"><?= $sq_quotation['excl'] ?></pre>      
               </div>
@@ -347,7 +348,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
         <div class="row side_pad">  
           <div class="col-md-10 mg_tp_30">
             <div class="termsConditions main_block">
-                <h3 class="termsConditionsTitle">Terms & Conditions</h3>
+                <h3 class="termsConditionsTitle">TERMS AND CONDITIONS</h3>
                 <div class="tncContent">
                     <pre class="real_text"><?php echo $sq_terms_cond['terms_and_conditions']; ?></pre>      
                 </div>
@@ -371,7 +372,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
           
           <!-- Guest Detail -->
           <div class="col-md-4 passengerPanel endPagecenter mg_bt_30">
-            <h3 class="endingPageTitle text-center">Total Guest</h3>
+            <h3 class="endingPageTitle text-center">TOTAL GUEST</h3>
             <div class="icon">
               <img src="<?= BASE_URL ?>images/quotation/p4/adult.png" class="img-responsive">
               <h4 class="no-marg">Adult : <?= $sq_quotation['total_adult'] ?></h4>
@@ -424,7 +425,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
         <div class="col-md-8">
           <!-- Costing -->
           <div class="col-md-12 constingBankingPanel constingPanel">
-                <h3 class="costBankTitle text-center">Costing Details</h3>
+                <h3 class="costBankTitle text-center">COSTING DETAILS</h3>
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p4/tourCost.png" class="img-responsive"></div>
                   <h4 class="no-marg"><?= $newBasic1 ?></h4>
@@ -446,7 +447,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
 
           <!-- Bank Detail -->
           <div class="col-md-12 constingBankingPanel BankingPanel">
-                <h3 class="costBankTitle text-center">Bank Details</h3>
+                <h3 class="costBankTitle text-center">BANK DETAILS</h3>
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/bankName.png" class="img-responsive"></div>
                   <h4 class="no-marg"><?= $bank_name_setting ?></h4>
@@ -460,7 +461,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
                   <h4 class="no-marg"><?= $acc_name ?></h4>
-                  <p>A/C NAME</p>
+                  <p>A/C TYPE</p>
                 </div>
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>
@@ -522,10 +523,10 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
             <?php } ?>
             <div class="contactBlock">
               <i class="fa fa-pencil-square-o"></i>
-              <p>Prepared By : <?= $emp_name?></p>
+              <p>PREPARED BY : <?= $emp_name?></p>
             </div>
         </div>
-       </div>
+      </div>
     </section>
   </section>
 

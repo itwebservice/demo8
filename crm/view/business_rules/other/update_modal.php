@@ -194,7 +194,7 @@ else $value = '';
               }
               else{ ?>
               <tr>
-                  <td style="width:5%"><input id="chk_tax1" type="checkbox" checked></td>
+                  <td style="width:5%"><input id="chk_tax1" type="checkbox"></td>
                   <td style="width:5%"><input maxlength="15" value="1" type="text" name="username" placeholder="Sr. No." class="form-control" disabled /></td>
                   <td style="width:25%"><select name="condition" id="condition" data-toggle="tooltip" class="form-control app_select2" title="Condition" style="width:100%" onchange="values_load(this.id);">
                   <?php echo get_other_charges_conditions(); ?>

@@ -501,7 +501,7 @@ $tcs_readonly = ($sq_tcs['calc'] == '0') ? 'readonly' : '';
             return false;
           }
         } else if (payment_mode == "Credit Note" && credit_amount == '') {
-          error_msg_alert("You don't have Credit Note Amount");
+          error_msg_alert("Credit Note Balance is not available");
           $('#btn_hotel_booking').prop('disabled', false);
           return false;
         }

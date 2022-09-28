@@ -114,7 +114,7 @@ while($count<2){
 
 	$pdf->SetXY(30, 77+$offset);
 
-	$pdf->MultiCell(45, 7, '  Behalf Of Service', 1);
+	$pdf->MultiCell(45, 7, '  Behalf Of Service(s)', 1);
 
 	$pdf->SetXY(75, 77+$offset);
 

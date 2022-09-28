@@ -341,11 +341,11 @@ $row_tariff = mysqli_fetch_assoc($sq_tariff);
 
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
 
                         <a class="nav-link" id="pills-covid-tab" data-toggle="pill" href="#pills-covid" role="tab" aria-controls="pills-covid" aria-selected="false">Covid 19</a>
 
-                    </li>
+                    </li> -->
 
                 </ul>
 
@@ -697,7 +697,7 @@ de
 
                     </div>
 
-                    <div class="tab-pane fade" id="pills-covid" role="tabpanel" aria-labelledby="pills-covid-tab">
+                    <!-- <div class="tab-pane fade" id="pills-covid" role="tabpanel" aria-labelledby="pills-covid-tab">
 
                         <div class="ts-tab-content__inner">
 
@@ -705,7 +705,7 @@ de
 
                         </div>
 
-                    </div>
+                    </div> -->
 
                 </div>
 

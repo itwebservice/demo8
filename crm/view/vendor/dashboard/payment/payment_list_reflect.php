@@ -71,6 +71,11 @@ while($row_payment = mysqli_fetch_assoc($sq_payment)){
 	}else{
 		$evidence = '';
 	}
+	if($row_payment['payment_mode']!='Debit Note'){
+		$update_btn = '<button class="btn btn-info btn-sm" onclick="payment_update_modal('.$row_payment['payment_id'].')"  title="Edit"><i class="fa fa-pencil-square-o"></i></button>';
+	}else{
+		$update_btn = '';
+	}
 	$temp_arr = array( "data" => array(
 		(int)(++$count),
 		($row_payment['estimate_type'] =='')? 'NA': $row_payment['estimate_type'],
@@ -82,10 +87,7 @@ while($row_payment = mysqli_fetch_assoc($sq_payment)){
 		$row_payment['payment_mode'],
 		$row_payment['bank_name'],
 		$row_payment['transaction_id'],
-		''.$evidence.'
-
-		<button class="btn btn-info btn-sm" onclick="payment_update_modal('.$row_payment['payment_id'] .')" data-toggle="tooltip" title="Edit this payment"><i class="fa fa-pencil-square-o"></i></button>'
-	
+		''.$evidence.$update_btn	
 		), "bg" =>$bg);
 	array_push($array_s,$temp_arr); 
 	

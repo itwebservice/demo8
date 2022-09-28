@@ -144,29 +144,29 @@ $row_count++;
 while($row_refund = mysqli_fetch_assoc($sq_refund)){
   $traveler_name = "";
   $sq_refund_entries = mysqlQuery("select * from miscellaneous_refund_entries where refund_id='$row_refund[refund_id]'");
-while($row_refund_entry = mysqli_fetch_assoc($sq_refund_entries)){
+    while($row_refund_entry = mysqli_fetch_assoc($sq_refund_entries)){
         $sq_entry_info = mysqli_fetch_assoc(mysqlQuery("select * from miscellaneous_master_entries where entry_id='$row_refund_entry[entry_id]'"));
         $traveler_name .= $sq_entry_info['first_name'].' '.$sq_entry_info['last_name'].', ';
-        $sq_entry_year = mysqli_fetch_assoc(mysqlQuery("select * from miscellaneous_master where misc_id='$row_refund[misc_id]'"));
-        $date = $sq_entry_year['created_at'];
-        $yr = explode("-", $date);
-        $year =$yr[0];
-      }
-      $traveler_name = trim($traveler_name, ", "); 
-      $total_refund = $total_refund+$row_refund['refund_amount']; 
-      
-      if($row_refund['clearance_status']=="Pending"){ $bg='warning';
-        $sq_pending_amount = $sq_pending_amount + $row_refund['refund_amount'];
-      }
-      if($row_refund['clearance_status']=="Cancelled"){ $bg='danger';
-        $sq_cancel_amount = $sq_cancel_amount + $row_refund['refund_amount'];
-      }
-      if($row_refund['clearance_status']=="Cleared"){ $bg='success';
-        $sq_paid_amount = $sq_paid_amount + $row_refund['refund_amount'];
-      }
-      if($row_refund['clearance_status']==""){ $bg='';
-        $sq_paid_amount = $sq_paid_amount + $row_refund['refund_amount'];
-      }
+    }
+    $sq_entry_year = mysqli_fetch_assoc(mysqlQuery("select * from miscellaneous_master where misc_id='$row_refund[misc_id]'"));
+    $date = $sq_entry_year['created_at'];
+    $yr = explode("-", $date);
+    $year =$yr[0];
+    $traveler_name = trim($traveler_name, ", "); 
+    $total_refund = $total_refund+$row_refund['refund_amount']; 
+    
+    if($row_refund['clearance_status']=="Pending"){ $bg='warning';
+      $sq_pending_amount = $sq_pending_amount + $row_refund['refund_amount'];
+    }
+    if($row_refund['clearance_status']=="Cancelled"){ $bg='danger';
+      $sq_cancel_amount = $sq_cancel_amount + $row_refund['refund_amount'];
+    }
+    if($row_refund['clearance_status']=="Cleared"){ $bg='success';
+      $sq_paid_amount = $sq_paid_amount + $row_refund['refund_amount'];
+    }
+    if($row_refund['clearance_status']==""){ $bg='';
+      $sq_paid_amount = $sq_paid_amount + $row_refund['refund_amount'];
+    }
 
   $objPHPExcel->getActiveSheet()
               ->getStyle('I'.$row_count)

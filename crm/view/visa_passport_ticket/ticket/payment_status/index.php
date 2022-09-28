@@ -46,7 +46,7 @@ $emp_id = $_SESSION['emp_id'];
 		    </select>
 		</div>
 		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
-			<input type="text" id="from_date" name="from_date" class="form-control" placeholder="From Date" title="From Date" onchange="validate_validDate('from_date','to_date');">
+			<input type="text" id="from_date" name="from_date" class="form-control" placeholder="From Date" title="From Date" onchange="get_to_date('from_date','to_date');">
 		</div>
 		<div class="col-md-3 col-sm-6 col-xs-12 mg_bt_10">
 			<input type="text" id="to_date" name="to_date" class="form-control" placeholder="To Date" title="To Date" onchange="validate_validDate('from_date','to_date');">
@@ -154,7 +154,7 @@ $emp_id = $_SESSION['emp_id'];
 		var base_url = $('#base_url').val();
 		var branch_status_r = $('#branch_status_r').val();
 	  	$.post(base_url+'view/visa_passport_ticket/ticket/home/company_name_load.php', { cust_type : cust_type, branch_status : branch_status_r }, function(data){
-	  		if(cust_type=='Corporate'){
+	  		if(cust_type=='Corporate'||cust_type=='B2B'){
 		  		$('#company_div').addClass('company_class');	
 		    }
 		    else

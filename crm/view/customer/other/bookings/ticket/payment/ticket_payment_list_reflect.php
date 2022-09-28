@@ -15,7 +15,7 @@ $ticket_id = $_POST['ticket_id'];
 			<th>Mode</th>
 			<th>Bank_Name</th>
 			<th>Cheque_No/ID</th>			
-			<th class="text-right success">Amount</th>
+			<th class="success">Amount</th>
 			<th class="text-center">Receipt</th>
 		</tr>
 	</thead>

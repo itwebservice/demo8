@@ -1,14 +1,10 @@
-<?php 
+<?php
 include "../../../../model/model.php";
-
 $booking_id = $_POST['booking_id'];
-
 $sq_booking = mysqli_fetch_assoc(mysqlQuery("select * from bus_booking_master where booking_id='$booking_id'"));
-
 $sq_payment_info = mysqli_fetch_assoc(mysqlQuery("select sum(payment_amount) as sum from bus_booking_payment_master where booking_id='$booking_id' and clearance_status!='Pending' and clearance_status!='Cancelled'"));
 if($booking_id==""){ exit; }
 ?>
-
 <div class="row mg_tp_20">
 	<div class="col-md-6 col-md-offset-6 col-sm-10  col-xs-12 mg_tp_10">
 		<input type="checkbox" id="check_all" name="check_all" onClick="select_all_check(this.id,'traveler_names')">&nbsp;&nbsp;&nbsp;<span style="text-transform: initial;">Check All</span>
@@ -16,37 +12,34 @@ if($booking_id==""){ exit; }
 </div>
 <div class="row">	
 <?php
-// ,$sq_booking['markup'],$sq_booking['markup_tax']
 $service_tax_amount = 0;
 if($sq_booking['service_tax_subtotal'] !== 0.00 && ($sq_booking['service_tax_subtotal']) !== ''){
-$service_tax_subtotal1 = explode(',',$sq_booking['service_tax_subtotal']);
-for($i=0;$i<sizeof($service_tax_subtotal1);$i++){
-$service_tax = explode(':',$service_tax_subtotal1[$i]);
-$service_tax_amount = $service_tax_amount + $service_tax[2];
-}
+	$service_tax_subtotal1 = explode(',',$sq_booking['service_tax_subtotal']);
+	for($i=0;$i<sizeof($service_tax_subtotal1);$i++){
+		$service_tax = explode(':',$service_tax_subtotal1[$i]);
+		$service_tax_amount = $service_tax_amount + $service_tax[2];
+	}
 }
 $markupservice_tax_amount = 0;
 if($sq_booking['markup_tax'] !== 0.00 && $sq_booking['markup_tax'] !== ""){
-$service_tax_markup1 = explode(',',$sq_booking['markup_tax']);
-for($i=0;$i<sizeof($service_tax_markup1);$i++){
-$service_tax = explode(':',$service_tax_markup1[$i]);
-$markupservice_tax_amount = $markupservice_tax_amount+ $service_tax[2];
+	$service_tax_markup1 = explode(',',$sq_booking['markup_tax']);
+	for($i=0;$i<sizeof($service_tax_markup1);$i++){
+		$service_tax = explode(':',$service_tax_markup1[$i]);
+		$markupservice_tax_amount = $markupservice_tax_amount+ $service_tax[2];
+	}
 }
-}
-
-
 ?>
 	<div class="col-md-6 col-sm-12 col-xs-12">
 		<div class="widget_parent-bg-img bg-img-red">
 			<?php
-	            begin_widget();
-				$title_arr = array("Basic_Cost", "Service_Charge","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tax","Markup","Markup_Tax","Roundoff", "Net_Total",'',"Paid_Amount");
-				$content_arr = array( $sq_booking['basic_cost'], "&nbsp;".$sq_booking['service_charge'], "&nbsp;".$service_tax_amount,$sq_booking['markup'],$markupservice_tax_amount,$sq_booking['roundoff'],$sq_booking['net_total'],'',number_format($sq_payment_info['sum'],2) );
-				$percent = ($sq_booking['net_total']!='0') ? ($sq_payment_info['sum']/$sq_booking['net_total'])*100 : 0;
-				$percent = round($percent, 2);
-				$label = "Bus Fee Paid In Percent";
-				widget_element($title_arr, $content_arr, '', '','');
-	            end_widget();
+			begin_widget();
+			$title_arr = array("Basic_Cost", "Service_Charge","&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tax","Markup","Markup_Tax","Roundoff", "Net_Total",'',"Paid_Amount");
+			$content_arr = array( $sq_booking['basic_cost'], "&nbsp;".$sq_booking['service_charge'], "&nbsp;".$service_tax_amount,$sq_booking['markup'],$markupservice_tax_amount,$sq_booking['roundoff'],$sq_booking['net_total'],'',number_format($sq_payment_info['sum'],2) );
+			$percent = ($sq_booking['net_total']!='0') ? ($sq_payment_info['sum']/$sq_booking['net_total'])*100 : 0;
+			$percent = round($percent, 2);
+			$label = "Bus Fee Paid In Percent";
+			widget_element($title_arr, $content_arr, '', '','');
+			end_widget();
 	        ?>
 			<input type="hidden" id="total_sale" name="total_sale" value="<?= $sq_booking['net_total']?>">
 			<input type="hidden" id="total_paid" name="total_paid" value="<?= $sq_payment_info['sum']?>">

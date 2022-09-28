@@ -62,10 +62,10 @@ $remaining_show = ($remaining_pay < 0) ? 0 : $remaining_pay;
 			<div class="row text-center">    
 			    <div class="col-sm-6 col-xs-12 mg_bt_10">
 			    	<input type="hidden" name="remaining_fund" id="remaining_fund" value="<?php echo $remaining_pay;?>">
-			      <input type="text" id="refund_amount" name="refund_amount" title="Refund Amount" placeholder="*Refund Amount" onchange="validate_balance(this.id);payment_amount_validate(this.id,'refund_mode','transaction_id','bank_name')">
+			    	<input type="text" id="refund_amount" name="refund_amount" title="Refund Amount" placeholder="*Refund Amount" onchange="validate_balance(this.id);payment_amount_validate(this.id,'refund_mode','transaction_id','bank_name')">
 			    </div>
 			    <div class="col-sm-6 col-xs-12 mg_bt_10">
-			      <input type="text" id="refund_date" name="refund_date" title="Refund Date" placeholder="*Refund Date" value="<?= date('d-m-Y')?>">
+			    	<input type="text" id="refund_date" name="refund_date" title="Refund Date" placeholder="*Refund Date" value="<?= date('d-m-Y')?>">
 			    </div>   			        
 				<div class="col-sm-6 col-xs-12 mg_bt_10">
 				    <select id="refund_mode" name="refund_mode" class="form-control" required title="Payment Mode" onchange="payment_master_toggles(this.id, 'bank_name', 'transaction_id', 'bank_id')">
@@ -86,21 +86,24 @@ $remaining_show = ($remaining_pay < 0) ? 0 : $remaining_pay;
 			</div>
 			<div class="row mg_bt_10">
 				<div class="col-xs-12">
-				  	<select name="entry_id" id="entry_id" multiple>
-				  		<?php
-								$sq_hotel_info1 = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id='$sq_hotel_info[customer_id]'"));
+					<select name="entry_id" id="entry_id" multiple>
+						<?php
+							$sq_hotel_info1 = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id='$sq_hotel_info[customer_id]'"));
+							if($sq_hotel_info1['type']=='Corporate'||$sq_hotel_info1['type'] == 'B2B'){
+								$customer_name = $sq_hotel_info1['company_name'];
+							}else{
 								$customer_name = $sq_hotel_info1['first_name'].' '.$sq_hotel_info1['last_name'];
-				  			?>
-							<option value="<?= $sq_hotel_info1['customer_id'] ?>"><?= $customer_name ?></option>
-				  		?>
-				  	</select>
-				 </div>
+							}
+						?>
+						<option value="<?= $sq_hotel_info1['customer_id'] ?>"><?= $customer_name ?></option>
+					</select>
+				</div>
 			</div>
 
 			<div class="row text-center mg_tp_20">
-			  <div class="col-xs-12">
-			      <button id="btn_refund_save" class="btn btn-sm btn-success"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save Refund</button>
-			  </div>
+				<div class="col-xs-12">
+					<button id="btn_refund_save" class="btn btn-sm btn-success"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save Refund</button>
+				</div>
 			</div>
 
 		</form>
@@ -145,7 +148,11 @@ $remaining_show = ($remaining_pay < 0) ? 0 : $remaining_pay;
 						$sq_refund_entries = mysqlQuery("select * from hotel_booking_refund_entries where refund_id='$row_hotel_refund[refund_id]'");
 						while($row_refund_entry = mysqli_fetch_assoc($sq_refund_entries)){
 							$sq_hotel_info = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id='$row_refund_entry[entry_id]'"));
-							$hotel_name = $sq_hotel_info['first_name'].' '.$sq_hotel_info['last_name'];
+							if($sq_hotel_info['type']=='Corporate'||$sq_hotel_info['type'] == 'B2B'){
+								$hotel_name .= $sq_hotel_info['company_name'];
+							}else{
+								$hotel_name .= $sq_hotel_info['first_name'].' '.$sq_hotel_info['last_name'];
+							}
 						}
 
 						if($row_hotel_refund['clearance_status']=='Pending'){ $bg = "warning"; }

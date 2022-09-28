@@ -45,7 +45,7 @@ if($active_flag!=""){
 					<button class="btn btn-info btn-sm" onclick="view_modal(<?= $row_vendor['vendor_id'] ?>)" title="View Information"><i class="fa fa-eye"></i></button>
 				</td>
 				<td>
-					<button class="btn btn-info btn-sm" onclick="update_modal(<?= $row_vendor['vendor_id'] ?>)" title="Edit Detail"><i class="fa fa-pencil-square-o"></i></button>
+					<button class="btn btn-info btn-sm" onclick="update_modal(<?= $row_vendor['vendor_id'] ?>)" title="Update Details"><i class="fa fa-pencil-square-o"></i></button>
 				</td>
 			</tr>
 			<?php

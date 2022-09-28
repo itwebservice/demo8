@@ -65,10 +65,19 @@ $query .= " order by ticket_id desc";
 		$sq_trip = mysqlQuery($query);	
 		while($row_trip = mysqli_fetch_assoc($sq_trip)){
 
+			$pass_count = mysqli_num_rows(mysqlQuery("select * from ticket_master_entries where ticket_id='$row_trip[ticket_id]'"));
+			$cancel_count = mysqli_num_rows(mysqlQuery("select * from ticket_master_entries where ticket_id='$row_trip[ticket_id]' and status='Cancel'"));
+			if($pass_count==$cancel_count){
+				$bg="danger";
+			}
+			else {
+				$bg="#fff";
+			}
+
 			$sq_ticket = mysqli_fetch_assoc(mysqlQuery("select * from ticket_master where ticket_id='$row_trip[ticket_id]'"));
 			$date = $sq_ticket['created_at'];
-	            $yr = explode("-", $date);
-	           	$year =$yr[0];
+			$yr = explode("-", $date);
+			$year =$yr[0];
 
 			$sq_customer_info = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id='$sq_ticket[customer_id]'"));
 			if($sq_customer_info['type'] == 'Corporate'||$sq_customer_info['type'] == 'B2B'){
@@ -77,7 +86,7 @@ $query .= " order by ticket_id desc";
 				$cust_name = $sq_customer_info['first_name'].' '.$sq_customer_info['last_name'];
 			}
 			?>
-			<tr>
+			<tr class="<?=$bg?>">
 				<td><?= ++$count ?></td>
 				<td><?= get_ticket_booking_id($row_trip['ticket_id'],$year) ?></td>
 				<td><?= $cust_name ?></td>

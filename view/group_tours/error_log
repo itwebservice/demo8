@@ -888,3 +888,49 @@ Stack trace:
 [18-Jul-2022 09:40:04 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/B2CTheme/config.php on line 9
 [18-Jul-2022 09:40:04 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/B2CTheme/config.php on line 10
 [18-Jul-2022 09:40:04 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/B2CTheme/config.php on line 11
+[25-Aug-2022 06:43:42 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 9
+[25-Aug-2022 06:43:42 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[25-Aug-2022 06:43:42 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[25-Aug-2022 06:43:47 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 9
+[25-Aug-2022 06:43:47 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[25-Aug-2022 06:43:47 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[25-Aug-2022 06:43:49 UTC] PHP Warning:  Undefined array key "train_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 264
+[25-Aug-2022 06:43:49 UTC] PHP Warning:  Undefined array key "cruise_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 359
+[26-Aug-2022 11:24:29 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[26-Aug-2022 11:24:29 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[26-Aug-2022 11:24:29 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[26-Aug-2022 11:24:38 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[26-Aug-2022 11:24:38 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[26-Aug-2022 11:24:38 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[26-Aug-2022 11:24:56 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[26-Aug-2022 11:24:56 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[26-Aug-2022 11:24:56 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[30-Aug-2022 11:25:43 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[30-Aug-2022 11:25:43 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[30-Aug-2022 11:25:43 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[30-Aug-2022 11:25:57 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[30-Aug-2022 11:25:57 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[30-Aug-2022 11:25:57 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[30-Aug-2022 11:25:57 UTC] PHP Warning:  Undefined array key "train_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 264
+[30-Aug-2022 11:25:57 UTC] PHP Warning:  Undefined array key "cruise_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 359
+[30-Aug-2022 11:39:48 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[30-Aug-2022 11:39:48 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[30-Aug-2022 11:39:48 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[30-Aug-2022 11:39:56 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[30-Aug-2022 11:39:56 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[30-Aug-2022 11:39:56 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[30-Aug-2022 11:39:56 UTC] PHP Warning:  Undefined array key "train_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 264
+[30-Aug-2022 11:39:56 UTC] PHP Warning:  Undefined array key "cruise_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 359
+[01-Sep-2022 14:40:23 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[01-Sep-2022 14:40:23 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[01-Sep-2022 14:40:23 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[01-Sep-2022 14:40:40 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[01-Sep-2022 14:40:40 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[01-Sep-2022 14:40:40 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[01-Sep-2022 14:40:41 UTC] PHP Warning:  Undefined array key "train_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 264
+[01-Sep-2022 14:40:41 UTC] PHP Warning:  Undefined array key "cruise_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 359
+[01-Sep-2022 14:41:49 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 10
+[01-Sep-2022 14:41:49 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 11
+[01-Sep-2022 14:41:49 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/itourscloud/public_html/demo8/config.php on line 12
+[01-Sep-2022 14:41:49 UTC] PHP Warning:  Undefined array key "train_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 264
+[01-Sep-2022 14:41:49 UTC] PHP Warning:  Undefined array key "cruise_array" in /home/itourscloud/public_html/demo8/view/group_tours/per_page_result.php on line 359

@@ -81,9 +81,9 @@ include "../../../model/model.php";
                 </select>
               </div>
             </div>
-               <div class="col-md-12 col-sm-9 no-pad mg_bt_20">
-                 <span style="color: red;line-height: 35px;" class="note" data-original-title="" title="">Note : Please make sure Date, Amount,mode, Creditor bank entered properly.</span>
-               </div>   
+              <div class="col-md-12 col-sm-9 no-pad mg_bt_20">
+                <span style="color: red;line-height: 35px;" class="note" data-original-title="" title="">Note : Please make sure Date, Amount,mode, Creditor bank entered properly.</span>
+              </div>   
         </div>
         <div class="row text-center mg_tp_20">
           <div class="col-xs-12">
@@ -122,16 +122,16 @@ function total_fun()
 
 $('#frm_save').validate({
   rules:{
-          income_type_id : { required: true },
-          r_from : { required: true },
-          sub_total : { required: true },
-          payment_amount : { required: true, number: true },
-          payment_date : { required: true },
-          payment_mode :{ required : true },
-          bank_name : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },
-          transaction_id : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },     
-          bank_id : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },     
-          particular : { required: true },
+    income_type_id : { required: true },
+    r_from : { required: true },
+    sub_total : { required: true },
+    payment_amount : { required: true, number: true },
+    payment_date : { required: true },
+    payment_mode :{ required : true },
+    bank_name : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },
+    transaction_id : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },     
+    bank_id : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },     
+    particular : { required: true },
   },
   submitHandler:function(form){
 
@@ -159,7 +159,7 @@ $('#frm_save').validate({
       $('#income_save').prop('disabled',false);
       return false;
     }
-    if(payment_mode=='Credit Card' || payment_mode=='Credit Note'){
+    if(payment_mode=='Credit Card' || payment_mode=='Credit Note' || payment_mode=='Advance'){
       error_msg_alert("Select other payment mode!");
       $('#income_save').prop('disabled',false);
       return false;

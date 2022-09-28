@@ -20,7 +20,7 @@ function cellColor($cells,$color){
     $objPHPExcel->getActiveSheet()->getStyle($cells)->getFill()->applyFromArray(array(
         'type' => PHPExcel_Style_Fill::FILL_SOLID,
         'startcolor' => array(
-             'rgb' => $color
+        'rgb' => $color
         )
     ));
 }
@@ -99,7 +99,6 @@ $objPHPExcel->setActiveSheetIndex(0)
             ->setCellValue('C3', $invoice_id)
             ->setCellValue('B4', 'From-To-Date')
             ->setCellValue('C4', $date_str);
-             
 $objPHPExcel->getActiveSheet()->getStyle('B2:C2')->applyFromArray($header_style_Array);
 $objPHPExcel->getActiveSheet()->getStyle('B2:C2')->applyFromArray($borderArray);    
 
@@ -121,7 +120,6 @@ $total_refund = 0;
   }
 $count = 0;
 $row_count = 6;
-   
 $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$row_count, "Sr.No")
         ->setCellValue('C'.$row_count, "Booking ID")
@@ -146,6 +144,11 @@ $row_count++;
 
       $sq_car_rental_info = mysqli_fetch_assoc(mysqlQuery("select * from bus_booking_master where booking_id='$row_refund[booking_id]'"));
       $sq_customer = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id='$sq_car_rental_info[customer_id]'"));
+			if($sq_customer['type'] == 'Corporate'||$sq_customer['type'] == 'B2B'){
+				$customer_name = $sq_customer['company_name'];
+			}else{
+				$customer_name = $sq_customer['first_name'].' '.$sq_customer['last_name'];
+			}
       $sq_car_rental_info = mysqli_fetch_assoc(mysqlQuery("select * from bus_booking_master where booking_id='$row_refund[booking_id]'"));
       $date = $sq_car_rental_info['created_at'];
       $yr = explode("-", $date);
@@ -170,7 +173,7 @@ $row_count++;
 	    $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$row_count, ++$count)
         ->setCellValue('C'.$row_count, get_bus_booking_id($row_refund['booking_id'],$year))
-        ->setCellValue('D'.$row_count, $sq_customer['first_name'].' '.$sq_customer['last_name'])
+        ->setCellValue('D'.$row_count, $customer_name)
         ->setCellValue('E'.$row_count, get_bus_booking_refund_id($row_refund['refund_id'],$year1))
         ->setCellValue('F'.$row_count, date('d-m-Y', strtotime($row_refund['refund_date'])))
         ->setCellValue('G'.$row_count, $row_refund['refund_mode'])

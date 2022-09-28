@@ -32,13 +32,15 @@ $sq_c = mysqli_num_rows(mysqlQuery("SELECT * FROM exc_payment_master WHERE exc_i
                       $sq_query = mysqlQuery("SELECT * FROM exc_payment_master WHERE exc_id = '$exc_id' and payment_amount!=0");
                       while($row_entry = mysqli_fetch_assoc($sq_query))
                       {
-                      if($row_entry['clearance_status']=="Pending")
-                        $bg='warning';
-                      else if($row_entry['clearance_status']=="Cancelled")
-                        $bg='danger';		
-                      else
-                        $bg='success';
-                          $count++;
+                        $bg='';
+                        if($row_entry['clearance_status']=="Pending")
+                          $bg='warning';
+                        else if($row_entry['clearance_status']=="Cancelled")
+                          $bg='danger';		
+                        else if($row_payment['clearance_status']=="Cleared"){ 
+                          $bg='success';
+                        }
+                        $count++;
                           ?>
                           <tr class="<?=$bg?>">
                             <td><?php echo $count; ?></td>

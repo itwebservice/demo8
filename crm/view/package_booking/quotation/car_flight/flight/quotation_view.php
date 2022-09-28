@@ -49,8 +49,11 @@ else{
 
 <div class="main_block mg_tp_30"></div>
 
-<h3 class="editor_title main_block">Flight Information</h3>
-<table class="table table-bordered table-responsive">
+<div class="row mg_tp_30">
+<div class="col-md-12">
+<h3 class="editor_title">Flight Information</h3>
+<div class="table-responsive">
+<table class="table table-bordered no-marg">
 	<thead>
 		<tr class="table-heading-row">
 			<th>From_City</th>
@@ -62,8 +65,8 @@ else{
 			<th>Adult(s)</th>
 			<th>Child(ren)</th>
 			<th>Infant(s)</th>
-			<th>Dep_Date</th>
-			<th>Arr_Date</th>
+			<th>Departure_D/T</th>
+			<th>Arrival_D/T</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -94,6 +97,9 @@ else{
 		?>
 	</tbody>
 </table>
+</div>
+</div>
+</div>
 <div class="main_block mg_tp_30"></div>
 <h3 class="editor_title main_block">Costing Information</h3>
 <table class="table table-bordered">

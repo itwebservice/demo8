@@ -5,7 +5,7 @@ class transfer_tariff{
         $vehicle_type = $_POST['vehicle_type'];
         $vehicle_name = addslashes($_POST['vehicle_name']);
         $vehicle_data = json_decode($_POST['vehicle_array']);
-        $canc_policy = $_POST['canc_policy'];
+        $canc_policy = addslashes($_POST['canc_policy']);
 
         $sq_count = mysqli_num_rows(mysqlQuery("select entry_id from b2b_transfer_master where vehicle_name='$vehicle_name' and vehicle_type='$vehicle_type'"));
         if($sq_count > 0){
@@ -32,7 +32,7 @@ class transfer_tariff{
         $entry_id = $_POST['entry_id'];
         $vehicle_name = addslashes($_POST['vehicle_name']);
         $vehicle_data = json_decode($_POST['vehicle_array']);
-        $canc_policy = $_POST['canc_policy'];
+        $canc_policy = addslashes($_POST['canc_policy']);
         $active_flag = $_POST['active_flag'];
 
         $sq_count = mysqli_num_rows(mysqlQuery("select entry_id from b2b_transfer_master where vehicle_name='$vehicle_name' and vehicle_type='$vehicle_type' and entry_id!='$entry_id'"));

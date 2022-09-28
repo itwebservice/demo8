@@ -1,33 +1,33 @@
 <?php
-	$financial_year_id = $_SESSION['financial_year_id'];
-	$role = $_SESSION['role'];
-	$role_id = $_SESSION['role_id'];
-	$emp_id = $_SESSION['emp_id'];
-	$branch_admin_id = $_SESSION['branch_admin_id'];
-	$branch_status = 'yes';
-	$enquiry_count = mysqli_num_rows(mysqlQuery("select * from enquiry_master where status!='Disabled' and financial_year_id='$financial_year_id'"));
-	$converted_count = 0;
-	$closed_count = 0;
-	$infollowup_count = 0;
-	$followup_count = 0;
+$financial_year_id = $_SESSION['financial_year_id'];
+$role = $_SESSION['role'];
+$role_id = $_SESSION['role_id'];
+$emp_id = $_SESSION['emp_id'];
+$branch_admin_id = $_SESSION['branch_admin_id'];
+$branch_status = 'yes';
+$enquiry_count = mysqli_num_rows(mysqlQuery("select * from enquiry_master where status!='Disabled' and financial_year_id='$financial_year_id'"));
+$converted_count = 0;
+$closed_count = 0;
+$infollowup_count = 0;
+$followup_count = 0;
 
-	$sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' and financial_year_id='$financial_year_id'");
-	while($row_enq = mysqli_fetch_assoc($sq_enquiry)){
-		$sq_enquiry_entry = mysqli_fetch_assoc(mysqlQuery("select followup_status from enquiry_master_entries where entry_id=(select max(entry_id) as entry_id from enquiry_master_entries where enquiry_id='$row_enq[enquiry_id]')"));
-		if($sq_enquiry_entry['followup_status']=="Dropped"){
-			$closed_count++;
-		}
-		if($sq_enquiry_entry['followup_status']=="Converted"){
-			$converted_count++;
-		}
-		if($sq_enquiry_entry['followup_status']=="Active"){
-			$followup_count++;
-		}
-		if($sq_enquiry_entry['followup_status']=="In-Followup"){
-			$infollowup_count++;
-		}
+$sq_enquiry = mysqlQuery("select * from enquiry_master where status!='Disabled' and financial_year_id='$financial_year_id'");
+while($row_enq = mysqli_fetch_assoc($sq_enquiry)){
+	$sq_enquiry_entry = mysqli_fetch_assoc(mysqlQuery("select followup_status from enquiry_master_entries where entry_id=(select max(entry_id) as entry_id from enquiry_master_entries where enquiry_id='$row_enq[enquiry_id]')"));
+	if($sq_enquiry_entry['followup_status']=="Dropped"){
+		$closed_count++;
 	}
-	?>
+	if($sq_enquiry_entry['followup_status']=="Converted"){
+		$converted_count++;
+	}
+	if($sq_enquiry_entry['followup_status']=="Active"){
+		$followup_count++;
+	}
+	if($sq_enquiry_entry['followup_status']=="In-Followup"){
+		$infollowup_count++;
+	}
+}
+?>
 	<!-- Followup History Div -->
 	<div id="id_proof1"></div>
 	<div id="id_proof2"></div>
@@ -254,27 +254,27 @@
 		       <div class="row">
 		       	<div class="col-md-12">
 		       		<div class="dashboard_tab text-center main_block">
-			          <!-- Nav tabs -->
-			          <ul class="nav nav-tabs responsive" role="tablist">
-					    <li role="presentation" class="active"><a href="#enquiry_tab" aria-controls="enquiry_tab" role="tab" data-toggle="tab">Followups</a></li>
-			          	<li role="presentation" ><a href="#oncoming_tab" aria-controls="oncoming_tab" role="tab" data-toggle="tab">Ongoing Tours</a></li>
-			            <li role="presentation"><a href="#upcoming_tab" aria-controls="upcoming_tab" role="tab" data-toggle="tab">Upcoming Tours</a></li>
-			            <li role="presentation"><a href="#fit_tab" aria-controls="fit_tab" role="tab" data-toggle="tab">Package Tours</a></li>
-			            <li role="presentation"><a href="#git_tab" aria-controls="git_tab" role="tab" data-toggle="tab">Group Tours</a></li>
-			          </ul>
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs responsive" role="tablist">
+							<li role="presentation" class="active"><a href="#enquiry_tab" aria-controls="enquiry_tab" role="tab" data-toggle="tab">Followups</a></li>
+							<li role="presentation" ><a href="#oncoming_tab" aria-controls="oncoming_tab" role="tab" data-toggle="tab">Ongoing Tours</a></li>
+							<li role="presentation"><a href="#upcoming_tab" aria-controls="upcoming_tab" role="tab" data-toggle="tab">Upcoming Tours</a></li>
+							<li role="presentation"><a href="#fit_tab" aria-controls="fit_tab" role="tab" data-toggle="tab">Package Tours</a></li>
+							<li role="presentation"><a href="#git_tab" aria-controls="git_tab" role="tab" data-toggle="tab">Group Tours</a></li>
+						</ul>
 
-			          <!-- Tab panes -->
-			          <div class="tab-content responsive main_block mg_bt_150">
+						<!-- Tab panes -->
+						<div class="tab-content responsive main_block mg_bt_150">
 
-	           			<!-- Ongoing  -->
-			            <div role="tabpanel" class="tab-pane" id="oncoming_tab">
-				          <?php
-						  global $encrypt_decrypt,$secret_key;
-				         	$count = 1;
+							<!-- Ongoing  -->
+							<div role="tabpanel" class="tab-pane" id="oncoming_tab">
+							<?php
+							global $encrypt_decrypt,$secret_key;
+							$count = 1;
 							$today = date('Y-m-d');
 							$today1 = date('Y-m-d H:i');
-				        ?>
-						<div class="dashboard_table dashboard_table_panel main_block">
+							?>
+							<div class="dashboard_table dashboard_table_panel main_block">
 							<div class="row text-left">
 								<div class="col-md-12">
 								<div class="dashboard_table_body main_block">
@@ -318,7 +318,7 @@
 											<td><?php echo $customer_name; ?></td>
 											<td><?php echo $row_query['mobile_no']; ?></td>
 											<td><?= ($row_query['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-											<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['booking_id'] ?>,'Package Booking',<?= $row_query['emp_id']?>,'<?= $contact_no ?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+											<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['booking_id'] ?>,'Package Booking',<?= $row_query['emp_id']?>,'<?= $contact_no ?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 											</tr>
 										<?php } } ?>
 										<!-- //B2C Booking -->
@@ -377,7 +377,7 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $row_query['phone_no']; ?></td>
 												<td><?= "Admin" ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['booking_id'] ?>,'B2C',<?= '1' ?>,'<?= $row_query['phone_no'] ?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['booking_id'] ?>,'B2C',<?= '1' ?>,'<?= $row_query['phone_no'] ?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 											<?php } } ?>
 										<!-- Hotel Booking -->
@@ -399,7 +399,7 @@
 												<td><?php echo $sq_cust['first_name'].' '.$sq_cust['last_name']; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($sq_hotel['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['booking_id'] ?>,'Hotel Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>	
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['booking_id'] ?>,'Hotel Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>	
 												</tr>
 											<?php } ?>
 
@@ -427,12 +427,12 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($sq_hotel['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['ticket_id'] ?>,'Flight Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['ticket_id'] ?>,'Flight Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>', '<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 											<?php } ?>
 											<!-- Train Booking -->
 											<?php
-											$query_train = "select * from  train_ticket_master_trip_entries where DATE(travel_datetime)<= '$today1' and DATE(arriving_datetime)>= '$today1' and train_ticket_id in (select train_ticket_id from 	train_ticket_master_entries where status!='Cancel')";
+											$query_train = "select * from  train_ticket_master_trip_entries where DATE(travel_datetime)<= '$today' and DATE(arriving_datetime)>= '$today' and train_ticket_id in (select train_ticket_id from 	train_ticket_master_entries where status!='Cancel')";
 											$sq_query_train = mysqlQuery($query_train);
 											while($row_query1=mysqli_fetch_assoc($sq_query_train)){
 												
@@ -454,7 +454,7 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($sq_train['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_train['train_ticket_id'] ?>,'Train Booking',<?= $sq_train['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>' )" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_train['train_ticket_id'] ?>,'Train Booking',<?= $sq_train['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>' )" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 											<?php } ?>
 										
@@ -482,7 +482,7 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($sq_hotel['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['booking_id'] ?>,'Bus Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['booking_id'] ?>,'Bus Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 											<?php } ?>
 										<!-- Activity Booking -->
@@ -510,7 +510,7 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($sq_hotel['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['exc_id'] ?>,'Excursion Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_hotel['exc_id'] ?>,'Excursion Booking',<?= $sq_hotel['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 											<?php } ?>
 										<!-- Car Rental Booking -->
@@ -536,7 +536,7 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($row_query1['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query1['booking_id'] ?>,'Car Rental Booking',<?= $row_query1['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query1['booking_id'] ?>,'Car Rental Booking',<?= $row_query1['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 										<?php } ?>
 										<!-- Car Rental Booking -->
@@ -562,7 +562,7 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($row_query1['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query1['booking_id'] ?>,'Car Rental Booking',<?= $row_query1['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query1['booking_id'] ?>,'Car Rental Booking',<?= $row_query1['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 										<?php } ?>
 										<!-- Group Booking -->
@@ -599,7 +599,7 @@
 													<td><?php echo $customer_name; ?></td>
 													<td><?php echo $contact_no; ?></td>
 													<td><?= ($row_query['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-													<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['id'] ?>,'Group Booking',<?= $row_query['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+													<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $row_query['id'] ?>,'Group Booking',<?= $row_query['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 													</tr>
 													<?php
 												}
@@ -627,7 +627,7 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($sq_visa['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_visa['visa_id'] ?>,'Visa Booking',<?= $sq_visa['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_visa['visa_id'] ?>,'Visa Booking',<?= $sq_visa['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 											<?php } ?>
 											<!-- Passport Booking -->
@@ -653,7 +653,7 @@
 												<td><?php echo $customer_name; ?></td>
 												<td><?php echo $contact_no; ?></td>
 												<td><?= ($sq_visa['emp_id']=='0') ? "Admin" : $sq_emp['first_name'].' '.$sq_emp['last_name'] ?></td>
-												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_visa['passport_id'] ?>,'Passport Booking',<?= $sq_visa['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send SMS"><i class="fa fa-paper-plane-o"></i></button></td>
+												<td><button class="btn btn-info btn-sm" onclick="send_sms(<?= $sq_visa['passport_id'] ?>,'Passport Booking',<?= $sq_visa['emp_id']?>,'<?= $contact_no?>','<?= $sq_cust['first_name'] ?>')" title="Send Message"><i class="fa fa-paper-plane-o"></i></button></td>
 												</tr>
 											<?php } ?>
 				                        </tbody>
@@ -1624,7 +1624,7 @@ function followup_reflect(){
 function send_sms(id,tour_type,emp_id,contact_no, name){
 
 	var base_url = $('#base_url').val();
-	var draft = "Hello Dear "+name+",We hope that you are enjoying your trip. It will be a great source of input from you, if you can share your tour feedback with us, so that we can serve you even better.Thank you."
+	var draft = "Dear "+name+",We hope that you are enjoying your trip. It will be a great source of input from you, if you can share your tour feedback with us, so that we can serve you even better.Thank you."
 	$('#send_btn').button('loading');
     $.ajax({
 		type:'post',
@@ -1639,11 +1639,11 @@ function send_sms(id,tour_type,emp_id,contact_no, name){
     web_whatsapp_open(contact_no,name);
 }
 function web_whatsapp_open(mobile_no,name){
-	var link = 'https://web.whatsapp.com/send?phone='+mobile_no+'&text=Hello%20Dear%20'+encodeURI(name)+',%0aWe%20hope%20that%20you%20are%20enjoying%20your%20trip.%20It%20will%20be%20a%20great%20source%20of%20input%20from%20you,%20if%20you%20can%20share%20your%20tour%20feedback%20with%20us,%20so%20that%20we%20can%20serve%20you%20even%20better.%0aThank%20you.';
+	var link = 'https://web.whatsapp.com/send?phone='+mobile_no+'&text=Dear%20'+encodeURI(name)+',%0aWe%20hope%20that%20you%20are%20enjoying%20your%20trip.%20It%20will%20be%20a%20great%20source%20of%20input%20from%20you,%20if%20you%20can%20share%20your%20tour%20feedback%20with%20us,%20so%20that%20we%20can%20serve%20you%20even%20better.%0aThank%20you.';
 	window.open(link);
 }
 function whatsapp_wishes(number,name){
-	var msg = encodeURI("Hello Dear "+ name +",\nMay this trip turns out to be a wonderful treat for you and may you create beautiful memories throughout this trip to cherish forever. Wish you a very happy and safe journey!!\nThank you.");
+	var msg = encodeURI("Dear "+ name +",\nMay this trip turns out to be a wonderful treat for you and may you create beautiful memories throughout this trip to cherish forever. Wish you a very happy and safe journey!!\nThank you.");
 	window.open('https://web.whatsapp.com/send?phone='+number+'&text='+msg);
 }
 function checklist_update(booking_id,tour_type,aemp_id){

@@ -8,7 +8,6 @@ $emp_id = $_SESSION['emp_id'];
 $branch_status = $_POST['branch_status'];
 $enq_id = $_POST['enquiry_id'];
 
-
 $enq_details = mysqli_fetch_assoc(mysqlQuery("Select * from enquiry_master where enquiry_id =". $enq_id));
 ?>
 <input type="hidden" id="branch_admin_id" name="branch_admin_id" value="<?= $branch_admin_id ?>">
@@ -135,7 +134,7 @@ $enq_details = mysqli_fetch_assoc(mysqlQuery("Select * from enquiry_master where
                             
                             if($sq_ass_v != "" && $admin_select_flag == 0){
                                 ?>
-                                <option value="<?= $enq_details['assigned_emp_id'] ?> " selected><?= $sq_ass_v['first_name']?></option>
+                                <option value="<?= $enq_details['assigned_emp_id'] ?> " selected><?= $sq_ass_v['first_name'].' '.$sq_ass_v['last_name'] ?></option>
                                 <?php
                             }
                             else{
@@ -143,29 +142,28 @@ $enq_details = mysqli_fetch_assoc(mysqlQuery("Select * from enquiry_master where
                             <option value="">*Allocate To</option>
                             <?php
                             } 
-                               if($role=='Admin' || ($branch_status!='yes' && $role=='Branch Admin')){
+                            if($role=='Admin' || ($branch_status!='yes' && $role=='Branch Admin')){
                               $query = "select * from emp_master where active_flag='Active' order by first_name desc";
-                            $sq_emp = mysqlQuery($query);
-                            while($row_emp = mysqli_fetch_assoc($sq_emp)){
+                              $sq_emp = mysqlQuery($query);
+                              while($row_emp = mysqli_fetch_assoc($sq_emp)){
                                 ?>
                                 <option value="<?= $row_emp['emp_id'] ?>"><?= $row_emp['first_name'].' '.$row_emp['last_name'] ?></option>
                                 <?php
                               }
                             }
-                           elseif($branch_status=='yes' && $role=='Branch Admin'){
+                            elseif($branch_status=='yes' && $role=='Branch Admin'){
                               $query = "select * from emp_master where active_flag='Active' and branch_id='$branch_admin_id' order by first_name asc";
-                            $sq_emp = mysqlQuery($query);
-                            while($row_emp = mysqli_fetch_assoc($sq_emp)){
+                              $sq_emp = mysqlQuery($query);
+                              while($row_emp = mysqli_fetch_assoc($sq_emp)){
                                 ?>
                                 <option value="<?= $row_emp['emp_id'] ?>"><?= $row_emp['first_name'].' '.$row_emp['last_name'] ?></option>
                                 <?php
                               }
                             }
                             else{ 
-                            $query1 = mysqli_fetch_assoc(mysqlQuery("select * from emp_master where emp_id='$emp_id' and active_flag='Active'")); ?>
-
-                                 <option value="<?= $query1['emp_id'] ?>"><?= $query1['first_name'].' '.$query1['last_name'] ?>
-                                 </option>
+                              $query1 = mysqli_fetch_assoc(mysqlQuery("select * from emp_master where emp_id='$emp_id' and active_flag='Active'")); ?>
+                              <option value="<?= $query1['emp_id'] ?>"><?= $query1['first_name'].' '.$query1['last_name'] ?>
+                              </option>
 
                             <?php
                             }
@@ -309,6 +307,11 @@ $(function(){
       var customer_dropdown = $('#customer_dropdown_u').val();
       var err_msg = "";
 
+      if(reference == 3){
+        if(customer_dropdown==''){
+          error_msg_alert('Select Customer!'); return false;
+        }
+      }
       if(landline_no != '' && country_code == ''){
         error_msg_alert("Country Code is Required!");
         return false;
@@ -333,6 +336,11 @@ $(function(){
               if (placeholder == "route"){
                 placeholder = "Route";
               }
+              if (placeholder == "bus_name_and_type"){
+                placeholder = "Bus name and type";
+              }
+              placeholder = placeholder.replace('_', ' ');
+              placeholder = placeholder.charAt(0).toUpperCase()+ placeholder.slice(1);
               err_msg += placeholder+" is required!<br>"; }
         }
       }

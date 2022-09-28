@@ -101,6 +101,41 @@ while($row = mysqli_fetch_array($result)) {
         );
         array_push($transport_array,$temp_array);
     }
+    // Package tariff
+    $package_tariff_array = array();
+    $sq_package_tariff = mysqlQuery("SELECT * FROM custom_package_tariff where package_id='$row[package_id]'");
+    while($row_package_tariff = mysqli_fetch_array($sq_package_tariff)) {
+
+        $temp_array = array(
+            'hotel_type' => $row_package_tariff['hotel_type'],
+            'min_pax' => $row_package_tariff['min_pax'],
+            'max_pax' => $row_package_tariff['max_pax'],
+            'from_date' => $row_package_tariff['from_date'],
+            'to_date'=> $row_package_tariff['to_date'],
+            'adult_cost'=> $row_package_tariff['cadult'],
+            'cwb_cost'=> $row_package_tariff['ccwb'],
+            'cwob_cost'=> $row_package_tariff['ccwob'],
+            'infant_cost'=> $row_package_tariff['cinfant'],
+            'extra_bed_cost'=> $row_package_tariff['cextra']
+        );
+        array_push($package_tariff_array,$temp_array);
+    }
+    // Package offers
+    $package_offer_array = array();
+    $sq_package_tariff = mysqlQuery("SELECT * FROM custom_package_offers where package_id='$row[package_id]'");
+    while($row_package_tariff = mysqli_fetch_array($sq_package_tariff)) {
+
+        $temp_array = array(
+            'type' => $row_package_tariff['type'],
+            'from_date' => $row_package_tariff['from_date'],
+            'to_date'=> $row_package_tariff['to_date'],
+            'offer_in'=> $row_package_tariff['offer_in'],
+            'coupon_code'=> $row_package_tariff['coupon_code'],
+            'offer_amount'=> $row_package_tariff['offer_amount'],
+            'agent_type'=> $row_package_tariff['agent_type']
+        );
+        array_push($package_offer_array,$temp_array);
+    }
     //Package Tour Array
     $sq_dest = mysqli_fetch_assoc(mysqlQuery("SELECT dest_name FROM destination_master where dest_id='$row[dest_id]'"));
     $sq_gallery = mysqli_fetch_assoc(mysqlQuery("SELECT image_url FROM gallary_master where dest_id='$row[dest_id]'"));
@@ -135,7 +170,9 @@ while($row = mysqli_fetch_array($result)) {
         'exclusions' => addslashes($row['exclusions']),
         'sightseeing_array' => json_encode($sightseeing_array),
         'hotel_array' => json_encode($hotel_array),
-        'transport_array' => json_encode($transport_array)
+        'transport_array' => json_encode($transport_array),
+        'package_tariff_array' => json_encode($package_tariff_array),
+        'package_offer_array' => json_encode($package_offer_array),
     );
     array_push($package_tour_data,$temp_array);
 }
@@ -281,9 +318,9 @@ while($row = mysqli_fetch_array($result)) {
         while($rowc1 = mysqli_fetch_array($resultc1)) {
 
             $double_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc1['double_bed'] : 0;
-$child_with_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc1['child_with_bed'] : 0;
-$child_without_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc1['child_without_bed'] : 0;
-$extra_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc1['extra_bed'] : 0;
+            $child_with_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc1['child_with_bed'] : 0;
+            $child_without_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc1['child_without_bed'] : 0;
+            $extra_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc1['extra_bed'] : 0;
             $temp_array = array(
                 'room_category' => $rowc1['room_category'],
                 'from_date' => $rowc1['from_date'],
@@ -299,9 +336,9 @@ $extra_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) 
         while($rowc2 = mysqli_fetch_array($resultc2)) {
 
             $double_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc2['double_bed'] : 0;
-$child_with_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc2['child_with_bed'] : 0;
-$child_without_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc2['child_without_bed'] : 0;
-$extra_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc2['extra_bed'] : 0;
+            $child_with_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc2['child_with_bed'] : 0;
+            $child_without_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc2['child_without_bed'] : 0;
+            $extra_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc2['extra_bed'] : 0;
             $temp_array = array(
                 'room_category' => $rowc2['room_category'],
                 'from_date' => $rowc2['from_date'],
@@ -317,9 +354,9 @@ $extra_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) 
         while($rowc3 = mysqli_fetch_array($resultc3)) {
 
             $double_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc3['double_bed'] : 0;
-$child_with_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc3['child_with_bed'] : 0;
-$child_without_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc3['child_without_bed'] : 0;
-$extra_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc3['extra_bed'] : 0;
+            $child_with_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc3['child_with_bed'] : 0;
+            $child_without_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc3['child_without_bed'] : 0;
+            $extra_bed = ($to_currency_rate!=0) ? ($from_currency_rate / $to_currency_rate) * $rowc3['extra_bed'] : 0;
             $temp_array = array(
                 'room_category' => $rowc3['room_category'],
                 'day' => $rowc3['day'],

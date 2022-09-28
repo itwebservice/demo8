@@ -211,7 +211,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
           <div class="print_info_block">
             <ul class="main_block">
               <li class="col-md-12 mg_tp_10 mg_bt_10"><span>BANK NAME : </span><?= ($bank_name_setting != '') ? $bank_name_setting : 'NA' ?></li>
-              <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C NAME : </span><?= ($acc_name != '') ? $acc_name : 'NA' ?></li>
+              <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C TYPE : </span><?= ($acc_name != '') ? $acc_name : 'NA' ?></li>
               <li class="col-md-12 mg_tp_10 mg_bt_10"><span>BRANCH : </span><?= ($bank_branch_name!= '') ? $bank_branch_name : 'NA' ?></li>
               <li class="col-md-12 mg_tp_10 mg_bt_10"><span>A/C NO : </span><?= ($bank_acc_no != '') ? $bank_acc_no : 'NA' ?></li>
               <li class="col-md-12 mg_tp_10 mg_bt_10"><span>IFSC : </span><?= ($bank_ifsc_code != '') ? $bank_ifsc_code : 'NA' ?></li>

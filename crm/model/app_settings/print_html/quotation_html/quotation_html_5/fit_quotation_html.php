@@ -95,7 +95,7 @@ else{
   $sq_transport_count = mysqli_num_rows(mysqlQuery("select * from package_tour_quotation_transport_entries2 where quotation_id='$quotation_id'"));
   $sq_exc_count = mysqli_num_rows(mysqlQuery("select * from package_tour_quotation_excursion_entries where quotation_id='$quotation_id'"));
   ?>
-  <?php if($sq_hotel_count || $sq_plane_count || $sq_transport_count){ ?>
+  <?php if($sq_hotel_count || $sq_plane_count || $sq_cruise_count || $sq_train_count){ ?>
   <!-- traveling Information -->
   <section class="pageSection main_block">
     <!-- background Image -->
@@ -154,6 +154,47 @@ else{
           <?php
           }
       }
+      ?>
+      <?php if($sq_train_count){ ?>
+      <!-- Train -->
+      <section class="transportDetailsPanel transportDetailsleft main_block mg_tp_20">
+        <div class="travsportInfoBlock">
+          <div class="transportIcon">
+            <img src="<?= BASE_URL ?>images/quotation/p4/TI_train.png" class="img-responsive">
+          </div>
+          <div class="transportDetails">
+            <div class="table-responsive">
+              <table class="table tableTrnasp no-marg" id="tbl_emp_list">
+                <thead>
+                  <tr class="table-heading-row">
+                    <th>From_Location</th>
+                    <th>To_Location</th>
+                    <th>Class</th>
+                    <th>Departure_D/T</th>
+                    <th>Arrival_D/T</th>
+                  </tr>
+                </thead>
+                <tbody>  
+                <?php 
+                $sq_train = mysqlQuery("select * from package_tour_quotation_train_entries where quotation_id='$quotation_id'");
+                while($row_train = mysqli_fetch_assoc($sq_train)){  
+                  ?>
+                  <tr>
+                    <td><?= $row_train['from_location'] ?></td>
+                    <td><?= $row_train['to_location'] ?></td>
+                    <td><?php echo ($row_train['class']!='')?$row_train['class']:'NA'; ?></td>
+                    <td><?= get_datetime_user($row_train['departure_date']) ?></td>
+                    <td><?= get_datetime_user($row_train['arrival_date']) ?></td>
+                  </tr>
+                <?php } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <?php } ?>
+      <?php
       if($sq_plane_count){ ?>
       <!-- Flight -->
       <section class="transportDetailsPanel transportDetailsleft main_block mg_tp_10">
@@ -199,131 +240,6 @@ else{
         </div>
       </section>
       <?php } ?>
-      <?php if($sq_transport_count){ ?>
-        <!-- transport -->
-        <section class="transportDetailsPanel transportDetailsleft main_block mg_tp_10">
-          <div class="travsportInfoBlock">
-            <div class="transportIcon">
-              <img src="<?= BASE_URL ?>images/quotation/p4/TI_car.png" class="img-responsive">
-            </div>
-
-            <div class="transportDetails">
-              <div class="table-responsive">
-                <table class="table no-marg tableTrnasp">
-                  <thead>
-                    <tr class="table-heading-row">
-                      <th>VEHICLE</th>
-                      <th>START DATE</th>
-                      <th>END DATE</th>
-                      <th>PICKUP LOCATION</th>
-                      <th>DROP LOCATION</th>
-                      <th>TOTAL VEHICLES</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                    $count = 0;
-                    $sq_hotel = mysqlQuery("select * from package_tour_quotation_transport_entries2 where quotation_id='$quotation_id'");
-                    while($row_hotel = mysqli_fetch_assoc($sq_hotel))
-                    {
-                      $transport_name = mysqli_fetch_assoc(mysqlQuery("select * from b2b_transfer_master where entry_id='$row_hotel[vehicle_name]'"));
-                      // Pickup
-                      if($row_hotel['pickup_type'] == 'city'){
-                        $row = mysqli_fetch_assoc(mysqlQuery("select city_id,city_name from city_master where city_id='$row_hotel[pickup]'"));
-                        $pickup = $row['city_name'];
-                      }
-                      else if($row_hotel['pickup_type'] == 'hotel'){
-                        $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$row_hotel[pickup]'"));
-                        $pickup = $row['hotel_name'];
-                      }
-                      else{
-                        $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$row_hotel[pickup]'"));
-                        $airport_nam = clean($row['airport_name']);
-                        $airport_code = clean($row['airport_code']);
-                        $pickup = $airport_nam." (".$airport_code.")";
-                      }
-                      //Drop-off
-                      if($row_hotel['drop_type'] == 'city'){
-                        $row = mysqli_fetch_assoc(mysqlQuery("select city_id,city_name from city_master where city_id='$row_hotel[drop]'"));
-                        $drop = $row['city_name'];
-                      }
-                      else if($row_hotel['drop_type'] == 'hotel'){
-                        $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$row_hotel[drop]'"));
-                        $drop = $row['hotel_name'];
-                      }
-                      else{
-                        $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$row_hotel[drop]'"));
-                        $airport_nam = clean($row['airport_name']);
-                        $airport_code = clean($row['airport_code']);
-                        $drop = $airport_nam." (".$airport_code.")";
-                      }
-                      ?>
-                      <tr>
-                        <td><?= $transport_name['vehicle_name'].$similar_text ?></td>
-                        <td><?= date('d-m-Y', strtotime($row_hotel['start_date'])) ?></td>
-                        <td><?= date('d-m-Y', strtotime($row_hotel['end_date'])) ?></td>
-                        <td><?= $pickup ?></td>
-                        <td><?= $drop ?></td>
-                        <td><?= $row_hotel['vehicle_count'] ?></td>
-                      </tr>
-                    <?php } ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-      <?php } ?>
-    </section>
-  </section>
-  <?php } ?>
-    <?php if($sq_train_count || $sq_cruise_count){ ?>
-    <!-- traveling Information -->
-    <section class="pageSection main_block">
-      <!-- background Image -->
-      <img src="<?= BASE_URL ?>images/quotation/p5/pageBGF.jpg" class="img-responsive pageBGImg">
-
-      <section class="travelingDetails main_block mg_tp_30 pageSectionInner">
-
-        <?php if($sq_train_count){ ?>
-        <!-- Train -->
-        <section class="transportDetailsPanel transportDetailsleft main_block">
-          <div class="travsportInfoBlock">
-            <div class="transportIcon">
-              <img src="<?= BASE_URL ?>images/quotation/p4/TI_train.png" class="img-responsive">
-            </div>
-            <div class="transportDetails">
-              <div class="table-responsive">
-                <table class="table tableTrnasp no-marg" id="tbl_emp_list">
-                  <thead>
-                    <tr class="table-heading-row">
-                      <th>From_Location</th>
-                      <th>To_Location</th>
-                      <th>Class</th>
-                      <th>Departure_D/T</th>
-                      <th>Arrival_D/T</th>
-                    </tr>
-                  </thead>
-                  <tbody>  
-                  <?php 
-                  $sq_train = mysqlQuery("select * from package_tour_quotation_train_entries where quotation_id='$quotation_id'");
-                  while($row_train = mysqli_fetch_assoc($sq_train)){  
-                    ?>
-                    <tr>
-                      <td><?= $row_train['from_location'] ?></td>
-                      <td><?= $row_train['to_location'] ?></td>
-                      <td><?php echo ($row_train['class']!='')?$row_train['class']:'NA'; ?></td>
-                      <td><?= get_datetime_user($row_train['departure_date']) ?></td>
-                      <td><?= get_datetime_user($row_train['arrival_date']) ?></td>
-                    </tr>
-                  <?php } ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-        <?php } ?>
         <?php if($sq_cruise_count){ ?>
         <!-- Cruise -->
         <section class="transportDetailsPanel transportDetailsleft main_block mg_tp_10">
@@ -364,6 +280,92 @@ else{
           </div>
         </section>
         <?php } ?>
+    </section>
+  </section>
+  <?php } ?>
+    <?php if($sq_train_count || $sq_cruise_count){ ?>
+    <!-- traveling Information -->
+    <section class="pageSection main_block">
+      <!-- background Image -->
+      <img src="<?= BASE_URL ?>images/quotation/p5/pageBGF.jpg" class="img-responsive pageBGImg">
+
+      <section class="travelingDetails main_block mg_tp_30 pageSectionInner">
+
+        <?php if($sq_transport_count){ ?>
+          <!-- transport -->
+          <section class="transportDetailsPanel transportDetailsleft main_block mg_tp_10">
+            <div class="travsportInfoBlock">
+              <div class="transportIcon">
+                <img src="<?= BASE_URL ?>images/quotation/p4/TI_car.png" class="img-responsive">
+              </div>
+
+              <div class="transportDetails">
+                <div class="table-responsive">
+                  <table class="table no-marg tableTrnasp">
+                    <thead>
+                      <tr class="table-heading-row">
+                        <th>VEHICLE</th>
+                        <th>T_START_DATE</th>
+                        <th>T_END_DATE</th>
+                        <th>PICKUP_LOCATION</th>
+                        <th>DROP_LOCATION</th>
+                        <th>TOTAL_VEHICLES</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php 
+                      $count = 0;
+                      $sq_hotel = mysqlQuery("select * from package_tour_quotation_transport_entries2 where quotation_id='$quotation_id'");
+                      while($row_hotel = mysqli_fetch_assoc($sq_hotel))
+                      {
+                        $transport_name = mysqli_fetch_assoc(mysqlQuery("select * from b2b_transfer_master where entry_id='$row_hotel[vehicle_name]'"));
+                        // Pickup
+                        if($row_hotel['pickup_type'] == 'city'){
+                          $row = mysqli_fetch_assoc(mysqlQuery("select city_id,city_name from city_master where city_id='$row_hotel[pickup]'"));
+                          $pickup = $row['city_name'];
+                        }
+                        else if($row_hotel['pickup_type'] == 'hotel'){
+                          $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$row_hotel[pickup]'"));
+                          $pickup = $row['hotel_name'];
+                        }
+                        else{
+                          $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$row_hotel[pickup]'"));
+                          $airport_nam = clean($row['airport_name']);
+                          $airport_code = clean($row['airport_code']);
+                          $pickup = $airport_nam." (".$airport_code.")";
+                        }
+                        //Drop-off
+                        if($row_hotel['drop_type'] == 'city'){
+                          $row = mysqli_fetch_assoc(mysqlQuery("select city_id,city_name from city_master where city_id='$row_hotel[drop]'"));
+                          $drop = $row['city_name'];
+                        }
+                        else if($row_hotel['drop_type'] == 'hotel'){
+                          $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$row_hotel[drop]'"));
+                          $drop = $row['hotel_name'];
+                        }
+                        else{
+                          $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$row_hotel[drop]'"));
+                          $airport_nam = clean($row['airport_name']);
+                          $airport_code = clean($row['airport_code']);
+                          $drop = $airport_nam." (".$airport_code.")";
+                        }
+                        ?>
+                        <tr>
+                          <td><?= $transport_name['vehicle_name'].$similar_text ?></td>
+                          <td><?= date('d-m-Y', strtotime($row_hotel['start_date'])) ?></td>
+                          <td><?= date('d-m-Y', strtotime($row_hotel['end_date'])) ?></td>
+                          <td><?= $pickup ?></td>
+                          <td><?= $drop ?></td>
+                          <td><?= $row_hotel['vehicle_count'] ?></td>
+                        </tr>
+                      <?php } ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        <?php } ?>
           <?php if($sq_exc_count){ ?>
             <!-- Excursion -->
             <section class="transportDetailsPanel transportDetailsleft main_block mg_tp_10">
@@ -378,7 +380,7 @@ else{
                       <thead>
                         <tr class="table-heading-row">
                           <th>City </th>
-                          <th>Activity Date</th>
+                          <th>Activity Date/Time</th>
                           <th>Activity Name</th>
                           <th>Transfer Option</th>
                           <th>Adult(s)</th>
@@ -822,7 +824,7 @@ else{
           <div class="col-md-4 text-center mg_bt_30">
             <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
             <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-            <p>A/C NAME</p>
+            <p>A/C TYPE</p>
           </div>
           <div class="col-md-4 text-center mg_bt_30">
             <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>
@@ -881,7 +883,7 @@ else{
               <?php } ?>
               <div class="contactBlock">
                 <i class="fa fa-pencil-square-o"></i>
-                <p>Prepared By : <?= $emp_name?></p>
+                <p>PREPARED BY : <?= $emp_name?></p>
               </div>
           </div>
       </section>

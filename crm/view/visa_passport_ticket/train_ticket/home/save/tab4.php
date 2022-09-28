@@ -202,7 +202,7 @@ $('#frm_tab4').validate({
 				}
 	    }
 			else if(payment_mode=="Credit Note" && credit_amount == ''){
-				error_msg_alert("You don't have Credit Note Amount"); $('#btn_ticket_save').prop('disabled',false); return false;
+				error_msg_alert("Credit Note Balance is not available"); $('#btn_ticket_save').prop('disabled',false); return false;
 			}
 	        if(parseFloat(payment_amount)>parseFloat(net_total)){
 				error_msg_alert("Payment amount cannot be greater than selling amount.");

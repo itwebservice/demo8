@@ -35,7 +35,7 @@ public function vendor_payment_save()
 	$sq_payment = mysqlQuery("insert into vendor_advance_master (payment_id, financial_year_id, branch_admin_id, emp_id, vendor_type, vendor_type_id, payment_date, payment_amount, payment_mode, bank_name, transaction_id, remark, bank_id, payment_evidence_url, clearance_status, created_at) values ('$payment_id', '$financial_year_id', '$branch_admin_id', '$emp_id', '$vendor_type', '$vendor_type_id', '$payment_date', '$payment_amount', '$payment_mode', '$bank_name', '$transaction_id', '', '$bank_id', '$payment_evidence_url', '$clearance_status', '$created_at') ");
 	if(!$sq_payment){
 		rollback_t();
-		echo "error--Sorry, Advance not saved!";
+		echo "error--Sorry,Supplier Advance not saved!";
 		exit;
 	}
 	else{
@@ -53,7 +53,7 @@ public function vendor_payment_save()
 
 		if($GLOBALS['flag']){
 			commit_t();
-	    	echo "Advance has been successfully saved"; 
+	    	echo "Supplier Advance has been successfully saved"; 
 			exit;	
 		}
 	}
@@ -168,7 +168,7 @@ public function vendor_payment_update()
 	$sq_payment_info = mysqli_fetch_assoc(mysqlQuery("select * from vendor_advance_master where payment_id='$payment_id'"));
 
 	$bank_balance_status = bank_cash_balance_check($payment_mode, $bank_id, $payment_amount, $sq_payment_info['payment_amount']);
-  	if(!$bank_balance_status){ echo bank_cash_balance_error_msg($payment_mode, $bank_id); exit; }  
+	if(!$bank_balance_status){ echo bank_cash_balance_error_msg($payment_mode, $bank_id); exit; }  
 
 	$clearance_status = ($sq_payment_info['payment_mode']=='Cash' && $payment_mode!="Cash") ? "Pending" : $sq_payment_info['clearance_status'];
 	if($payment_mode=="Cash"){ $clearance_status = ""; }
@@ -181,7 +181,7 @@ public function vendor_payment_update()
 
 	if(!$sq_payment){
 		rollback_t();
-		echo "error--Sorry, Payment not updated!";
+		echo "error--Sorry, Supplier Advance not updated!";
 		exit;
 	}
 	else{
@@ -194,7 +194,7 @@ public function vendor_payment_update()
 
 		if($GLOBALS['flag']){
 			commit_t();
-	    	echo "Advance has been successfully updated.";
+	    	echo "Supplier Advance has been successfully updated.";
 			exit;	
 		}
 		

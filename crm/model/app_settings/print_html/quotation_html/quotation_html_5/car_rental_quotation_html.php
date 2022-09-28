@@ -117,7 +117,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
           </div>
         </div>
         <div class="landigPageCustomer">
-          <h3 class="customerFrom">Prepared for</h3>
+          <h3 class="customerFrom">PREPARED FOR</h3>
           <span class="customerName"><em><i class="fa fa-user"></i></em> : <?= $sq_quotation['customer_name'] ?></span><br>
           <span class="customerMail"><em><i class="fa fa-envelope"></i></em> : <?= $sq_quotation['email_id'] ?></span><br>
           <span class="customerMobile"><em><i class="fa fa-phone"></i></em> : <?= $sq_quotation['mobile_no'] ?></span>
@@ -236,7 +236,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
     <div class="row constingBankingPanelRow">
       <!-- Costing -->
       <div class="col-md-12 constingBankingPanel constingPanel mg_bt_30">
-            <h3 class="costBankTitle text-center">Costing Details</h3>
+            <h3 class="costBankTitle text-center">COSTING DETAILS</h3>
             <div class="col-md-4 text-center no-pad constingBankingwhite">
               <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p5/subtotal.png" class="img-responsive"></div>
               <h4 class="no-marg"><?= number_format($newBasic,2) ?></h4>
@@ -350,7 +350,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
               <?php }?>
               <div class="contactBlock">
                 <i class="fa fa-pencil-square-o"></i>
-                <p>Prepared By : <?= $emp_name?></p>
+                <p>PREPARED BY : <?= $emp_name?></p>
               </div>
           </div>
       </section>

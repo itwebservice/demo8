@@ -615,7 +615,7 @@ public function whatsapp_send(){
 
 $sq_customer = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id=".$sq_booking_info['customer_id']));
 $contact_no = $encrypt_decrypt->fnDecrypt($sq_customer['contact_no'], $secret_key);
-$whatsapp_msg = rawurlencode('Hello Dear '.$sq_customer['first_name'].',
+$whatsapp_msg = rawurlencode('Dear '.$sq_customer['first_name'].',
 Hope you are doing great. This is to inform you that we have received your payment. We look forward to provide you a great experience.
 *Total Amount* : '.$total_amount1.'
 *Paid Amount* : '.$paid_amount1.'

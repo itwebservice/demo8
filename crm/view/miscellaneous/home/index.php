@@ -73,8 +73,6 @@ $branch_admin_id = $_SESSION['branch_admin_id'];
 <div id="div_visa_content_display"></div>
 <div id="div_show_msg"></div>
 <div id="save_html"></div>
-<script src="js/calculation.js"></script>
-<script src="<?php echo BASE_URL ?>js/app/footer_scripts.js"></script>
 <script>
 	$('#customer_id_filter, #visa_id_filter, #cust_type_filter').select2();
 	$('#from_date, #to_date').datetimepicker({
@@ -98,7 +96,7 @@ $branch_admin_id = $_SESSION['branch_admin_id'];
 			title: "Total_Pax"
 		},
 		{
-			title: "Service"
+			title: "Services"
 		},
 		{
 			title: "Amount",
@@ -477,3 +475,5 @@ $branch_admin_id = $_SESSION['branch_admin_id'];
 		}
 	}
 </script>
+<script src="js/calculation.js"></script>
+<script src="<?php echo BASE_URL ?>js/app/footer_scripts.js"></script>

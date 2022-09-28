@@ -18,7 +18,7 @@ if($booking_id!=""){
 			<th>Sale/Buy</th>
 			<th>currency</th>
 			<th>View</th>
-			<th class="text-right success">Amount</th>
+			<th class="success">Amount</th>
 		</tr>
 	</thead>
 	<tbody>

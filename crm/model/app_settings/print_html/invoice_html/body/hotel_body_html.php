@@ -83,8 +83,8 @@ $net_amount1 =  $basic_cost1 + $service_charge  + $sq_hotel['markup'] + $markups
 $net_total1 = currency_conversion($currency,$sq_hotel['currency_code'],$net_amount1);
 $amount_in_word = $amount_to_word->convert_number_to_words($net_total1,$sq_hotel['currency_code']);
 
-$newBasic1 = currency_conversion($currency,$sq_hotel['currency_code'],$newBasic+$newSC);
-// $newSC1 = currency_conversion($currency,$sq_hotel['currency_code'],$newSC);
+$newBasic1 = currency_conversion($currency,$sq_hotel['currency_code'],$newBasic);
+$newSC1 = currency_conversion($currency,$sq_hotel['currency_code'],$newSC);
 $charge1 = currency_conversion($currency,$sq_hotel['currency_code'],$charge);
 $total_paid1 = currency_conversion($currency,$sq_hotel['currency_code'],$total_paid);
 $tds1 = currency_conversion($currency,$sq_hotel['currency_code'],$tds);
@@ -162,17 +162,18 @@ if($app_invoice_format == "Advance"){include "../headers/advance_header_html.php
     <div class="main_block inv_rece_calculation border_block">
       <div class="col-md-6"><p class="border_lt"><span class="font_5">AMOUNT </span><span class="float_r"><?= $newBasic1 ?></span></p></div>
       <div class="col-md-6"><p class="border_lt"><span class="font_5">TOTAL </span><span class="font_5 float_r"><?= $net_total1 ?></span></p></div>
-      <div class="col-md-6"><p class="border_lt"><span class="font_5">TAX</span><span class="float_r"><?= str_replace(',','',$name).$service_tax_amount_show[0].' '.number_format($service_tax_amount_show1 + $markupservice_tax_amount_show1,2) ?></span></p></div>
-      <!-- <div class="col-md-6"><p class="border_lt"><span class="font_5">SERVICE CHARGE </span><span class="float_r"><?= $newSC1 ?></span></p></div> -->
+      <div class="col-md-6"><p class="border_lt"><span class="font_5">SERVICE CHARGE </span><span class="float_r"><?= $newSC1 ?></span></p></div>
       <div class="col-md-6"><p class="border_lt"><span class="font_5">CREDIT CARD CHARGES </span><span class="float_r"><?= $charge1 ?></span></p></div>
-      <div class="col-md-6"><p class="border_lt"><span class="font_5">DISCOUNT</span><span class="float_r"><?= $discount1 ?></span></p></div>
+      <div class="col-md-6"><p class="border_lt"><span class="font_5">TAX</span><span class="float_r"><?= str_replace(',','',$name).$service_tax_amount_show[0].' '.number_format($service_tax_amount_show1 + $markupservice_tax_amount_show1,2) ?></span></p></div>
       <div class="col-md-6"><p class="border_lt"><span class="font_5">ADVANCE PAID </span><span class="font_5 float_r"><?= $total_paid1 ?></span></p></div>
+      <div class="col-md-6"><p class="border_lt"><span class="font_5">DISCOUNT</span><span class="float_r"><?= $discount1 ?></span></p></div>
+      <div class="col-md-6"><p class="border_lt"><span class="font_5">CURRENT DUE </span><span class="font_5 float_r"><?= $balance ?></span></p></div>
       <div class="col-md-6"><p class="border_lt"><span class="font_5">TDS</span><span class="float_r"><?= $tds1 ?></span></p></div>
 
-      <div class="col-md-6"><p class="border_lt"><span class="font_5">CURRENT DUE </span><span class="font_5 float_r"><?= $balance ?></span></p></div>
-      <div class="col-md-6"><p class="border_lt"><span class="font_5">TCS<?= '('.$tcs_per.'%)'?></span><span class="float_r"><?= $tcs_tax ?></span></p></div>
-      
       <div class="col-md-6"><p class="border_lt"><span class="font_5">&nbsp;</span><span class="float_r"></span></p></div>
+      <div class="col-md-6"><p class="border_lt"><span class="font_5">TCS<?= '('.$tcs_per.'%)'?></span><span class="float_r"><?= $tcs_tax ?></span></p></div>
+      <div class="col-md-6"><p class="border_lt"><span class="font_5">&nbsp;</span><span class="float_r"></span></p></div>
+      
       <div class="col-md-6"><p class="border_lt"><span class="font_5">ROUNDOFF</span><span class="float_r"><?= $roundoff1 ?></span></p></div>
     </div>
   </div>

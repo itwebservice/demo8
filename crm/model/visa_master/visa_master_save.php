@@ -1,4 +1,4 @@
-<?php 
+<?php
 class visa_master{
 
 ///////////// Employee Save///////////////////////
@@ -196,7 +196,7 @@ function visa_whatsapp(){
   $CoverURL=substr($getSub, 1);
   array_push($arrayAttachment, $UploadURL,$CoverURL);
   
-  $whatsapp_msg = rawurlencode('Hello Dear '.',
+  $whatsapp_msg = rawurlencode('Dear '.',
 Hope you are doing great. Thank you for enquiry with us. Following is the visa information & required visa documents.
 *Country Name* : ' . $sq_visa['country_id'] . '
 *Visa Type* : ' . $sq_visa['visa_type'] . '

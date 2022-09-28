@@ -57,7 +57,8 @@ $query = mysqlQuery($str);
 							$sq_hotel_c1 = mysqlQuery("select * from package_tour_excursion_master where city_id= '$row_ser[city_id]' and exc_id = '$row_ser[exc_id]' and booking_id in(select booking_id from package_tour_booking_master where tour_from_date between '$row_ser[valid_from_date]' and '$row_ser[valid_to_date]')");
 
 							while($row_hotel_c1= mysqli_fetch_assoc($sq_hotel_c1)){
-								$check_in=$sql['exc_date'];
+								
+								$check_in= get_datetime_user($row_hotel_c1['exc_date']);
 								$str1="select * from package_tour_booking_master where booking_id='$row_hotel_c1[booking_id]'";
 								$sql_cust=mysqli_fetch_assoc(mysqlQuery($str1));
 								$date = $sql_cust['booking_date'];
@@ -75,7 +76,7 @@ $query = mysqlQuery($str);
 									<td><?= ++$count ?></td>
 									<td>Package</td>
 									<td><?= get_package_booking_id($row_hotel_c1['booking_id'],$year)?></td>
-									<td><?= 'NA' ?></td>
+									<td><?= $check_in ?></td>
 									<td><?= $customer_name; ?></td>
 									<td><?= $pax ?></td>
 								</tr>

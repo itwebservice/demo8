@@ -176,8 +176,8 @@ $(function(){
             }
           }
           else if(payment_mode=="Credit Note" && credit_note_amount == ''){
-            error_msg_alert("You don't have Credit Note Amount");
-              $('#payment_save').prop('disabled',false);
+            error_msg_alert("Credit Note Balance is not available");
+            $('#payment_save').prop('disabled',false);
             return false;
           }
           //Amount Validations
@@ -199,22 +199,27 @@ $(function(){
           if(parseFloat(total_purchase) == '0') {
               error_msg_alert("Atleast one booking is required!");
               $('#payment_save').prop('disabled',false);
-              return false; }
+              return false; 
+          }
 
-          if(parseFloat(total_purchase) < parseFloat(advance_nullify)){ 
+          if(parseFloat(total_purchase) < parseFloat(advance_nullify)){
             $('#payment_save').prop('disabled',false);
             error_msg_alert("Amount to be nullify should be less or equal to the Total Purchase");
-            return false; }
-            console.log(advance_nullify);
-          if(payment_mode=='Advance' && parseFloat(advance_nullify) <= 0  || (parseFloat(advance_amount) <= 0)){
+            return false; 
+          }
+          console.log(payment_mode);
+          if(payment_mode=='Advance' && parseFloat(advance_nullify) <= 0  && (parseFloat(advance_amount) <= 0)){
+            console.log(payment_mode);
             $('#payment_save').prop('disabled',false);
             error_msg_alert("Please select another payment mode");
-            return false; }
+            return false;
+          }
             
           if(parseFloat(advance_amount) < parseFloat(advance_nullify)){ 
-              $('#payment_save').prop('disabled',false);
-              error_msg_alert("Amount to be nullify should not be more than Advance amount");
-              return false; }
+            $('#payment_save').prop('disabled',false);
+            error_msg_alert("Amount to be nullify should not be more than Advance amount");
+            return false;
+          }
 
           var total_payment_amount = parseFloat(payment_amount) + parseFloat(advance_nullify);
 

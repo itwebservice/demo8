@@ -24,8 +24,13 @@ while($row_ticket = mysqli_fetch_assoc($sq_ticket)){
     $year =$yr[0];
 	$sq_customer = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id='$row_ticket[customer_id]'"));
 	if($sq_entries != $sq_entries_cancel){
+        if($sq_customer['type'] == 'Corporate' || $sq_customer['type']=='B2B'){
+            $cust_name = $sq_customer['company_name'];
+        }else{
+            $cust_name = $sq_customer['first_name'].' '.$sq_customer['last_name'];
+        }
         ?>
-        <option value="<?= $row_ticket['ticket_id'] ?>"><?= get_ticket_booking_id($row_ticket['ticket_id'],$year).' : '.$sq_customer['first_name'].' '.$sq_customer['last_name'] ?></option>
+        <option value="<?= $row_ticket['ticket_id'] ?>"><?= get_ticket_booking_id($row_ticket['ticket_id'],$year).' : '.$cust_name ?></option>
         <?php
     }
 }

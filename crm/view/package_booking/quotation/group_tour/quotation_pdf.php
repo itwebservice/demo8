@@ -468,7 +468,7 @@ $y_pos+=10;
 $pdf->setXY(28, $y_pos);
 $pdf->Multicell(86, 10, 'BANK NAME  : '.$bank_name_setting , 1, 1);
 $pdf->setXY(114, $y_pos);
-$pdf->Multicell(93, 10,'A/C NAME  : '.$acc_name, 1, 1);
+$pdf->Multicell(93, 10,'A/C TYPE  : '.$acc_name, 1, 1);
 
 $y_pos = $pdf->getY();
 //$y_pos+=1;

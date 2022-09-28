@@ -81,7 +81,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
       <div class="ladingPageBottom main_block side_pad">
         <div class="row">
           <div class="col-md-12 mg_tp_30">
-              <h3 class="customerFrom">Prepared for</h3>
+              <h3 class="customerFrom">PREPARED FOR</h3>
           </div>
           <div class="col-md-5">
             <div class="landigPageCustomer">
@@ -148,7 +148,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
 
   <?php } ?>
   
-  <?php if($sq_hotel_count || $sq_plane_count || $sq_transport_count){ ?>
+  <?php if($sq_hotel_count || $sq_plane_count || $sq_train_count || $sq_cruise_count){ ?>
     <section class="pageSection main_block">
     <!-- background Image -->
     <img src="<?= BASE_URL ?>images/quotation/p4/pageBGF.jpg" class="img-responsive pageBGImg">
@@ -204,6 +204,44 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
             <?php } ?>
           </section>
         <?php } ?>
+      <?php if($sq_train_count>0){ ?>
+        <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
+          <div class="travsportInfoBlock">
+            <div class="transportIcon">
+              <img src="<?= BASE_URL ?>images/quotation/p4/TI_train.png" class="img-responsive">
+            </div>
+            <div class="transportDetails">
+              <div class="table-responsive" style="margin-top:1px;margin-right: 1px;">
+                <table class="table tableTrnasp no-marg" id="tbl_emp_list">
+                  <thead>
+                    <tr class="table-heading-row">
+                      <th>From_location</th>
+                      <th>To_location</th>
+                      <th>Class</th>
+                      <th>Departure_D/T</th>
+                      <th>Arrival_D/T</th>
+                    </tr>
+                  </thead>
+                  <tbody>  
+                  <?php 
+                  $sq_train = mysqlQuery("select * from package_tour_quotation_train_entries where quotation_id='$quotation_id'");
+                  while($row_train = mysqli_fetch_assoc($sq_train)){  
+                    ?>
+                    <tr>
+                      <td><?= $row_train['from_location'] ?></td>
+                      <td><?= $row_train['to_location'] ?></td>
+                      <td><?php echo ($row_train['class']!='')?$row_train['class']:'NA'; ?></td>
+                      <td><?= date('d-m-Y H:i', strtotime($row_train['departure_date'])) ?></td>
+                      <td><?= date('d-m-Y H:i', strtotime($row_train['arrival_date'])) ?></td>
+                    </tr>
+                  <?php } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      <?php } ?>
       <?php if($sq_plane_count){ ?>
       <!-- Flight -->
         <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
@@ -216,12 +254,12 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                 <table class="table tableTrnasp no-marg" id="tbl_emp_list">
                   <thead>
                     <tr class="table-heading-row">
-                      <th>From</th>
-                      <th>To</th>
+                      <th>From_Sector</th>
+                      <th>To_sector</th>
                       <th>Airline</th>
                       <th>Class</th>
-                      <th>Departure</th>
-                      <th>Arrival</th>
+                      <th>Departure_D/T</th>
+                      <th>Arrival_D/T</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -247,6 +285,105 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
           </div>
         </section>
       <?php } ?>
+      <?php if($sq_cruise_count){ ?>
+      <!-- Cruise -->
+        <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
+          <div class="travsportInfoBlock">
+            <div class="transportIcon">
+              <img src="<?= BASE_URL ?>images/quotation/p4/TI_cruise.png" class="img-responsive">
+            </div>
+
+            <div class="transportDetails">
+              <div class="table-responsive" style="margin-top:1px;margin-right: 1px;">
+                <table class="table tableTrnasp no-marg" id="tbl_emp_list">
+                  <thead>
+                    <tr class="table-heading-row">
+                      <th>Departure_D/T</th>
+                      <th>Arrival_D/T</th>
+                      <th>Route</th>
+                      <th>Cabin</th>
+                      <th>Sharing</th>
+                    </tr>
+                  </thead>
+                  <tbody>  
+                  <?php 
+                  $sq_cruise = mysqlQuery("select * from package_tour_quotation_cruise_entries where quotation_id='$quotation_id'");
+                  while($row_cruise = mysqli_fetch_assoc($sq_cruise)){  
+                    ?>
+                    <tr>
+                      <td><?= date('d-m-Y H:i', strtotime($row_cruise['dept_datetime'])) ?></td>
+                      <td><?= date('d-m-Y H:i', strtotime($row_cruise['arrival_datetime'])) ?></td>
+                      <td><?= $row_cruise['route'] ?></td>
+                      <td><?= $row_cruise['cabin'] ?></td>
+                      <td><?= $row_cruise['sharing'] ?></td>
+                    </tr>
+                  <?php } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      <?php } ?>
+    </section>
+    </section>
+  <?php } ?>
+
+  <?php if($sq_transport_count || $sq_exc_count){
+    ?>
+    <section class="pageSection main_block">
+    <!-- background Image -->
+    <img src="<?= BASE_URL ?>images/quotation/p4/pageBGF.jpg" class="img-responsive pageBGImg">
+    <section class="travelingDetails main_block mg_tp_30 pageSectionInner">
+        <?php if($sq_exc_count){ ?>
+          <!-- Excursion -->
+          <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
+            <div class="travsportInfoBlock">
+              <div class="transportIcon">
+                <img src="<?= BASE_URL ?>images/quotation/p4/TI_excursion.png" class="img-responsive">
+              </div>
+
+              <div class="transportDetails">
+                <div class="table-responsive" style="margin-top:1px;margin-right: 1px;">
+                  <table class="table no-marg tableTrnasp">
+                    <thead>
+                      <tr class="table-heading-row">
+                        <th>City </th>
+                        <th>Activity_D/T</th>
+                        <th>Activity Name</th>
+                        <th>Transfer Option</th>
+                        <th>Adult(s)</th>
+                        <th>CWB</th>
+                        <th>CWOB</th>
+                        <th>Infant(s)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php 
+                      $count = 0;
+                      $sq_ex = mysqlQuery("select * from package_tour_quotation_excursion_entries where quotation_id='$quotation_id'");
+                      while($row_ex = mysqli_fetch_assoc($sq_ex)){
+                        $sq_city = mysqli_fetch_assoc(mysqlQuery("select * from city_master where city_id='$row_ex[city_name]'"));
+                        $sq_ex_name = mysqli_fetch_assoc(mysqlQuery("select * from excursion_master_tariff where entry_id='$row_ex[excursion_name]'"));
+                        ?>
+                        <tr>
+                          <td><?= $sq_city['city_name'] ?></td>
+                          <td><?= get_datetime_user($row_ex['exc_date']) ?></td>
+                          <td><?= $sq_ex_name['excursion_name'] ?></td>
+                          <td><?= $row_ex['transfer_option'] ?></td>
+                          <td><?= $row_ex['adult'] ?></td>
+                          <td><?= $row_ex['chwb'] ?></td>
+                          <td><?= $row_ex['chwob'] ?></td>
+                          <td><?= $row_ex['infant'] ?></td>
+                        </tr>
+                        <?php }	?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        <?php } ?>
         <?php if($sq_transport_count){ ?>
           <!-- transport -->
           <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
@@ -261,11 +398,11 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                     <thead>
                       <tr class="table-heading-row">
                         <th>VEHICLE NAME</th>
-                        <th>START DATE</th>
-                        <th>END DATE</th>
+                        <th>T_START_DATE</th>
+                        <th>T_END_DATE</th>
                         <th>PICKUP LOCATION</th>
                         <th>DROP LOCATION</th>
-                        <th>TOTAL VEHICLES</th>
+                        <th>TOTAL_VEHICLES</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -322,143 +459,6 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
             </div>
           </section>
         <?php } ?>
-    </section>
-    </section>
-  <?php } ?>
-
-  <?php if($sq_train_count || $sq_cruise_count || $sq_exc_count){
-    ?>
-    <section class="pageSection main_block">
-    <!-- background Image -->
-    <img src="<?= BASE_URL ?>images/quotation/p4/pageBGF.jpg" class="img-responsive pageBGImg">
-    <section class="travelingDetails main_block mg_tp_30 pageSectionInner">
-      <?php if($sq_train_count>0){ ?>
-        <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
-          <div class="travsportInfoBlock">
-            <div class="transportIcon">
-              <img src="<?= BASE_URL ?>images/quotation/p4/TI_train.png" class="img-responsive">
-            </div>
-            <div class="transportDetails">
-              <div class="table-responsive" style="margin-top:1px;margin-right: 1px;">
-                <table class="table tableTrnasp no-marg" id="tbl_emp_list">
-                  <thead>
-                    <tr class="table-heading-row">
-                      <th>From</th>
-                      <th>To</th>
-                      <th>Class</th>
-                      <th>Departure</th>
-                      <th>Arrival</th>
-                    </tr>
-                  </thead>
-                  <tbody>  
-                  <?php 
-                  $sq_train = mysqlQuery("select * from package_tour_quotation_train_entries where quotation_id='$quotation_id'");
-                  while($row_train = mysqli_fetch_assoc($sq_train)){  
-                    ?>
-                    <tr>
-                      <td><?= $row_train['from_location'] ?></td>
-                      <td><?= $row_train['to_location'] ?></td>
-                      <td><?php echo ($row_train['class']!='')?$row_train['class']:'NA'; ?></td>
-                      <td><?= date('d-m-Y H:i', strtotime($row_train['departure_date'])) ?></td>
-                      <td><?= date('d-m-Y H:i', strtotime($row_train['arrival_date'])) ?></td>
-                    </tr>
-                  <?php } ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-      <?php } ?>
-        <?php if($sq_exc_count){ ?>
-          <!-- Excursion -->
-          <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
-            <div class="travsportInfoBlock">
-              <div class="transportIcon">
-                <img src="<?= BASE_URL ?>images/quotation/p4/TI_excursion.png" class="img-responsive">
-              </div>
-
-              <div class="transportDetails">
-                <div class="table-responsive" style="margin-top:1px;margin-right: 1px;">
-                  <table class="table no-marg tableTrnasp">
-                    <thead>
-                      <tr class="table-heading-row">
-                        <th>City </th>
-                        <th>Activity Date</th>
-                        <th>Activity Name</th>
-                        <th>Transfer Option</th>
-                        <th>Adult(s)</th>
-                        <th>CWB</th>
-                        <th>CWOB</th>
-                        <th>Infant(s)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php 
-                      $count = 0;
-                      $sq_ex = mysqlQuery("select * from package_tour_quotation_excursion_entries where quotation_id='$quotation_id'");
-                      while($row_ex = mysqli_fetch_assoc($sq_ex)){
-                        $sq_city = mysqli_fetch_assoc(mysqlQuery("select * from city_master where city_id='$row_ex[city_name]'"));
-                        $sq_ex_name = mysqli_fetch_assoc(mysqlQuery("select * from excursion_master_tariff where entry_id='$row_ex[excursion_name]'"));
-                        ?>
-                        <tr>
-                          <td><?= $sq_city['city_name'] ?></td>
-                          <td><?= get_datetime_user($row_ex['exc_date']) ?></td>
-                          <td><?= $sq_ex_name['excursion_name'] ?></td>
-                          <td><?= $row_ex['transfer_option'] ?></td>
-                          <td><?= $row_ex['adult'] ?></td>
-                          <td><?= $row_ex['chwb'] ?></td>
-                          <td><?= $row_ex['chwob'] ?></td>
-                          <td><?= $row_ex['infant'] ?></td>
-                        </tr>
-                        <?php }	?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </section>
-        <?php } ?>
-      <?php if($sq_cruise_count){ ?>
-      <!-- Cruise -->
-        <section class="transportDetailsPanel main_block side_pad mg_tp_30 mg_bt_30">
-          <div class="travsportInfoBlock">
-            <div class="transportIcon">
-              <img src="<?= BASE_URL ?>images/quotation/p4/TI_cruise.png" class="img-responsive">
-            </div>
-
-            <div class="transportDetails">
-              <div class="table-responsive" style="margin-top:1px;margin-right: 1px;">
-                <table class="table tableTrnasp no-marg" id="tbl_emp_list">
-                  <thead>
-                    <tr class="table-heading-row">
-                      <th>Departure</th>
-                      <th>Arrival</th>
-                      <th>Route</th>
-                      <th>Cabin</th>
-                      <th>Sharing</th>
-                    </tr>
-                  </thead>
-                  <tbody>  
-                  <?php 
-                  $sq_cruise = mysqlQuery("select * from package_tour_quotation_cruise_entries where quotation_id='$quotation_id'");
-                  while($row_cruise = mysqli_fetch_assoc($sq_cruise)){  
-                    ?>
-                    <tr>
-                      <td><?= date('d-m-Y H:i', strtotime($row_cruise['dept_datetime'])) ?></td>
-                      <td><?= date('d-m-Y H:i', strtotime($row_cruise['arrival_datetime'])) ?></td>
-                      <td><?= $row_cruise['route'] ?></td>
-                      <td><?= $row_cruise['cabin'] ?></td>
-                      <td><?= $row_cruise['sharing'] ?></td>
-                    </tr>
-                  <?php } ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-      <?php } ?>
     </section>
     </section>
   <?php } ?>
@@ -579,19 +579,6 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
       <!-- background Image -->
       <img src="<?= BASE_URL ?>images/quotation/p4/pageBGF.jpg" class="img-responsive pageBGImg">
       <section class="incluExcluTerms main_block side_pad mg_tp_30 pageSectionInner">
-        <?php if($sq_package_name['note'] != ''){ ?>
-        <div class="row mg_bt_10">
-          
-          <div class="col-md-12 mg_tp_30">
-            <div class="incluExcluTermsTabPanel main_block">
-                <h3 class="incexTitle">NOTE</h3>
-                <div class="tncContent">
-                    <pre class="real_text"><?php echo $sq_package_name['note']; ?></pre>
-                </div>
-            </div>
-          </div>
-        </div>
-        <?php } ?>
         <!-- Terms and Conditions -->
         <?php if($sq_terms_cond['terms_and_conditions'] != ''){ ?>
         <div class="row">
@@ -604,6 +591,19 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                 </div>
             </div>
           </div>
+        <?php } ?>
+        <?php if($sq_package_name['note'] != ''){ ?>
+        <div class="row mg_bt_10">
+          
+          <div class="col-md-12 mg_tp_30">
+            <div class="incluExcluTermsTabPanel main_block">
+                <h3 class="incexTitle">NOTE</h3>
+                <div class="tncContent">
+                    <pre class="real_text"><?php echo $sq_package_name['note']; ?></pre>
+                </div>
+            </div>
+          </div>
+        </div>
         <?php } ?>
         <?php if($quot_note != ''){ ?>
         <div class="row mg_tp_10">
@@ -747,7 +747,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                   <div class="travsportInfoBlock1">
                     <div class="transportDetails_costing">
                       <div class="table-responsive">
-                        <table class="table no-marg tableTrnasp">
+                        <table class="table table-bordered no-marg tableTrnasp">
                           <thead>
                             <tr class="table-heading-row">
                               <th>Package Type</th>
@@ -761,7 +761,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                           </thead>
                           <tbody>
                           <?php
-                          $sq_costing1 = mysqlQuery("select * from package_tour_quotation_costing_entries where quotation_id='$quotation_id'  order by package_type");
+                          $sq_costing1 = mysqlQuery("select * from package_tour_quotation_costing_entries where quotation_id='$quotation_id' order by package_type");
                           while($sq_costing = mysqli_fetch_assoc($sq_costing1)){
         
                             $service_charge = $sq_costing['service_charge'];
@@ -843,7 +843,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
                       <div class="col-md-4 text-center mg_bt_30">
                         <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
                         <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-                        <p>A/C NAME</p>
+                        <p>A/C TYPE</p>
                       </div>
                       <div class="col-md-4 text-center mg_bt_30">
                         <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>
@@ -904,7 +904,7 @@ $currency_amount1 = currency_conversion($currency,$sq_quotation['currency_code']
             <?php } ?>
             <div class="contactBlock">
               <i class="fa fa-pencil-square-o"></i>
-              <p>Prepared By : <?= $emp_name?></p>
+              <p>PREPARED BY : <?= $emp_name?></p>
             </div>
         </div>
     </section>

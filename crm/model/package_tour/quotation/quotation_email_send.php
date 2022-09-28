@@ -729,7 +729,7 @@ class quotation_email_send
 			$sq_tours_package = mysqli_fetch_assoc(mysqlQuery("select * from custom_package_master where package_id = '$sq_quotation[package_id]'"));		
 
 			$quotation_no = base64_encode($quotation_id_arr[$i]);
-		$whatsapp_msg = rawurlencode('Hello Dear '.$sq_quotation['customer_name'].',
+		$whatsapp_msg = rawurlencode('Dear '.$sq_quotation['customer_name'].',
 Hope you are doing great. This is package tour quotation details as per your request. We look forward to having you onboard with us.
 *Destination* : '.$sq_tours_package['package_name'].'
 *Duration* : '.($sq_quotation['total_days']-1).'N/'.$sq_quotation['total_days'].'D'.'

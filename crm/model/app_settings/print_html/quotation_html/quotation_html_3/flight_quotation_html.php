@@ -2,7 +2,7 @@
 //Generic Files
 include "../../../../model.php"; 
 include "printFunction.php";
-global $app_quot_img,$currency;
+global $app_quot_img,$currency,$quot_note;
 
 $quotation_id = $_GET['quotation_id'];
 
@@ -110,13 +110,13 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
         <div class="row">
           <div class="col-md-4">
             <div class="landigPageCustomer mg_tp_20">
-              <h3 class="customerFrom">Prepared for</h3>
+              <h3 class="customerFrom">PREPARED FOR</h3>
               <span class="customerName mg_tp_10"><i class="fa fa-user"></i> :
                 <?= $sq_quotation['customer_name'] ?></span><br>
               <span class="customerMail mg_tp_10"><i class="fa fa-envelope"></i> :
                 <?= $sq_quotation['email_id'] ?></span><br>
               <span class="customerMobile mg_tp_10"><i class="fa fa-phone"></i> : <?= $sq_quotation['mobile_no'] ?></span><br>
-              <span class="generatorName mg_tp_10">Prepared By <?= $emp_name?></span><br>
+              <span class="generatorName mg_tp_10">PREPARED BY <?= $emp_name?></span><br>
             </div>
           </div>
           <div class="col-md-8">
@@ -165,12 +165,12 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
               <table class="table table-bordered no-marg" id="tbl_emp_list">
                 <thead>
                   <tr class="table-heading-row">
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From_sector</th>
+                    <th>To_sector</th>
                     <th>Airline</th>
                     <th>Class</th>
-                    <th>Departure</th>
-                    <th>Arrival</th>
+                    <th>Departure_D/T</th>
+                    <th>Arrival_D/T</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -206,14 +206,18 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
 
         <div class="col-md-12 mg_tp_30">
           <div class="incluExcluTermsTabPanel main_block mg_tp_30">
-            <h3 class="tncTitle">Terms &amp; Conditions</h3>
+            <h3 class="tncTitle">TERMS AND CONDITIONS</h3>
             <div class="tncContent">
               <pre class="real_text"><?= $sq_terms_cond['terms_and_conditions'] ?></pre>
             </div>
           </div>
         </div>
       </div>
-
+      <div class="row mg_tp_30">
+        <div class="col-md-12 mg_tp_30">
+        <pre style="margin-left:128px!important;" class="real_text"><?= $quot_note ?></pre>
+        </div>
+      </div>
     </section>
     <?php } ?>
 
@@ -225,7 +229,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
 
         <!-- Costing -->
         <div class="col-md-5 constingBankingPanel endPageLeft fullHeightLand">
-          <h3 class="costBankTitle text-right">COSTING Details</h3>
+          <h3 class="costBankTitle text-right">COSTING DETAILS</h3>
           <div class="col-md-12 text-right mg_bt_20">
             <?php
             $fare_cost = currency_conversion($currency,$currency,(floatval($newBasic) + $sq_quotation['roundoff']));
@@ -269,7 +273,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['quotati
               <div class="col-md-12 text-left mg_bt_20">
                 <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accName.png" class="img-responsive"></div>
                 <h4 class="no-marg"><?= ($acc_name != '') ? $acc_name : 'NA' ?></h4>
-                <p>A/C NAME</p>
+                <p>A/C TYPE</p>
               </div>
               <div class="col-md-12 text-left mg_bt_20">
                 <div class="icon"><img src="<?= BASE_URL ?>images/quotation/p4/accNumber.png" class="img-responsive"></div>

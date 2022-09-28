@@ -27,7 +27,7 @@ body p{
 
 
 table tr.table-heading-row th, table tfoot tr td{
-    background-color: #f7f7f7 !important;
+    background-color: #f4eeee !important;
 }
 table.table-bordered{
     border-collapse: collapse !important;

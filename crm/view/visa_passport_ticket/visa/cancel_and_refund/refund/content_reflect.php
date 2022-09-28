@@ -63,7 +63,7 @@ $remaining = $refund_amount - $sq_refund_amount1['sum'];
 
 		<form id="frm_refund_save">
         <h3 class="editor_title">Refund Details</h3>
-    	<div class="panel panel-default panel-body no-pad"> 
+    	<div class="panel panel-default panel-body"> 
 
 			<div class="row  text-center">    
 			    <div class="col-sm-6 col-xs-12 mg_bt_10">

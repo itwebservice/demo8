@@ -142,7 +142,7 @@ if(sizeof($hotel_list_arr) > 0){
                 <?php
                 for($j=0;$j<sizeof($hotel_traveller_arr[$i]->service->room_arr);$j++){ ?>
                   <ul class="main_block noType">
-                    <li class="col-md-4 mg_tp_10"><h6><?= 'Room '.($j+1).' : '.$room_cat ?></h6></li>
+                    <li class="col-md-4 mg_tp_10"><h6><?= 'Room '.($j+1).' Category : '.$room_cat ?></h6></li>
                   </ul>
                   <ul class="main_block noType">
                         <!-- Adults -->

@@ -168,11 +168,47 @@ while($row_booking = mysqli_fetch_assoc($sq_booking)){
 	$sq_sac = mysqli_fetch_assoc(mysqlQuery("select * from sac_master where service_name='Group Tour'"));   
 	$sac_code = $sq_sac['hsn_sac_code'];
 	$tour_date = get_date_user($sq_group['from_date']);
+	$tour_to_date = get_date_user($sq_group['to_date']);
 	$booking_id = $row_booking['id'];
+	
+	$adults = mysqli_num_rows(mysqlQuery("select traveler_id from travelers_details where traveler_group_id='$row_booking[id]' and status!='Cancel' and adolescence='Adult'"));
+	$child = mysqli_num_rows(mysqlQuery("select traveler_id from travelers_details where traveler_group_id='$row_booking[id]' and status!='Cancel' and adolescence='Children'"));
+	$infants = mysqli_num_rows(mysqlQuery("select traveler_id from travelers_details where traveler_group_id='$row_booking[id]' and status!='Cancel' and adolescence='Infant'"));
+	//Flights
+	$sq_f_count = mysqli_num_rows(mysqlQuery("select * from plane_master where tourwise_traveler_id='$row_booking[id]'")); 
+	$flights = '';
+    if($sq_f_count != '0'){
+		$sq_entry = mysqlQuery("select * from plane_master where tourwise_traveler_id='$row_booking[id]'");
+		while($row_entry = mysqli_fetch_assoc($sq_entry)){
+			$flights .= 'From '.$row_entry['from_location'].' To '.$row_entry['to_location'].', ';
+		}
+	}
+	//Train
+	$sq_f_count = mysqli_num_rows(mysqlQuery("select * from train_master where tourwise_traveler_id='$row_booking[id]'")); 
+	$trains = '';
+    if($sq_f_count != '0'){
+		$sq_entry = mysqlQuery("select * from train_master where tourwise_traveler_id='$row_booking[id]'");
+		while($row_entry = mysqli_fetch_assoc($sq_entry)){
+			$trains .= 'From '.$row_entry['from_location'].' To '.$row_entry['to_location'].', ';
+		}
+	}
+	//Cruise
+	$sq_f_count = mysqli_num_rows(mysqlQuery("select * from group_cruise_master where booking_id='$row_booking[id]'")); 
+	$cruises = '';
+    if($sq_f_count != '0'){
+		$count = 0;
+		$sq_entry = mysqlQuery("select * from group_cruise_master where booking_id='$row_booking[id]'");
+		while($row_entry = mysqli_fetch_assoc($sq_entry)){
+			$count++;
+			$cruises .= 'Cabin '.$row_entry['cabin'].', Route '.$row_entry['route'];
+			$cruises .= ($count<$sq_f_count)?' / ':'';
+		}
+	}
+
 	if($app_invoice_format == 4)			
 	$url1 = BASE_URL."model/app_settings/print_html/invoice_html/body/git_fit_tax_invoice.php?invoice_no=$invoice_no&invoice_date=$invoice_date&customer_id=$customer_id&service_name=$service_name&basic_cost=$basic_cost&taxation_type=$taxation_type&train_expense=$train_expense&plane_expense=$plane_expense&cruise_expense=$cruise_expense&visa_amount=$visa_amount&insuarance_amount=$insuarance_amount&tour_subtotal=$tour_subtotal&train_service_charge=$train_service_charge&plane_service_charge=$plane_service_charge&cruise_service_charge=$cruise_service_charge&visa_service_charge=$visa_service_charge&insuarance_service_charge=$insuarance_service_charge&train_service_tax=$train_service_tax&plane_service_tax=$plane_service_tax&cruise_service_tax=$cruise_service_tax&visa_service_tax=$visa_service_tax&insuarance_service_tax=$insuarance_service_tax&tour_service_tax=$tour_service_tax&train_service_tax_subtotal=$train_service_tax_subtotal&plane_service_tax_subtotal=$plane_service_tax_subtotal&cruise_service_tax_subtotal=$cruise_service_tax_subtotal&visa_service_tax_subtotal=$visa_service_tax_subtotal&insuarance_service_tax_subtotal=$insuarance_service_tax_subtotal&tour_service_tax_subtotal=$tour_service_tax_subtotal&total_paid=$total_paid&net_total=$net_total&sac_code=$sac_code&branch_status=$branch_status&pass_count=$pass_count&tour_date=$tour_date&tour_name=$tour&booking_id=$booking_id&credit_card_charges=$credit_card_charges";
 	else
-	$url1 = BASE_URL."model/app_settings/print_html/invoice_html/body/git_fit_body_html.php?invoice_no=$invoice_no&invoice_date=$invoice_date&customer_id=$customer_id&service_name=$service_name&basic_cost=$basic_cost&taxation_type=$taxation_type&train_expense=$train_expense&plane_expense=$plane_expense&cruise_expense=$cruise_expense&visa_amount=$visa_amount&insuarance_amount=$insuarance_amount&tour_subtotal=$tour_subtotal&train_service_charge=$train_service_charge&plane_service_charge=$plane_service_charge&cruise_service_charge=$cruise_service_charge&visa_service_charge=$visa_service_charge&insuarance_service_charge=$insuarance_service_charge&train_service_tax=$train_service_tax&plane_service_tax=$plane_service_tax&cruise_service_tax=$cruise_service_tax&visa_service_tax=$visa_service_tax&insuarance_service_tax=$insuarance_service_tax&tour_service_tax=$tour_service_tax&train_service_tax_subtotal=$train_service_tax_subtotal&plane_service_tax_subtotal=$plane_service_tax_subtotal&cruise_service_tax_subtotal=$cruise_service_tax_subtotal&visa_service_tax_subtotal=$visa_service_tax_subtotal&insuarance_service_tax_subtotal=$insuarance_service_tax_subtotal&tour_service_tax_subtotal=$tour_service_tax_subtotal&total_paid=$total_paid&net_total=$net_total&sac_code=$sac_code&branch_status=$branch_status&tour_name=$tour&booking_id=$booking_id&credit_card_charges=$credit_card_charges&tcs_tax=$row_booking[tcs_tax]&tcs_per=$row_booking[tcs_per]";
+	$url1 = BASE_URL."model/app_settings/print_html/invoice_html/body/git_fit_body_html.php?invoice_no=$invoice_no&invoice_date=$invoice_date&customer_id=$customer_id&service_name=$service_name&basic_cost=$basic_cost&taxation_type=$taxation_type&train_expense=$train_expense&plane_expense=$plane_expense&cruise_expense=$cruise_expense&visa_amount=$visa_amount&insuarance_amount=$insuarance_amount&tour_subtotal=$tour_subtotal&train_service_charge=$train_service_charge&plane_service_charge=$plane_service_charge&cruise_service_charge=$cruise_service_charge&visa_service_charge=$visa_service_charge&insuarance_service_charge=$insuarance_service_charge&train_service_tax=$train_service_tax&plane_service_tax=$plane_service_tax&cruise_service_tax=$cruise_service_tax&visa_service_tax=$visa_service_tax&insuarance_service_tax=$insuarance_service_tax&tour_service_tax=$tour_service_tax&train_service_tax_subtotal=$train_service_tax_subtotal&plane_service_tax_subtotal=$plane_service_tax_subtotal&cruise_service_tax_subtotal=$cruise_service_tax_subtotal&visa_service_tax_subtotal=$visa_service_tax_subtotal&insuarance_service_tax_subtotal=$insuarance_service_tax_subtotal&tour_service_tax_subtotal=$tour_service_tax_subtotal&total_paid=$total_paid&net_total=$net_total&sac_code=$sac_code&branch_status=$branch_status&tour_name=$tour&booking_id=$booking_id&credit_card_charges=$credit_card_charges&tcs_tax=$row_booking[tcs_tax]&tcs_per=$row_booking[tcs_per]&tour_date=$tour_date&tour_to_date=$tour_to_date&child=$child&adults=$adults&infants=$infants&flights=$flights&trains=$trains&cruises=$cruises";
 
 	// Booking Form
 	$b_url = BASE_URL."model/app_settings/print_html/booking_form_html/group_tour.php?booking_id=$row_booking[id]&branch_status=$branch_status&year=$year&credit_card_charges=$credit_card_charges";

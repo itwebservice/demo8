@@ -594,7 +594,7 @@ class visa_payment_master
 		$total_pay_amt1 = currency_conversion($currency,$sq_visa_info['currency_code'],$total_pay_amt);
 		$outstanding1 = currency_conversion($currency,$sq_visa_info['currency_code'],$outstanding);
 
-		$whatsapp_msg = rawurlencode('Hello Dear ' . $sq_customer['first_name'] . ',
+		$whatsapp_msg = rawurlencode('Dear ' . $sq_customer['first_name'] . ',
 Hope you are doing great. This is to inform you that we have received your payment. We look forward to provide you a great experience.
 *Total Amount* : ' . $total_amount1 . '
 *Paid Amount* : ' . $total_pay_amt1 . '

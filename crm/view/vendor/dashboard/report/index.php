@@ -67,7 +67,7 @@ var column = [
 	{ title : "Purchase_ID"},
 	{ title : "Supplier_Type"},
 	{ title : "Supplier_Name"},
-	{ title : "Date"},
+	{ title : "Trans_Date"},
 	{ title : "Credit", className:"info text-right"},
 	{ title : "Debit", className:"success text-right"}
 ];

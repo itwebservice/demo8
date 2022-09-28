@@ -31,7 +31,7 @@ public function cash_deposit_save()
 
 	    if($GLOBALS['flag']){
 	      commit_t();
-	      echo "Payment has been successfully saved.";
+	      echo "Cash Deposit has been successfully saved.";
 	      exit;
 	    }
 	    else{
@@ -117,8 +117,8 @@ public function bank_cash_book_save($payment_id)
 	$payment_date = $payment_date;
 	$payment_amount = $payment_amount1;
 	$payment_mode = '';
-	$bank_name = $bank_name;
-	$transaction_id = $transaction_id;
+	$bank_name = '';
+	$transaction_id = '';
 	$bank_id = $bank_id;
 	$particular = get_cash_deposit_particular($bank_id,$payment_date);
 	$clearance_status = "";
@@ -132,7 +132,7 @@ public function bank_cash_book_save($payment_id)
 	$payment_date = $payment_date;
 	$payment_amount = $payment_amount1;
 	$payment_mode = '';
-	$bank_name = $bank_name;
+	$bank_name = '';
 	$transaction_id = $transaction_id;
 	$bank_id = $bank_id;
 	$particular = get_cash_deposit_particular($bank_id,$payment_date);
@@ -151,9 +151,6 @@ public function cash_deposit_update()
 	$payment_date = $_POST['payment_date'];
 	$payment_evidence_url = $_POST['payment_evidence_url'];
 
-	$due_date = get_date_db($due_date);
-    $booking_date = get_date_db($booking_date);
-
 	begin_t();
 	$sq_deposit_u = mysqlQuery("update cash_deposit_master set amount='$payment_amount',evidence_url='$payment_evidence_url' where deposit_id='$deposit_id'");
 
@@ -165,7 +162,7 @@ public function cash_deposit_update()
 
 	    if($GLOBALS['flag']){
 			commit_t();
-			echo "Payment has been successfully updated.";
+			echo "Cash Deposit has been successfully updated.";
 			exit;
 		}
 		else{
@@ -189,7 +186,7 @@ public function finance_update($deposit_id)
 	$payment_date = $_POST['payment_date'];
 	$payment_evidence_url = $_POST['payment_evidence_url'];
 	$payment_old_amount = $_POST['payment_old_amount'];
-
+	$branch_admin_id = $_SESSION['branch_admin_id'];
     $payment_date1 = date('Y-m-d', strtotime($payment_date));
 
     //BANK Ledger
@@ -252,8 +249,8 @@ public function bank_cash_book_update($payment_id)
 		$payment_date = $payment_date;
 		$payment_amount = $payment_amount1;
 		$payment_mode = '';
-		$bank_name = $bank_name;
-		$transaction_id = $transaction_id;
+		$bank_name = '';
+		$transaction_id = '';
 		$bank_id = $bank_id;
 		$particular = get_cash_deposit_particular($bank_id,$payment_date);
 		$clearance_status = "";
@@ -267,8 +264,8 @@ public function bank_cash_book_update($payment_id)
 		$payment_date = $payment_date;
 		$payment_amount = $payment_amount1;
 		$payment_mode = '';
-		$bank_name = $bank_name;
-		$transaction_id = $transaction_id;
+		$bank_name = '';
+		$transaction_id = '';
 		$bank_id = $bank_id;
 		$particular = get_cash_deposit_particular($bank_id,$payment_date);
 		$clearance_status = "";
@@ -307,7 +304,7 @@ public function cash_withdraw_save()
 
 	    if($GLOBALS['flag']){
 	      commit_t();
-	      echo "Payment has been successfully saved.";
+	      echo "Cash Withdrawal has been successfully saved.";
 	      exit;
 	    }
 	    else{
@@ -392,8 +389,8 @@ public function cbank_cash_book_save($payment_id)
 	$payment_date = $payment_date;
 	$payment_amount = $payment_amount1;
 	$payment_mode = '';
-	$bank_name = $bank_name;
-	$transaction_id = $transaction_id;
+	$bank_name = '';
+	$transaction_id = '';
 	$bank_id = $bank_id;
 	$particular = get_cash_withdraw_particular($bank_id,$payment_date);
 	$clearance_status = "";
@@ -426,9 +423,6 @@ public function cash_withdraw_update()
 	$payment_date = $_POST['payment_date'];
 	$payment_evidence_url = $_POST['payment_evidence_url'];
 
-	$due_date = get_date_db($due_date);
-    $booking_date = get_date_db($booking_date);
-
 	begin_t();
 	$sq_deposit_u = mysqlQuery("update cash_withdraw_master set amount='$payment_amount',evidence_url='$payment_evidence_url' where withdraw_id='$withdraw_id'");
 
@@ -439,7 +433,7 @@ public function cash_withdraw_update()
 
 	    if($GLOBALS['flag']){
 	      commit_t();
-	      echo "Payment has been successfully updated.";
+	      echo "Cash Withdrawal has been successfully updated.";
 	      exit;
 	    }
 	    else{
@@ -449,7 +443,7 @@ public function cash_withdraw_update()
 	}
 	else{
 		rollback_t();
-		echo "error--Withdrawal not updated!";
+		echo "error--Cash Withdrawal not updated!";
 		exit;
 	}
 
@@ -464,6 +458,7 @@ public function finance_update_withdraw($withdraw_id)
 	$payment_date = $_POST['payment_date'];
 	$payment_evidence_url = $_POST['payment_evidence_url'];
 	$payment_old_amount = $_POST['payment_old_amount'];
+	$branch_admin_id = $_SESSION['branch_admin_id'];
 
     $payment_date1 = date('Y-m-d', strtotime($payment_date));
 

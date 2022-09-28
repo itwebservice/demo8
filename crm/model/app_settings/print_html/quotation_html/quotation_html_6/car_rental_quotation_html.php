@@ -247,7 +247,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
         <div class="col-md-12">
           <!-- Costing -->
           <div class="col-md-12 constingBankingPanel constingPanel">
-                <h3 class="costBankTitle text-center">Costing Details</h3>
+                <h3 class="costBankTitle text-center">COSTING DETAILS</h3>
                 <div class="col-md-4 text-center mg_bt_30">
                   <div class="icon main_block"><img src="<?= BASE_URL ?>images/quotation/p4/subtotal.png" class="img-responsive"></div>
                   <h4 class="no-marg"><?= number_format($newBasic,2) ?></h4>
@@ -362,7 +362,7 @@ $quotation_cost = currency_conversion($currency,$currency,$sq_quotation['total_t
               <?php }?>
             <div class="contactBlock">
               <i class="fa fa-pencil-square-o"></i>
-              <p>Prepared By : <?= $emp_name?></p>
+              <p>PREPARED BY : <?= $emp_name?></p>
             </div>
         </div>
        </div>

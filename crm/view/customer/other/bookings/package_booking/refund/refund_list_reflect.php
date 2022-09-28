@@ -21,7 +21,7 @@ if($booking_id!=""){
         <th>Refund_Date</th>  
         <th>Bank_Name</th>  
         <th>Refund_Mode</th>
-        <th class="text-right success">Amount</th>  
+        <th class="success">Amount</th>  
     </tr>
     </thead>
     <tbody>

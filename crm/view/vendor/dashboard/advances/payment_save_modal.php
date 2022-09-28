@@ -112,8 +112,8 @@ function payment_evidence_upload(offset='')
 	onSubmit: function(file, ext){
 
 		var id_proof_url = $("#payment_evidence_url"+offset).val();
-		if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
-			status.text('Only JPG, PNG files are allowed');
+		if (! (ext && /^(jpg|png|jpeg|gif|pdf)$/.test(ext))){ 
+			error_msg_alert('Only JPG, PNG, PDF files are allowed');
 			return false;
 		}
 		status.text('Uploading...');
@@ -135,18 +135,18 @@ function payment_evidence_upload(offset='')
 $(function(){
   $('#frm_vendor_payment_save1').validate({
       rules:{              
-              vendor_type: { required: true },
-              payment_amount : { required: true, number:true },
-              payment_date : { required: true },
-              payment_mode : { required : true },
-              bank_name : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },
-              transaction_id : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },     
-              bank_id : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },     
+        vendor_type: { required: true },
+        payment_amount : { required: true, number:true },
+        payment_date : { required: true },
+        payment_mode : { required : true },
+        bank_name : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },
+        transaction_id : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },
+        bank_id : { required : function(){  if($('#payment_mode').val()!="Cash"){ return true; }else{ return false; }  }  },     
       },
       submitHandler:function(form){
               $('#payment_save').prop('disabled',true);
               var status = validate_estimate_vendor('estimate_type3','3');
-              if(!status){ 
+              if(!status){
                 $('#payment_save').prop('disabled',false);
                 return false; }
 
@@ -162,6 +162,12 @@ $(function(){
               var branch_admin_id = $('#branch_admin_id1').val();
               var emp_id = $('#emp_id').val();
               var base_url = $('#base_url').val();
+              
+              if(payment_mode == 'Advance'){
+                $('#payment_save').prop('disabled',false);
+                error_msg_alert("Please select other payment mode!");
+                return false;
+              }
               if(payment_mode == 'Credit Note'||payment_mode == 'Credit Card'){
                 $('#payment_save').prop('disabled',false);
                 error_msg_alert("Please select other payment mode!");

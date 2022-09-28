@@ -21,7 +21,7 @@ $query .= " and payment_amount!='0' and payment_type='Bank' order by register_id
  	<thead>
  		<tr class="table-heading-row" >
  			<th>S_No.</th>
- 			<th>Booking_Type</th>
+ 			<th>Sale_Type</th>
  			<th>Payment_ID</th>
  			<th>Amount</th>
  			<th>Narration</th>
@@ -89,7 +89,7 @@ $query .= " and payment_amount!='0' and payment_type='Bank' order by register_id
 			if($row_transaction['module_name']=="GST Monthly Payment"){ $payment_id = get_gst_payment_id($row_transaction['module_entry_id'],$year); }
 			if($row_transaction['module_name']=="Airline Supplier Payment"){ $payment_id = get_flight_supplier_payment_id($row_transaction['module_entry_id'],$year); }
 			
-			if($row_transaction['module_name']=="Corporate Advance Payment"){ $payment_id = get_custadv_payment_id($row_transaction['module_entry_id'],$year); }
+			if($row_transaction['module_name']=="Customer Advance"){ $payment_id = get_custadv_payment_id($row_transaction['module_entry_id'],$year); }
 			if($row_transaction['module_name']=="B2B Booking"){ 
 				$sq_payment = mysqli_fetch_assoc(mysqlQuery("select * from b2b_payment_master where entry_id='$row_transaction[module_entry_id]'"));
 				$payment_id = $sq_payment['payment_id']; }
@@ -123,7 +123,7 @@ $query .= " and payment_amount!='0' and payment_type='Bank' order by register_id
 			</td>
 			<td>
 				<?php if($row_transaction['clearance_status']!="Cancelled" && $row_transaction['payment_mode'] == 'Credit Card'){ ?>
-				<button class="btn btn-danger btn-sm" onclick="clearance_status_change1(this, <?= $row_transaction['register_id'] ?>, 'Cancelled', 'status_datec<?= $count ?>','<?= $row_transaction['module_name'] ?>',<?= $row_transaction['module_entry_id'] ?>,'',<?= $row_transaction['payment_amount']?>,'<?= $row_transaction['particular']?>','card',<?= $count ?>)" title="Cancel cheque"><i class="fa fa-times"></i></button>
+				<button class="btn btn-danger btn-sm" onclick="clearance_status_change1(this, <?= $row_transaction['register_id'] ?>, 'Cancelled', 'status_datec<?= $count ?>','<?= $row_transaction['module_name'] ?>',<?= $row_transaction['module_entry_id'] ?>,'',<?= $row_transaction['payment_amount']?>,'<?= $row_transaction['particular']?>','card',<?= $count ?>)" title="Cancel Payment"><i class="fa fa-times"></i></button>
 				<?php } ?>
 			</td>
 		</tr>

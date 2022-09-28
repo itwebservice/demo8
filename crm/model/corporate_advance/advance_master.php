@@ -82,7 +82,7 @@ public function finance_save($income_id,$ledger_id)
 	global $transaction_master;
 
 	//Bank Or Cash    
-    $module_name = "Corporate Advance Payment";
+    $module_name = "Customer Advance";
     $module_entry_id = $income_id;
     $transaction_id = $transaction_id1;
     $payment_amount = $payment_amount1;
@@ -95,7 +95,7 @@ public function finance_save($income_id,$ledger_id)
 	$transaction_master->transaction_save($module_name, $module_entry_id, $transaction_id, $payment_amount, $payment_date, $payment_particular, $gl_id, '',$payment_side, $clearance_status, $row_spec,$branch_admin_id,$ledger_particular,$type);
 
     //Advance customer ledger
-	$module_name = "Corporate Advance Payment";
+	$module_name = "Customer Advance";
     $module_entry_id = $income_id;
     $transaction_id = $transaction_id1;
     $payment_amount = $payment_amount1;
@@ -123,7 +123,7 @@ public function bank_cash_book_save($income_id)
 
 	$payment_date1 = date('Y-m-d', strtotime($payment_date));
 	
-	$module_name = "Corporate Advance Payment";
+	$module_name = "Customer Advance";
 	$module_entry_id = $income_id;
 	$payment_date = $payment_date1;
 	$payment_amount = $payment_amount1;
@@ -224,7 +224,7 @@ public function finance_update($sq_payment_info, $clearance_status1,$ledger_id)
 	if($payment_amount1 > $payment_amount_old){
 		$balance_amount = $payment_amount1 - $payment_amount_old;
 		//Bank Or Cash    
-	    $module_name = "Corporate Advance Payment";
+	    $module_name = "Customer Advance";
 	    $module_entry_id = $advance_id;
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $payment_amount1;
@@ -237,7 +237,7 @@ public function finance_update($sq_payment_info, $clearance_status1,$ledger_id)
 			$transaction_master->transaction_save($module_name, $module_entry_id, $transaction_id, $payment_amount, $payment_date, $payment_particular, $gl_id, '',$payment_side, $clearance_status, $row_spec,$branch_admin_id,$ledger_particular,$type);
 
 	    //Advance customer ledger
-		$module_name = "Corporate Advance Payment";
+		$module_name = "Customer Advance";
 	    $module_entry_id = $advance_id;
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $balance_amount;
@@ -250,7 +250,7 @@ public function finance_update($sq_payment_info, $clearance_status1,$ledger_id)
 	    $transaction_master->transaction_save($module_name, $module_entry_id, $transaction_id, $payment_amount, $payment_date, $payment_particular, $gl_id, '',$payment_side, $clearance_status, $row_spec,$branch_admin_id,$ledger_particular,$type);
 
 	//Reverse First Payment  
-	    $module_name = "Corporate Advance Payment";
+	    $module_name = "Customer Advance";
 	    $module_entry_id = $advance_id;
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $payment_amount_old;
@@ -265,7 +265,7 @@ public function finance_update($sq_payment_info, $clearance_status1,$ledger_id)
 	else if($payment_amount1 < $payment_amount_old){
 		$balance_amount = $payment_amount_old - $payment_amount1;
 		//Bank Or Cash    
-	    $module_name = "Corporate Advance Payment";
+	    $module_name = "Customer Advance";
 	    $module_entry_id = $advance_id;
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $payment_amount1;
@@ -278,7 +278,7 @@ public function finance_update($sq_payment_info, $clearance_status1,$ledger_id)
 		$transaction_master->transaction_save($module_name, $module_entry_id, $transaction_id, $payment_amount, $payment_date, $payment_particular, $gl_id, '',$payment_side, $clearance_status, $row_spec,$branch_admin_id,$ledger_particular,$type);
 
 	    //Advance customer ledger
-		$module_name = "Corporate Advance Payment";
+		$module_name = "Customer Advance";
 	    $module_entry_id = $advance_id;
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $balance_amount;
@@ -291,7 +291,7 @@ public function finance_update($sq_payment_info, $clearance_status1,$ledger_id)
     	$transaction_master->transaction_save($module_name, $module_entry_id, $transaction_id, $payment_amount, $payment_date, $payment_particular, $gl_id, '',$payment_side, $clearance_status, $row_spec,$branch_admin_id,$ledger_particular,$type);
 
 	    //Reverse First Payment  
-	    $module_name = "Corporate Advance Payment";
+	    $module_name = "Customer Advance";
 	    $module_entry_id = $advance_id;
 	    $transaction_id = $transaction_id1;
 	    $payment_amount = $payment_amount_old;
@@ -324,7 +324,7 @@ public function bank_cash_book_update($clearance_status1)
 
 	$payment_date1 = date('Y-m-d', strtotime($payment_date));
 	
-	$module_name = "Corporate Advance Payment";
+	$module_name = "Customer Advance";
 	$module_entry_id = $advance_id;
 	$payment_date = $payment_date1;
 	$payment_amount = $payment_amount1;

@@ -96,6 +96,11 @@ $('#frm_save').validate({
     var particular = $('#particular').val();
     var branch_admin_id = $('#branch_admin_id1').val();
     
+    if(payment_mode == 'Advance'||payment_mode == 'Credit Note'||payment_mode == 'Credit Card'){
+      $('#btn_save').prop('disabled',false);
+      error_msg_alert("Please select other payment mode!");
+      return false;
+    }
     $.post(base_url+'view/load_data/finance_date_validation.php', { check_date: payment_date }, function(data){
       if(data !== 'valid'){
         error_msg_alert("The Payment date does not match between selected Financial year.");

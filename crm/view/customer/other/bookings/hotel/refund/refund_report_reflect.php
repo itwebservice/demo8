@@ -43,7 +43,7 @@ $bal_amount = $paid_amount - $sale_amount;
 						<th>Mode</th>
 						<th>Bank Name</th>
 						<th>Cheque_No/ID</th>
-						<th class="text-right success">Amount</th>
+						<th class="success">Amount</th>
 					</tr>
 				</thead>
 				<tbody>

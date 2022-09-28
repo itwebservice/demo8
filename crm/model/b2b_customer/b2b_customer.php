@@ -76,7 +76,7 @@ class b2b_customer{
         $cust_name = $pdf_data_array[0]->cust_name;
         $contact_no = $pdf_data_array[0]->contact_no;
 
-        $whatsapp_msg = 'Hello%20Dear%20'.rawurlencode($cust_name).',%0aHope%20you%20are%20doing%20great.%20This%20is%20tour%20quotation%20details%20as%20per%20your%20request.%20We%20look%20forward%20to%20having%20you%20onboard%20with%20us.%0a'.'%0a*Link*%20:%20'.$url.'%0aPlease%20contact%20for%20more%20details%20:%20'.$mobile_no.'%0aThank%20you.%0a';
+        $whatsapp_msg = 'Dear%20'.rawurlencode($cust_name).',%0aHope%20you%20are%20doing%20great.%20This%20is%20tour%20quotation%20details%20as%20per%20your%20request.%20We%20look%20forward%20to%20having%20you%20onboard%20with%20us.%0a'.'%0a*Link*%20:%20'.$url.'%0aPlease%20contact%20for%20more%20details%20:%20'.$mobile_no.'%0aThank%20you.%0a';
         $all_message .=$whatsapp_msg;
 
         $link = 'https://web.whatsapp.com/send?phone='.$contact_no.'&text='.$all_message;

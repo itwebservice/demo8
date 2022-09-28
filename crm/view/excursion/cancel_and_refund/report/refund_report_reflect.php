@@ -22,7 +22,7 @@ if($from_date!='' && $to_date!=''){
 		<tr class="table-heading-row">
 			<th>S_No.</th>
 			<th>Booking_ID</th>
-			<th>Passenger_name&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			<th>Refund_To</th>
 			<th>Refund_ID</th>
 			<th>Refund_Date</th>
 			<th>Mode</th>
@@ -49,8 +49,12 @@ if($from_date!='' && $to_date!=''){
 			$yr = explode("-", $date);
 			$year =$yr[0];
 			$yr1 = explode("-", $row_refund['refund_date']);
-			$year1 =$yr[0];
-			$cust_name .= $sq_entry_info['first_name'].' '.$sq_entry_info['last_name'];												
+			$year1 = $yr[0];
+			if($sq_entry_info['type']=='Corporate'||$sq_entry_info['type'] == 'B2B'){
+				$cust_name .= $sq_entry_info['company_name'];
+			}else{
+				$cust_name .= $sq_entry_info['first_name'].' '.$sq_entry_info['last_name'];
+			}
 		
 			$total_refund = $total_refund+$row_refund['refund_amount']; 
 			

@@ -131,8 +131,8 @@ function upload_hotel_pic_attch()
       onSubmit: function(file, ext)
       {  
         if (! (ext && /^(jpg|png|jpeg|pdf)$/.test(ext))){ 
-         error_msg_alert('Only JPG, PNG or pdf files are allowed');
-         return false;
+          error_msg_alert('Only JPG, PNG, pdf files are allowed');
+          return false;
         }
         $(btnUpload).find('span').text('Uploading...');
       },

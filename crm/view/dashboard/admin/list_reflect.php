@@ -27,16 +27,16 @@ else{
               </thead>
               <tbody>
               <?php 
-             while($row_entry = mysqli_fetch_assoc($sq_entry)){
-           			if($row_entry['status']=="Cancel")
-           			{
-           				$bg="danger";
-           			}
-           			else
-           			{
-           				$bg="#fff";
-           			}
-           			$count++;
+              while($row_entry = mysqli_fetch_assoc($sq_entry)){
+                  if($row_entry['status']=="Cancel")
+                  {
+                    $bg="danger";
+                  }
+                  else
+                  {
+                    $bg="#fff";
+                  }
+                  $count++;
               ?>
                 <tr class="<?= $bg ?>">
                     <td><?php echo $count ?></td>

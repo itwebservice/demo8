@@ -20,7 +20,7 @@ $email_id = $encrypt_decrypt->fnDecrypt($sq_vendor['email_id'], $secret_key);
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Update Flight-Ticket Supplier Information</h4>
+        <h4 class="modal-title" id="myModalLabel">Update Flight-Ticket Supplier Details</h4>
       </div>
       <div class="modal-body">
         <div class="panel panel-default panel-body app_panel_style feildset-panel">

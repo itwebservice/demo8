@@ -115,19 +115,24 @@
           </div>
         </div>
         <div class="row">     
-              <div class="col-md-3 mg_bt_10_sm_xs">
-                <div class="div-upload pull-left" id="div_upload_button">
-                    <div id="payment_evidence_upload" class="upload-button1"><span>Payment Evidence</span></div>
-                    <span id="payment_evidence_status" ></span>
-                    <ul id="files" ></ul>
-                    <input type="hidden" id="payment_evidence_url" name="payment_evidence_url">
-                </div>
-              </div>  
-               <div class="col-md-9 col-sm-9 no-pad mg_bt_20">
-                 <span style="color: red;line-height: 35px;" data-original-title="" title="" class="note"><?= "Please make sure Date, Amount, Mode, Debitor bank entered properly." ?></span>
-               </div>   
+            <div class="col-md-3 mg_bt_10_sm_xs">
+              <div class="div-upload pull-left" id="div_upload_button">
+                  <div id="payment_evidence_upload" class="upload-button1"><span>Payment Evidence</span></div>
+                  <span id="payment_evidence_status" ></span>
+                  <ul id="files" ></ul>
+                  <input type="hidden" id="payment_evidence_url" name="payment_evidence_url">
+              </div>
+            </div>  
+            <div class="col-md-9 col-sm-9 no-pad mg_bt_20">
+              <span style="color: red;line-height: 35px;" data-original-title="" title="" class="note"><?= "Please make sure Date, Amount, Mode, Debitor bank entered properly." ?></span>
+            </div>
         </div>
-      </div> 
+          <div class="row">  
+            <div class="col-md-12">
+              <span style="color: red;line-height: 35px;" data-original-title="" title="" class="note"><?= "Note: Only JPG, PNG, pdf files are allowed." ?></span>
+            </div>
+          </div>
+        </div>
 			<div class="row">
 				<div class="col-xs-12 text-center">
 					<button class="btn btn-sm btn-success" id="btn_save_expense"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save</button>
@@ -156,8 +161,8 @@ function payment_evidance_upload()
       onSubmit: function(file, ext)
       {  
         if (! (ext && /^(jpg|png|jpeg|pdf)$/.test(ext))){ 
-         error_msg_alert('Only JPG, PNG or pdf files are allowed');
-         return false;
+          error_msg_alert('Only JPG, PNG, pdf files are allowed');
+          return false;
         }
         $(btnUpload).find('span').text('Uploading...');
       },
@@ -188,8 +193,8 @@ function upload_invoice_pic_attch()
       onSubmit: function(file, ext)
       {  
         if (! (ext && /^(jpg|png|jpeg|pdf)$/.test(ext))){ 
-         error_msg_alert('Only JPG, PNG or pdf files are allowed');
-         return false;
+          error_msg_alert('Only JPG, PNG or pdf files are allowed');
+          return false;
         }
         $(btnUpload).find('span').text('Uploading...');
       },

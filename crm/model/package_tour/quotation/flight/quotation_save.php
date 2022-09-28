@@ -128,7 +128,7 @@ public function quotation_whatsapp(){
 	}
 	
 
-	$whatsapp_msg = rawurlencode('Hello Dear '.$sq_quotation['customer_name'].',
+	$whatsapp_msg = rawurlencode('Dear '.$sq_quotation['customer_name'].',
 Hope you are doing great. This is flight quotation details as per your request. We look forward to having you onboard with us.'.$sector_string.'
 *Quotation Cost* : '.$currency.$sq_quotation['quotation_cost'].'
 

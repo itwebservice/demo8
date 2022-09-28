@@ -54,7 +54,7 @@ public function quotation_master_save()
       }
     }
 
-	$enquiry_content = '[{"name":"total_pax","value":"'.$total_pax.'"},{"name":"days_of_traveling","value":"'.$days_of_traveling.'"},{"name":"traveling_date","value":"'.$traveling_date.'"},{"name":"vehicle_type","value":"'.$vehicle_type.'"},{"name":"travel_type","value":"'.$travel_type.'"},{"name":"budget","value":"0"},{"name":"places_to_visit","value":"'.$places_to_visit.'"}]';
+	$enquiry_content = '[{"name":"total_pax","value":"'.$total_pax.'"},{"name":"days_of_traveling","value":"'.$days_of_traveling.'"},{"name":"traveling_date","value":"'.$traveling_date.'"},{"name":"vehicle_type","value":"'.''.'"},{"name":"travel_type","value":"'.$travel_type.'"},{"name":"budget","value":"0"},{"name":"places_to_visit","value":"'.$places_to_visit.'"}]';
 
 	$traveling_date = get_datetime_db($traveling_date);	
 	$quotation_date = get_date_db($quotation_date);
@@ -120,7 +120,7 @@ public function quotation_whatsapp(){
 	}
 	$route = ($sq_quotation['travel_type'] == "Local") ? $sq_quotation['local_places_to_visit']: $sq_quotation['places_to_visit'];
 
-	$whatsapp_msg = rawurlencode('Hello Dear '.$sq_quotation['customer_name'].',
+	$whatsapp_msg = rawurlencode('Dear '.$sq_quotation['customer_name'].',
 Hope you are doing great. This is car on rent quotation details as per your request. We look forward to having you onboard with us.
 *Route* : '.$route.'
 *Total Days* : '.$sq_quotation['days_of_traveling'].' Days

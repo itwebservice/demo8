@@ -302,11 +302,11 @@ while($row_customer = mysqli_fetch_assoc($sq_customer)){
 		number_format($row_customer['cancel_amount'],2),
 		number_format($servie_total-$row_customer['cancel_amount'],2),
 		number_format($payment_amount,2),
-		'<button class="btn btn-info btn-sm" onclick="payment_view_modal('.$row_customer['booking_id'] .')"  data-toggle="tooltip" title="View Detail"><i class="fa fa-eye" aria-hidden="true"></i></button>',
+		'<button class="btn btn-info btn-sm" onclick="payment_view_modal('.$row_customer['booking_id'] .')"  data-toggle="tooltip" title="View Details"><i class="fa fa-eye" aria-hidden="true"></i></button>',
 		number_format($balance_amount, 2),
 		number_format($total_purchase,2),
 		$vendor_name1,
-		'<button class="btn btn-info btn-sm" onclick="supplier_view_modal('. $row_customer['booking_id'] .')" data-toggle="tooltip" title="View Detail"><i class="fa fa-eye" aria-hidden="true"></i></button>',
+		'<button class="btn btn-info btn-sm" onclick="supplier_view_modal('. $row_customer['booking_id'] .')" data-toggle="tooltip" title="View Details"><i class="fa fa-eye" aria-hidden="true"></i></button>',
 		$emp_name,
 		), "bg" =>$bg);
 	array_push($array_s,$temp_arr);

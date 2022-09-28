@@ -41,7 +41,7 @@ $query .= " order by misc_id desc";
 	    <tr class="table-heading-row">
 	    <th>S_No.</th>
 			<th>Booking_ID</th>
-			<th>Customer Name</th>
+			<th>Customer_Name</th>
 			<th>Passenger_Name</th>
 			<th>Birth_date</th>
 			<th>Adolescence</th>

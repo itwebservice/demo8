@@ -10,7 +10,7 @@ $branch_status = $sq['branch_status'];
 <div class="row text-right mg_bt_20">
 	<div class="col-xs-12">
 		<button class="btn btn-excel btn-sm" onclick="excel_report()" data-toggle="tooltip" title="Generate Excel"><i class="fa fa-file-excel-o"></i></button>
-		<button class="btn btn-info ico_left btn-sm" id="btn_new_cash" onclick="inter_banks_modal()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Transfers</button>
+		<button class="btn btn-info ico_left btn-sm" id="btn_new_cash" onclick="inter_banks_modal()"><i class="fa fa-plus"></i>&nbsp;&nbsp;Bank Transfers</button>
 	</div>
 </div>
 

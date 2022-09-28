@@ -3,68 +3,68 @@ include "../../../model/model.php";
 ?>
 <form id="frm_save">
 <div class="modal fade" id="save_modal" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Activity Inventory</h4>
-      </div>
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Activity Inventory</h4>
+		</div>
 
-      <div class="modal-body">
+		<div class="modal-body">
+				<div class="row mg_bt_10">
+					<div class="col-sm-4 mg_bt_10_xs">
+						<input type="text" id="purchase_date" name="purchase_date" placeholder="*Purchase Date" title="Purchase Date">
+					</div>
+					<div class="col-sm-4 mg_bt_10_xs">
+						<select name="city_id" id="city_id" title="Select City" style="width:100%" onchange="load_hotel_list(this.id); ">
+						</select>
+					</div>
+					<div class="col-sm-4 mg_bt_10_xs">
+						<select name="exc_name1" id="exc_name1" title="Select Activity" style="width:100%">
+							<option value="">*Select Activity</option>
+						</select>
+					</div>
+				</div>
+				<div class="row mg_bt_10">
+					<div class="col-sm-4">
+						<input type="text" id="total_tickets" name="total_tickets" placeholder="*Total Tickets" title="Total Tickets" onchange="validate_balance(this.id);">
+					</div>
+					<div class="col-sm-4 mg_bt_10_xs">
+						<input type="text" id="from_date" onchange="get_to_date(this.id,'to_date')" name="from_date" placeholder="*Valid From Date" title="Valid From Date" >
+					</div>
+					<div class="col-sm-4 mg_bt_10_xs">
+						<input type="text" id="to_date" name="to_date" placeholder="*Valid To Date" title="Valid To Date" onchange="validate_validDate('from_date','to_date')">
+					</div>
+				</div>
+				<div class="row mg_bt_10">
+					<div class="col-sm-4 mg_bt_10_xs">
+						<input type="text" id="cancel_date" name="cancel_date" placeholder="Cancellation Date" title="Cancellation Date">
+					</div>
+					<div class="col-sm-4">
+						<input type="text" id="rate" name="rate" placeholder="*Rate" title="Rate" onchange="validate_balance(this.id);">
+					</div>
+					<div class="col-sm-4 mg_bt_10_xs">
+						<input type="text" id="reminder1" name="reminder1" placeholder="Reminder Date1" title="Reminder Date1">
+					</div>
+				</div>
 			<div class="row mg_bt_10">
-				<div class="col-sm-4 mg_bt_10_xs">
-					<input type="text" id="purchase_date" name="purchase_date" placeholder="*Purchase Date" title="Purchase Date">
+					<div class="col-sm-4 mg_bt_10_xs">
+						<input type="text" id="reminder2" name="reminder2" placeholder="Reminder Date2" title="Reminder Date2">
+					</div>
+					<div class="col-sm-4 mg_bt_10_xs">
+						<textarea placeholder="Note" title="Note" id="note" name="note" rows="2"></textarea>
+					</div>
 				</div>
-				<div class="col-sm-4 mg_bt_10_xs">
-					<select name="city_id" id="city_id" title="Select City" style="width:100%" onchange="load_hotel_list(this.id); ">
-					</select>
+				<div class="row mg_tp_20 text-center">
+					<div class="col-md-12">
+						<button class="btn btn-sm btn-success" id="btn_save"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save</button>
+					</div>
 				</div>
-				<div class="col-sm-4 mg_bt_10_xs">
-					<select name="exc_name1" id="exc_name1" title="Select Activity" style="width:100%">
-						<option value="">*Select Activity</option>
-					</select>
-				</div>
-			</div>
-			<div class="row mg_bt_10">
-				<div class="col-sm-4">
-					<input type="text" id="total_tickets" name="total_tickets" placeholder="*Total Tickets" title="Total Tickets" onchange="validate_balance(this.id);">
-				</div>
-				<div class="col-sm-4 mg_bt_10_xs">
-					<input type="text" id="from_date" onchange="get_to_date(this.id,'to_date')" name="from_date" placeholder="*Valid From Date" title="Valid From Date" >
-				</div>
-				<div class="col-sm-4 mg_bt_10_xs">
-					<input type="text" id="to_date" name="to_date" placeholder="*Valid To Date" title="Valid To Date" onchange="validate_validDate('from_date','to_date')">
-				</div>
-		   	</div>
-		    <div class="row mg_bt_10">
-				<div class="col-sm-4 mg_bt_10_xs">
-					<input type="text" id="cancel_date" name="cancel_date" placeholder="Cancellation Date" title="Cancellation Date">
-				</div>
-				<div class="col-sm-4">
-					<input type="text" id="rate" name="rate" placeholder="Rate" title="Rate" onchange="validate_balance(this.id);">
-				</div>
-				<div class="col-sm-4 mg_bt_10_xs">
-					<input type="text" id="reminder1" name="reminder1" placeholder="Reminder Date1" title="Reminder Date1">
-				</div>
-			</div>
-		   <div class="row mg_bt_10">
-				<div class="col-sm-4 mg_bt_10_xs">
-					<input type="text" id="reminder2" name="reminder2" placeholder="Reminder Date2" title="Reminder Date2">
-				</div>
-				<div class="col-sm-4 mg_bt_10_xs">
-			 		<textarea placeholder="Note" title="Note" id="note" name="note" rows="2"></textarea>
-				 </div>
-			 </div>
-			<div class="row mg_tp_20 text-center">
-				<div class="col-md-12">
-					<button class="btn btn-sm btn-success" id="btn_save"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save</button>
-				</div>
-			</div>
-      </div>
+		</div>
 
-    </div>
+		</div>
 
-  </div>
+	</div>
 
 </div>
 
@@ -81,11 +81,11 @@ $('#save_modal').modal('show');
 
 /**Hotel Name load start**/
 function load_hotel_list(id){
-  var city_id = $("#"+id).val();
-  var count = id.substring(10);
-  $.get( "excursion/exc_name_load.php" , { city_id : city_id } , function ( data ) {
-    $ ("#exc_name1"+count).html(data);
-  });
+	var city_id = $("#"+id).val();
+	var count = id.substring(10);
+	$.get( "excursion/exc_name_load.php" , { city_id : city_id } , function ( data ) {
+		$ ("#exc_name1"+count).html(data);
+	});
 }
 
 $(function(){
@@ -96,7 +96,8 @@ $(function(){
 			exc_name1 : { required : true },
 			from_date : { required : true },
 			to_date : { required : true },
-			total_tickets : { required : true }
+			total_tickets : { required : true },
+			rate : { required : true }
 		},
 		submitHandler:function(form){
 

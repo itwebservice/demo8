@@ -129,7 +129,7 @@ $row_count = 6;
 $objPHPExcel->setActiveSheetIndex(0)
         ->setCellValue('B'.$row_count, "Sr. No")
         ->setCellValue('C'.$row_count, "Booking ID")
-        ->setCellValue('D'.$row_count, "Passenger_name")
+        ->setCellValue('D'.$row_count, "Refund To")
         ->setCellValue('E'.$row_count, "Refund Id")
         ->setCellValue('F'.$row_count, "Refund Date")
         ->setCellValue('G'.$row_count, "Mode")
@@ -144,7 +144,11 @@ $row_count++;
 while($row_refund = mysqli_fetch_assoc($sq_refund)){
       $cust_name = "";
       $sq_entry_info = mysqli_fetch_assoc(mysqlQuery("select * from customer_master where customer_id=(select customer_id from excursion_master where exc_id='$row_refund[exc_id]')"));
-      $cust_name .= $sq_entry_info['first_name'].' '.$sq_entry_info['last_name']; 
+      if($sq_entry_info['type']=='Corporate'||$sq_entry_info['type'] == 'B2B'){
+          $cust_name .= $sq_entry_info['company_name'];
+      }else{
+          $cust_name .= $sq_entry_info['first_name'].' '.$sq_entry_info['last_name'];
+      }
 
       $total_refund = $total_refund+$row_refund['refund_amount']; 
       $sq_date =  mysqli_fetch_assoc(mysqlQuery("select * from excursion_master where exc_id='$row_refund[exc_id]'"));

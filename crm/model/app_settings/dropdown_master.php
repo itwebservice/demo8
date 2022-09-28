@@ -1026,13 +1026,13 @@ function get_hotel_category_dropdown(){
 }
 function get_ferry_types(){
   echo '
-  <option value="">*Select Ferry Class</option>
+  <option value="">*Select Ferry/Cruise Class</option>
   <option value="Business Class">Business Class</option>
   <option value="Luxury Class">Luxury Class</option>
   <option value="Royal Class">Royal Class</option>
   <option value="Economy Class">Economy Class</option>
   <option value="Premium Class">Premium Class</option>
-  <option value="Premium Class Plus">Premium Plus Class</option>
+  <option value="Premium Plus Class">Premium Plus Class</option>
   <option value="Deluxe Class">Deluxe Class</option>';
 }
 function get_bike_types(){

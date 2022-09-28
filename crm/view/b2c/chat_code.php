@@ -16,11 +16,9 @@ $query = mysqli_fetch_assoc(mysqlQuery("SELECT tidio_chat FROM `b2c_settings` wh
     </div>
     <div class="row mg_tp_20">
         <div class="col-xs-12">
-            <h5>Payment gateway website reference :</h5>
+            <h5>Please make the registration in Tidio website and add the API key :</h5>
             <ul>
-                <li><a target="_blank" href="https://razorpay.com/"> Razor Pay </a></li>
-                <li><a target="_blank" href="https://www.ccavenue.com/"> CCAvenue </a></li>
-                <li><a target="_blank" href="https://www.payu.in/"> PayU Money </a></li>
+                <a target="_blank" href="https://www.tidio.com/"> Tidio </a>
             </ul>
         </div>
     </div>

@@ -36,7 +36,7 @@ if($estimate_type=="Group Tour"){
         <?php 
         if($estimate_type_id==""){
         ?>
-        <option value=""> Select Tour Group </option>
+        <option value=""> Select Tour Date </option>
         <?php
         }
         else{

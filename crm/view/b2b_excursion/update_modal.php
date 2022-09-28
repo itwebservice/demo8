@@ -16,7 +16,7 @@ $exc_name = ($sq_exc['excursion_name']);
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Update Activity</h4>
+        <h4 class="modal-title" id="myModalLabel">Update Activity Details And Tariff</h4>
       </div>
       <div class="modal-body">	
 		<div class="row">
@@ -169,7 +169,7 @@ $exc_name = ($sq_exc['excursion_name']);
 													<option value=''>Amount In</option>
 													<option value='Flat'>Flat</option>
 													<option value='Percentage'>Percentage</option></select></td>
-												<td><input type='number' id="amount" name="amount" placeholder="*Markup Amount" class="form-control" title="Markup Amount" style="width: 147px;"/></td>
+												<td><input type='number' id="amount" name="amount" placeholder="*Markup Amount" class="form-control" title="Markup Amount" style="width: 147px;" onchange="validate_balance(this.id);"/></td>
 												<td><input type="hidden" id="entry_id" name="entry_id" /></td>
 											</tr>
 										<?php }
@@ -198,7 +198,7 @@ $exc_name = ($sq_exc['excursion_name']);
 															<option value=''>Amount In</option>
 															<option value='Flat'>Flat</option>
 															<option value='Percentage'>Percentage</option></select></td>
-														<td><input type='number' id="amount-u" name="amount" placeholder="*Markup Amount" value='<?= $row_basic['markup_cost'] ?>' class="form-control" title="Markup Amount" style="width: 147px;"/></td>
+														<td><input type='number' id="amount-u" name="amount" placeholder="*Markup Amount" value='<?= $row_basic['markup_cost'] ?>' class="form-control" title="Markup Amount" style="width: 147px;" onchange="validate_balance(this.id);"/></td>
 														<td><input type="hidden" id="entry_id" name="entry_id" value='<?= $row_basic['entry_id'] ?>' /></td>
 													</tr>
 													<script>

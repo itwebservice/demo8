@@ -658,6 +658,7 @@ function profit_and_loss_total_reflect()
 		$('#net_loss_block').addClass('hidden');
 		profit1 = profit1.toFixed(2);
 		$('#net_profit').text(profit1);
+		console.log(profit1);
 		var total_purchase1 = parseFloat(id4_total) + parseFloat(profit1);
 		total_purchase1 = total_purchase1.toFixed(2);
 		$('#span_total_sales_d2').text(total_purchase1);
@@ -666,7 +667,7 @@ function profit_and_loss_total_reflect()
 		$.ajax({
 			type: 'post',
 			url: base_url+'controller/finance_master/reports/profit_loss_transfer.php',
-			data:{ total_purchase1 : profit1,profit_loss : profit_loss,today_date : today_date,branch_admin_id : branch_admin_id },
+			data:{ profit_amount : profit1,profit_loss : profit_loss,today_date : today_date,branch_admin_id : branch_admin_id },
 			success: function(result){	
 			}
 		});
@@ -686,8 +687,9 @@ function profit_and_loss_total_reflect()
 		$.ajax({
 			type: 'post',
 			url: base_url+'controller/finance_master/reports/profit_loss_transfer.php',
-			data:{ total_purchase1 : loss1,profit_loss : profit_loss,today_date : today_date,branch_admin_id : branch_admin_id },
+			data:{ profit_amount : loss1,profit_loss : profit_loss,today_date : today_date,branch_admin_id : branch_admin_id },
 			success: function(result){	
+				console.log(result);
 			}
 		});
 	}

@@ -142,7 +142,7 @@ public function quotation_reply_email($request_id,$hotel_cost,$total_cost,$curre
 	global $app_email_id, $app_name, $app_contact_no, $admin_logo_url, $app_website;
 	$date = $created_at;
 	$yr = explode("-", $date);
-	$year =$yr[0];
+	$year1 =$yr[0];
 	$transport_cost = ($transport_cost == '')?  0 : $transport_cost;
 	$hotel_cost = ($hotel_cost == '')? 0 : $hotel_cost;
 	$excursion_cost = ($excursion_cost == '')?  0 : $excursion_cost;
@@ -161,7 +161,7 @@ public function quotation_reply_email($request_id,$hotel_cost,$total_cost,$curre
 		$content = '
 			<tr>
 			<table width="85%" cellspacing="0" cellpadding="5" style="color: #888888;border: 1px solid #888888;margin: 0px auto;margin-top:20px; min-width: 100%;" role="presentation">
-				<tr><td style="text-align:left;border: 1px solid #888888;">Request ID</td>   <td style="text-align:left;border: 1px solid #888888;">'.ge_vendor_request_id($request_id,$year).'</td></tr>
+				<tr><td style="text-align:left;border: 1px solid #888888;">Quotation ID</td>   <td style="text-align:left;border: 1px solid #888888;">'.ge_vendor_request_id($request_id,$year1).'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Enquiry ID</td>   <td style="text-align:left;border: 1px solid #888888;" >'.$enquiry_id.'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Transport Cost</td>   <td style="text-align:left;border: 1px solid #888888;">'.$currency_code.' '.$hotel_cost.'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Total Cost</td>   <td style="text-align:left;border: 1px solid #888888;">'.$currency_code.' '.$total_cost.'</td></tr>
@@ -185,7 +185,7 @@ public function quotation_reply_email($request_id,$hotel_cost,$total_cost,$curre
 		$content = '
 		<tr>
 			<table width="85%" cellspacing="0" cellpadding="5" style="color: #888888;border: 1px solid #888888;margin: 0px auto;margin-top:20px; min-width: 100%;" role="presentation">
-			<tr><td style="text-align:left;border: 1px solid #888888;">Request ID</td>   <td style="text-align:left;border: 1px solid #888888;">'.ge_vendor_request_id($request_id,$year).'</td></tr>
+			<tr><td style="text-align:left;border: 1px solid #888888;">Quotation ID</td>   <td style="text-align:left;border: 1px solid #888888;">'.ge_vendor_request_id($request_id,$year1).'</td></tr>
 			<tr><td style="text-align:left;border: 1px solid #888888;">Enquiry ID</td>   <td style="text-align:left;border: 1px solid #888888;" >'.$enquiry_id.'</td></tr>
 			<tr><td style="text-align:left;border: 1px solid #888888;">Hotel Cost</td>   <td style="text-align:left;border: 1px solid #888888;">'.$currency_code.' '.$hotel_cost.'</td></tr>
 			<tr><td style="text-align:left;border: 1px solid #888888;">Total Cost</td>   <td style="text-align:left;border: 1px solid #888888;">'.$currency_code.' '.$total_cost.'</td></tr>
@@ -208,7 +208,7 @@ public function quotation_reply_email($request_id,$hotel_cost,$total_cost,$curre
 		$content = '
 		<tr>
 			<table width="85%" cellspacing="0" cellpadding="5" style="color: #888888;border: 1px solid #888888;margin: 0px auto;margin-top:20px; min-width: 100%;" role="presentation">
-				<tr><td style="text-align:left;border: 1px solid #888888;">Request ID</td>   <td style="text-align:left;border: 1px solid #888888;">'.ge_vendor_request_id($request_id,$year).'</td></tr>
+				<tr><td style="text-align:left;border: 1px solid #888888;">Quotation ID</td>   <td style="text-align:left;border: 1px solid #888888;">'.ge_vendor_request_id($request_id,$year1).'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Enquiry ID</td>   <td style="text-align:left;border: 1px solid #888888;" >'.$enquiry_id.'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Transport Cost</td>   <td style="text-align:left;border: 1px solid #888888;">'.$currency_code.' '.$transport_cost.'</td></tr>
 				<tr><td style="text-align:left;border: 1px solid #888888;">Activity Cost</td>   <td style="text-align:left;border: 1px solid #888888;">'.$currency_code.' '.$excursion_cost.'</td></tr>
