@@ -2492,7 +2492,7 @@ $date1 = str_replace('-', '/', $date);
                             </div> -->
                         </div>
                     </div>
-                <? } ?>
+                <?php } ?>
 
 
             </div>
