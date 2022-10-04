@@ -1949,7 +1949,7 @@ margin:15px;
 .slick-dots li.slick-active button:before{
 color:#ff5722;
 }
-.sliick-dots li button:before{
+.slick-dots li button:before{
 font-size: 12px;
 }
 .slick-next:before,
