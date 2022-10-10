@@ -1885,7 +1885,7 @@ flex-wrap: wrap;
 }
 
 .ts-social-media-item {
-margin-right: 30px;
+margin-right: 20px;
 }
 
 /***************** Sticky social media *******************/
