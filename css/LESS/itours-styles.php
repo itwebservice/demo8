@@ -1931,7 +1931,7 @@ background: #ff0000;
 /***************** End Sticky social media *******************/
 
 /***************** Partner slider *******************/
-img{
+.logo-slider img{
 width: 100%;
 }
 
