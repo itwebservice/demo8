@@ -1,16 +1,13 @@
-<?php  
-  include '../../crm/model/model.php';
-  $data = mysqli_fetch_array(mysqlQuery('SELECT * FROM `b2c_color_scheme`'));
-  if(!empty($data))
-  {
-    $btnColor = $data['button_color'];
-    $primaryColor = $data['text_primary_color'];
-  }
-  else
-  {
-    $btnColor = '#ff5300'; 
-    $primaryColor = '#f68c34'; 
-  }
+<?php
+include '../../crm/model/model.php';
+$data = mysqli_fetch_array(mysqlQuery('SELECT * FROM `b2c_color_scheme`'));
+if (!empty($data)) {
+  $btnColor = $data['button_color'];
+  $primaryColor = $data['text_primary_color'];
+} else {
+  $btnColor = '#ff5300';
+  $primaryColor = '#f68c34';
+}
 ?>
 /* ----------------------------------------------
 Component :: Font Setting
@@ -1656,7 +1653,7 @@ width: 270px;
 height: 160px;
 position: relative;
 }
-.c-cardListTable .cardList-image img {
+.c-cardListTable .cardList-image span {
 display: block;
 width: 270px;
 height: 160px;
@@ -2108,7 +2105,7 @@ box-shadow: 0 1px 4px #e6e6e6;
 /* -- Car -- */
 @media (max-width: 990px) {
 .c-cardListTable .cardList-image,
-.c-cardListTable .cardList-image img {
+.c-cardListTable .cardList-image span {
 width: 170px;
 }
 .hotelInfo.cust {
@@ -2134,7 +2131,7 @@ line-height: 20px;
 display: block;
 }
 .c-cardListTable .cardList-image,
-.c-cardListTable .cardList-image img,
+.c-cardListTable .cardList-image span,
 .c-cardList.activity > .c-cardListTable .cardList-image,
 .c-cardList.activity > .c-cardListTable .cardList-image img {
 display: block;
