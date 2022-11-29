@@ -18,8 +18,10 @@ if (sizeof($visa_results_array) > 0) {
         aria-controls="collapseExample">
         <!-- *** Visa Card image *** -->
         <div class="cardList-image">
-            <span class="fi fi-<?= strtolower($visa_results_array[$visa_i]['country_code']) ?>"></span>
-            <!-- alt="<?php echo $visa_results_array[$visa_i]['visa_name']; ?>" /> -->
+            <div class="flag">
+                <span class="fi fi-<?= strtolower($visa_results_array[$visa_i]['country_code']) ?>"></span>
+                <!-- alt="<?php echo $visa_results_array[$visa_i]['visa_name']; ?>" /> -->
+            </div>
         </div>
         <!-- *** Visa Card image End *** -->
 
