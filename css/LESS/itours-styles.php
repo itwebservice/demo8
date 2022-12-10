@@ -1,14 +1,3 @@
-<?php
-include '../../crm/model/model.php';
-$data = mysqli_fetch_array(mysqlQuery('SELECT * FROM `b2c_color_scheme`'));
-if (!empty($data)) {
-  $btnColor = $data['button_color'];
-  $primaryColor = $data['text_primary_color'];
-} else {
-  $btnColor = '#ff5300';
-  $primaryColor = '#f68c34';
-}
-?>
 /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v8.4.12,
@@ -174,7 +163,7 @@ position: absolute;
 right: 0;
 top: 0;
 content: "";
-background: <?= $btnColor ?>;
+background: var(--main-bg-color);
 width: 24px;
 height: 100%;
 }
@@ -828,7 +817,7 @@ width: 30px;
 height: 33px;
 text-align: center;
 line-height: 34px;
-background: <?= $btnColor ?>;
+background: var(--main-bg-color);
 }
 
 .datepicker-wrap.yellow:after {
@@ -1261,7 +1250,7 @@ margin-left: 65px;
 content: "";
 width: 55px;
 height: 2px;
-background-color: <?= $primaryColor ?>;
+background-color: var(--main-primary-color);
 display: inline-block;
 position: absolute;
 right: 100%;
@@ -1449,7 +1438,7 @@ transition: all ease-in-out 0.3s;
 
 .ts-blog-card-link,
 .ts-blog-card-link:hover {
-background-color: <?= $btnColor ?>;
+background-color: var(--main-bg-color);
 color: #ffffff;
 text-decoration: none;
 }
@@ -1467,7 +1456,7 @@ align-items: center;
 -webkit-box-pack: center;
 -ms-flex-pack: center;
 justify-content: center;
-background-color: <?= $btnColor ?>;
+background-color: var(--main-bg-color);
 opacity: 0;
 -webkit-transition: all ease-in-out 0.3s;
 -o-transition: all ease-in-out 0.3s;
@@ -1731,7 +1720,7 @@ transition: all ease-in-out 0.3s;
 }
 
 .btn-primary {
-background: <?= $btnColor ?>;
+background: var(--main-bg-color);
 color: #ffffff;
 }
 
@@ -1770,7 +1759,7 @@ background-position: center;
 
 .ts-contact-info-icon {
 background: #ffffff;
-color: <?= $primaryColor ?>;
+color: var(--main-primary-color);
 width: 50px;
 height: 50px;
 border-radius: 50%;
@@ -1996,7 +1985,7 @@ height: 100%;
 }
 
 .ts-reason-icon__inner {
-background-color: <?= $primaryColor ?>;
+background-color: var(--main-primary-color);
 width: 60px;
 height: 60px;
 border-radius: 50%;
@@ -2612,7 +2601,7 @@ color: white !important;
 text-decoration: none;
 font-size: 14px;
 padding: 8px 15px;
-background-color: <?= $btnColor ?>;
+background-color: var(--main-bg-color);
 }
 
 .foot-social ul {
@@ -2684,7 +2673,7 @@ box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 width: 50px;
 height: 50px;
 margin: auto;
-background-color: <?= $primaryColor ?>;
+background-color: var(--main-primary-color);
 display: -webkit-box;
 display: -ms-flexbox;
 display: flex;
@@ -2795,7 +2784,7 @@ from(#fbdb24),
 to(#ff5300)
 );
 background: -o-linear-gradient(left, #fbdb24, #ff5300);
-background: <?= $btnColor ?>;
+background: var(--main-bg-color);
 font-size: 15px;
 font-weight: 500;
 text-transform: capitalize;
@@ -3417,13 +3406,13 @@ text-align: right;
 .div-upload {
 padding: 4px 13px 4px 17px;
 background: #fff;
-color: <?= $btnColor ?>;
+color: var(--main-bg-color);
 display: inline-block;
 position: relative;
 font-size: 12px;
 line-height: 24px;
 border-radius: 25px;
-border: 1px solid <?= $btnColor ?>;
+border: 1px solid var(--main-bg-color);
 cursor: pointer;
 -webkit-box-shadow: none;
 box-shadow: none;
