@@ -204,9 +204,10 @@ $date1 = str_replace('-', '/', $date);
                             <div class="row mt-4">
                                 <div class="col">
                                     <div class="tour-service">
-                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/hotel/hotel-listing.php" style="text-decoration: none;">
-                                        <img src="images/hotel.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Hotels</h6></a>
+                                        <a target="_blank" href="<?= BASE_URL_B2C ?>/view/hotel/hotel-listing.php" style="text-decoration: none;">
+                                            <img src="images/hotel.png" class="img-fluid hotel-book" alt="">
+                                            <h6>Hotels</h6>
+                                        </a>
                                     </div>
                                 </div>
                                 <!-- <div class="col">
@@ -347,10 +348,11 @@ $date1 = str_replace('-', '/', $date);
                                 </span>
                             </div>
                             <!-- <div class="widget-card-price" style="top: 100px;">
-                                <h4><?php //echo !empty($package->tariff) ? $package->tariff->cadult : 0.00;  ?></h4>
+                                <h4><?php //echo !empty($package->tariff) ? $package->tariff->cadult : 0.00;  
+                                    ?></h4>
                             </div> -->
                             <div class="ribbon">
-                                <span class="bg-primary">Collaction</span>
+                                <span class="bg-primary">Recommended</span>
                             </div>
                             <div class="widget-hotel-card-item">
                                 <!-- <a href="#" class="hotel-card-item"><i class="fa-solid fa-utensils"></i></a> -->
@@ -752,7 +754,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="great-content text-center">
                 <h2 class="great-title">Get Best Tour Experience With Us!</h2>
                 <p class="great-discription">Find Best Deals For Tour Packages, Hotels, Holidays For<br class="d-none d-lg-block"> India & International Travel, B2B Travel Services.</p>
-                <a href="<?=BASE_URL_B2C?>/view/tours/tours-listing.php" class="btn great-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-play"></i></a>
+                <a href="<?= BASE_URL_B2C ?>/view/tours/tours-listing.php" class="btn great-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-play"></i></a>
             </div>
         </div>
     </section>
@@ -769,7 +771,7 @@ $date1 = str_replace('-', '/', $date);
                 <?php foreach ($Apitransport as $transport) {
                     if (!empty($transport->tariff)) {
                         foreach ($transport->tariff as $tariff) {
-                            $trans_img = ($transport->image_url!='') ? 'crm/'.substr($transport->image_url, 9) : 'crm/'.substr($transport->image_url, 9);
+                            $trans_img = ($transport->image_url != '') ? 'crm/' . substr($transport->image_url, 9) : 'crm/' . substr($transport->image_url, 9);
                             // BASE_URL.'images/taxi.png'
                 ?>
                             <div class="transpotation-cards">
@@ -888,7 +890,7 @@ $date1 = str_replace('-', '/', $date);
                                 <div class="widget-card-ruting widget-card-ruting-restaurant pb-0 mb-0">
                                     <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none mb-2">
                                         <span class="widget-card-ruting-location card-ruting-hotel border-0">
-                                            <i class="fa-solid fa-location-dot"></i> <?= ($hotel->hotel_address!='') ? $hotel->hotel_address : 'NA' ?>
+                                            <i class="fa-solid fa-location-dot"></i> <?= ($hotel->hotel_address != '') ? $hotel->hotel_address : 'NA' ?>
                                         </span>
                                     </a>
                                     <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none mb-2 mt-2">
@@ -2259,23 +2261,23 @@ $date1 = str_replace('-', '/', $date);
                 <h1>Gallery </h1>
                 <p>View Our Recent Client Experiences Of Various Destinations Through Images.</p>
             </div>
-            <div class="row">
+            <div class="showcase">
 
                 <?php foreach ($Apigallery as $image) { ?>
-                    <div class="col col-12 col-md-6 col-lg-4 col-xl-4">
-                        <div class="blog-news">
-                            <div class="blog-news-img">
-                                <img src="crm/<?= substr($image->image_url, 9) ?>" class="img-fluid" alt="">
-                            </div>
-                            <!-- <div class="bolg-text">
+
+                    <div class="blog-news">
+                        <div class="blog-news-img">
+                            <img src="crm/<?= substr($image->image_url, 9) ?>" class="img-fluid" alt="">
+                        </div>
+                        <!-- <div class="bolg-text">
                                 <h4 class="blog-trip">New Trip With Gowell</h4>
                                 <small class="blog-tip text-warning"><i class="fa-solid fa-tag"></i>Blog</small>
                                 <small class="blog-date ms-4"><i class="fa-solid fa-calendar-days"></i>27 Jul
                                     2020</small>
                                 <small class="blog-name ms-4"><i class="fas fa-user"></i>John Smith</small>
                             </div> -->
-                        </div>
                     </div>
+
                 <?php } ?>
 
 
@@ -2287,7 +2289,7 @@ $date1 = str_replace('-', '/', $date);
     <!-- Partner Slider Start -->
     <div class="container best title text-center mt-2 mb-5 pt-2 pb-5">
         <span class="heading-style text-center mt-2 mb-3">Our</span>
-        <h1>Partners</h1>
+        <h1 class=sub-t>Partners</h1>
 
         <?php
         $logos = json_decode($cached_array[0]->cms_data[0]->assoc_logos);
