@@ -337,7 +337,7 @@ $date1 = str_replace('-', '/', $date);
                 ?>
                     <div class="card widget-card border-0">
                         <div class="widget-card-img">
-                            <img src="<?= $package->main_img_url ?>" class="card-img-top" alt="...">
+                            <img src="<?= $file_name ?>" target="_blank" class="card-img-top" alt="...">
                             <!-- <div class="widget-card-price">
                                 <h4>$40 <del>$50</del></h4>
                             </div> -->
@@ -379,7 +379,7 @@ $date1 = str_replace('-', '/', $date);
                             </div>
                         </div>
                         <div class="card-footer widget-card-footer bg-white australia-card-footer">
-                            <a style="cursor:none!important;" class="text-decoration-none" onclick="get_tours_data('<?= $package->destination->dest_id ?>','1')">
+                            <a class="text-decoration-none" onclick="get_tours_data('<?= $package->destination->dest_id ?>','1')">
                                 <span class="widget-card-footer-text"><i class="bi bi-geo-alt fa-solid fa-location-dot"></i> <?= $package->destination->dest_name ?>
                                 </span>
                             </a>
@@ -517,7 +517,7 @@ $date1 = str_replace('-', '/', $date);
                 //var_dump($Apidestination[0]);
                 foreach ($Apidestination as $destination) {  ?>
                     <div class="style-nine-card-item">
-                        <a onclick="get_tours_data('<?= $destination->dest_id ?>','1')">
+                        <a style="cursor:pointer!important;" onclick="get_tours_data('<?= $destination->dest_id ?>','1')">
                             <div class="style-nine-img">
                                 <img src="  <?= $destination->gallery_images[5]->image_url; ?>" alt="" class="img-fluid">
 
@@ -769,12 +769,14 @@ $date1 = str_replace('-', '/', $date);
                 <?php foreach ($Apitransport as $transport) {
                     if (!empty($transport->tariff)) {
                         foreach ($transport->tariff as $tariff) {
+                            $trans_img = ($transport->image_url!='') ? 'crm/'.substr($transport->image_url, 9) : 'crm/'.substr($transport->image_url, 9);
+                            // BASE_URL.'images/taxi.png'
                 ?>
                             <div class="transpotation-cards">
                                 <div class="widget-card-img">
-                                    <img src="crm/<?= substr($transport->image_url, 9) ?>" class="card-img-top img-fluid" alt="...">
+                                    <img src="<?= $trans_img ?>" class="card-img-top img-fluid" alt="...">
                                     <div class="widget-hotel-card-item">
-                                        <a href="#" class="hotel-card-item">
+                                        <a style="cursor: none!important;" class="hotel-card-item">
                                             <i class="fa-regular fa-heart"></i>
                                         </a>
                                     </div>
@@ -848,7 +850,7 @@ $date1 = str_replace('-', '/', $date);
 
 
                     <div class=" widget-card ">
-                        <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')">
+                        <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')">
                             <div class="widget-card-img">
                                 <img src="<?= file_exists('crm/' . substr($hotel->hotel_image->hotel_pic_url, 11)) ? 'crm/' . substr($hotel->hotel_image->hotel_pic_url, 11) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
                                 <!-- <div class="widget-card-price">
@@ -860,10 +862,10 @@ $date1 = str_replace('-', '/', $date);
                                     </span>
                                 </div>
                                 <div class="widget-hotel-card-item">
-                                    <a href="#" class="hotel-card-item1 australia-hart-icon">
+                                    <a style="cursor:none !important;" class="hotel-card-item1 australia-hart-icon">
                                         <i class="fa-solid fa-house"></i>
                                     </a>
-                                    <a href="#" class="hotel-card-item">
+                                    <a style="cursor:none !important;" class="hotel-card-item">
                                         <i class="fa-regular fa-heart"></i>
                                     </a>
                                 </div>
@@ -875,56 +877,36 @@ $date1 = str_replace('-', '/', $date);
 
                         <div class="card-body widget-card-body">
                             <div class="widget-card-reviw widget-card-hotel-title mb-0">
-                                <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none">
+                                <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none">
                                     <h5 class="card-title widget-card-title hotel-card-title">
                                         <?= $hotel->hotel_name ?>
                                     </h5>
                                     <p class="mini-text">
-
                                         <?= $hotel->amenities ?>
                                     </p>
                                 </a>
                                 <div class="widget-card-ruting widget-card-ruting-restaurant pb-0 mb-0">
-                                    <?php
-                                    if($hotel->hotel_address!=''){ ?>
-                                    <a href="#" class="text-decoration-none mb-2">
+                                    <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none mb-2">
                                         <span class="widget-card-ruting-location card-ruting-hotel border-0">
-                                            <i class="fa-solid fa-location-dot"></i> <?= $hotel->hotel_address ?>
+                                            <i class="fa-solid fa-location-dot"></i> <?= ($hotel->hotel_address!='') ? $hotel->hotel_address : 'NA' ?>
                                         </span>
                                     </a>
-                                    <?php } ?>
-                                    <a href="#" class="text-decoration-none mb-2 mt-2">
+                                    <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none mb-2 mt-2">
                                         <span class="widget-card-ruting-calendar card-ruting-hotel border-end-0 pe-0 me-0">
-                                            <i class="fas fa-phone"></i><?php
-                                                                        $mobile_no = $encrypt_decrypt->fnDecrypt($hotel->mobile_no, $secret_key);
-                                                                        echo $mobile_no;
-                                                                        ?>
+                                            <i class="fas fa-phone"></i>
+                                            <?php
+                                            $mobile_no = $encrypt_decrypt->fnDecrypt($hotel->mobile_no, $secret_key);
+                                            echo $mobile_no;
+                                            ?>
                                         </span>
                                     </a>
-                                    <!-- <span class="widget-card-ruting-time border-0 mt-2">
-                                        <i class="fa-regular fa-clock"></i> 10am - 9pm
-                                        <a href="#" class="btn historical-text restaurant-btn-open">Open Now</a>
-                                    </span> -->
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer widget-card-footer restaurant-footer">
                             <div class="widget-star-rating widget-hotel-star">
                                 <small><?= $hotel->rating_star ?></small>
-                                <!-- <input type="checkbox" id="5-restaurant4" name="restaurant4" value="5">
-                                <label for="5-restaurant4" class="widget-card-star">&#9733;</label>
-                                <input type="checkbox" id="4-restaurant4" name="restaurant4" value="4" checked>
-                                <label for="4-restauran4t" class="widget-card-star">&#9733;</label>
-                                <input type="checkbox" id="3-restaurant4" name="restaurant4" value="3">
-                                <label for="3-restaurant4" class="widget-card-star">&#9733;</label>
-                                <input type="checkbox" id="2-restaurant4" name="restaurant4" value="2">
-                                <label for="2-restaurant4" class="widget-card-star">&#9733;</label>
-                                <input type="checkbox" id="1-restaurant4" name="restaurant4" value="1">
-                                <label for="1-restauran4t" class="widget-card-star">&#9733;</label> -->
                             </div>
-                            <!-- <div class="restaurant-comment tour-card-discription">
-                                <i class="fa-regular fa-comment"></i> 45
-                            </div> -->
                         </div>
 
                     </div>
@@ -2172,7 +2154,7 @@ $date1 = str_replace('-', '/', $date);
                                 <img src="crm/<?= substr($testimonial->image, 9) ?>" class="img-fluid" alt="images">
                             </div>
                             <div class="it-testimonail-v2-card-body">
-                                <h4 class="it-testimonail-v2-title"><?= $testimonial->name  ?>
+                                <h4 class="it-testimonail-v2-title"><?= $testimonial->name  ?><br>
                                     (<?= $testimonial->designation  ?>)</h4>
                                 <ul class="it-testimonail-v2-review-list">
                                     <li class="it-testimonail-v2-review-item it-review-selected">
@@ -2331,7 +2313,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="btn-list">
                 <!--  <a href="#" class="btn apple-btn">
                     <i class="fab fa-apple"></i> App Store</a> -->
-                <a href="" class="btn google-btn">
+                <a target="_blank" href="contact.php" class="btn google-btn">
                     <i class="fa-solid fa-phone"></i>Arrange Call back</a>
                 <!--  <a href="#" class="btn window-btn">
                     <i class="fa-brands fa-windows"></i>Windows</a> -->

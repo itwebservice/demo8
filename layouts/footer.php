@@ -66,30 +66,25 @@
         </div>
       </div>
     </div>
-
     <div class="it-footer-main">
       <div class="container">
         <div class="row">
-          <!-- <div class="col col-12 col-md-12 col-lg-6 col-xl-3">
-                    <div class="it-footer-logo">
-                        <img src="images/logo.png" alt="logo" class="imng-fluid">
-                    </div>
-                    <p class="it-footer-description">At vero eos et accusamus et iusto odio dignissimos ducimus voluptatum
-                    </p>
-                    <h6 class="it-footer-title">Social Icons</h6> 
-                </div> -->
-          <div class="col col-12 col-md-12 col-lg-6 col-xl-3">
-            <h6 class="it-footer-title">Popular Tour Places</h6>
-            <ul class="it-footer-menu-list">
-              <?php foreach ($Apifooter as $footer) {  ?>
-                <li class="it-footer-menu-item">
-                  <a href="#" onclick="get_tours_data('<?= $footer->destination->dest_id ?>','1')" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
-                    <?= $footer->package_name  ?></a>
-                </li>
-              <?php } ?>
+          <?php
+          if(sizeof($Apifooter) > 0){
+          ?>
+            <div class="col col-12 col-md-12 col-lg-6 col-xl-3">
+              <h6 class="it-footer-title">Popular Tour Places</h6>
+              <ul class="it-footer-menu-list">
+                <?php foreach ($Apifooter as $footer) {  ?>
+                  <li class="it-footer-menu-item">
+                    <a target="_blank" style="cursor:pointer!important;" onclick="get_tours_data('<?= $footer->destination->dest_id ?>','1')" class="it-footer-menu-link"><i class="fa fa-angle-double-right"></i>
+                      <?= $footer->package_name  ?></a>
+                  </li>
+                <?php } ?>
 
-            </ul>
-          </div>
+              </ul>
+            </div>
+          <?php } ?>
           <div class="col col-12 col-md-12 col-lg-6 col-xl-4">
             <h6 class="it-footer-title">Important Links</h6>
             <div class="row">
@@ -157,52 +152,65 @@
                 </a>
               </li>
               <li class="it-footer-menu-item">
-                <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->app_email_id ?>" class="it-footer-menu-link"><i class="fa fa-envelope"></i>
+                <a target="_blank" href="mailto:<?= $Apigeneral->app_email_id ?>" class="it-footer-menu-link"><i class="fa fa-envelope"></i>
                   <?= $Apigeneral->app_email_id ?>
                 </a>
               </li>
               <li class="it-footer-menu-item">
-                <a class="it-footer-menu-link" style="color: rgba(255, 255, 255, 0.6);"><i class="fa fa-phone"></i>
+                <a target="_blank" class="it-footer-menu-link" style="color: rgba(255, 255, 255, 0.6);"><i class="fa fa-phone"></i>
                   <?= $Apigeneral->app_contact_no ?></a>
               </li>
               <li class="it-footer-menu-item">
-                <a href="#" class="it-footer-menu-link"><i class="fa fa-print"></i>
+                <a target="_blank" href="<?= $Apigeneral->app_website ?>" class="it-footer-menu-link"><i class="fa fa-print"></i>
                   <?= $Apigeneral->app_website ?>
                 </a>
               </li>
             </ul>
             <!--social media plaform-->
             <ul class="it-social-list">
+              <?php
+              if($Apisocial->fb!=''){?>
               <li class="it-social-item">
-                <a class="it-social-link" href="<?= $Apisocial->fb ?>">
+                <a target="_blank" class="it-social-link" href="<?= $Apisocial->fb ?>">
                   <i class="fa-brands fa-facebook-f"></i>
                 </a>
               </li>
+              <?php }
+              if($Apisocial->tw!=''){?>
               <li class="it-social-item">
-                <a class="it-social-link" href="<?= $Apisocial->tw ?>">
+                <a target="_blank" class="it-social-link" href="<?= $Apisocial->tw ?>">
                   <i class="fa-brands fa-twitter"></i>
                 </a>
               </li>
-              <!-- <li class="it-social-item">
-                            <a class="it-social-link" href="#">
-                                <i class="fa-solid fa-rss"></i>
-                            </a>
-                        </li> -->
+              <?php }
+              if($Apisocial->wa!=''){?>
               <li class="it-social-item">
-                <a class="it-social-link" href="<?= $Apisocial->yu ?>">
-                  <i class="fa-brands fa-youtube"></i>
+                <a target="_blank" class="it-social-link" href="<?= $Apisocial->wa ?>">
+                  <i class="fa-brands fa-whatsapp"></i>
                 </a>
               </li>
+              <?php }
+              if($Apisocial->inst!=''){?>
               <li class="it-social-item">
-                <a class="it-social-link" href="<?= $Apisocial->li ?>">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-              </li>
-              <li class="it-social-item">
-                <a class="it-social-link" href="<?= $Apisocial->inst ?>">
+                <a target="_blank" class="it-social-link" href="<?= $Apisocial->inst ?>">
                   <i class="fa-brands fa-instagram"></i>
                 </a>
               </li>
+              <?php }
+              if($Apisocial->li!=''){?>
+              <li class="it-social-item">
+                <a target="_blank" class="it-social-link" href="<?= $Apisocial->li ?>">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+              </li>
+              <?php }
+              if($Apisocial->yu!=''){?>
+              <li class="it-social-item">
+                <a target="_blank" class="it-social-link" href="<?= $Apisocial->yu ?>">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+              </li>
+              <?php } ?>
             </ul>
           </div>
         </div>

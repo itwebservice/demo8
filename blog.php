@@ -33,7 +33,7 @@ $b2c_blogs = $cached_array[0]->cms_data[3]->b2c_blogs;
 
       <div class="searchHeading">
 
-        <span class="pageTitle mb-0">Blog</span>
+        <span class="pageTitle mb-0">Blogs</span>
 
       </div>
 
@@ -55,7 +55,7 @@ $b2c_blogs = $cached_array[0]->cms_data[3]->b2c_blogs;
 
         <li class="st-active">
 
-          <a href="javascript:void(0)">Blog</a>
+          <a href="javascript:void(0)">Blogs</a>
 
         </li>
 

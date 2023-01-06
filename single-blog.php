@@ -71,7 +71,7 @@ foreach($b2c_blogs as $blog){
 
       <div class="searchHeading">
 
-        <span class="pageTitle mb-0">BLOGS DETAILS</span>
+        <span class="pageTitle mb-0">BLOG DETAILS</span>
 
       </div>
 
@@ -93,7 +93,7 @@ foreach($b2c_blogs as $blog){
 
         <li class="st-active">
 
-          <a href="javascript:void(0)">BLOGS DETAILS</a>
+          <a href="javascript:void(0)">BLOG DETAILS</a>
 
         </li>
 
@@ -121,7 +121,7 @@ foreach($b2c_blogs as $blog){
 
         <div class="container">
 
-            <h1 class="ts-section-title">BLOGS DETAILS</h1>
+            <h1 class="ts-section-title">BLOG DETAILS</h1>
 
         </div>
 

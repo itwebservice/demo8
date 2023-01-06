@@ -347,7 +347,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="adults">Adult(s)*</label>
+                                    <label for="adults" style="text-transform: inherit !important;">Adult(s)*</label>
 
                                     <input type="number" class="form-control" id="adults" name="adults" placeholder="Adult(s)" value="<?= $adult_count ?>" required>
 
@@ -355,7 +355,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="chwob">Child Without Bed(s)(2-5 yrs)</label>
+                                    <label for="chwob" style="text-transform: inherit !important;">Child Without Bed(s)(2-5 yrs)</label>
 
                                     <input type="number" class="form-control" id="chwob" placeholder="Child Without Bed(s)" value="<?= $child_wocount ?>">
 
@@ -363,7 +363,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="chwb">Child With Bed(s)(6-11 yrs)</label>
+                                    <label for="chwb" style="text-transform: inherit !important;">Child With Bed(s)(6-11 yrs)</label>
 
                                     <input type="number" class="form-control" id="chwb" placeholder="Child With Bed(s)" value="<?= $child_wicount ?>">
 
@@ -371,7 +371,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="chwb">Extra Bed(s)</label>
+                                    <label for="chwb" style="text-transform: inherit !important;">Extra Bed(s)</label>
 
                                     <input type="number" class="form-control" id="extra_bed" placeholder="Extra Bed(s)" value="<?= $extra_bed_count ?>">
 
@@ -379,7 +379,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="infant">Infant(s)(Below 2 yrs)</label>
+                                    <label for="infant" style="text-transform: inherit !important;">Infant(s)(Below 2 yrs)</label>
 
                                     <input type="number" class="form-control" id="infant" placeholder="Infant(s)" value="<?= $infant_count ?>">
 
@@ -517,7 +517,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="adults">Total Room(s)*</label>
+                                    <label for="adults" style="text-transform: inherit !important;">Total Room(s)*</label>
 
                                     <input type="number" class="form-control" id="total_rooms" name="total_rooms" placeholder="Total Room(s)" value="<?=$total_rooms?>" required>
 
@@ -537,7 +537,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="adults">Adult(s)*</label>
+                                    <label for="adults" style="text-transform: inherit !important;">Adult(s)*</label>
 
                                     <input type="number" class="form-control" id="adults" name="adults" placeholder="Adult(s)" required>
 
@@ -545,7 +545,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="chwob">Child Without Bed(s)(2-5 yrs)</label>
+                                    <label for="chwob" style="text-transform: inherit !important;">Child Without Bed(s)(2-5 yrs)</label>
 
                                     <input type="number" class="form-control" id="chwob" placeholder="Child Without Bed(s)" >
 
@@ -553,7 +553,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="chwb">Child With Bed(s)(6-11 yrs)</label>
+                                    <label for="chwb" style="text-transform: inherit !important;">Child With Bed(s)(6-11 yrs)</label>
 
                                     <input type="number" class="form-control" id="chwb" placeholder="Child With Bed(s)">
 
@@ -561,7 +561,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="chwb">Extra Bed(s)</label>
+                                    <label for="chwb" style="text-transform: inherit !important;">Extra Bed(s)</label>
 
                                     <input type="number" class="form-control" id="extra_bed" placeholder="Extra Bed(s)" >
 
@@ -569,7 +569,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="infant">Infant(s)(Below 2 yrs)</label>
+                                    <label for="infant" style="text-transform: inherit !important;">Infant(s)(Below 2 yrs)</label>
 
                                     <input type="number" class="form-control" id="infant" placeholder="Infant(s)" >
 
@@ -679,7 +679,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="adults">Adult(s)*</label>
+                                    <label for="adults" style="text-transform: inherit !important;">Adult(s)*</label>
 
                                     <input type="number" class="form-control" id="adults" name="adults" placeholder="Adult(s)" value="<?=$enq_data[0]->adult_count ?>" required>
 
@@ -687,7 +687,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="child">Child(ren)(2-5 yrs)</label>
+                                    <label for="child" style="text-transform: inherit !important;">Child(ren)(2-5 yrs)</label>
 
                                     <input type="number" class="form-control" id="child" placeholder="Child(ren)" value="<?=$enq_data[0]->child_count ?>" >
 
@@ -695,7 +695,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="infant">Infant(s)(Below 2 yrs)</label>
+                                    <label for="infant" style="text-transform: inherit !important;">Infant(s)(Below 2 yrs)</label>
 
                                     <input type="number" class="form-control" id="infant" placeholder="Infant(s)" value="<?=$enq_data[0]->infant_count ?>" >
 
@@ -907,7 +907,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="adults">Adult(s)*</label>
+                                    <label for="adults" style="text-transform: inherit !important;">Adult(s)*</label>
 
                                     <input type="number" class="form-control" id="adults" name="adults" placeholder="Adult(s)" required>
 
@@ -915,7 +915,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="child">Child(ren)(2-5 yrs)</label>
+                                    <label for="child" style="text-transform: inherit !important;">Child(ren)(2-5 yrs)</label>
 
                                     <input type="number" class="form-control" id="child" placeholder="Child(ren)" >
 
@@ -923,7 +923,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="infant">Infant(s)(Below 2 yrs)</label>
+                                    <label for="infant" style="text-transform: inherit !important;">Infant(s)(Below 2 yrs)</label>
 
                                     <input type="number" class="form-control" id="infant" placeholder="Infant(s)">
 
@@ -1029,7 +1029,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="adults">Adult(s)*</label>
+                                    <label for="adults" style="text-transform: inherit !important;">Adult(s)*</label>
 
                                     <input type="number" class="form-control" id="adults" name="adults" placeholder="Adult(s)" value="<?= $adult_count ?>" required>
 
@@ -1037,7 +1037,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="child">Child(ren)(2-5 yrs)</label>
+                                    <label for="child" style="text-transform: inherit !important;">Child(ren)(2-5 yrs)</label>
 
                                     <input type="number" class="form-control" id="child" placeholder="Child(ren)" value="<?= $child_count ?>" >
 
@@ -1045,7 +1045,7 @@ else if($type == '7') {
 
                                 <div class="form-group col-12 col-md-6 col-lg-4">
 
-                                    <label for="infant">Infant(s)(Below 2 yrs)</label>
+                                    <label for="infant" style="text-transform: inherit !important;">Infant(s)(Below 2 yrs)</label>
 
                                     <input type="number" class="form-control" id="infant" placeholder="Infant(s)" value="<?= $infant_count ?>">
 

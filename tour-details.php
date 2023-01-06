@@ -319,33 +319,33 @@ $row_tariff = mysqli_fetch_assoc($sq_tariff);
 
                     <li class="nav-item">
 
-                        <a class="nav-link" id="pills-travel-tab" data-toggle="pill" href="#pills-travel" role="tab" aria-controls="pills-travel" aria-selected="false">Travel & Stay</a>
+                        <a class="nav-link" id="pills-travel-tab" data-toggle="pill" href="#pills-travel" role="tab" aria-controls="pills-travel" aria-selected="false">TRAVEL & STAY</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" id="pills-inclusion-tab" data-toggle="pill" href="#pills-inclusion" role="tab" aria-controls="pills-inclusion" aria-selected="false">Inclusion</a>
+                        <a class="nav-link" id="pills-inclusion-tab" data-toggle="pill" href="#pills-inclusion" role="tab" aria-controls="pills-inclusion" aria-selected="false">INCLUSIONS</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" id="pills-exclusion-tab" data-toggle="pill" href="#pills-exclusion" role="tab" aria-controls="pills-exclusion" aria-selected="false">Exclusion</a>
+                        <a class="nav-link" id="pills-exclusion-tab" data-toggle="pill" href="#pills-exclusion" role="tab" aria-controls="pills-exclusion" aria-selected="false">EXCLUSIONS</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" id="pills-terms-tab" data-toggle="pill" href="#pills-terms" role="tab" aria-controls="pills-terms" aria-selected="false">Terms & Conditions</a>
+                        <a class="nav-link" id="pills-terms-tab" data-toggle="pill" href="#pills-terms" role="tab" aria-controls="pills-terms" aria-selected="false">TERMS & CONDITIONS</a>
 
                     </li>
 
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
 
-                        <a class="nav-link" id="pills-covid-tab" data-toggle="pill" href="#pills-covid" role="tab" aria-controls="pills-covid" aria-selected="false">Covid 19</a>
+                        <a class="nav-link" id="pills-covid-tab" data-toggle="pill" href="#pills-covid" role="tab" aria-controls="pills-covid" aria-selected="false">COVID 19</a>
 
-                    </li> -->
+                    </li>
 
                 </ul>
 
@@ -504,7 +504,7 @@ $row_tariff = mysqli_fetch_assoc($sq_tariff);
                                                     <td><?= $sq_hhotel['hotel_name'] ?></td>
 
                                                     <td><?= $row_hotel['hotel_type'] ?></td>
-de
+
                                                     <td><?= $row_hotel['total_days'] ?></td>
 
                                                 </tr>
@@ -697,7 +697,7 @@ de
 
                     </div>
 
-                    <!-- <div class="tab-pane fade" id="pills-covid" role="tabpanel" aria-labelledby="pills-covid-tab">
+                    <div class="tab-pane fade" id="pills-covid" role="tabpanel" aria-labelledby="pills-covid-tab">
 
                         <div class="ts-tab-content__inner">
 
@@ -705,7 +705,7 @@ de
 
                         </div>
 
-                    </div> -->
+                    </div>
 
                 </div>
 
@@ -753,7 +753,7 @@ de
 
                         </div>
 
-                        <button type="submit" id="getInTouch_btn" class="btn btn-primary">Send Message</button>
+                        <button type="submit" id="getInTouch_btn" class="btn btn-primary">SUBMIT</button>
 
                     </form>
                     <div class="ts-video-content mt-5">
@@ -817,7 +817,7 @@ if($sq_count>0){
 
             </div>
 
-            <h2 class="ts-section-title">Related Packages</h2>
+            <h2 class="ts-section-title">RELATED PACKAGES</h2>
 
     
 
@@ -877,7 +877,7 @@ if($sq_count>0){
 
                                 <div class="ts-blog-card-img">
 
-                                    <a href="#" class="ts-blog-card-img-link">
+                                    <a href="<?= $file_name ?>" target="_blank" class="ts-blog-card-img-link">
 
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7c-12.23-91.55-87.28-166-178.9-177.6c-136.2-17.24-250.7 97.28-233.4 233.4c11.6 91.64 86.07 166.7 177.6 178.9c53.81 7.191 104.3-6.235 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 .0003C515.9 484.7 515.9 459.3 500.3 443.7zM288 232H231.1V288c0 13.26-10.74 24-23.1 24C194.7 312 184 301.3 184 288V232H127.1C114.7 232 104 221.3 104 208s10.74-24 23.1-24H184V128c0-13.26 10.74-24 23.1-24S231.1 114.7 231.1 128v56h56C301.3 184 312 194.7 312 208S301.3 232 288 232z" fill="#ffffff"/></svg>
 
@@ -889,7 +889,7 @@ if($sq_count>0){
 
                                 <div class="ts-blog-card-body">
 
-                                    <a href="<?= $file_name ?>" class="ts-blog-card-title"><?= $package_name1 ?></a>
+                                    <a href="<?= $file_name ?>" target="_blank" class="ts-blog-card-title"><?= $package_name1 ?></a>
 
                                     <p class="ts-blog-time">
 

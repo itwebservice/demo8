@@ -132,7 +132,7 @@ global $app_contact_no;
 
                         </span>
 
-                        <a <?= $cached_array[0]->company_profile_data[0]->contact_no ?>" class="ts-contact-info-link"><?= $cached_array[0]->company_profile_data[0]->contact_no ?></a>
+                        <a href="<?= $cached_array[0]->company_profile_data[0]->contact_no ?>" class="ts-contact-info-link"><?= $cached_array[0]->company_profile_data[0]->contact_no ?></a>
 
                     </li>
 
@@ -184,15 +184,15 @@ global $app_contact_no;
 
                     <?php }
 
-                    if($social_media[0]->inst != ''){ ?>
+                    if($social_media[0]->tw != ''){ ?>
 
                     <li class="ts-social-media-item">
 
-                        <a target="_blank" href="<?= $social_media[0]->inst ?>" class="ts-social-media-link">
+                        <a target="_blank" href="<?= $social_media[0]->tw ?>" class="ts-social-media-link">
 
                             <span class="ts-contact-info-icon">
 
-                                <i class="fa fa-instagram"></i>
+                                <i class="fa fa-twitter"></i>
 
                             </span>
 
@@ -211,6 +211,60 @@ global $app_contact_no;
                             <span class="ts-contact-info-icon">
 
                                 <i class="fa fa-whatsapp"></i>
+
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                    <?php }
+
+                    if($social_media[0]->inst != ''){ ?>
+
+                    <li class="ts-social-media-item">
+
+                        <a target="_blank" href="<?= $social_media[0]->inst ?>" class="ts-social-media-link">
+
+                            <span class="ts-contact-info-icon">
+
+                                <i class="fa fa-instagram"></i>
+
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                    <?php }
+
+                    if($social_media[0]->li != ''){ ?>
+
+                    <li class="ts-social-media-item">
+
+                        <a target="_blank" href="<?= $social_media[0]->li ?>" class="ts-social-media-link">
+
+                            <span class="ts-contact-info-icon">
+
+                                <i class="fa fa-linkedin-in"></i>
+
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                    <?php }
+
+                    if($social_media[0]->yu != ''){ ?>
+
+                    <li class="ts-social-media-item">
+
+                        <a target="_blank" href="<?= $social_media[0]->yu ?>" class="ts-social-media-link">
+
+                            <span class="ts-contact-info-icon">
+
+                                <i class="fa fa-youtube"></i>
 
                             </span>
 
@@ -294,7 +348,7 @@ global $app_contact_no;
 
                         </div>
 
-                        <button type="submit" id="contact_form_send" class="btn btn-primary">Send Message</button>
+                        <button type="submit" id="contact_form_send" class="btn btn-primary">SUBMIT</button>
 
                     </form>
 

@@ -101,7 +101,7 @@ include 'layouts/header.php';
 
         </div>
 
-        <h2 class="ts-section-title">Why Choose Us?</h2>
+        <h2 class="ts-section-title">WHY CHOOSE US?</h2>
 
 
 
@@ -164,7 +164,7 @@ include 'layouts/header.php';
                         <h3 class="ts-reason-card-title">Customizable Tour Packages</h3>
 
                         <p class="ts-reason-card-description">We understand our guests needs to perfection and thus
-                            provide them with flexible customized holiday packages according to their needs are
+                            provide them with flexible customized holiday packages according to their needs and
                             requirements.</p>
 
                     </div>
@@ -270,7 +270,7 @@ include 'layouts/header.php';
 
                 <div class="ts-special-content__inner">
 
-                    <h2 class="ts-section-title">Make memories all over the world!</h2>
+                    <h2 class="ts-section-title">Make Memories All Over The World!</h2>
 
                     <p class="ts-section-description">Our distinctive team meets the needs of luxury traveler and
                         creates the opportunity to REDISCOVER EXPERIENCES. The USP of our company is our belief in
@@ -278,7 +278,7 @@ include 'layouts/header.php';
                         values which places family culture at the top.</p>
 
                     <div class="abt-btn">
-                        <a href="contact.php" class="btn btn-primary">Contact Us</a>
+                        <a target="_blank" href="contact.php" class="btn btn-primary">Contact Us</a>
                     </div>
 
                 </div>

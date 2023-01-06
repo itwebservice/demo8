@@ -297,7 +297,7 @@ function upload_pic_attch()
 
     var btnUpload=$('#hotel_btn1');
 
-    $(btnUpload).find('span').text('Upload Resume');
+    $(btnUpload).find('span').text('*Upload Resume');
 
     $("#inputFile_url").val('');
 
@@ -343,7 +343,7 @@ function upload_pic_attch()
 
 
 
-          $(btnUpload).find('span').text('Upload Resume');
+          $(btnUpload).find('span').text('*Upload Resume');
 
 
 
@@ -363,7 +363,7 @@ function upload_pic_attch()
 
 
 
-            $(btnUpload).find('span').text('Upload Resume');
+            $(btnUpload).find('span').text('*Upload Resume');
 
 
 
