@@ -44,13 +44,13 @@ for ($i = 0; $i < sizeof($package_tour_data); $i++) {
 
 
 
-  if ($package_tour_data[$i]->tour_type == 'Domestic') {
+    if ($package_tour_data[$i]->tour_type == 'Domestic') {
 
-    array_push($dom_dest_id_arr, intval($package_tour_data[$i]->dest_id));
-  } else if ($package_tour_data[$i]->tour_type == 'International') {
+        array_push($dom_dest_id_arr, intval($package_tour_data[$i]->dest_id));
+    } else if ($package_tour_data[$i]->tour_type == 'International') {
 
-    array_push($int_dest_id_arr, intval($package_tour_data[$i]->dest_id));
-  }
+        array_push($int_dest_id_arr, intval($package_tour_data[$i]->dest_id));
+    }
 }
 
 $dom_dest_id_arr = array_unique($dom_dest_id_arr);
@@ -67,30 +67,30 @@ $dom_array = array();
 
 foreach ($dom_dest_id_arr as $dom_id) {
 
-  foreach ($destination_array as $subarray) {
+    foreach ($destination_array as $subarray) {
 
-    if (isset($subarray->dest_id) && intval($subarray->dest_id) == intval($dom_id)) {
+        if (isset($subarray->dest_id) && intval($subarray->dest_id) == intval($dom_id)) {
 
-      array_push($dom_array, $subarray);
+            array_push($dom_array, $subarray);
 
-      break;
+            break;
+        }
     }
-  }
 }
 
 $intn_array = array();
 
 foreach ($int_dest_id_arr as $int_id) {
 
-  foreach ($destination_array as $subarray) {
+    foreach ($destination_array as $subarray) {
 
-    if (isset($subarray->dest_id) && intval($subarray->dest_id) == intval($int_id)) {
+        if (isset($subarray->dest_id) && intval($subarray->dest_id) == intval($int_id)) {
 
-      array_push($intn_array, $subarray);
+            array_push($intn_array, $subarray);
 
-      break;
+            break;
+        }
     }
-  }
 }
 
 // ////////// Header Holiday domestic and internal destinations End //////////////////
@@ -113,13 +113,13 @@ for ($i = 0; $i < sizeof($group_tour_data); $i++) {
 
 
 
-  if ($group_tour_data[$i]->tour_type == 'Domestic') {
+    if ($group_tour_data[$i]->tour_type == 'Domestic') {
 
-    array_push($dom_dest_id_arr, intval($group_tour_data[$i]->dest_id));
-  } else if ($group_tour_data[$i]->tour_type == 'International') {
+        array_push($dom_dest_id_arr, intval($group_tour_data[$i]->dest_id));
+    } else if ($group_tour_data[$i]->tour_type == 'International') {
 
-    array_push($int_dest_id_arr, intval($group_tour_data[$i]->dest_id));
-  }
+        array_push($int_dest_id_arr, intval($group_tour_data[$i]->dest_id));
+    }
 }
 
 $dom_dest_id_arr = array_unique($dom_dest_id_arr);
@@ -132,30 +132,30 @@ $group_dom_array = array();
 
 foreach ($dom_dest_id_arr as $dom_id) {
 
-  foreach ($destination_array as $subarray) {
+    foreach ($destination_array as $subarray) {
 
-    if (isset($subarray->dest_id) && intval($subarray->dest_id) == intval($dom_id)) {
+        if (isset($subarray->dest_id) && intval($subarray->dest_id) == intval($dom_id)) {
 
-      array_push($group_dom_array, $subarray);
+            array_push($group_dom_array, $subarray);
 
-      break;
+            break;
+        }
     }
-  }
 }
 
 $group_intn_array = array();
 
 foreach ($int_dest_id_arr as $int_id) {
 
-  foreach ($destination_array as $subarray) {
+    foreach ($destination_array as $subarray) {
 
-    if (isset($subarray->dest_id) && intval($subarray->dest_id) == intval($int_id)) {
+        if (isset($subarray->dest_id) && intval($subarray->dest_id) == intval($int_id)) {
 
-      array_push($group_intn_array, $subarray);
+            array_push($group_intn_array, $subarray);
 
-      break;
+            break;
+        }
     }
-  }
 }
 
 // ////////// Header Holiday domestic and internal destinations End //////////////////
@@ -193,6 +193,7 @@ foreach ($int_dest_id_arr as $int_id) {
 
 
     <!-- Theme Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />
 
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 
@@ -200,8 +201,7 @@ foreach ($int_dest_id_arr as $int_id) {
 
     <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/bootstrap-4.min.css" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/owl.carousel.min.css" />
 
@@ -227,12 +227,32 @@ foreach ($int_dest_id_arr as $int_id) {
 
     <link rel="stylesheet" href="<?php echo BASE_URL_B2C; ?>css/custom-style.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+
 
 
     <!-- COMMON CSS -->
+    <?php
+    $colorData = $cached_array[0]->cms_data[1];
+    if (!empty($colorData->text_primary_color) && !empty($colorData->button_color)) {
+        $btnColor = $colorData->button_color;
+        $primaryColor = $colorData->text_primary_color;
+    } else {
+        $btnColor = '#93d42e';
+        $primaryColor = '#f68c34';
+    }
+    ?>
 
-    <link id="main-style" rel="stylesheet/less" type="text/css"
-        href="<?php echo BASE_URL_B2C; ?>css/LESS/itours-styles.less" />
+    <Style>
+        * {
+            --main-bg-color: <?= $btnColor ?>;
+            --main-primary-color: <?= $primaryColor ?>;
+        }
+    </Style>
+
+    <link id="main-style" rel="stylesheet/less" type="text/css" href="<?php echo BASE_URL_B2C; ?>css/LESS/itours-styles.php" />
 
     <script src="<?php echo BASE_URL_B2C; ?>js/less.js"></script>
 
@@ -241,7 +261,7 @@ foreach ($int_dest_id_arr as $int_id) {
 
 
     <script>
-    <?= $google_analytics ?>
+        <?= $google_analytics ?>
     </script>
 
     <script src="<?= $tidio_chat ?>" async></script>
@@ -290,19 +310,19 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                     <div class="col-md-6 col-12 section-1">
 
-                                        <span class="staticText d-inline"><span style="text-transform: lowercase;">
+                                        <span class="staticText d-inline"><span style="text-transform: capitilize;">
                                                 Helpline :</span>
                                             <?= $cached_array[0]->company_profile_data[0]->contact_no ?></span>
 
-                                        <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->email_id ?>"
-                                            class="header-mail-link d-inline ml-2"><?= $cached_array[0]->company_profile_data[0]->email_id ?></a>
+                                        <a href="mailto:<?= $cached_array[0]->company_profile_data[0]->email_id ?>" class="header-mail-link d-inline ml-2"><?= $cached_array[0]->company_profile_data[0]->email_id ?></a>
                                     </div>
 
 
 
                                     <div class="col-md-1 col-12 section-2 text-center">
 
-                                        <!-- <a href="mailto:gauri@goldfinchholidays.com" class="header-mail-link"><?//= $cached_array[0]->company_profile_data[0]->email_id ?></a> -->
+                                        <!-- <a href="mailto:gauri@goldfinchholidays.com" class="header-mail-link"><? //= $cached_array[0]->company_profile_data[0]->email_id 
+                                                                                                                    ?></a> -->
 
                                     </div>
 
@@ -316,8 +336,7 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                                 <li>
 
-                                                    <a class="login_button" target="_blank"
-                                                        href="<?= BASE_URL . 'view/customer/index.php' ?>">Login</a>
+                                                    <a class="login_button" target="_blank" href="<?= BASE_URL . 'view/customer/index.php' ?>">Login</a>
 
                                                 </li>
 
@@ -420,15 +439,13 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                 <nav class="col-sm-9 col-5 text-right pad-top">
 
-                                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close"
-                                        href="javascript:void(0);"><span>Menu mobile</span></a>
+                                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
 
                                     <div class="main-menu">
 
                                         <div id="header_menu">
 
-                                            <img src="<?php echo $admin_logo_url; ?>" width="160" height="34"
-                                                alt="<?php echo $app_name; ?>" />
+                                            <img src="<?php echo $admin_logo_url; ?>" width="160" height="34" alt="<?php echo $app_name; ?>" />
 
                                         </div>
 
@@ -446,8 +463,7 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                             <li class="submenu">
 
-                                                <a class="show-submenu">Group Tour<i
-                                                        class="icon itours-b2b-angle-down"></i></a>
+                                                <a class="show-submenu">Group Tour<i class="icon itours-b2b-angle-down"></i></a>
 
                                                 <ul>
 
@@ -459,11 +475,10 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                                             <?php
 
-                          for ($i = 0; $i < sizeof($group_dom_array); $i++) { ?>
+                                                            for ($i = 0; $i < sizeof($group_dom_array); $i++) { ?>
 
-                                                            <li><a
-                                                                    onclick="get_tours_data('<?= $group_dom_array[$i]->dest_id ?>','2')"><?= $group_dom_array[$i]->dest_name ?></a>
-                                                            </li>
+                                                                <li><a onclick="get_tours_data('<?= $group_dom_array[$i]->dest_id ?>','2')"><?= $group_dom_array[$i]->dest_name ?></a>
+                                                                </li>
 
                                                             <?php } ?>
 
@@ -477,11 +492,10 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                                             <?php
 
-                          for ($i = 0; $i < sizeof($group_intn_array); $i++) { ?>
+                                                            for ($i = 0; $i < sizeof($group_intn_array); $i++) { ?>
 
-                                                            <li><a
-                                                                    onclick="get_tours_data('<?= $group_intn_array[$i]->dest_id ?>','2')"><?= $group_intn_array[$i]->dest_name ?></a>
-                                                            </li>
+                                                                <li><a onclick="get_tours_data('<?= $group_intn_array[$i]->dest_id ?>','2')"><?= $group_intn_array[$i]->dest_name ?></a>
+                                                                </li>
 
                                                             <?php } ?>
 
@@ -495,8 +509,7 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                             <li class="submenu">
 
-                                                <a class="show-submenu">Holiday <i
-                                                        class="icon itours-b2b-angle-down"></i></a>
+                                                <a class="show-submenu">Holiday <i class="icon itours-b2b-angle-down"></i></a>
 
                                                 <ul>
 
@@ -508,11 +521,10 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                                             <?php
 
-                          for ($i = 0; $i < sizeof($dom_array); $i++) { ?>
+                                                            for ($i = 0; $i < sizeof($dom_array); $i++) { ?>
 
-                                                            <li><a
-                                                                    onclick="get_tours_data('<?= $dom_array[$i]->dest_id ?>','1')"><?= $dom_array[$i]->dest_name ?></a>
-                                                            </li>
+                                                                <li><a onclick="get_tours_data('<?= $dom_array[$i]->dest_id ?>','1')"><?= $dom_array[$i]->dest_name ?></a>
+                                                                </li>
 
                                                             <?php } ?>
 
@@ -526,11 +538,10 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                                             <?php
 
-                          for ($i = 0; $i < sizeof($intn_array); $i++) { ?>
+                                                            for ($i = 0; $i < sizeof($intn_array); $i++) { ?>
 
-                                                            <li><a
-                                                                    onclick="get_tours_data('<?= $intn_array[$i]->dest_id ?>','1')"><?= $intn_array[$i]->dest_name ?></a>
-                                                            </li>
+                                                                <li><a onclick="get_tours_data('<?= $intn_array[$i]->dest_id ?>','1')"><?= $intn_array[$i]->dest_name ?></a>
+                                                                </li>
 
                                                             <?php } ?>
 
@@ -584,8 +595,7 @@ foreach ($int_dest_id_arr as $int_id) {
 
                                             </li>
                                             <li class="header-btn">
-                                                <a class="btn header-offer-btn"
-                                                    href="<?= BASE_URL_B2C . 'offers.php' ?>">Offers</a>
+                                                <a class="btn header-offer-btn" href="<?= BASE_URL_B2C . 'offers.php' ?>">Offers</a>
                                             </li>
                                         </ul>
 
@@ -619,17 +629,17 @@ foreach ($int_dest_id_arr as $int_id) {
 
             <!--preloader script-->
             <script>
-            var preloader = document.getElementById('loading');
+                var preloader = document.getElementById('loading');
 
-            function myLoader() {
-                preloader.style.display = 'none';
-            }
+                function myLoader() {
+                    preloader.style.display = 'none';
+                }
             </script>
 
             <?php
 
-  // include "get_cache_tax_rules.php";
+            // include "get_cache_tax_rules.php";
 
-  ?>
+            ?>
 
             <input type="hidden" id='cache_currencies' value='<?= $data ?>' />

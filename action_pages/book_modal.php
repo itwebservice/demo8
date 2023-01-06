@@ -74,7 +74,7 @@ $costing_desc = strip_tags($costing_desc);
                         <label> Travel Date: <?= $travel_from.' To '.$travel_to ?> </label>
                     </div>
                     <div class="form-group col-md-4">
-                        <label> Total Guests: <?= intval($adults)+intval($chwb)+intval($chwob)+intval($infant) ?> </label>
+                        <label style="text-transform: inherit !important;"> Total Guest(s): <?= intval($adults)+intval($chwb)+intval($chwob)+intval($infant) ?> </label>
                     </div>
                 </div>
                 <?php
@@ -239,7 +239,7 @@ $costing_desc = strip_tags($costing_desc);
                         <label>*Select State</label>
                         <?php
                         $service = ($type == '1') ? 'Package Tour' : 'Group Tour'; ?>
-                        <select name="state" id="state" title="Select State" style="width : 100%" onchange="get_tax(this.id,'total_cost','<?= $service ?>');">
+                        <select class="form-control" name="state" id="state" title="Select State" style="width : 100%" onchange="get_tax(this.id,'total_cost','<?= $service ?>');">
                         <?php get_states_dropdown() ?>
                         </select>
                     </div>
@@ -303,7 +303,6 @@ $costing_desc = strip_tags($costing_desc);
     }, false);
 })();
 </script>
-<script type="text/javascript" src="../js/scripts.js"></script>
 <script>
 $('#book_modal').modal('show');
 $('#pickup_time').datetimepicker({format:'d-m-Y H:i' });
@@ -696,3 +695,4 @@ $(function () {
     });
 });
 </script>
+<script type="text/javascript" src="../js/scripts.js"></script>

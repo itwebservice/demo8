@@ -204,7 +204,7 @@ $date1 = str_replace('-', '/', $date);
                             <div class="row mt-4">
                                 <div class="col">
                                     <div class="tour-service">
-                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/tours/tours-listing.php" style="text-decoration: none;">
+                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/hotel/hotel-listing.php" style="text-decoration: none;">
                                         <img src="images/hotel.png" class="img-fluid hotel-book" alt="">
                                         <h6>Hotels</h6></a>
                                     </div>
@@ -329,18 +329,18 @@ $date1 = str_replace('-', '/', $date);
                                     <i class="fa-solid fa-bolt-lightning"></i>
                                 </span>
                             </div>
-                            <div class="widget-card-price" style="top: 100px;">
-                                <h4>$<?= !empty($package->tariff) ? $package->tariff->cadult : 0.00  ?></h4>
-                            </div>
+                            <!-- <div class="widget-card-price" style="top: 100px;">
+                                <h4><?php //echo !empty($package->tariff) ? $package->tariff->cadult : 0.00;  ?></h4>
+                            </div> -->
                             <div class="ribbon">
                                 <span class="bg-primary">Collaction</span>
                             </div>
                             <div class="widget-hotel-card-item">
                                 <!-- <a href="#" class="hotel-card-item"><i class="fa-solid fa-utensils"></i></a> -->
-                                <a href="#" class="hotel-card-item1 australia-hart-icon">
+                                <a style="cursor:none!important;" class="hotel-card-item1 australia-hart-icon">
                                     <i class="fa-solid fa-plane"></i>
                                 </a>
-                                <a href="#" class="hotel-card-item australia-hart-icon">
+                                <a style="cursor:none!important;" class="hotel-card-item australia-hart-icon">
                                     <i class="fa-regular fa-heart"></i>
                                 </a>
                             </div>
@@ -348,7 +348,7 @@ $date1 = str_replace('-', '/', $date);
                         </div>
                         <div class="card-body widget-card-body">
                             <div class="widget-card-reviw widget-card-hotel-title mb-0">
-                                <a href="<?= $file_name ?>" class="text-decoration-none">
+                                <a href="<?= $file_name ?>" target="_blank" class="text-decoration-none">
                                     <h5 class="card-title widget-card-title hotel-australia-title"><?= $package->package_name ?>
                                     </h5>
                                 </a>
@@ -362,7 +362,7 @@ $date1 = str_replace('-', '/', $date);
                             </div>
                         </div>
                         <div class="card-footer widget-card-footer bg-white australia-card-footer">
-                            <a href="#" class="text-decoration-none" onclick="get_tours_data('<?= $package->destination->dest_id ?>','1')">
+                            <a style="cursor:none!important;" class="text-decoration-none" onclick="get_tours_data('<?= $package->destination->dest_id ?>','1')">
                                 <span class="widget-card-footer-text"><i class="bi bi-geo-alt fa-solid fa-location-dot"></i> <?= $package->destination->dest_name ?>
                                 </span>
                             </a>
@@ -762,7 +762,7 @@ $date1 = str_replace('-', '/', $date);
         <div class="container">
             <div class="great-content text-center">
                 <h2 class="great-title">Get Best Tour Experience With Us!</h2>
-                <p class="great-discription">Find Best Deals For Tour Packages, Hotels, Holidays, Bus Reservations For<br class="d-none d-lg-block"> India & International Travel, B2B Travel Services.</p>
+                <p class="great-discription">Find Best Deals For Tour Packages, Hotels, Holidays For<br class="d-none d-lg-block"> India & International Travel, B2B Travel Services.</p>
                 <a href="<?=BASE_URL_B2C?>/view/tours/tours-listing.php" class="btn great-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-play"></i></a>
             </div>
         </div>
@@ -773,7 +773,7 @@ $date1 = str_replace('-', '/', $date);
         <div class="container">
             <div class="best-title text-center">
                 <span class="heading-style">Our</span>
-                <h1>Tranportation Facilities</h1>
+                <h1>Transportation Facilities</h1>
                 <p>Private & Public Transportation Available For Smoother Your Ride</p>
             </div>
             <div class="widget-card border-0 transpot-vehical">
@@ -880,7 +880,6 @@ $date1 = str_replace('-', '/', $date);
                             </div>
                         </div>
                     </a>
-                          
                     <div class="card-body widget-card-body">
                             <div class="widget-card-reviw widget-card-hotel-title mb-0">
                                 <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none">
@@ -893,11 +892,14 @@ $date1 = str_replace('-', '/', $date);
                                     </p>
                                 </a>
                                 <div class="widget-card-ruting widget-card-ruting-restaurant pb-0 mb-0">
+                                    <?php
+                                    if($hotel->hotel_address!=''){ ?>
                                     <a href="#" class="text-decoration-none mb-2">
                                         <span class="widget-card-ruting-location card-ruting-hotel border-0">
-                                            <i class="fa-solid fa-location-dot"></i> <?= $hotel->city->city_name ?>,<?= $hotel->country ?>
+                                            <i class="fa-solid fa-location-dot"></i> <?= $hotel->hotel_address ?>
                                         </span>
                                     </a>
+                                    <?php } ?>
                                     <a href="#" class="text-decoration-none mb-2 mt-2">
                                         <span class="widget-card-ruting-calendar card-ruting-hotel border-end-0 pe-0 me-0">
                                             <i class="fas fa-phone"></i><?php
@@ -2293,7 +2295,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Quick</span>
                 <h1>Contact</h1>
-                <p>We're Always Curious To Provide a Promt Services To You. Let's Connect!</p>
+                <p>We're Always Curious To Provide a Prompt Services To You. Let's Connect!</p>
             </div>
             <div class="btn-list">
                 <!--  <a href="#" class="btn apple-btn">
@@ -2417,9 +2419,6 @@ include 'layouts/footer.php';
             format: 'm/d/Y H:i',
             minDate: new Date()
         });
-
-        document.getElementById('return_date').readOnly = true;
-
 
 
         var service = '<?php echo $service; ?>';
