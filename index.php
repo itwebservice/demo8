@@ -217,16 +217,18 @@ $date1 = str_replace('-', '/', $date);
                                 </div> -->
                                 <div class="col">
                                     <div class="tour-service">
-                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/visa/visa-listing.php" style="text-decoration: none;">
-                                        <img src="images/plane.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Visa</h6></a>
+                                        <a target="_blank" href="<?= BASE_URL_B2C ?>/view/visa/visa-listing.php" style="text-decoration: none;">
+                                            <img src="images/plane.png" class="img-fluid hotel-book" alt="">
+                                            <h6>Visa</h6>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="tour-service">
-                                        <a target="_blank" href="<?=BASE_URL_B2C?>/view/transfer/transfer-listing.php" style="text-decoration: none;">
-                                        <img src="images/vehicle.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Car</h6></a>
+                                        <a target="_blank" href="<?= BASE_URL_B2C ?>/view/transfer/transfer-listing.php" style="text-decoration: none;">
+                                            <img src="images/vehicle.png" class="img-fluid hotel-book" alt="">
+                                            <h6>Car</h6>
+                                        </a>
                                     </div>
                                 </div>
                                 <!-- <div class="col">
@@ -237,16 +239,18 @@ $date1 = str_replace('-', '/', $date);
                                 </div> -->
                                 <div class="col">
                                     <div class="tour-service">
-                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/ferry/ferry-listing.php" style="text-decoration: none;">
-                                        <img src="images/boat.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Ships</h6></a>
+                                        <a target="_blank" href="<?= BASE_URL_B2C ?>/view/ferry/ferry-listing.php" style="text-decoration: none;">
+                                            <img src="images/boat.png" class="img-fluid hotel-book" alt="">
+                                            <h6>Ships</h6>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="tour-service">
-                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/activities/activities-listing.php" style="text-decoration: none;">
-                                        <img src="images/wine.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Activities</h6></a>
+                                        <a target="_blank" href="<?= BASE_URL_B2C ?>/view/activities/activities-listing.php" style="text-decoration: none;">
+                                            <img src="images/wine.png" class="img-fluid hotel-book" alt="">
+                                            <h6>Activities</h6>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -260,51 +264,64 @@ $date1 = str_replace('-', '/', $date);
     </section>
 
     <!-- //  -- booking section end  --  // -->
-            <!--Social Media icon sticky-->
-        <div class="s-icons">
-            <ul>
-                <?php
+    <!--Social Media icon sticky-->
+    <div class="s-icons">
+        <ul>
+            <?php
 
-                    if ($social_media[0]->fb != '') { ?>
-                <a target="_blank" href="<?= $social_media[0]->fb ?>"><li class="fb">
-                    <i class="fa-brands fa-facebook"></i>
-                </li></a>
-                <?php }
-                if ($social_media[0]->tw != '') { ?>
-                    <a target="_blank" href="<?= $social_media[0]->tw ?>"><li class="twit">
+            if ($social_media[0]->fb != '') { ?>
+                <a target="_blank" href="<?= $social_media[0]->fb ?>">
+                    <li class="fb">
+                        <i class="fa-brands fa-facebook"></i>
+                    </li>
+                </a>
+            <?php }
+            if ($social_media[0]->tw != '') { ?>
+                <a target="_blank" href="<?= $social_media[0]->tw ?>">
+                    <li class="twit">
                         <i class="fa-brands fa-twitter"></i>
-                    </li></a>
-                    <?php }
-                if ($social_media[0]->wa != '') { ?>
-                <a target="_blank" href="<?= $social_media[0]->wa ?>"><li class="wapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </li></a>
-                <?php }
-                if ($social_media[0]->inst != '') { ?>
-                    <a target="_blank" href="<?= $social_media[0]->inst ?>"><li class="insta">
+                    </li>
+                </a>
+            <?php }
+            if ($social_media[0]->wa != '') { ?>
+                <a target="_blank" href="<?= $social_media[0]->wa ?>">
+                    <li class="wapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </li>
+                </a>
+            <?php }
+            if ($social_media[0]->inst != '') { ?>
+                <a target="_blank" href="<?= $social_media[0]->inst ?>">
+                    <li class="insta">
                         <i class="fa-brands fa-instagram"></i>
-                    </li></a>
-                    <?php }
-                if ($social_media[0]->li != '') { ?>
-                    <a target="_blank" href="<?= $social_media[0]->li ?>"><li class="link">
+                    </li>
+                </a>
+            <?php }
+            if ($social_media[0]->li != '') { ?>
+                <a target="_blank" href="<?= $social_media[0]->li ?>">
+                    <li class="link">
                         <i class="fa-brands fa-linkedin"></i>
-                    </li></a>
-                    <?php }
-                if ($social_media[0]->yu != '') { ?>
-                    <a target="_blank" href="<?= $social_media[0]->yu ?>"><li class="yt">
+                    </li>
+                </a>
+            <?php }
+            if ($social_media[0]->yu != '') { ?>
+                <a target="_blank" href="<?= $social_media[0]->yu ?>">
+                    <li class="yt">
                         <i class="fa-brands fa-youtube"></i>
-                    </li></a>
-                    <?php } ?>
-            </ul>
-        </div>
-<!--End social Media icon sticky-->    
+                    </li>
+                </a>
+            <?php } ?>
+        </ul>
+    </div>
+    <!--End social Media icon sticky-->
     <!-- //  ---- tour package start  ----  // -->
     <section class="tour-pack">
         <div class="container">
             <div class="best-title text-center">
                 <span class="heading-style">Best</span>
-                <h1>Popoular Packages</h1>
-                <p>Get The Premium International Destinations, Personalized Tailor Made Tours With Us And Explore Yourself.</p>
+                <h1>Popular Packages</h1>
+                <p>Get The Premium International Destinations, Personalized Tailor Made Tours With Us And Explore
+                    Yourself.</p>
 
             </div>
             <div class="package-card">
@@ -500,27 +517,29 @@ $date1 = str_replace('-', '/', $date);
                 //var_dump($Apidestination[0]);
                 foreach ($Apidestination as $destination) {  ?>
                     <div class="style-nine-card-item">
-                       <a onclick="get_tours_data('<?= $destination->dest_id ?>','1')"> <div class="style-nine-img">
-                            <img src="  <?= $destination->gallery_images[5]->image_url; ?>" alt="" class="img-fluid">
+                        <a onclick="get_tours_data('<?= $destination->dest_id ?>','1')">
+                            <div class="style-nine-img">
+                                <img src="  <?= $destination->gallery_images[5]->image_url; ?>" alt="" class="img-fluid">
 
-                            <div class="style-nine-card-details">
-                                <div class="rating-star">
-                                    <span><i class="fas fa-star star"></i></span>
-                                    <span><i class="fas fa-star star"></i></span>
-                                    <span><i class="fas fa-star star"></i></span>
-                                    <span><i class="fas fa-star star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <p class="style-nine-card-title  text-white">
-                                    <?= $destination->dest_name; ?>
-                                </p>
-                                <!-- <p class="style-nine-location mb-0">
+                                <div class="style-nine-card-details">
+                                    <div class="rating-star">
+                                        <span><i class="fas fa-star star"></i></span>
+                                        <span><i class="fas fa-star star"></i></span>
+                                        <span><i class="fas fa-star star"></i></span>
+                                        <span><i class="fas fa-star star"></i></span>
+                                        <span><i class="fas fa-star"></i></span>
+                                    </div>
+                                    <p class="style-nine-card-title  text-white">
+                                        <?= $destination->dest_name; ?>
+                                    </p>
+                                    <!-- <p class="style-nine-location mb-0">
                                     <small><i class="bi bi-geo-alt fa-solid fa-location-dot"></i> 8
                                         Cities</small>
                                     <small><i class="bi bi-eye fa-solid fa-eye"></i> + Tour Places</small>
                                 </p> -->
+                                </div>
                             </div>
-                        </div> </a> 
+                        </a>
                     </div>
                 <?php } ?>
 
@@ -528,36 +547,6 @@ $date1 = str_replace('-', '/', $date);
         </div>
     </section>
     <!-- //  tour location slider end  ----  // -->
-    <!-- Destination Card Section Start -->
-    <section class="c-destination-section">
-        <div class="container">
-            <div class="c-destination-content">
-                <div class="best-title text-center">
-                    <span class="heading-style">We're</span>
-                    <h1>Partners Of</h1>
-                    <p>Forming Partnerships And Growing Our Tour Business</p>
-                </div>
-                <div class="c-destination-slide-list">
-                    <?php foreach ($Apiassoc as $logo) { ?>
-                        <div class="c-destination-card-item">
-                            <div class="c-destination-img">
-                                <img src="<?= $logo ?>" alt="" class="img-fluid">
-                                <!-- <div class="c-destination-card-details">
-                                    <h2 class="c-destination-card-title">Paris Tour</h2>
-                                    <p class="c-destination-card-text">We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment
-                                    </p>
-                                    <a href="#" class="btn c-destination-card-btn">View Details</a>
-                                </div> -->
-                            </div>
-                        </div>
-                    <?php } ?>
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Destination Card Section End -->
     <!-- //  ---- package detail section start  ----  // -->
     <section class="package-detail" style="display:none;">
         <div class="container">
@@ -779,60 +768,63 @@ $date1 = str_replace('-', '/', $date);
             <div class="widget-card border-0 transpot-vehical">
                 <?php foreach ($Apitransport as $transport) {
                     if (!empty($transport->tariff)) {
-                        foreach($transport->tariff as $tariff) {
+                        foreach ($transport->tariff as $tariff) {
                 ?>
-                        <div class="transpotation-cards">
-                            <div class="widget-card-img">
-                                <img src="crm/<?= substr($transport->image_url,9) ?>" class="card-img-top img-fluid" alt="...">
-                                <div class="widget-hotel-card-item">
-                                    <a href="#" class="hotel-card-item">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
+                            <div class="transpotation-cards">
+                                <div class="widget-card-img">
+                                    <img src="crm/<?= substr($transport->image_url, 9) ?>" class="card-img-top img-fluid" alt="...">
+                                    <div class="widget-hotel-card-item">
+                                        <a href="#" class="hotel-card-item">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </a>
+                                    </div>
                                 </div>
+                                <div class="transpotation-text">
+                                    <h6 class="mini"> <?= $transport->vehicle_name ?> </h6>
+                                    <p class="mini-text"><?= $transport->vehicle_type ?> </p>
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12">
+                                            <div class="facilities-text">
+                                                <i class="fas fa-check"></i>Pickup Location:
+                                                <?= $tariff->tariff_entry->city_from->city_name ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12">
+                                            <div class="facilities-text">
+                                                <i class="fas fa-check"></i>Drop Location:
+                                                <?= $tariff->tariff_entry->city_to->city_name ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12">
+                                            <div class="facilities-text">
+                                                <i class="fas fa-check"></i>From Date: <?= $tariff->tariff_entry->from_date ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12">
+                                            <div class="facilities-text">
+                                                <i class="fas fa-check"></i>To Date: <?= $tariff->tariff_entry->to_date ?>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="card-footer widget-card-footer restaurant-footer">
+                                        <div class="widget-star-rating widget-hotel-star">
+                                            <small><?= json_decode($tariff->tariff_entry->tariff_data)[0]->total_cost  ?></small>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
                             </div>
-                            <div class="transpotation-text">
-                                <h6 class="mini"> <?= $transport->vehicle_name ?> </h6>
-                                <p class="mini-text"><?= $transport->vehicle_type ?> </p>
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <div class="facilities-text">
-                                            <i class="fas fa-check"></i>Pickup Location: <?= $tariff->tariff_entry->city_from->city_name ?> 
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <div class="facilities-text">
-                                            <i class="fas fa-check"></i>Drop Location: <?= $tariff->tariff_entry->city_to->city_name ?> 
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <div class="facilities-text">
-                                            <i class="fas fa-check"></i>From Date: <?= $tariff->tariff_entry->from_date ?> 
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <div class="facilities-text">
-                                            <i class="fas fa-check"></i>To Date: <?= $tariff->tariff_entry->to_date ?> 
-                                        </div>
-                                    </div>
 
-
-
-                                </div>
-                                <div class="card-footer widget-card-footer restaurant-footer">
-                                    <div class="widget-star-rating widget-hotel-star">
-                                        <small><?= json_decode($tariff->tariff_entry->tariff_data)[0]->total_cost  ?></small>
-                                    
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                <?php }}
+                <?php }
+                    }
                 } ?>
-              
+
             </div>
         </div>
     </section>
@@ -849,38 +841,39 @@ $date1 = str_replace('-', '/', $date);
                 ?>
             </div>
             <div class="package-card">
-                <?php 
-                                                            
-                
+                <?php
+
+
                 foreach ($Apihotel as $hotel) { ?>
-                                 
+
 
                     <div class=" widget-card ">
-                    <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')">  
-                        <div class="widget-card-img">
-                            <img src="<?= file_exists('crm/'. substr($hotel->hotel_image->hotel_pic_url, 11)) ? 'crm/'. substr($hotel->hotel_image->hotel_pic_url, 11) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
-                            <!-- <div class="widget-card-price">
+                        <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')">
+                            <div class="widget-card-img">
+                                <img src="<?= file_exists('crm/' . substr($hotel->hotel_image->hotel_pic_url, 11)) ? 'crm/' . substr($hotel->hotel_image->hotel_pic_url, 11) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
+                                <!-- <div class="widget-card-price">
                                     <h4>$40 <del>$50</del></h4>
                                 </div> -->
-                            <div class="widget-card-power">
-                                <span>
-                                    <i class="fa-solid fa-bolt-lightning"></i>
-                                </span>
+                                <div class="widget-card-power">
+                                    <span>
+                                        <i class="fa-solid fa-bolt-lightning"></i>
+                                    </span>
+                                </div>
+                                <div class="widget-hotel-card-item">
+                                    <a href="#" class="hotel-card-item1 australia-hart-icon">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                    <a href="#" class="hotel-card-item">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </a>
+                                </div>
+                                <div class="restaurant-name">
+                                    <span class="tour-card-discription">Hotel</span>
+                                </div>
                             </div>
-                            <div class="widget-hotel-card-item">
-                                <a href="#" class="hotel-card-item1 australia-hart-icon">
-                                    <i class="fa-solid fa-house"></i>
-                                </a>
-                                <a href="#" class="hotel-card-item">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                            </div>
-                            <div class="restaurant-name">
-                                <span class="tour-card-discription">Hotel</span>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="card-body widget-card-body">
+                        </a>
+
+                        <div class="card-body widget-card-body">
                             <div class="widget-card-reviw widget-card-hotel-title mb-0">
                                 <a href="#" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none">
                                     <h5 class="card-title widget-card-title hotel-card-title">
@@ -903,9 +896,9 @@ $date1 = str_replace('-', '/', $date);
                                     <a href="#" class="text-decoration-none mb-2 mt-2">
                                         <span class="widget-card-ruting-calendar card-ruting-hotel border-end-0 pe-0 me-0">
                                             <i class="fas fa-phone"></i><?php
-                                            $mobile_no = $encrypt_decrypt->fnDecrypt($hotel->mobile_no, $secret_key);
-                                                echo $mobile_no;
-                                            ?>
+                                                                        $mobile_no = $encrypt_decrypt->fnDecrypt($hotel->mobile_no, $secret_key);
+                                                                        echo $mobile_no;
+                                                                        ?>
                                         </span>
                                     </a>
                                     <!-- <span class="widget-card-ruting-time border-0 mt-2">
@@ -933,7 +926,7 @@ $date1 = str_replace('-', '/', $date);
                                 <i class="fa-regular fa-comment"></i> 45
                             </div> -->
                         </div>
-                    
+
                     </div>
                 <?php } ?>
 
@@ -954,22 +947,22 @@ $date1 = str_replace('-', '/', $date);
             <div class=" transpot-vehical holiday-slider">
                 <?php foreach ($Apiactivity as $activity) { ?>
                     <div class=" widget-card border-0 ">
-                        <a  onclick="get_tours_data('<?= $activity->city_id ?>','4','<?= $activity->entry_id ?>')">
-                        <div class="widget-card-img">
-                            <img src="<?= file_exists('crm/'.substr($activity->images[0]->image_url, 6)) ? 'crm/'.substr($activity->images[0]->image_url, 6) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
+                        <a onclick="get_tours_data('<?= $activity->city_id ?>','4','<?= $activity->entry_id ?>')">
+                            <div class="widget-card-img">
+                                <img src="<?= file_exists('crm/' . substr($activity->images[0]->image_url, 6)) ? 'crm/' . substr($activity->images[0]->image_url, 6) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
 
-                            <div class="widget-china-location">
-                                <span>
-                                    <i class="bi bi-geo-alt"></i> <?= $activity->departure_point ?>
-                                </span>
-                                <!-- <span>
+                                <div class="widget-china-location">
+                                    <span>
+                                        <i class="bi bi-geo-alt"></i> <?= $activity->departure_point ?>
+                                    </span>
+                                    <!-- <span>
                                 <i class="bi bi-eye"></i> 40+ Tour Places
                             </span> -->
-                            </div>
-                            <!-- <div class="widget-card-price">
+                                </div>
+                                <!-- <div class="widget-card-price">
                                 <h4>$40 <del>$50</del></h4>
                             </div> -->
-                        </div>
+                            </div>
                         </a>
                         <div class="card-body widget-card-body">
                             <div class="widget-card-reviw widget-card-china">
@@ -977,7 +970,7 @@ $date1 = str_replace('-', '/', $date);
                                     <h5 class="card-title widget-card-title mb-0"><?= $activity->excursion_name ?></h5>
                                     <small class="text-muted">Duration: <?= $activity->duration ?></small>
                                 </a>
-                                
+
                             </div>
                             <div class="widget-china-day">
                                 <span class="tour-card-discription">
@@ -1077,7 +1070,8 @@ $date1 = str_replace('-', '/', $date);
                         <button class="nav-link" id="pills-weekend-tab" data-bs-toggle="pill" data-bs-target="#pills-weekend" type="button" role="tab" aria-controls="pills-weekend" aria-selected="false">Weekend</button>
                     </li>
                     <li class="nav-item item-blog-menu" role="presentation">
-                        <button class="nav-link" id="pills-tour-tab" data-bs-toggle="pill" data-bs-target="#pills-tour" type="button" role="tab" aria-controls="pills-tour" aria-selected="false">Spacial Tour</button>
+                        <button class="nav-link" id="pills-tour-tab" data-bs-toggle="pill" data-bs-target="#pills-tour" type="button" role="tab" aria-controls="pills-tour" aria-selected="false">Spacial
+                            Tour</button>
                     </li>
                     <li class="nav-item item-blog-menu" role="presentation">
                         <button class="nav-link" id="pills-holiday-tab" data-bs-toggle="pill" data-bs-target="#pills-holiday" type="button" role="tab" aria-controls="pills-holiday" aria-selected="false">Holiday Trip</button>
@@ -1138,7 +1132,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1207,7 +1202,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1276,7 +1272,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1349,7 +1346,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1418,7 +1416,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1487,7 +1486,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1560,7 +1560,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1629,7 +1630,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1698,7 +1700,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1771,7 +1774,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1840,7 +1844,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1909,7 +1914,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -1982,7 +1988,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -2052,7 +2059,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -2121,7 +2129,8 @@ $date1 = str_replace('-', '/', $date);
                                             </span>
                                         </div>
                                         <p class="card-text widget-card-text historical-text">
-                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                            deserunt mollit anim id est laborum.
                                         </p>
                                     </div>
                                     <div class="card-footer widget-card-footer">
@@ -2152,7 +2161,8 @@ $date1 = str_replace('-', '/', $date);
             <div class="best-title text-center">
                 <span class="heading-style">Our</span>
                 <h1>Customer Says </h1>
-                <p>We're Professionally Managed Travel Service Providing Company. Committed To Total Customer Satisfaction & Enhancing Value Of Money.</p>
+                <p>We're Professionally Managed Travel Service Providing Company. Committed To Total Customer
+                    Satisfaction & Enhancing Value Of Money.</p>
             </div>
             <div class="it-testimonail-v2-slider">
                 <?php foreach ($Apitestimonial as $testimonial) { ?>
@@ -2162,7 +2172,8 @@ $date1 = str_replace('-', '/', $date);
                                 <img src="crm/<?= substr($testimonial->image, 9) ?>" class="img-fluid" alt="images">
                             </div>
                             <div class="it-testimonail-v2-card-body">
-                                <h4 class="it-testimonail-v2-title"><?= $testimonial->name  ?> (<?= $testimonial->designation  ?>)</h4>
+                                <h4 class="it-testimonail-v2-title"><?= $testimonial->name  ?>
+                                    (<?= $testimonial->designation  ?>)</h4>
                                 <ul class="it-testimonail-v2-review-list">
                                     <li class="it-testimonail-v2-review-item it-review-selected">
                                         <i class="fa fa-star"> </i>
@@ -2235,7 +2246,8 @@ $date1 = str_replace('-', '/', $date);
                             </div>
                             <div class="feature-points">
                                 <h4 class="feature-points-title">Easy Tour Booking</h4>
-                                <small class="feature-points-discription">We believe in providing hassle free and convenient
+                                <small class="feature-points-discription">We believe in providing hassle free and
+                                    convenient
                                     tour booking options to our guests.</small>
                             </div>
                         </div>
@@ -2289,6 +2301,25 @@ $date1 = str_replace('-', '/', $date);
         </div>
     </section>
     <!-- //  ---- blog news section end  ----  // -->
+
+    <!-- Partner Slider Start -->
+    <div class="container best title text-center mt-2 mb-5 pt-2 pb-5">
+        <span class="heading-style text-center mt-2 mb-3">Our</span>
+        <h1>Partners</h1>
+
+        <?php
+        $logos = json_decode($cached_array[0]->cms_data[0]->assoc_logos);
+        ?>
+
+        <div class="logo-slider">
+            <?php foreach ($logos as $logo) { ?>
+                <div class="item"><a href="#"><img src="https://itourscloud.com/destination_gallery/association-logo/<?= $logo ?>.png" width="200" alt=""></a>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+    <!-- Partner Slider End -->
+
     <!-- // ---- app download section start  ---- // -->
     <section class="app">
         <div class="container">
@@ -2385,6 +2416,37 @@ include 'layouts/footer.php';
 <script type="text/javascript" src="view/group_tours/js/index.js"></script>
 
 <script type="text/javascript" src="js/scripts.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+<!--partner slider script-->
+<script>
+    $('.logo-slider').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: true,
+        autoplay: true,
+        autoplayspeed: 2000,
+        infinite: true,
+        responsive: [{
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+</script>
+<!--End partner slider script-->
 
 <script>
     $(document).ready(function() {
