@@ -375,7 +375,7 @@ $date1 = str_replace('-', '/', $date);
                                     <strong><?= $package->total_nights ?> Nights,<?= $package->total_days ?> Days </strong>
                                     <?= $package->tour_type ?>
                                 </span>
-                                <p class="card-text widget-card-text"><?= $package->note ?>
+                                <p class="card-text widget-card-text"><?= substr($package->note, 0, 300) ?>
                                 </p>
 
                             </div>
@@ -2193,8 +2193,7 @@ $date1 = str_replace('-', '/', $date);
                 <h2 class="t-bird-style">Where Would Like To Go</h2>
                 <h2 class="t-bird-title">Travel Like A Free Bird & Enjoy Your Life</h2>
                 <div class="input-group t-bird-input">
-                    <input type="text" class="form-control" placeholder="      " aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <a href="" class="input-group-text btn t-bird-btn" id="basic-addon2">Signup</a>
+                    <a href="<?= BASE_URL . 'view/customer/index.php' ?>" class="input-group-text btn t-bird-btn" id="basic-addon2" style="justify-content:center;">Signup</a>
                 </div>
             </div>
         </div>
