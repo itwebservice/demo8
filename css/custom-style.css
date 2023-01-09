@@ -534,7 +534,7 @@ nav {
 .select2-container .select2-selection--single {
   height: 46px;
   border-radius: 1px;
-  border: 1px solid #fff;
+  border: 1px solid #000;
 }
 
 .select2-container--default
@@ -545,8 +545,8 @@ nav {
   font-size: 14px;
   font-weight: 400;
   padding: 0 16px;
-  height: 45px;
-  background-color: #f8f7fc;
+  height: 42px;
+  background-color: #fff;
   font-family: "Roboto", sans-serif;
 }
 
@@ -955,6 +955,7 @@ nav {
   font-size: 14px;
   font-family: "Roboto", sans-serif;
   color: #312d65;
+  word-break: break-all;
 }
 
 .package-detail {
@@ -1449,6 +1450,7 @@ nav {
   /* padding: 0 10px; */
   margin: 0 10px;
   border: 1px solid #e5e4f0;
+  width: auto !important;
 }
 
 .widget-destination {
@@ -2520,6 +2522,7 @@ small.blog-date i {
 .blog-news {
   position: relative;
   margin-bottom: 24px;
+  padding: 15px;
 }
 
 .blog-news::before {

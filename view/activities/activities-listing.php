@@ -370,7 +370,7 @@ if($activities_id!=''){
 
                                 <div class="datepicker-wrap">
 
-                                <input type="text" name="checkDate" class="input-text full-width" placeholder="mm/dd/yy" id="checkDate" value="<?= $checkDate1 ?>" required/>
+                                <input type="text" name="checkDate" class="input-text full-width" placeholder="mm/dd/yy" id="checkDate" value="<?= $checkDate ?>" required/>
 
                                 </div>
 

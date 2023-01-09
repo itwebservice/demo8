@@ -1436,11 +1436,14 @@ text-transform: uppercase;
 transition: all ease-in-out 0.3s;
 }
 
-.ts-blog-card-link,
-.ts-blog-card-link:hover {
+.ts-blog-card-link {
 background-color: var(--main-bg-color);
 color: #ffffff;
 text-decoration: none;
+}
+
+.ts-blog-card-link:hover{
+background-color: #444444 !important;
 }
 
 .ts-blog-card-img-link {
@@ -1871,7 +1874,11 @@ flex-wrap: wrap;
 }
 
 .ts-social-media-item {
-margin-right: 20px;
+margin-right: 13px;
+}
+
+.ts-social-media-item a{
+text-decoration: none !important;
 }
 
 /***************** Sticky social media *******************/
@@ -1947,6 +1954,12 @@ font-size: 24px;
 display: block;
 transition: all ease 0.3s;
 transform: scale(1.1) translateY(-5px);
+}
+.sub-t{
+color: #4f4b8b;
+font-size: 34px;
+font-weight: 700;
+font-family: "Roboto", sans-serif;
 }
 
 /***************** End Partner slider *******************/
@@ -2794,6 +2807,10 @@ padding: 12px 40px;
 outline: none;
 text-decoration: none;
 border-radius: 20px;
+}
+
+.header-offer-btn:hover{
+background-color: #444444 !important;
 }
 
 .header-btn-cta {

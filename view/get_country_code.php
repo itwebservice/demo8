@@ -1,5 +1,5 @@
 <?php
-include '../../model/model.php';
+include '../crm/model/model.php';
 $country_id = $_POST['country_id'];
 
 $sq_currency= mysqli_fetch_assoc(mysqlQuery("select * from country_list_master where country_id='$country_id'"));

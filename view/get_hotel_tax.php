@@ -1,5 +1,5 @@
 <?php
-include '../../model/model.php';
+include '../crm/model/model.php';
 $register_id = $_POST['register_id'];
 $huuid = $_POST['huuid'];
 $id = $_POST['id'];

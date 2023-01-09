@@ -55,7 +55,7 @@ if(sizeof($ferry_results_array)>0){
 
             <!-- *** Car Card Info *** -->
             <div class="cardList-info">
-                <button class="expandSect">View More...</button>
+                <button class="expandSect">View Details...</button>
                 <div class="dividerSection type-1 noborder">
                 <div class="divider s1">
                     <h4 class="cardTitle"><span id="ferry_name-<?= $ferry_results_array[$ferry_i]['tariff_id'] ?>"><?= $ferry_results_array[$ferry_i]['ferry_name'].'('.$ferry_results_array[$ferry_i]['ferry_type'].')' ?></span>

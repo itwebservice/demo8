@@ -30,183 +30,14 @@ $date1 = str_replace('-', '/', $date);
                         <p>Find The World's Largest Collection Of Tours & Travel Packages.</p>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 col-lg-12 col-xl-12">
-                            <div class="searching-tabs">
-                                <ul class="nav nav-pills " id="pills-tab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link banner-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Tours</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link banner-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Hotels</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link banner-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Flights</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link banner-link" id="pills-car-tab" data-bs-toggle="pill" data-bs-target="#pills-car" type="button" role="tab" aria-controls="pills-car" aria-selected="false">Cars</button>
-                                    </li>
-                                </ul>
-                                <div class="tab-content search-border" id="pills-tabContent">
-                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                        <div class="searchbar">
-                                            <div class="search-form row no-gutters">
-                                                <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                    <input type="text" class="form-control current-input " placeholder="Current Location">
-                                                    <span><img src="images/gps.svg" class="gps" alt=""></span>
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                    <select class="form-control js-example-templating current-input" name="" id="">
-                                                        <option value="" selected>Destination Location
-                                                        </option>
-                                                        <option value="">India</option>
-                                                        <option value="">USA</option>
-                                                        <option value="">United Kingdom</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-8 col-xl-8 mb-0 p-0 ">
-                                                    <div class="row no-gutters">
-                                                        <div class="form-group col-md-12 col-lg-3 col-xl-3 mb-0 p-0">
-                                                            <input class="form-control current-input datepicker" placeholder="Travel Date">
-                                                        </div>
-                                                        <div class="form-group col-md-12 col-lg-3 col-xl-3 mb-0 p-0">
-                                                            <input class="form-control current-input datepicker" placeholder="Return Date">
-                                                        </div>
-                                                        <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                            <select class="form-control current-input js-example-templating" name="" id="">
-                                                                <option value="" selected>Persons</option>
-                                                                <option value="">1</option>
-                                                                <option value="">2</option>
-                                                                <option value="">3</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                            <select class="form-control current-input js-example-templating" name="" id="">
-                                                                <option value="" selected>Kids</option>
-                                                                <option value="">1</option>
-                                                                <option value="">2</option>
-                                                                <option value="">3</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                            <a href="#" class="btn book-search">Search</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                        <div class="searchbar">
-                                            <div class="search-form row no-gutters">
-                                                <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                    <input type="text" class="form-control current-input " placeholder="Current Location">
-                                                    <span><img src="images/gps.svg" class="gps" alt=""></span>
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                    <select class="form-control js-example-templating current-input" name="" id="">
-                                                        <option value="" selected>Persons</option>
-                                                        <option value="">1</option>
-                                                        <option value="">2</option>
-                                                        <option value="">3</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                    <select class="form-control js-example-templating current-input" name="" id="">
-                                                        <option value="" selected>Kids</option>
-                                                        <option value="">1</option>
-                                                        <option value="">2</option>
-                                                        <option value="">3</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-6 col-xl-6 mb-0 p-0">
-                                                    <div class="row no-gutters">
-                                                        <div class="form-group col-md-12 col-lg-4 col-xl-4 mb-0 p-0">
-                                                            <input class="form-control current-input datepicker" placeholder="Checkin">
-                                                        </div>
-                                                        <div class="form-group col-md-12 col-lg-4 col-xl-4 mb-0 p-0">
-                                                            <input class="form-control current-input datepicker" placeholder="Checkout">
-                                                        </div>
-                                                        <div class="col-md-12 col-lg-4 col-xl-4 p-0 ">
-                                                            <a href="#" class="btn book-search">Search</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                                        <div class="searchbar">
-                                            <div class="search-form row no-gutters">
-                                                <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                    <input type="text" class="form-control current-input" placeholder="From">
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                    <input type="text" class="form-control current-input" placeholder="To">
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-2 col-xl-2 mb-0 p-0">
-                                                    <select class="form-control js-example-templating current-input" name="" id="">
-                                                        <option value="" selected>Adults</option>
-                                                        <option value="">1</option>
-                                                        <option value="">2</option>
-                                                        <option value="">3</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-6 col-xl-6 mb-0 p-0">
-                                                    <div class="row no-gutters">
-                                                        <div class="form-group col-md-12 col-lg-4 col-xl-4 mb-0 p-0">
-                                                            <select class="form-control js-example-templating current-input" name="" id="">
-                                                                <option value="" selected>Kids</option>
-                                                                <option value="">1</option>
-                                                                <option value="">2</option>
-                                                                <option value="">3</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group col-md-12 col-lg-4 col-xl-4 mb-0 p-0">
-                                                            <input class="form-control current-input datepicker" placeholder="Checkout">
-                                                        </div>
-                                                        <div class="col-md-12 col-lg-4 col-xl-4 p-0">
-                                                            <a href="#" class="btn book-search">Search</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="pills-car" role="tabpanel" aria-labelledby="pills-car-tab">
-                                        <div class="searchbar">
-                                            <div class="search-form row no-gutters">
-                                                <div class="form-group col-lg-3 col-xl-3 mb-0 p-0">
-                                                    <input class="form-control current-input datepicker" placeholder="Pickup Date">
-                                                </div>
-                                                <div class="form-group col-lg-3 col-xl-3 mb-0 p-0">
-                                                    <input class="form-control current-input " type="time" placeholder="Checkout">
-                                                </div>
-                                                <div class="form-group col-md-12 col-lg-6 col-xl-6 mb-0 p-0">
-                                                    <div class="row no-gutters">
-                                                        <div class="form-group col-md-12 col-lg-4 col-xl-4 mb-0 p-0">
-                                                            <input type="text" class="form-control current-input" placeholder="Pickup Location">
-                                                        </div>
-                                                        <div class="form-group col-md-12 col-lg-4 col-xl-4 mb-0 p-0">
-                                                            <input type="text" class="form-control current-input" placeholder="Drop Location">
-                                                        </div>
-                                                        <div class="col-md-12 col-lg-4 col-xl-4 mb-0 p-0">
-                                                            <a href="#" class="btn book-search">Search</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-12 col-lg-12 col-xl-10 mx-auto">
                             <div class="row mt-4">
                                 <div class="col">
                                     <div class="tour-service">
-                                    <a target="_blank" href="<?=BASE_URL_B2C?>/view/hotel/hotel-listing.php" style="text-decoration: none;">
-                                        <img src="images/hotel.png" class="img-fluid hotel-book" alt="">
-                                        <h6>Hotels</h6></a>
+                                        <a target="_blank" href="<?= BASE_URL_B2C ?>/view/hotel/hotel-listing.php" style="text-decoration: none;">
+                                            <img src="images/hotel.png" class="img-fluid hotel-book" alt="">
+                                            <h6>Hotels</h6>
+                                        </a>
                                     </div>
                                 </div>
                                 <!-- <div class="col">
@@ -338,7 +169,7 @@ $date1 = str_replace('-', '/', $date);
                 ?>
                     <div class="card widget-card border-0">
                         <div class="widget-card-img">
-                            <img src="<?= $package->main_img_url ?>" target="_blank" class="card-img-top" alt="...">
+                            <img onclick="get_tours_data('<?= $package->destination->dest_id ?>','1')" src="<?= $package->main_img_url ?>" style="cursor: pointer !important;" class="card-img-top" alt="...">
                             <!-- <div class="widget-card-price">
                                 <h4>$40 <del>$50</del></h4>
                             </div> -->
@@ -348,10 +179,11 @@ $date1 = str_replace('-', '/', $date);
                                 </span>
                             </div>
                             <!-- <div class="widget-card-price" style="top: 100px;">
-                                <h4><?php //echo !empty($package->tariff) ? $package->tariff->cadult : 0.00;  ?></h4>
+                                <h4><?php //echo !empty($package->tariff) ? $package->tariff->cadult : 0.00;  
+                                    ?></h4>
                             </div> -->
                             <div class="ribbon">
-                                <span class="bg-primary">Collaction</span>
+                                <span class="bg-primary">Recommended</span>
                             </div>
                             <div class="widget-hotel-card-item">
                                 <!-- <a href="#" class="hotel-card-item"><i class="fa-solid fa-utensils"></i></a> -->
@@ -374,7 +206,8 @@ $date1 = str_replace('-', '/', $date);
                                     <strong><?= $package->total_nights ?> Nights,<?= $package->total_days ?> Days </strong>
                                     <?= $package->tour_type ?>
                                 </span>
-                                <p class="card-text widget-card-text"><?= $note ?></p>
+                                <p class="card-text widget-card-text"><?= substr($package->note, 0, 300) ?>
+                                </p>
 
                             </div>
                         </div>
@@ -752,7 +585,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="great-content text-center">
                 <h2 class="great-title">Get Best Tour Experience With Us!</h2>
                 <p class="great-discription">Find Best Deals For Tour Packages, Hotels, Holidays For<br class="d-none d-lg-block"> India & International Travel, B2B Travel Services.</p>
-                <a href="<?=BASE_URL_B2C?>/view/tours/tours-listing.php" class="btn great-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-play"></i></a>
+                <a href="<?= BASE_URL_B2C ?>/view/tours/tours-listing.php" class="btn great-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-play"></i></a>
             </div>
         </div>
     </section>
@@ -882,16 +715,16 @@ $date1 = str_replace('-', '/', $date);
                                         <?= $hotel->hotel_name ?>
                                     </h5>
                                     <p class="mini-text">
-                                        <?= $hotel->amenities ?>
+                                        <?= substr($hotel->amenities, 0, 100).' ...'  ?>
                                     </p>
                                 </a>
                                 <div class="widget-card-ruting widget-card-ruting-restaurant pb-0 mb-0">
-                                    <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none mb-2">
+                                    <a style="cursor:none !important;" class="text-decoration-none mb-2">
                                         <span class="widget-card-ruting-location card-ruting-hotel border-0">
-                                            <i class="fa-solid fa-location-dot"></i> <?= ($hotel->hotel_address!='') ? $hotel->hotel_address : 'NA' ?>
+                                            <i class="fa-solid fa-location-dot"></i> <?= ($hotel->hotel_address != '') ? $hotel->hotel_address : 'NA' ?>
                                         </span>
                                     </a>
-                                    <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')" class="text-decoration-none mb-2 mt-2">
+                                    <a style="cursor:none !important;" class="text-decoration-none mb-2 mt-2">
                                         <span class="widget-card-ruting-calendar card-ruting-hotel border-end-0 pe-0 me-0">
                                             <i class="fas fa-phone"></i>
                                             <?php
@@ -958,9 +791,7 @@ $date1 = str_replace('-', '/', $date);
 
                             </div>
                             <div class="widget-china-day">
-                                <span class="tour-card-discription">
-                                    <?= substr($activity->description, 0, 100) ?> ...
-                                </span>
+                                <span class="tour-card-discription"><?= substr($activity->description, 0, 100) ?> ...</span>
                             </div>
                         </div>
                         <div class="card-footer widget-card-footer">
@@ -2176,7 +2007,7 @@ $date1 = str_replace('-', '/', $date);
                                         <i class="fa fa-star"> </i>
                                     </li>
                                 </ul>
-                                <p class="it-testimonail-v2-description"> <?= substr($testimonial->testm, 0, 150)  ?> </p>
+                                <p class="it-testimonail-v2-description"> <?= substr($testimonial->testm, 0, 150).'...'  ?> </p>
                             </div>
                         </div>
                     </div>
@@ -2194,8 +2025,7 @@ $date1 = str_replace('-', '/', $date);
                 <h2 class="t-bird-style">Where Would Like To Go</h2>
                 <h2 class="t-bird-title">Travel Like A Free Bird & Enjoy Your Life</h2>
                 <div class="input-group t-bird-input">
-                    <input type="text" class="form-control" placeholder="      " aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <a href="" class="input-group-text btn t-bird-btn" id="basic-addon2">Signup</a>
+                    <a href="<?= BASE_URL . 'view/customer/index.php' ?>" class="input-group-text btn t-bird-btn" id="basic-addon2" style="justify-content:center;">Signup</a>
                 </div>
             </div>
         </div>
@@ -2262,23 +2092,23 @@ $date1 = str_replace('-', '/', $date);
                 <h1>Gallery </h1>
                 <p>View Our Recent Client Experiences Of Various Destinations Through Images.</p>
             </div>
-            <div class="row">
+            <div class="showcase">
 
                 <?php foreach ($Apigallery as $image) { ?>
-                    <div class="col col-12 col-md-6 col-lg-4 col-xl-4">
-                        <div class="blog-news">
-                            <div class="blog-news-img">
-                                <img src="crm/<?= substr($image->image_url, 9) ?>" class="img-fluid" alt="">
-                            </div>
-                            <!-- <div class="bolg-text">
+
+                    <div class="blog-news">
+                        <div class="blog-news-img">
+                            <img src="crm/<?= substr($image->image_url, 9) ?>" class="img-fluid" alt="">
+                        </div>
+                        <!-- <div class="bolg-text">
                                 <h4 class="blog-trip">New Trip With Gowell</h4>
                                 <small class="blog-tip text-warning"><i class="fa-solid fa-tag"></i>Blog</small>
                                 <small class="blog-date ms-4"><i class="fa-solid fa-calendar-days"></i>27 Jul
                                     2020</small>
                                 <small class="blog-name ms-4"><i class="fas fa-user"></i>John Smith</small>
                             </div> -->
-                        </div>
                     </div>
+
                 <?php } ?>
 
 
@@ -2290,7 +2120,7 @@ $date1 = str_replace('-', '/', $date);
     <!-- Partner Slider Start -->
     <div class="container best title text-center mt-2 mb-5 pt-2 pb-5">
         <span class="heading-style text-center mt-2 mb-3">Our</span>
-        <h1>Partners</h1>
+        <h1 class=sub-t>Partners</h1>
 
         <?php
         $logos = json_decode($cached_array[0]->cms_data[0]->assoc_logos);

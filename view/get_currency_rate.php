@@ -1,5 +1,5 @@
 <?php
-include '../../model/model.php';
+include '../crm/model/model.php';
 global $currency;
 $currency1 = $_POST['currency'];
 $currency_id = $_POST['currency_id'];
