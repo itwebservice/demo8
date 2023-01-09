@@ -27,14 +27,19 @@ else if($pick_drop_array[0]->pickup_type == 'hotel'){
   $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$pickup_id'"));
   $pickup = $row['hotel_name'];
 }
-else{
+else if($pick_drop_array[0]->pickup_type == 'airport'){
   $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$pickup_id'"));
   $airport_nam = clean($row['airport_name']);
   $airport_code = clean($row['airport_code']);
   $pickup = $airport_nam." (".$airport_code.")";
+}else{
+  $pickup = '';
 }
-$pick_html =  '<optgroup value="'.$pick_drop_array[0]->pickup_type.'" label="'.ucfirst($pick_drop_array[0]->pickup_type).' Name">';
-$pick_html .= '<option value="'.$pickup_id.'">'.$pickup.'</option></optgroup>';
+$pick_html = '';
+if($pickup != ''){
+  $pick_html =  '<optgroup value="'.$pick_drop_array[0]->pickup_type.'" label="'.ucfirst($pick_drop_array[0]->pickup_type).' Name">';
+  $pick_html .= '<option value="'.$pickup_id.'">'.$pickup.'</option></optgroup>';
+}
 
 //Drop-off
 $drop_id = $pick_drop_array[0]->drop_to;
@@ -46,17 +51,26 @@ else if($pick_drop_array[0]->drop_type == 'hotel'){
   $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$drop_id'"));
   $drop = $row['hotel_name'];
 }
-else{
+else if($pick_drop_array[0]->drop_type == 'airport'){
   $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$drop_id'"));
   $airport_nam = clean($row['airport_name']);
   $airport_code = clean($row['airport_code']);
   $drop = $airport_nam." (".$airport_code.")";
+}else{
+  $drop = '';
 }
-$drop_html =  '<optgroup value="'.$pick_drop_array[0]->drop_type.'" label="'.ucfirst($pick_drop_array[0]->drop_type).' Name">';
-$drop_html .= '<option value="'.$drop_id.'">'.$drop.'</option></optgroup>';
 
-$pickup_date1 = date('d M Y H:i', strtotime($pick_drop_array[0]->pickup_date));
-$return_date1 = date('d M Y H:i', strtotime($pick_drop_array[0]->return_date));
+$drop_html = '';
+if($drop != ''){
+  $drop_html =  '<optgroup value="'.$pick_drop_array[0]->drop_type.'" label="'.ucfirst($pick_drop_array[0]->drop_type).' Name">';
+  $drop_html .= '<option value="'.$drop_id.'">'.$drop.'</option></optgroup>';
+}
+$pickup_date1 = ($pick_drop_array[0]->pickup_date != '') ? date('d M Y H:i', strtotime($pick_drop_array[0]->pickup_date)) : date('d M Y H:i');
+$pickup_dates = ($pick_drop_array[0]->pickup_date != '') ? date('m/d/Y H:i', strtotime($pick_drop_array[0]->pickup_date)) : date('m/d/Y H:i');
+
+$return_date1 = ($pick_drop_array[0]->return_date != '') ? date('d M Y H:i', strtotime($pick_drop_array[0]->return_date)) : date('d M Y H:i');
+$return_dates = ($pick_drop_array[0]->return_date != '') ? date('m/d/Y H:i', strtotime($pick_drop_array[0]->return_date)) : date('m/d/Y H:i');
+
 if($pick_drop_array[0]->trip_type == 'oneway') {
   $round_class = '';
   $checked = 'checked';
@@ -70,8 +84,10 @@ else{
 }
 // Query
 $checkDate_array = array();
-$pickup_date11 = date('Y-m-d', strtotime($pick_drop_array[0]->pickup_date));
-$return_date11 = date('Y-m-d', strtotime($pick_drop_array[0]->return_date));
+$pickup_date11 = ($pick_drop_array[0]->pickup_date != '') ? date('Y-m-d', strtotime($pick_drop_array[0]->pickup_date)) : date('Y-m-d');
+
+
+$return_date11 = ($pick_drop_array[0]->return_date != '') ? date('Y-m-d', strtotime($pick_drop_array[0]->return_date)) : date('Y-m-d');
 array_push($checkDate_array,$pickup_date11);
 if($pick_drop_array[0]->trip_type == 'roundtrip') {
   array_push($checkDate_array,$return_date11);
@@ -220,7 +236,7 @@ $passenger = ($pick_drop_array[0]->passengers == 1) ? 'Passenger' : 'Passengers'
                       <div class="form-group">
                           <label>Pickup Date&Time*</label>
                           <div class="datepicker-wrap">
-                              <input type="text" name="pickup_date" class="input-text full-width" placeholder="mm/dd/yy H:i" id="pickup_date" value="<?= $pick_drop_array[0]->pickup_date ?>"/>
+                              <input type="text" name="pickup_date" class="input-text full-width" placeholder="mm/dd/yy H:i" id="pickup_date" value="<?= $pickup_dates ?>"/>
                           </div>
                       </div>
                     </div>
@@ -255,7 +271,7 @@ $passenger = ($pick_drop_array[0]->passengers == 1) ? 'Passenger' : 'Passengers'
                       <div class="form-group">
                           <label>Return Date&Time</label>
                           <div class="datepicker-wrap">
-                              <input type="text" name="return_date" class="input-text full-width" placeholder="mm/dd/yy H:i" id="return_date" value="<?= $pick_drop_array[0]->return_date ?>" onchange="check_valid_date_trs()"/>
+                              <input type="text" name="return_date" class="input-text full-width" placeholder="mm/dd/yy H:i" id="return_date" value="<?= $return_dates ?>" onchange="check_valid_date_trs()"/>
                         </div>
                       </div>
                     </div>

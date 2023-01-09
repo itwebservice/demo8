@@ -148,7 +148,7 @@ if (sizeof($visa_results_array) > 0) {
                             <?php echo $visa_types[$v]['time_taken'] ?>
                         </div>
                         <h3 class="c-heading">
-                            List of documents
+                            List Of Documents
                         </h3>
                         <div class="custom_texteditor">
                             <?php echo $visa_types[$v]['documents'] ?>

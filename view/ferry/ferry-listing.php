@@ -18,11 +18,13 @@ $to_currency_rate = $sq_to['currency_rate'];
 
 $ferry_array = json_decode($_SESSION['ferry_array']);
 
-$checkDate = date('d M Y H:i', strtotime($ferry_array[0]->travel_date));
+$travel_date1 = ($ferry_array[0]->travel_date != '') ? $ferry_array[0]->travel_date : date('Y-m-d');
 
-$date1 = date("Y-m-d", strtotime($ferry_array[0]->travel_date));
+$checkDate = date('d M Y H:i', strtotime($travel_date1));
 
-$travel_date = date("Y-m-d H:i", strtotime($ferry_array[0]->travel_date));
+$date1 = date("Y-m-d", strtotime($travel_date1));
+
+$travel_date = date("Y-m-d H:i", strtotime($travel_date1));
 
 
 
@@ -320,7 +322,7 @@ if($to_city_id!=''){
 
                             <div class="datepicker-wrap">
 
-                              <input type="text" name="ftravelDate" title="Travel Datetime" class="input-text full-width" placeholder="mm/dd/yy" id="ftravelDate" value="<?= $ferry_array[0]->travel_date ?>" required/>
+                              <input type="text" name="ftravelDate" title="Travel Datetime" class="input-text full-width" placeholder="mm/dd/yy" id="ftravelDate" value="<?= $travel_date1 ?>" required/>
 
                             </div>
 

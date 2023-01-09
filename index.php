@@ -334,10 +334,11 @@ $date1 = str_replace('-', '/', $date);
                     $package_fname = str_replace(' ', '_', $package_name);
 
                     $file_name = 'package_tours/' . $package_fname . '-' . $package->package_id . '.php';
+                    $note = substr($package->note, 0, 250) . '..';
                 ?>
                     <div class="card widget-card border-0">
                         <div class="widget-card-img">
-                            <img src="<?= $file_name ?>" target="_blank" class="card-img-top" alt="...">
+                            <img src="<?= $package->main_img_url ?>" target="_blank" class="card-img-top" alt="...">
                             <!-- <div class="widget-card-price">
                                 <h4>$40 <del>$50</del></h4>
                             </div> -->
@@ -373,8 +374,7 @@ $date1 = str_replace('-', '/', $date);
                                     <strong><?= $package->total_nights ?> Nights,<?= $package->total_days ?> Days </strong>
                                     <?= $package->tour_type ?>
                                 </span>
-                                <p class="card-text widget-card-text"><?= $package->note ?>
-                                </p>
+                                <p class="card-text widget-card-text"><?= $note ?></p>
 
                             </div>
                         </div>
@@ -769,8 +769,7 @@ $date1 = str_replace('-', '/', $date);
                 <?php foreach ($Apitransport as $transport) {
                     if (!empty($transport->tariff)) {
                         foreach ($transport->tariff as $tariff) {
-                            $trans_img = ($transport->image_url!='') ? 'crm/'.substr($transport->image_url, 9) : 'crm/'.substr($transport->image_url, 9);
-                            // BASE_URL.'images/taxi.png'
+                            $trans_img = ($transport->image_url!='') ? 'crm/'.substr($transport->image_url, 9) : BASE_URL_B2C.'images/dummy-car.png';
                 ?>
                             <div class="transpotation-cards">
                                 <div class="widget-card-img">
@@ -846,13 +845,14 @@ $date1 = str_replace('-', '/', $date);
                 <?php
 
 
-                foreach ($Apihotel as $hotel) { ?>
-
-
+                foreach ($Apihotel as $hotel) {
+                    
+                    $hotel_image = ($hotel->hotel_image->hotel_pic_url != '') ? 'crm/' . substr($hotel->hotel_image->hotel_pic_url, 11) : BASE_URL_B2C.'images/hotel_image.png';
+                    ?>
                     <div class=" widget-card ">
                         <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')">
                             <div class="widget-card-img">
-                                <img src="<?= file_exists('crm/' . substr($hotel->hotel_image->hotel_pic_url, 11)) ? 'crm/' . substr($hotel->hotel_image->hotel_pic_url, 11) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
+                                <img src="<?= $hotel_image ?>" class="card-img-top" alt="...">
                                 <!-- <div class="widget-card-price">
                                     <h4>$40 <del>$50</del></h4>
                                 </div> -->
@@ -927,11 +927,14 @@ $date1 = str_replace('-', '/', $date);
                 <p>Most Beautiful Places In The World</p>
             </div>
             <div class=" transpot-vehical holiday-slider">
-                <?php foreach ($Apiactivity as $activity) { ?>
+                <?php foreach ($Apiactivity as $activity) {
+                        
+                        $trans_img = ($activity->images[0]->image_url!='') ? 'crm/'.substr($activity->images[0]->image_url, 6) : BASE_URL_B2C.'images/dummy-activity.png';
+                        ?>
                     <div class=" widget-card border-0 ">
                         <a onclick="get_tours_data('<?= $activity->city_id ?>','4','<?= $activity->entry_id ?>')">
                             <div class="widget-card-img">
-                                <img src="<?= file_exists('crm/' . substr($activity->images[0]->image_url, 6)) ? 'crm/' . substr($activity->images[0]->image_url, 6) : 'images/hotel_image.png' ?>" class="card-img-top" alt="...">
+                                <img src="<?= $trans_img ?>" class="card-img-top" alt="...">
 
                                 <div class="widget-china-location">
                                     <span>

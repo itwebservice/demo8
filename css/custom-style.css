@@ -796,6 +796,7 @@ nav {
   font-weight: 400;
   margin-top: 8px;
   font-family: "Roboto", sans-serif;
+  word-break: break-all;
 }
 
 .widget-card-footer-text {
