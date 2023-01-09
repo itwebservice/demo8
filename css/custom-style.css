@@ -1578,6 +1578,10 @@ nav {
   color: #312d65;
 }
 
+.widget-card-title:hover {
+  color: #f96768;
+}
+
 .widget-card-ruting span {
   font-size: 14px;
   color: #312d65;

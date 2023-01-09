@@ -602,7 +602,7 @@ $date1 = str_replace('-', '/', $date);
                 <?php foreach ($Apitransport as $transport) {
                     if (!empty($transport->tariff)) {
                         foreach ($transport->tariff as $tariff) {
-                            $trans_img = ($transport->image_url!='') ? 'crm/'.substr($transport->image_url, 9) : BASE_URL_B2C.'images/dummy-car.png';
+                            $trans_img = ($transport->image_url != '') ? 'crm/' . substr($transport->image_url, 9) : BASE_URL_B2C . 'images/dummy-car.png';
                 ?>
                             <div class="transpotation-cards">
                                 <div class="widget-card-img">
@@ -679,9 +679,9 @@ $date1 = str_replace('-', '/', $date);
 
 
                 foreach ($Apihotel as $hotel) {
-                    
-                    $hotel_image = ($hotel->hotel_image->hotel_pic_url != '') ? 'crm/' . substr($hotel->hotel_image->hotel_pic_url, 11) : BASE_URL_B2C.'images/hotel_image.png';
-                    ?>
+
+                    $hotel_image = ($hotel->hotel_image->hotel_pic_url != '') ? 'crm/' . substr($hotel->hotel_image->hotel_pic_url, 11) : BASE_URL_B2C . 'images/hotel_image.png';
+                ?>
                     <div class=" widget-card ">
                         <a style="cursor:pointer !important;" onclick="get_tours_data('<?= $hotel->city_id ?>','3','<?= $hotel->hotel_id ?>')">
                             <div class="widget-card-img">
@@ -715,7 +715,7 @@ $date1 = str_replace('-', '/', $date);
                                         <?= $hotel->hotel_name ?>
                                     </h5>
                                     <p class="mini-text">
-                                        <?= substr($hotel->amenities, 0, 100).' ...'  ?>
+                                        <?= substr($hotel->amenities, 0, 100) . ' ...'  ?>
                                     </p>
                                 </a>
                                 <div class="widget-card-ruting widget-card-ruting-restaurant pb-0 mb-0">
@@ -761,9 +761,9 @@ $date1 = str_replace('-', '/', $date);
             </div>
             <div class=" transpot-vehical holiday-slider">
                 <?php foreach ($Apiactivity as $activity) {
-                        
-                        $trans_img = ($activity->images[0]->image_url!='') ? 'crm/'.substr($activity->images[0]->image_url, 6) : BASE_URL_B2C.'images/dummy-activity.png';
-                        ?>
+
+                    $trans_img = ($activity->images[0]->image_url != '') ? 'crm/' . substr($activity->images[0]->image_url, 6) : BASE_URL_B2C . 'images/dummy-activity.png';
+                ?>
                     <div class=" widget-card border-0 ">
                         <a onclick="get_tours_data('<?= $activity->city_id ?>','4','<?= $activity->entry_id ?>')">
                             <div class="widget-card-img">
@@ -2007,7 +2007,7 @@ $date1 = str_replace('-', '/', $date);
                                         <i class="fa fa-star"> </i>
                                     </li>
                                 </ul>
-                                <p class="it-testimonail-v2-description"> <?= substr($testimonial->testm, 0, 150).'...'  ?> </p>
+                                <p class="it-testimonail-v2-description"> <?= substr($testimonial->testm, 0, 150) . '...'  ?> </p>
                             </div>
                         </div>
                     </div>
@@ -2024,7 +2024,7 @@ $date1 = str_replace('-', '/', $date);
             <div class="t-bird-content text-center">
                 <h2 class="t-bird-style">Where Would Like To Go</h2>
                 <h2 class="t-bird-title">Travel Like A Free Bird & Enjoy Your Life</h2>
-                <div class="input-group t-bird-input">
+                <div class="input-group t-bird-input" style="justify-content: center;">
                     <a href="<?= BASE_URL . 'view/customer/index.php' ?>" class="input-group-text btn t-bird-btn" id="basic-addon2" style="justify-content:center;">Signup</a>
                 </div>
             </div>
