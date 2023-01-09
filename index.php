@@ -206,7 +206,7 @@ $date1 = str_replace('-', '/', $date);
                                     <strong><?= $package->total_nights ?> Nights,<?= $package->total_days ?> Days </strong>
                                     <?= $package->tour_type ?>
                                 </span>
-                                <p class="card-text widget-card-text"><?= substr($package->note, 0, 300) ?>
+                                <p class="card-text widget-card-text" style="white-space: break-spaces;"><?= substr($package->note, 0, 200) ?>
                                 </p>
 
                             </div>
