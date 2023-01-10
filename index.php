@@ -2025,7 +2025,7 @@ $date1 = str_replace('-', '/', $date);
                 <h2 class="t-bird-style">Where Would Like To Go</h2>
                 <h2 class="t-bird-title">Travel Like A Free Bird & Enjoy Your Life</h2>
                 <div class="input-group t-bird-input" style="justify-content: center;">
-                    <a href="<?= BASE_URL . 'view/customer/index.php' ?>" class="input-group-text btn t-bird-btn" id="basic-addon2" style="justify-content:center;">Signup</a>
+                    <a target="_blank" href="<?= BASE_URL . 'view/customer/index.php' ?>" class="input-group-text btn t-bird-btn" id="basic-addon2" style="justify-content:center;">Signup</a>
                 </div>
             </div>
         </div>
