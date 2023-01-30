@@ -32,9 +32,12 @@ if ($modified_time < time()-1*10800) {
     while($row = mysqli_fetch_array($result)) {
         $temp_array = array(
             'entry_id' => $row['entry_id'],
-            'name' => $row['name'],
-            'rate_in' => $row['rate_in'],
-            'rate' => $row['rate'],
+            'name1' => $row['name1'],
+            'amount1' => $row['amount1'],
+            'ledger1' => $row['ledger1'],
+            'name2' => $row['name2'],
+            'amount2' => $row['amount2'],
+            'ledger2' => $row['ledger2'],
             'status' => $row['status']
         );
         array_push($data,$temp_array);
