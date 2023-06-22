@@ -580,6 +580,7 @@ $(function () {
 	$('#frm_pdf_save').validate({
 		rules : {
             vcode: { required: true, minlength:6, maxlength:6 },
+            state : { required: true }
         },
 		submitHandler : function (form) {
 

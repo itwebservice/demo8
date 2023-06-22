@@ -186,7 +186,7 @@ if(sizeof($activity_result_array)>0){
                         <?= $activity_result_array[$i]['terms_condition']?>
                     </div>
                     <h3 class="c-heading">
-                      Usefull Information
+                      Useful Information
                     </h3>
                     <div class="custom_texteditor">
                     <?= $activity_result_array[$i]['useful_info']?>

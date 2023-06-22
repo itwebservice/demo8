@@ -6,7 +6,7 @@ $transfer_results_array = ($_POST['data']!='')?$_POST['data']:[];
 <?php
 if(sizeof($transfer_results_array)>0){
     for($transfer_i=0;$transfer_i<sizeof($transfer_results_array);$transfer_i++){
-        
+
         $trans_enq_data = array();
         $vehicle_name = $transfer_results_array[$transfer_i]['vehicle_name'];
         $vehicle_type = $transfer_results_array[$transfer_i]['vehicle_type'];

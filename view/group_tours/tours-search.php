@@ -187,19 +187,12 @@
             <label>Child Without Bed(2-5 Yrs)</label>
 
             <div class="selector">
-
-            <select name="gchild_wobed" id='gchild_wobed' class="full-width">
-
-                <?php for($m=0;$m<=10;$m++){
-
-                  ?>
-
+              <select name="gchild_wobed" id='gchild_wobed' class="full-width">
+                  <?php for($m=0;$m<=10;$m++){
+                    ?>
                     <option value="<?= $m ?>"><?= $m ?></option>
-
-                <?php }  ?>
-
-            </select>
-
+                  <?php } ?>
+              </select>
             </div>
 
         </div>

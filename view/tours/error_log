@@ -343,27 +343,3 @@ Stack trace:
 #1 /home/itourscloud/public_html/B2CTheme/view/tours/tours-listing.php(682): mysqlQuery(NULL)
 #2 {main}
   thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
-[25-May-2022 09:03:01 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
-Stack trace:
-#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
-#1 /home/itourscloud/public_html/B2CTheme/view/tours/tours-listing.php(682): mysqlQuery(NULL)
-#2 {main}
-  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
-[25-May-2022 09:18:00 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
-Stack trace:
-#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
-#1 /home/itourscloud/public_html/B2CTheme/view/tours/tours-listing.php(682): mysqlQuery(NULL)
-#2 {main}
-  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
-[26-May-2022 09:02:50 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
-Stack trace:
-#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
-#1 /home/itourscloud/public_html/B2CTheme/view/tours/tours-listing.php(682): mysqlQuery(NULL)
-#2 {main}
-  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105
-[13-Jun-2022 19:05:50 Asia/Kolkata] PHP Fatal error:  Uncaught ValueError: mysqli_query(): Argument #2 ($query) cannot be empty in /home/itourscloud/public_html/B2CTheme/config.php:105
-Stack trace:
-#0 /home/itourscloud/public_html/B2CTheme/config.php(105): mysqli_query(Object(mysqli), '')
-#1 /home/itourscloud/public_html/B2CTheme/view/tours/tours-listing.php(682): mysqlQuery(NULL)
-#2 {main}
-  thrown in /home/itourscloud/public_html/B2CTheme/config.php on line 105

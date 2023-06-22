@@ -2,11 +2,7 @@
 include '../../../config.php';
 include_once "tour_booked_seats.php";
 $bk_seats1 = new total_booked_seats1();
-?>
 
-<?php
-?>
-<?php
 $tour_id = $_GET['tour_id'];
 $tour_group_id = $_GET['tour_group_id'];
 $b2c_seats_booked = 0;

@@ -174,7 +174,7 @@ if(sizeof($tours_result_array)>0){
                   }
                 }
                 $coupon_list_arr['coupon_info_arr'] = $coupon_info_arr;
-                array_push($package_type_arr,$tours_result_array[$i]['costing_array'][$j]['type']);
+                array_push($package_type_arr,strtoupper($tours_result_array[$i]['costing_array'][$j]['type']));
                 ?>
                 <script>
                     setTimeout(function(){

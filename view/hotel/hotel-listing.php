@@ -6,6 +6,8 @@ include BASE_URL.'model/model.php';
 
 include '../../layouts/header.php';
 
+$_SESSION['page_type'] = 'hotels-list';
+   
 
 
 $hotel_array = json_decode($_SESSION['hotel_array']);
@@ -14,9 +16,9 @@ $city_id = ($hotel_array[0]->city_id);
 
 $hotel_id = ($hotel_array[0]->hotel_id);
 
-$check_indate = ($hotel_array[0]->check_indate != '') ? $hotel_array[0]->check_indate : date('m/d/Y');
+$check_indate = $hotel_array[0]->check_indate;
 
-$check_outdate = ($hotel_array[0]->check_outdate != '') ? $hotel_array[0]->check_outdate : date('m/d/Y');
+$check_outdate = $hotel_array[0]->check_outdate;
 
 $star_category_arr = $hotel_array[0]->star_category_arr;
 

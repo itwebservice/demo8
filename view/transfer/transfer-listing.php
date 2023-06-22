@@ -3,6 +3,8 @@ include '../../config.php';
 include BASE_URL.'model/model.php';
 include '../../layouts/header.php';
 
+$_SESSION['page_type'] = 'Car Rental';
+
 $currency = $_SESSION['session_currency_id'];
 $sq_to = mysqli_fetch_assoc(mysqlQuery("select * from roe_master where currency_id='$currency'"));
 $to_currency_rate = $sq_to['currency_rate'];
@@ -19,58 +21,55 @@ $pick2 = explode(' ',$transfer_service_time[0]->pick_to);
 $passengers = $pick_drop_array[0]->passengers;
 // Pickup
 $pickup_id = $pick_drop_array[0]->pickup_from;
-if($pick_drop_array[0]->pickup_type == 'city'){
-  $row = mysqli_fetch_assoc(mysqlQuery("select city_id,city_name from city_master where city_id='$pickup_id'"));
-  $pickup = $row['city_name'];
-}
-else if($pick_drop_array[0]->pickup_type == 'hotel'){
-  $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$pickup_id'"));
-  $pickup = $row['hotel_name'];
-}
-else if($pick_drop_array[0]->pickup_type == 'airport'){
-  $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$pickup_id'"));
-  $airport_nam = clean($row['airport_name']);
-  $airport_code = clean($row['airport_code']);
-  $pickup = $airport_nam." (".$airport_code.")";
-}else{
-  $pickup = '';
-}
-$pick_html = '';
-if($pickup != ''){
+if($pickup_id!=''){
+  if($pick_drop_array[0]->pickup_type == 'city'){
+    $row = mysqli_fetch_assoc(mysqlQuery("select city_id,city_name from city_master where city_id='$pickup_id'"));
+    $pickup = $row['city_name'];
+  }
+  else if($pick_drop_array[0]->pickup_type == 'hotel'){
+    $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$pickup_id'"));
+    $pickup = $row['hotel_name'];
+  }
+  else{
+    $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$pickup_id'"));
+    $airport_nam = clean($row['airport_name']);
+    $airport_code = clean($row['airport_code']);
+    $pickup = $airport_nam." (".$airport_code.")";
+  }
   $pick_html =  '<optgroup value="'.$pick_drop_array[0]->pickup_type.'" label="'.ucfirst($pick_drop_array[0]->pickup_type).' Name">';
   $pick_html .= '<option value="'.$pickup_id.'">'.$pickup.'</option></optgroup>';
+}
+else{
+  $pickup = '';
+  $pick_html = '';
 }
 
 //Drop-off
 $drop_id = $pick_drop_array[0]->drop_to;
-if($pick_drop_array[0]->drop_type == 'city'){
-  $row = mysqli_fetch_assoc(mysqlQuery("select city_id,city_name from city_master where city_id='$drop_id'"));
-  $drop = $row['city_name'];
-}
-else if($pick_drop_array[0]->drop_type == 'hotel'){
-  $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$drop_id'"));
-  $drop = $row['hotel_name'];
-}
-else if($pick_drop_array[0]->drop_type == 'airport'){
-  $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$drop_id'"));
-  $airport_nam = clean($row['airport_name']);
-  $airport_code = clean($row['airport_code']);
-  $drop = $airport_nam." (".$airport_code.")";
-}else{
-  $drop = '';
-}
-
-$drop_html = '';
-if($drop != ''){
+if($drop_id!=''){
+  if($pick_drop_array[0]->drop_type == 'city'){
+    $row = mysqli_fetch_assoc(mysqlQuery("select city_id,city_name from city_master where city_id='$drop_id'"));
+    $drop = $row['city_name'];
+  }
+  else if($pick_drop_array[0]->drop_type == 'hotel'){
+    $row = mysqli_fetch_assoc(mysqlQuery("select hotel_id,hotel_name from hotel_master where hotel_id='$drop_id'"));
+    $drop = $row['hotel_name'];
+  }
+  else{
+    $row = mysqli_fetch_assoc(mysqlQuery("select airport_name, airport_code, airport_id from airport_master where airport_id='$drop_id'"));
+    $airport_nam = clean($row['airport_name']);
+    $airport_code = clean($row['airport_code']);
+    $drop = $airport_nam." (".$airport_code.")";
+  }
   $drop_html =  '<optgroup value="'.$pick_drop_array[0]->drop_type.'" label="'.ucfirst($pick_drop_array[0]->drop_type).' Name">';
   $drop_html .= '<option value="'.$drop_id.'">'.$drop.'</option></optgroup>';
 }
-$pickup_date1 = ($pick_drop_array[0]->pickup_date != '') ? date('d M Y H:i', strtotime($pick_drop_array[0]->pickup_date)) : date('d M Y H:i');
-$pickup_dates = ($pick_drop_array[0]->pickup_date != '') ? date('m/d/Y H:i', strtotime($pick_drop_array[0]->pickup_date)) : date('m/d/Y H:i');
-
-$return_date1 = ($pick_drop_array[0]->return_date != '') ? date('d M Y H:i', strtotime($pick_drop_array[0]->return_date)) : date('d M Y H:i');
-$return_dates = ($pick_drop_array[0]->return_date != '') ? date('m/d/Y H:i', strtotime($pick_drop_array[0]->return_date)) : date('m/d/Y H:i');
-
+else{
+  $drop_id = '';
+  $drop_html = '';
+}
+$pickup_date1 = date('d M Y H:i', strtotime($pick_drop_array[0]->pickup_date));
+$return_date1 = date('d M Y H:i', strtotime($pick_drop_array[0]->return_date));
 if($pick_drop_array[0]->trip_type == 'oneway') {
   $round_class = '';
   $checked = 'checked';
@@ -84,10 +83,8 @@ else{
 }
 // Query
 $checkDate_array = array();
-$pickup_date11 = ($pick_drop_array[0]->pickup_date != '') ? date('Y-m-d', strtotime($pick_drop_array[0]->pickup_date)) : date('Y-m-d');
-
-
-$return_date11 = ($pick_drop_array[0]->return_date != '') ? date('Y-m-d', strtotime($pick_drop_array[0]->return_date)) : date('Y-m-d');
+$pickup_date11 = date('Y-m-d', strtotime($pick_drop_array[0]->pickup_date));
+$return_date11 = date('Y-m-d', strtotime($pick_drop_array[0]->return_date));
 array_push($checkDate_array,$pickup_date11);
 if($pick_drop_array[0]->trip_type == 'roundtrip') {
   array_push($checkDate_array,$return_date11);
@@ -110,14 +107,14 @@ $passenger = ($pick_drop_array[0]->passengers == 1) ? 'Passenger' : 'Passengers'
             <div class="sortSection">
               <span class="sortTitle st-search">
                 <i class="icon it itours-pin-alt"></i>
-                Pickup Location: <strong><?= $pickup ?></strong>
+                Pickup Location: <strong><?= ($pickup != '') ? $pickup : 'NA' ?></strong>
               </span>
             </div>
             <div class="sortIcon <?= $round_class ?>"></div>
             <div class="sortSection">
               <span class="sortTitle st-search">
                 <i class="icon it itours-pin-alt"></i>
-                Dropoff Location: <strong><?= $drop ?></strong>
+                Dropoff Location: <strong><?= ($drop != '') ? $drop : 'NA' ?></strong>
               </span>
             </div>
 
@@ -217,7 +214,10 @@ $passenger = ($pick_drop_array[0]->passengers == 1) ? 'Passenger' : 'Passengers'
                           <label>Pickup Location*</label>
                           <div class="c-select2DD">
                           <select id='pickup_location' class="full-width js-roomCount">
-                              <?php echo $pick_html; ?>
+                              <?php if($pick_html != ''){
+                                echo $pick_html;
+                                }
+                              ?>
                               <option value="">Select Pickup Location</option>
                               <optgroup value='city' label="City Name">
                               <?php get_cities_dropdown('1'); ?>
@@ -236,7 +236,7 @@ $passenger = ($pick_drop_array[0]->passengers == 1) ? 'Passenger' : 'Passengers'
                       <div class="form-group">
                           <label>Pickup Date&Time*</label>
                           <div class="datepicker-wrap">
-                              <input type="text" name="pickup_date" class="input-text full-width" placeholder="mm/dd/yy H:i" id="pickup_date" value="<?= $pickup_dates ?>"/>
+                              <input type="text" name="pickup_date" class="input-text full-width" placeholder="mm/dd/yy H:i" id="pickup_date" value="<?= $pick_drop_array[0]->pickup_date ?>"/>
                           </div>
                       </div>
                     </div>
@@ -252,7 +252,9 @@ $passenger = ($pick_drop_array[0]->passengers == 1) ? 'Passenger' : 'Passengers'
                         <label>Drop-Off Location*</label>
                           <div class="c-select2DD">
                           <select id='dropoff_location' class="full-width js-roomCount">
-                              <?php echo $drop_html; ?>
+                              <?php if($drop_html != ''){
+                                  echo $drop_html;
+                              } ?>
                               <option value="">Select Drop-Off Location</option>
                               <optgroup value='city' label="City Name">
                               <?php get_cities_dropdown('1'); ?>
@@ -271,7 +273,7 @@ $passenger = ($pick_drop_array[0]->passengers == 1) ? 'Passenger' : 'Passengers'
                       <div class="form-group">
                           <label>Return Date&Time</label>
                           <div class="datepicker-wrap">
-                              <input type="text" name="return_date" class="input-text full-width" placeholder="mm/dd/yy H:i" id="return_date" value="<?= $return_dates ?>" onchange="check_valid_date_trs()"/>
+                              <input type="text" name="return_date" class="input-text full-width" placeholder="mm/dd/yy H:i" id="return_date" value="<?= $pick_drop_array[0]->return_date ?>" onchange="check_valid_date_trs()"/>
                         </div>
                       </div>
                     </div>
@@ -356,26 +358,27 @@ $passenger = ($pick_drop_array[0]->passengers == 1) ? 'Passenger' : 'Passengers'
 
                 while($row_tariff = mysqli_fetch_assoc($sq_tariff)){
 
-                    array_push($transfer_result_array,array(
-                      "trip_date"=>$checkDate_array[$i_date],
-                      "vehicle_id"=>(int)($row_query['entry_id']),
-                      "vehicle_name"=>$row_query['vehicle_name'],
-                      "transfer_image"=>$newUrl,
-                      "vehicle_type"=>$row_query['vehicle_type'],
-                      "cancellation_policy"=>$row_query['cancellation_policy'],
-                      "currency_id"=>(int)($currency_id),
-                      "total_cost" =>$total_cost,
-                      'luggage'=> $tariff_data[0]->seating_capacity,
-                      'seating_capacity'=>(int)($max_pax),
-                      'service_duration'=> $row_tariff['service_duration'],
-                      'vehicle_count'=>(int)($vehicle_count),
-                      'trip_type'=>$pick_drop_array[0]->trip_type,
-                      'pickup'=>$pickup,
-                      'pickup_date'=>$pickup_date1,
-                      'drop'=>$drop,
-                      'return_date'=>$return_date1,
-                      'passengers'=>$pick_drop_array[0]->passengers
-                    ));
+                  $tariff_data = json_decode($row_tariff['tariff_data']);
+                  array_push($transfer_result_array,array(
+                    "trip_date"=>$checkDate_array[$i_date],
+                    "vehicle_id"=>(int)($row_query['entry_id']),
+                    "vehicle_name"=>$row_query['vehicle_name'],
+                    "transfer_image"=>$newUrl,
+                    "vehicle_type"=>$row_query['vehicle_type'],
+                    "cancellation_policy"=>$row_query['cancellation_policy'],
+                    "currency_id"=>(int)($currency_id),
+                    "total_cost" =>$total_cost,
+                    'luggage'=> $tariff_data[0]->seating_capacity,
+                    'seating_capacity'=>(int)($max_pax),
+                    'service_duration'=> $row_tariff['service_duration'],
+                    'vehicle_count'=>(int)($vehicle_count),
+                    'trip_type'=>$pick_drop_array[0]->trip_type,
+                    'pickup'=>$pickup,
+                    'pickup_date'=>$pickup_date1,
+                    'drop'=>$drop,
+                    'return_date'=>$return_date1,
+                    'passengers'=>$pick_drop_array[0]->passengers
+                  ));
                 }
             }  
           }

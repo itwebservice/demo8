@@ -1,11 +1,7 @@
 <?php
-
 include '../../config.php';
-
 include BASE_URL.'model/model.php';
-
 include '../../layouts/header.php';
-
 global $currency;
 
 // $currency = $_SESSION['session_currency_id'];
@@ -67,7 +63,7 @@ $cwb_count = $tours_array[0]->child_wibed;
 $extra_bed_count = $tours_array[0]->extra_bed;
 
 $infant_count = $tours_array[0]->infant;
-
+$total_pax = intval($adults_count) + intval($child_wocount) + intval($cwb_count) + intval($extra_bed_count)  +intval($infant_count);
 ?>
 
 <!-- ********** Component :: Page Title ********** -->
@@ -316,7 +312,7 @@ $infant_count = $tours_array[0]->infant;
 
                             <div class="c-select2DD">
 
-                              <select id='tours_dest_filter' class="full-width js-roomCount" onchange="group_tours_reflect(this.id);">
+                              <select id='gtours_dest_filter' class="full-width js-roomCount" onchange="group_tours_reflect(this.id);">
 
                                 <?php if($dest_id!=''){?>
 
@@ -750,16 +746,10 @@ $infant_count = $tours_array[0]->infant;
 
           while(($row_query  = mysqli_fetch_assoc($sq_query))){
 
-
-
               $hotels_array = array();
-
               $train_array = array();
-
               $flight_array = array();
-
               $cruise_array = array();
-
               $program_array = array();
 
               $package_id = $row_query['package_id'];
@@ -768,48 +758,27 @@ $infant_count = $tours_array[0]->infant;
 
               $taxation = json_decode($row_query['taxation']);
 
-
-
               $sq_dest = mysqli_fetch_assoc(mysqlQuery("select dest_name from destination_master where dest_id = '$row_query[dest_id]' and status!='Inactive'"));
-
               $sq_terms = mysqli_fetch_assoc(mysqlQuery("select terms_and_conditions from terms_and_conditions where type = 'Group Quotation' and active_flag!='Inactive'"));
 
-
-
               $sq_from = mysqli_fetch_assoc(mysqlQuery("select * from roe_master where currency_id='$currency_id'"));
-
               $from_currency_rate = $sq_from['currency_rate'];
 
-
-
               //Single package Image
-
               if($row_query['dest_image'] != '0'){
 
-
-
                 $row_gallary = mysqli_fetch_assoc(mysqlQuery("select * from gallary_master where entry_id = '$row_query[dest_image]'"));
-
                 $url = $row_gallary['image_url'];
-
                 $pos = strstr($url,'uploads');
-
                 $entry_id =$row_gallary['entry_id'];
 
                 if ($pos != false)   {
-
-                    $newUrl1 = preg_replace('/(\/+)/','/',$row_gallary['image_url']); 
-
-                    $newUrl = BASE_URL.str_replace('../', '', $newUrl1);
-
+                  $newUrl1 = preg_replace('/(\/+)/','/',$row_gallary['image_url']); 
+                  $newUrl = BASE_URL.str_replace('../', '', $newUrl1);
                 }
-
                 else{
-
-                    $newUrl =  $row_gallary['image_url']; 
-
+                  $newUrl =  $row_gallary['image_url']; 
                 }
-
               }else{
 
                 $sq_singleImage = mysqli_fetch_assoc(mysqlQuery("select * from default_package_images where dest_id='$row_query[dest_id]'"));
@@ -953,55 +922,36 @@ $infant_count = $tours_array[0]->infant;
               //Group Costing
 
               $adult_cost = $row_query['adult_cost'];
-
               $child_without_cost = $row_query['child_without_cost'];
-
               $child_with_cost = $row_query['child_with_cost'];
-
               $with_bed_cost = $row_query['with_bed_cost'];
-
               $infant_cost = $row_query['infant_cost'];
-
-
+              $single_person_cost = $row_query['single_person_cost'];
 
               $adult_cost_total = 0;
-
               $child_without_cost_total = 0;
-
               $child_with_cost_total = 0;
-
               $with_bed_cost_total = 0;
-
               $infant_cost_total = 0;
+              $sp_cost_total = 0;
+              if($total_pax == 1){
+                $sp_cost_total = $single_person_cost;
+              }else{
+                $adult_cost_total = intval($adults_count) * floatval($adult_cost);
+                $child_without_cost_total = intval($child_wocount) * floatval($child_without_cost);
+                $child_with_cost_total = intval($cwb_count) * floatval($child_with_cost);
+                $with_bed_cost_total = intval($extra_bed_count) * floatval($with_bed_cost);
+                $infant_cost_total = intval($infant_count) * floatval($infant_cost);
+                $sp_cost_total = 0;
+              }
 
-              
-
-              $adult_cost_total = intval($adults_count) * floatval($adult_cost);
-
-              $child_without_cost_total = intval($child_wocount) * floatval($child_without_cost);
-
-              $child_with_cost_total = intval($cwb_count) * floatval($child_with_cost);
-
-              $with_bed_cost_total = intval($extra_bed_count) * floatval($with_bed_cost);
-
-              $infant_cost_total = intval($infant_count) * floatval($infant_cost);
-
-
-
-              $total_cost1 = $adult_cost_total + $child_without_cost_total + $child_with_cost_total + $with_bed_cost_total + $infant_cost_total;
-
+              $total_cost1 = floatval($adult_cost_total) + floatval($child_without_cost_total) + floatval($child_with_cost_total) + floatval($with_bed_cost_total) + floatval($infant_cost_total) + floatval($sp_cost_total);
               $total_cost1 = ceil($total_cost1);
-
               array_push($all_costs_array,array('amount' => $total_cost1,'id'=>$currency_id));
-
-              $c_amount1 = $from_currency_rate / $to_currency_rate * $total_cost1;
-
+              $c_amount1 = ($to_currency_rate!=0) ? $from_currency_rate / $to_currency_rate * $total_cost1 : 0;
               array_push($actual_ccosts_array,$c_amount1);
 
-
-
               //Final cost push into array
-
               array_push($tours_result_array,array(
 
                 'image' => $newUrl,
@@ -1025,6 +975,7 @@ $infant_count = $tours_array[0]->infant;
                 'infant_count'=>intval($infant_count),
 
                 'adult_cost'=>floatval($adult_cost_total),
+                'sp_cost_total'=>floatval($sp_cost_total),
 
                 'child_wo_cost'=>floatval($child_without_cost_total),
 
@@ -1081,7 +1032,6 @@ $infant_count = $tours_array[0]->infant;
         $min_array = (sizeof($all_costs_array) > 0) ? $all_costs_array[array_search(min($all_costs_array), $all_costs_array)] : [];
 
         $max_array = (sizeof($all_costs_array) > 0) ? $all_costs_array[array_search(max($all_costs_array), $all_costs_array)] : [];
-
         ?>
 
         <input type='hidden' value='<?= json_encode($tours_result_array,JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE) ?>' id='tours_result_array' name='tours_result_array'/>
